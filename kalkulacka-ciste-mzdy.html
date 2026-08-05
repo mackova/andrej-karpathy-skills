@@ -1,0 +1,285 @@
+<!--
+  Kalkulačka čisté mzdy (ČR, rok 2026)
+  Výpočet čisté mzdy z hrubé podle české legislativy a mzdového systému.
+  Vše je samostatné (inline CSS + JS), stačí otevřít v prohlížeči.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalkulačka čisté mzdy 2026 (ČR)</title>
+
+<style>
+  :root {
+    --bg: #f4f6fb;
+    --card: #ffffff;
+    --text: #1a2233;
+    --muted: #5c6a82;
+    --line: #e2e7f0;
+    --accent: #2f6df6;
+    --accent-soft: #eaf1ff;
+    --green: #0f9d58;
+    --green-soft: #e6f6ee;
+    --shadow: 0 10px 30px rgba(24, 40, 80, .08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1420;
+      --card: #171e2e;
+      --text: #e8edf7;
+      --muted: #9aa7bf;
+      --line: #27314a;
+      --accent: #5b8bff;
+      --accent-soft: #1b2740;
+      --green: #34c77b;
+      --green-soft: #14301f;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.5;
+    padding: 24px 16px 60px;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; }
+  h1 { font-size: 1.55rem; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 24px; font-size: .95rem; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+  }
+  .card h2 { font-size: 1rem; margin: 0 0 16px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: 6px; }
+  input[type="number"], select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: var(--bg);
+    color: var(--text);
+  }
+  input[type="number"]:focus, select:focus { outline: 2px solid var(--accent); border-color: transparent; }
+  .field { margin-bottom: 16px; }
+  .check { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; font-weight: 500; font-size: .92rem; }
+  .check input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--accent); }
+  .check label { margin: 0; font-weight: 500; }
+  .hint { color: var(--muted); font-size: .82rem; font-weight: 400; }
+
+  .rows { border-top: 1px solid var(--line); margin-top: 6px; }
+  .row { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: .95rem; }
+  .row .k { color: var(--muted); }
+  .row .v { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+  .row.minus .v { color: #d9534f; }
+  .net {
+    margin-top: 18px; padding: 18px; border-radius: 12px;
+    background: var(--green-soft); border: 1px solid var(--green);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .net .k { font-weight: 700; }
+  .net .v { font-size: 1.6rem; font-weight: 800; color: var(--green); font-variant-numeric: tabular-nums; }
+  .sec-title { margin: 20px 0 8px; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  details { margin-top: 22px; }
+  summary { cursor: pointer; font-weight: 600; color: var(--accent); }
+  .note { font-size: .82rem; color: var(--muted); margin-top: 12px; }
+  .note ul { margin: 6px 0; padding-left: 18px; }
+  footer { text-align: center; color: var(--muted); font-size: .8rem; margin-top: 30px; }
+</style>
+
+<div class="wrap">
+  <h1>Kalkulačka čisté mzdy 2026</h1>
+  <p class="sub">Výpočet čisté mzdy z hrubé podle české legislativy (měsíční zálohová daň, sazby platné pro rok 2026).</p>
+
+  <div class="grid">
+    <!-- VSTUPY -->
+    <div class="card">
+      <h2>Zadání</h2>
+
+      <div class="field">
+        <label for="hruba">Hrubá měsíční mzda (Kč)</label>
+        <input type="number" id="hruba" min="0" step="100" value="45000" inputmode="numeric">
+      </div>
+
+      <div class="check">
+        <input type="checkbox" id="prohlaseni" checked>
+        <label for="prohlaseni">Podepsané prohlášení poplatníka
+          <span class="hint">(umožňuje uplatnit slevy na dani)</span>
+        </label>
+      </div>
+
+      <div class="field">
+        <label for="deti">Počet vyživovaných dětí</label>
+        <input type="number" id="deti" min="0" max="10" step="1" value="0" inputmode="numeric">
+        <span class="hint">Zvýhodnění dle pořadí: 1. dítě 1 267, 2. dítě 1 860, 3.+ 2 320 Kč</span>
+      </div>
+
+      <div class="field">
+        <label for="invalidita">Invalidita</label>
+        <select id="invalidita">
+          <option value="0">Žádná</option>
+          <option value="210">1. nebo 2. stupeň (210 Kč)</option>
+          <option value="420">3. stupeň (420 Kč)</option>
+        </select>
+      </div>
+
+      <div class="check">
+        <input type="checkbox" id="ztpp">
+        <label for="ztpp">Držitel průkazu ZTP/P
+          <span class="hint">(sleva 1 345 Kč/měsíc)</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- VÝSTUPY -->
+    <div class="card">
+      <h2>Výpočet</h2>
+
+      <div class="rows">
+        <div class="row"><span class="k">Hrubá mzda</span><span class="v" id="o-hruba">–</span></div>
+        <div class="row minus"><span class="k">Sociální pojištění (7,1 %)</span><span class="v" id="o-social">–</span></div>
+        <div class="row minus"><span class="k">Zdravotní pojištění (4,5 %)</span><span class="v" id="o-zdrav">–</span></div>
+        <div class="row minus"><span class="k">Záloha na daň po slevách</span><span class="v" id="o-dan">–</span></div>
+        <div class="row"><span class="k">Daňový bonus na děti</span><span class="v" id="o-bonus">–</span></div>
+      </div>
+
+      <div class="net">
+        <span class="k">Čistá mzda</span>
+        <span class="v" id="o-cista">–</span>
+      </div>
+
+      <div class="sec-title">Rozpad daně</div>
+      <div class="rows">
+        <div class="row"><span class="k">Základ daně (zaokr. na 100 nahoru)</span><span class="v" id="o-zaklad">–</span></div>
+        <div class="row"><span class="k">Daň před slevami</span><span class="v" id="o-danpred">–</span></div>
+        <div class="row"><span class="k">Slevy na dani</span><span class="v" id="o-slevy">–</span></div>
+        <div class="row"><span class="k">Daňové zvýhodnění na děti</span><span class="v" id="o-zvyhodneni">–</span></div>
+      </div>
+
+      <div class="sec-title">Náklady zaměstnavatele</div>
+      <div class="rows">
+        <div class="row"><span class="k">Sociální (24,8 %)</span><span class="v" id="o-social-z">–</span></div>
+        <div class="row"><span class="k">Zdravotní (9 %)</span><span class="v" id="o-zdrav-z">–</span></div>
+        <div class="row"><span class="k">Celková cena práce</span><span class="v" id="o-superhruba">–</span></div>
+      </div>
+    </div>
+  </div>
+
+  <details>
+    <summary>Poznámky a předpoklady k výpočtu</summary>
+    <div class="note">
+      <ul>
+        <li>Počítá se <strong>měsíční zálohová daň</strong> (nikoli roční zúčtování). Skutečná roční daň se může lišit podle dalších příjmů, odpočtů a ročních slev.</li>
+        <li>Sazba daně <strong>15 %</strong> platí do 3násobku průměrné mzdy (<strong>146 901 Kč/měsíc</strong> pro 2026), nad tuto částku se uplatní <strong>23 %</strong>.</li>
+        <li>Sleva na poplatníka <strong>2 570 Kč/měsíc</strong> se uplatní pouze při <strong>podepsaném prohlášení</strong>.</li>
+        <li>Pokud daňové zvýhodnění na děti převýší vypočtenou daň, vzniká <strong>daňový bonus</strong> (vyplácí se navíc).</li>
+        <li><strong>Neřeší se</strong>: doplatek zdravotního pojištění do minimálního vyměřovacího základu u úvazků pod minimální mzdou (22 400 Kč), sleva na manžela/manželku (jen ročně) ani exekuce/benefity.</li>
+        <li>Sleva na studenta a školkovné byly od roku 2024 zrušeny.</li>
+      </ul>
+      Výpočet slouží pro orientaci. Pro závazné údaje použijte oficiální mzdový systém nebo se obraťte na mzdovou účtárnu.
+    </div>
+  </details>
+
+  <footer>Sazby platné pro rok 2026 · orientační výpočet</footer>
+</div>
+
+<script>
+  // --- Parametry 2026 ---
+  const P = {
+    socialZam: 0.071,      // sociální pojištění zaměstnanec
+    zdravZam: 0.045,       // zdravotní pojištění zaměstnanec
+    socialFirma: 0.248,    // sociální pojištění zaměstnavatel
+    zdravFirma: 0.09,      // zdravotní pojištění zaměstnavatel
+    danNizka: 0.15,
+    danVysoka: 0.23,
+    stropMesic: 146901,    // 3× průměrná mzda (48 967) → hranice pro 23 %
+    slevaPoplatnik: 2570,
+    slevaZTPP: 1345,
+    detiMesic: [1267, 1860, 2320], // 1., 2., 3.+ dítě
+  };
+
+  const fmt = new Intl.NumberFormat('cs-CZ', { style: 'currency', currency: 'CZK', maximumFractionDigits: 0 });
+  const kc = (n) => fmt.format(Math.round(n));
+
+  function detiZvyhodneni(pocet) {
+    let sum = 0;
+    for (let i = 0; i < pocet; i++) {
+      sum += P.detiMesic[Math.min(i, P.detiMesic.length - 1)];
+    }
+    return sum;
+  }
+
+  function zaokrouhliZaklad(base) {
+    // Do 100 Kč na koruny nahoru, nad 100 Kč na celé stokoruny nahoru
+    return base <= 100 ? Math.ceil(base) : Math.ceil(base / 100) * 100;
+  }
+
+  function prepocet() {
+    const hruba = Math.max(0, Number(document.getElementById('hruba').value) || 0);
+    const prohlaseni = document.getElementById('prohlaseni').checked;
+    const pocetDeti = Math.max(0, Math.floor(Number(document.getElementById('deti').value) || 0));
+    const slevaInvalidita = Number(document.getElementById('invalidita').value) || 0;
+    const ztpp = document.getElementById('ztpp').checked;
+
+    // Pojistné zaměstnance (zaokrouhlení na koruny nahoru)
+    const social = Math.ceil(hruba * P.socialZam);
+    const zdrav = Math.ceil(hruba * P.zdravZam);
+
+    // Základ daně = hrubá mzda, zaokrouhleno na stovky nahoru
+    const zaklad = zaokrouhliZaklad(hruba);
+
+    // Daň před slevami (progrese 15 % / 23 %)
+    const castNizka = Math.min(zaklad, P.stropMesic);
+    const castVysoka = Math.max(0, zaklad - P.stropMesic);
+    const danPred = Math.ceil(castNizka * P.danNizka + castVysoka * P.danVysoka);
+
+    // Slevy na dani (pouze s prohlášením)
+    let slevy = 0;
+    if (prohlaseni) {
+      slevy = P.slevaPoplatnik + slevaInvalidita + (ztpp ? P.slevaZTPP : 0);
+    }
+    const danPoSlevach = Math.max(0, danPred - slevy);
+
+    // Daňové zvýhodnění na děti (jen s prohlášením) – může vytvořit bonus
+    const zvyhodneni = prohlaseni ? detiZvyhodneni(pocetDeti) : 0;
+    let danFinal = danPoSlevach - zvyhodneni;
+    let bonus = 0;
+    if (danFinal < 0) { bonus = -danFinal; danFinal = 0; }
+
+    const cista = hruba - social - zdrav - danFinal + bonus;
+
+    // Náklady zaměstnavatele
+    const socialFirma = Math.ceil(hruba * P.socialFirma);
+    const zdravFirma = Math.ceil(hruba * P.zdravFirma);
+    const superhruba = hruba + socialFirma + zdravFirma;
+
+    // Vykreslení
+    document.getElementById('o-hruba').textContent = kc(hruba);
+    document.getElementById('o-social').textContent = '− ' + kc(social);
+    document.getElementById('o-zdrav').textContent = '− ' + kc(zdrav);
+    document.getElementById('o-dan').textContent = '− ' + kc(danFinal);
+    document.getElementById('o-bonus').textContent = '+ ' + kc(bonus);
+    document.getElementById('o-cista').textContent = kc(cista);
+
+    document.getElementById('o-zaklad').textContent = kc(zaklad);
+    document.getElementById('o-danpred').textContent = kc(danPred);
+    document.getElementById('o-slevy').textContent = kc(slevy);
+    document.getElementById('o-zvyhodneni').textContent = kc(zvyhodneni);
+
+    document.getElementById('o-social-z').textContent = kc(socialFirma);
+    document.getElementById('o-zdrav-z').textContent = kc(zdravFirma);
+    document.getElementById('o-superhruba').textContent = kc(superhruba);
+  }
+
+  document.querySelectorAll('input, select').forEach(el => {
+    el.addEventListener('input', prepocet);
+    el.addEventListener('change', prepocet);
+  });
+  prepocet();
+</script>
