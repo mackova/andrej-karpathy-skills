@@ -63,6 +63,7 @@ a{color:inherit}
   backdrop-filter:blur(12px);box-shadow:var(--sh-card);padding:1.8rem}
 .panel__title{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
   color:#fff;opacity:.8;font-weight:800;margin:0 0 1.4rem}
+.regime-note{font-size:.8rem;font-weight:800;color:var(--w-magenta-soft);margin:-1rem 0 1.2rem}
 
 /* pole */
 .field{margin-bottom:1.2rem}
@@ -143,7 +144,24 @@ option{color:#1B0F3D}
       <p class="panel__title">Zadání</p>
 
       <div class="field">
-        <label for="hruba">Hrubá měsíční mzda (Kč)</label>
+        <label for="rezim">Typ úvazku</label>
+        <select id="rezim">
+          <option value="hpp">Klasická mzda (HPP)</option>
+          <option value="dpp">DPP – dohoda o provedení práce</option>
+          <option value="dpc">DPČ – dohoda o pracovní činnosti</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="smer">Zadávám</label>
+        <select id="smer">
+          <option value="hruba">Hrubou mzdu → počítám čistou</option>
+          <option value="cista">Čistou mzdu → počítám hrubou (zpětně)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="hruba" id="hruba-label">Hrubá měsíční mzda (Kč)</label>
         <input type="number" id="hruba" min="0" step="100" value="45000" inputmode="numeric">
       </div>
 
@@ -180,6 +198,7 @@ option{color:#1B0F3D}
     <!-- VÝSTUPY -->
     <section class="panel">
       <p class="panel__title">Výpočet</p>
+      <p class="regime-note" id="o-rezim"></p>
 
       <div class="rows">
         <div class="row"><span class="k">Hrubá mzda</span><span class="v" id="o-hruba">–</span></div>
@@ -221,6 +240,9 @@ option{color:#1B0F3D}
         <li>Pokud daňové zvýhodnění na děti převýší vypočtenou daň, vzniká <strong>daňový bonus</strong> vyplácený navíc.</li>
         <li>Neřeší se doplatek zdravotního pojištění do minimálního vyměřovacího základu u úvazků pod minimální mzdou (22 400 Kč), sleva na manžela/manželku ani exekuce a benefity.</li>
         <li>Sleva na studenta a školkovné byly od roku 2024 zrušeny.</li>
+        <li><strong>DPP:</strong> do 11 999 Kč měsíčně bez sociálního a zdravotního pojištění, od 12 000 Kč se pojištění odvádí. Bez podepsaného prohlášení a do limitu se uplatní srážková daň 15 % (bez slev).</li>
+        <li><strong>DPČ:</strong> pojištění se odvádí od 4 500 Kč měsíčně. Limity se u každého zaměstnavatele posuzují zvlášť.</li>
+        <li><strong>Výpočet z čisté na hrubou</strong> hledá nejnižší hrubou mzdu, u níž čistá dosáhne zadané částky. V okolí odvodového limitu DPP může být výsledek jen přibližný.</li>
       </ul>
     </details>
   </div>
@@ -241,7 +263,8 @@ option{color:#1B0F3D}
   const P = {
     socialZam:0.071, zdravZam:0.045, socialFirma:0.248, zdravFirma:0.09,
     danNizka:0.15, danVysoka:0.23, stropMesic:146901,
-    slevaPoplatnik:2570, slevaZTPP:1345, detiMesic:[1267,1860,2320]
+    slevaPoplatnik:2570, slevaZTPP:1345, detiMesic:[1267,1860,2320],
+    limitDPP:12000, limitDPC:4500
   };
   const fmt = new Intl.NumberFormat('cs-CZ',{style:'currency',currency:'CZK',maximumFractionDigits:0});
   const kc = (n)=>fmt.format(Math.round(n));
@@ -251,47 +274,92 @@ option{color:#1B0F3D}
   }
   function zaokrouhliZaklad(base){ return base<=100 ? Math.ceil(base) : Math.ceil(base/100)*100; }
 
-  function prepocet(){
-    const hruba=Math.max(0,Number(document.getElementById('hruba').value)||0);
-    const prohlaseni=document.getElementById('prohlaseni').checked;
-    const pocetDeti=Math.max(0,Math.floor(Number(document.getElementById('deti').value)||0));
-    const slevaInv=Number(document.getElementById('invalidita').value)||0;
-    const ztpp=document.getElementById('ztpp').checked;
-
-    const social=Math.ceil(hruba*P.socialZam);
-    const zdrav=Math.ceil(hruba*P.zdravZam);
-    const zaklad=zaokrouhliZaklad(hruba);
-    const castNizka=Math.min(zaklad,P.stropMesic);
-    const castVysoka=Math.max(0,zaklad-P.stropMesic);
-    const danPred=Math.ceil(castNizka*P.danNizka+castVysoka*P.danVysoka);
-
-    let slevy=0;
-    if(prohlaseni){ slevy=P.slevaPoplatnik+slevaInv+(ztpp?P.slevaZTPP:0); }
-    const danPoSlevach=Math.max(0,danPred-slevy);
-
-    const zvyhodneni=prohlaseni?detiZvyhodneni(pocetDeti):0;
-    let danFinal=danPoSlevach-zvyhodneni, bonus=0;
-    if(danFinal<0){ bonus=-danFinal; danFinal=0; }
-
+  // Jádro výpočtu – z hrubé odměny spočítá kompletní rozpad.
+  function vypocet(hruba, o){
+    hruba = Math.max(0, hruba);
+    const insured = o.rezim==='hpp' ? true
+                  : o.rezim==='dpp' ? hruba>=P.limitDPP
+                  : hruba>=P.limitDPC;
+    let social=0, zdrav=0, socialFirma=0, zdravFirma=0;
+    if(insured){
+      social=Math.ceil(hruba*P.socialZam);       zdrav=Math.ceil(hruba*P.zdravZam);
+      socialFirma=Math.ceil(hruba*P.socialFirma); zdravFirma=Math.ceil(hruba*P.zdravFirma);
+    }
+    let zaklad=0, danPred=0, slevy=0, zvyhodneni=0, danFinal=0, bonus=0, danMode;
+    const srazkova = o.rezim!=='hpp' && !o.prohlaseni && !insured;
+    if(srazkova){
+      // Srážková daň 15 % – konečná, bez slev; základ i daň na koruny dolů.
+      zaklad=Math.floor(hruba);
+      danPred=Math.floor(zaklad*P.danNizka);
+      danFinal=danPred;
+      danMode='srážková daň 15 %';
+    } else {
+      zaklad=zaokrouhliZaklad(hruba);
+      const niz=Math.min(zaklad,P.stropMesic), vys=Math.max(0,zaklad-P.stropMesic);
+      danPred=Math.ceil(niz*P.danNizka+vys*P.danVysoka);
+      slevy = o.prohlaseni ? (P.slevaPoplatnik + o.slevaInv + (o.ztpp?P.slevaZTPP:0)) : 0;
+      const poSlevach=Math.max(0,danPred-slevy);
+      zvyhodneni = o.prohlaseni ? detiZvyhodneni(o.pocetDeti) : 0;
+      danFinal=poSlevach-zvyhodneni;
+      if(danFinal<0){ bonus=-danFinal; danFinal=0; }
+      danMode='zálohová daň';
+    }
     const cista=hruba-social-zdrav-danFinal+bonus;
-    const socialFirma=Math.ceil(hruba*P.socialFirma);
-    const zdravFirma=Math.ceil(hruba*P.zdravFirma);
     const superhruba=hruba+socialFirma+zdravFirma;
+    return {hruba,insured,social,zdrav,zaklad,danPred,slevy,zvyhodneni,
+            danFinal,bonus,cista,socialFirma,zdravFirma,superhruba,danMode};
+  }
 
-    const set=(id,val)=>document.getElementById(id).textContent=val;
-    set('o-hruba',kc(hruba));
-    set('o-social','− '+kc(social));
-    set('o-zdrav','− '+kc(zdrav));
-    set('o-dan','− '+kc(danFinal));
-    set('o-bonus','+ '+kc(bonus));
-    set('o-cista',kc(cista));
-    set('o-zaklad',kc(zaklad));
-    set('o-danpred',kc(danPred));
-    set('o-slevy',kc(slevy));
-    set('o-zvyhodneni',kc(zvyhodneni));
-    set('o-social-z',kc(socialFirma));
-    set('o-zdrav-z',kc(zdravFirma));
-    set('o-superhruba',kc(superhruba));
+  // Zpětně: nejnižší hrubá, u níž čistá dosáhne cílové částky.
+  function hledejHrubou(cilCista, o){
+    let lo=0, hi=Math.max(2000000, Math.ceil(cilCista*2)+200000);
+    if(vypocet(hi,o).cista < cilCista) return vypocet(hi,o);
+    for(let i=0;i<48;i++){
+      const mid=Math.floor((lo+hi)/2);
+      if(vypocet(mid,o).cista >= cilCista) hi=mid; else lo=mid+1;
+    }
+    // Doladění „pilového" zaokrouhlení základu – najdi nejnižší hrubou v okolí.
+    let best=hi;
+    for(let g=Math.max(0,hi-250); g<=hi+50; g++){
+      if(vypocet(g,o).cista >= cilCista){ best=g; break; }
+    }
+    return vypocet(best,o);
+  }
+
+  const set=(id,val)=>document.getElementById(id).textContent=val;
+
+  function prepocet(){
+    const smer=document.getElementById('smer').value;
+    const castka=Math.max(0,Number(document.getElementById('hruba').value)||0);
+    const o={
+      rezim:document.getElementById('rezim').value,
+      prohlaseni:document.getElementById('prohlaseni').checked,
+      pocetDeti:Math.max(0,Math.floor(Number(document.getElementById('deti').value)||0)),
+      slevaInv:Number(document.getElementById('invalidita').value)||0,
+      ztpp:document.getElementById('ztpp').checked
+    };
+    const r = smer==='cista' ? hledejHrubou(castka,o) : vypocet(castka,o);
+
+    document.getElementById('hruba-label').textContent =
+      smer==='cista' ? 'Požadovaná čistá mzda (Kč)' : 'Hrubá měsíční mzda (Kč)';
+
+    let stav = r.danMode;
+    if(o.rezim!=='hpp'){ stav += r.insured ? ' · s pojištěním' : ' · bez pojištění'; }
+    set('o-rezim', stav);
+
+    set('o-hruba',kc(r.hruba));
+    set('o-social','− '+kc(r.social));
+    set('o-zdrav','− '+kc(r.zdrav));
+    set('o-dan','− '+kc(r.danFinal));
+    set('o-bonus','+ '+kc(r.bonus));
+    set('o-cista',kc(r.cista));
+    set('o-zaklad',kc(r.zaklad));
+    set('o-danpred',kc(r.danPred));
+    set('o-slevy',kc(r.slevy));
+    set('o-zvyhodneni',kc(r.zvyhodneni));
+    set('o-social-z',kc(r.socialFirma));
+    set('o-zdrav-z',kc(r.zdravFirma));
+    set('o-superhruba',kc(r.superhruba));
   }
   document.querySelectorAll('input,select').forEach(el=>{
     el.addEventListener('input',prepocet); el.addEventListener('change',prepocet);
