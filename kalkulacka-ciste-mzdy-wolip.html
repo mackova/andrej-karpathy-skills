@@ -66,6 +66,10 @@ option{color:#1E1B34}
 .check{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:1.1rem}
 .check input{margin-top:.15rem;width:18px;height:18px;accent-color:var(--w-magenta);flex:none}
 .check label{font-weight:500;font-size:.92rem}
+.check input:disabled ~ label{opacity:.55}
+.badge{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--w-navy);background:var(--w-magenta-soft);
+  border-radius:var(--r-pill);padding:.12rem .5rem;margin-left:.4rem;vertical-align:middle}
 
 /* řádky výsledku */
 .rows{margin:0}
@@ -173,6 +177,13 @@ option{color:#1E1B34}
           <span class="hint">Sleva 1 345 Kč měsíčně.</span>
         </label>
       </div>
+
+      <div class="check">
+        <input type="checkbox" id="student" disabled>
+        <label for="student">Student <span class="badge">od 2027</span>
+          <span class="hint">Sleva 335 Kč měsíčně. Pro rok 2026 zrušena, vrací se až od roku 2027 – proto zatím neaktivní.</span>
+        </label>
+      </div>
     </section>
 
     <!-- VÝSTUPY -->
@@ -219,7 +230,7 @@ option{color:#1E1B34}
         <li>Sleva na poplatníka <strong>2 570 Kč měsíčně</strong> se uplatní pouze při podepsaném prohlášení.</li>
         <li>Pokud daňové zvýhodnění na děti převýší vypočtenou daň, vzniká <strong>daňový bonus</strong> vyplácený navíc.</li>
         <li>Neřeší se doplatek zdravotního pojištění do minimálního vyměřovacího základu u úvazků pod minimální mzdou (22 400 Kč), sleva na manžela/manželku ani exekuce a benefity.</li>
-        <li>Sleva na studenta a školkovné byly od roku 2024 zrušeny.</li>
+        <li>Sleva na studenta a školkovné byly od roku 2024 zrušeny; podle schválené novely se vracejí od roku 2027 (sleva na studenta 335 Kč měsíčně). Pro rok 2026 se neuplatní.</li>
         <li><strong>DPP:</strong> do 11 999 Kč měsíčně bez sociálního a zdravotního pojištění, od 12 000 Kč se pojištění odvádí. Bez podepsaného prohlášení a do limitu se uplatní srážková daň 15 % (bez slev).</li>
         <li><strong>DPČ:</strong> pojištění se odvádí od 4 500 Kč měsíčně. Limity se u každého zaměstnavatele posuzují zvlášť.</li>
         <li><strong>Výpočet z čisté na hrubou</strong> hledá nejnižší hrubou mzdu, u níž čistá dosáhne zadané částky. V okolí odvodového limitu DPP může být výsledek jen přibližný.</li>
