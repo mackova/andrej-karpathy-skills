@@ -1,0 +1,1078 @@
+<title>Modern Waldorf 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Familjen+Grotesk:wght@400..700&family=Fraunces:ital,opsz,SOFT,WONK,wght@0,9..144,0..100,0..1,300..800;1,9..144,0..100,0..1,300..700&family=Instrument+Sans:wdth,wght@75..100,400..700&family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
+
+<style>
+/* ============ WRAPPER TOKENS — záměrně tichá šedozelená, aby tři směry mohly křičet ============ */
+:root{
+  --ground:#F1F3EF; --surface:#FBFCFA; --surface-2:#E7EBE4;
+  --ink:#191D19; --ink-2:#4A524A; --ink-3:#767E75;
+  --line:#D9DED5; --line-2:#C3CABE;
+  --accent:#2F5D53; --accent-soft:#DCE8E2;
+  --shadow:0 1px 2px rgba(25,29,25,.05), 0 12px 32px -18px rgba(25,29,25,.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#131613; --surface:#1B1F1B; --surface-2:#232823;
+    --ink:#ECEFE9; --ink-2:#A9B2A7; --ink-3:#828B80;
+    --line:#2B312B; --line-2:#3A413A;
+    --accent:#7FBFA9; --accent-soft:#23302B;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 16px 40px -20px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#131613; --surface:#1B1F1B; --surface-2:#232823;
+  --ink:#ECEFE9; --ink-2:#A9B2A7; --ink-3:#828B80;
+  --line:#2B312B; --line-2:#3A413A;
+  --accent:#7FBFA9; --accent-soft:#23302B;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 16px 40px -20px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px; margin:0 auto; padding:0 28px}
+.narrow{max-width:660px}
+h1,h2,h3,h4{margin:0; text-wrap:balance; font-weight:600; line-height:1.15}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+
+.eyebrow{
+  font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  font-weight:600; color:var(--ink-3);
+}
+
+/* ============ MASTHEAD ============ */
+.masthead{padding:88px 0 56px; border-bottom:1px solid var(--line)}
+.masthead h1{
+  font-family:"Instrument Sans",sans-serif; font-weight:700;
+  font-size:clamp(38px,6.2vw,74px); letter-spacing:-.035em; line-height:1.02;
+  margin:20px 0 0;
+}
+.masthead .sub{
+  margin-top:22px; font-size:clamp(17px,1.6vw,20px); color:var(--ink-2);
+  max-width:62ch; line-height:1.55;
+}
+.rule-line{
+  margin-top:40px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+}
+.rule-chip{
+  font-size:12px; letter-spacing:.13em; text-transform:uppercase; font-weight:700;
+  padding:8px 14px; border-radius:999px;
+  background:var(--accent-soft); color:var(--accent); border:1px solid transparent;
+}
+.meta-row{
+  margin-top:34px; display:flex; flex-wrap:wrap; gap:0 40px; row-gap:16px;
+  padding-top:24px; border-top:1px solid var(--line);
+  font-size:13px; color:var(--ink-3);
+}
+.meta-row b{display:block; color:var(--ink); font-weight:600; font-size:14px; margin-bottom:2px}
+
+/* ============ BRIEF / SPOLEČNÝ ZÁKLAD ============ */
+section{padding:72px 0}
+.sec-head{display:flex; align-items:baseline; gap:18px; margin-bottom:12px; flex-wrap:wrap}
+.sec-head h2{font-size:clamp(24px,3vw,34px); letter-spacing:-.02em}
+.sec-lead{color:var(--ink-2); max-width:62ch; margin-top:14px; font-size:17px}
+
+.rules{
+  margin-top:40px; display:grid; gap:1px; background:var(--line);
+  border:1px solid var(--line); border-radius:4px; overflow:hidden;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+}
+.rule{background:var(--surface); padding:24px 22px 26px}
+.rule h4{font-size:15px; margin-bottom:8px; letter-spacing:-.01em}
+.rule p{font-size:14px; color:var(--ink-2); line-height:1.55}
+.rule .n{
+  font-size:11px; font-weight:700; letter-spacing:.1em; color:var(--accent);
+  display:block; margin-bottom:12px;
+}
+
+/* ============ SMĚR — obal ============ */
+.dir{padding:0; margin:0 0 96px}
+.dir-head{
+  padding:44px 0 32px; border-top:2px solid var(--ink);
+}
+.dir-tag{
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-3);
+}
+.dir-tag .dot{width:9px; height:9px; border-radius:50%; display:inline-block}
+.dir-head h3{
+  font-size:clamp(30px,4.4vw,48px); letter-spacing:-.03em; margin:14px 0 0; font-weight:700;
+}
+.dir-thesis{
+  margin-top:16px; font-size:clamp(17px,1.7vw,20px); color:var(--ink-2);
+  max-width:60ch; line-height:1.5;
+}
+.dir-grid{
+  margin-top:34px; display:grid; gap:28px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+.card{
+  background:var(--surface); border:1px solid var(--line); border-radius:4px;
+  padding:22px; box-shadow:var(--shadow);
+}
+.card h5{
+  font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-3);
+  margin:0 0 16px; font-weight:700;
+}
+.card p{font-size:14px; color:var(--ink-2); line-height:1.55}
+.card ul{margin:0; padding-left:17px; font-size:14px; color:var(--ink-2); line-height:1.6}
+.card li{margin-bottom:7px}
+.card li::marker{color:var(--ink-3)}
+
+/* paleta */
+.swatches{display:flex; flex-direction:column; gap:2px}
+.sw{display:flex; align-items:center; gap:12px; padding:9px 10px; border-radius:3px}
+.sw .chip{width:30px; height:30px; border-radius:3px; flex:none; border:1px solid rgba(0,0,0,.12)}
+.sw .nm{font-size:13px; font-weight:600; color:var(--ink)}
+.sw .hx{
+  font-size:11.5px; color:var(--ink-3); margin-left:auto;
+  font-variant-numeric:tabular-nums; letter-spacing:.04em; text-transform:uppercase;
+}
+.sw .role{font-size:11.5px; color:var(--ink-3); display:block; font-weight:400}
+
+/* ============ MOCKUP RÁM ============ */
+.mocks{margin-top:32px; display:grid; gap:26px}
+@media (min-width:900px){ .mocks.two{grid-template-columns:1.35fr 1fr} }
+.frame{
+  border:1px solid var(--line-2); border-radius:6px; overflow:hidden;
+  box-shadow:var(--shadow); background:#fff;
+}
+.frame-bar{
+  display:flex; align-items:center; gap:12px; padding:9px 14px;
+  background:var(--surface-2); border-bottom:1px solid var(--line-2);
+  font-size:11px; letter-spacing:.06em; color:var(--ink-3); font-weight:600;
+}
+.frame-bar .url{
+  background:var(--surface); border:1px solid var(--line); border-radius:999px;
+  padding:3px 12px; color:var(--ink-2); font-size:11px;
+}
+.frame-bar .kind{margin-left:auto; text-transform:uppercase; letter-spacing:.14em; font-size:10px}
+.caption{
+  margin-top:11px; font-size:12.5px; color:var(--ink-3); line-height:1.5; max-width:60ch;
+}
+.caption b{color:var(--ink-2); font-weight:600}
+
+/* zrno papíru — sdílený overlay */
+.grain::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply; opacity:.18;
+}
+
+/* fotoplaceholder – poctivý, dokumentární */
+.photo{position:relative; overflow:hidden; display:flex; align-items:flex-end}
+.photo .ph-label{
+  position:relative; z-index:2; font-size:10px; letter-spacing:.13em; text-transform:uppercase;
+  font-weight:700; padding:8px 10px; line-height:1.4;
+}
+
+/* ===================================================================== */
+/* SMĚR A — PAPÍR A MŘÍŽKA                                               */
+/* ===================================================================== */
+.a-hero{
+  position:relative; background:#FBFAF7; color:#16181C; padding:0;
+  font-family:"Newsreader",Georgia,serif;
+}
+.a-nav{
+  display:flex; align-items:center; gap:26px; padding:16px 30px;
+  border-bottom:1px solid #DCDAD3;
+  font-family:"Archivo",sans-serif; font-size:11px; font-weight:600;
+  letter-spacing:.11em; text-transform:uppercase; color:#16181C;
+}
+.a-nav .brand{font-weight:800; letter-spacing:.04em; color:#1F3A5F}
+.a-nav .sp{margin-left:auto}
+.a-nav .cta{
+  background:#1F3A5F; color:#FBFAF7; padding:7px 13px; border-radius:2px; letter-spacing:.09em;
+}
+.a-body{display:grid; grid-template-columns:1.55fr 1fr; gap:0; border-bottom:1px solid #DCDAD3}
+.a-left{padding:38px 30px 34px; border-right:1px solid #DCDAD3}
+.a-kicker{
+  font-family:"Archivo",sans-serif; font-size:10.5px; font-weight:700;
+  letter-spacing:.19em; text-transform:uppercase; color:#1F3A5F;
+}
+.a-h1{
+  font-size:clamp(30px,4.3vw,50px); line-height:1.02; letter-spacing:-.024em;
+  font-weight:400; margin:20px 0 0; color:#16181C;
+}
+.a-h1 em{font-style:italic; color:#1F3A5F}
+.a-deck{
+  margin-top:20px; font-size:15.5px; line-height:1.6; color:#3D414A; max-width:44ch;
+  font-family:"Newsreader",serif; font-weight:300;
+}
+.a-scribble{margin-top:26px; display:block}
+.a-facts{
+  margin-top:26px; padding-top:18px; border-top:1px solid #DCDAD3;
+  display:flex; gap:34px; flex-wrap:wrap; font-family:"Archivo",sans-serif;
+}
+.a-facts div{font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:#7A7E86; font-weight:600}
+.a-facts b{
+  display:block; font-family:"Newsreader",serif; font-size:26px; font-weight:400;
+  letter-spacing:-.01em; color:#16181C; margin-bottom:2px; text-transform:none;
+}
+.a-right{position:relative; min-height:280px; background:#C9D6E2}
+.a-right .photo{position:absolute; inset:0; background:
+  linear-gradient(155deg,#DEE7EF 0%,#C9D6E2 46%,#9FB3C6 100%);}
+.a-right .ph-label{color:#1F3A5F; background:rgba(251,250,247,.86); margin:12px}
+
+.a-list{background:#FBFAF7; padding:26px 30px 30px; font-family:"Newsreader",serif; color:#16181C}
+.a-list .hd{
+  font-family:"Archivo",sans-serif; font-size:10.5px; font-weight:700; letter-spacing:.19em;
+  text-transform:uppercase; color:#1F3A5F; padding-bottom:12px; border-bottom:2px solid #16181C;
+}
+.a-item{padding:15px 0; border-bottom:1px solid #DCDAD3; display:grid; grid-template-columns:82px 1fr; gap:16px}
+.a-item .dt{
+  font-family:"Archivo",sans-serif; font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+  color:#7A7E86; font-weight:600; padding-top:5px; font-variant-numeric:tabular-nums;
+}
+.a-item .ti{font-size:19px; line-height:1.25; letter-spacing:-.012em}
+.a-item .ex{font-size:13.5px; color:#5C606A; margin-top:5px; font-weight:300; line-height:1.5}
+
+/* ===================================================================== */
+/* SMĚR B — DÍLNA                                                        */
+/* ===================================================================== */
+.b-hero{
+  position:relative; background:#EFE9DD; color:#26221C; overflow:hidden;
+  font-family:"Literata",Georgia,serif;
+}
+.b-wash{position:absolute; inset:-8% -4% auto -6%; height:118%; width:112%; z-index:0}
+.b-inner{position:relative; z-index:2}
+.b-nav{
+  display:flex; align-items:center; gap:24px; padding:16px 28px;
+  font-family:"Bricolage Grotesque",sans-serif; font-size:12px; font-weight:600;
+  color:#26221C; border-bottom:1px solid rgba(38,34,28,.16);
+}
+.b-nav .brand{font-weight:800; font-size:14px; letter-spacing:-.02em}
+.b-nav .sp{margin-left:auto}
+.b-nav .cta{
+  background:#4C5B3C; color:#EFE9DD; padding:7px 14px; border-radius:999px; font-size:11.5px;
+  letter-spacing:.03em;
+}
+.b-main{padding:40px 28px 34px; display:grid; grid-template-columns:1.4fr 1fr; gap:30px; align-items:end}
+.b-kicker{
+  font-family:"Bricolage Grotesque",sans-serif; font-size:11px; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase; color:#A8792F;
+}
+.b-h1{
+  font-family:"Bricolage Grotesque",sans-serif; font-weight:700;
+  font-size:clamp(28px,4.1vw,46px); line-height:1.04; letter-spacing:-.03em;
+  margin:16px 0 0; color:#26221C; font-variation-settings:"wdth" 92;
+}
+.b-underline{display:block; margin-top:8px}
+.b-deck{margin-top:18px; font-size:15.5px; line-height:1.65; color:#4A443A; max-width:40ch}
+.b-photo{ display:flex; align-items:flex-end;
+  position:relative; min-height:210px; border-radius:2px; overflow:hidden;
+  background:linear-gradient(150deg,#D9CDB6 0%,#BFAE92 55%,#8C7F66 100%);
+  transform:rotate(-1.1deg); box-shadow:0 10px 26px -14px rgba(38,34,28,.6);
+}
+.b-photo .ph-label{color:#26221C; background:rgba(239,233,221,.9); margin:10px}
+.b-tape{
+  position:absolute; top:-9px; left:26px; width:78px; height:22px; z-index:3;
+  background:rgba(232,222,196,.75); border:1px solid rgba(38,34,28,.1);
+  transform:rotate(-4deg);
+}
+.b-year{position:relative; background:#E7DFCE; padding:24px 28px 28px; border-top:1px solid rgba(38,34,28,.14)}
+.b-year .hd{
+  font-family:"Bricolage Grotesque",sans-serif; font-size:11px; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase; color:#4C5B3C; margin-bottom:16px;
+}
+.b-cards{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+.b-card{position:relative; overflow:hidden; border-radius:2px; padding:14px 12px 16px; min-height:112px;
+  display:flex; flex-direction:column; justify-content:flex-end; color:#26221C}
+.b-card .m{
+  font-family:"Bricolage Grotesque",sans-serif; font-size:10px; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase; opacity:.62;
+}
+.b-card .t{font-family:"Literata",serif; font-size:15px; line-height:1.2; margin-top:5px; font-weight:600}
+.b-card svg{position:absolute; inset:0; width:100%; height:100%; z-index:0}
+.b-card .m,.b-card .t{position:relative; z-index:2}
+
+/* ===================================================================== */
+/* SMĚR C — HLAS                                                         */
+/* ===================================================================== */
+.c-hero{background:#F5F4F0; color:#111311; font-family:"Familjen Grotesk",sans-serif}
+.c-nav{
+  display:flex; align-items:center; gap:22px; padding:14px 26px;
+  font-size:12px; font-weight:600; letter-spacing:.02em; border-bottom:1.5px solid #111311;
+}
+.c-nav .brand{font-weight:700; letter-spacing:-.02em; font-size:14px}
+.c-nav .sp{margin-left:auto}
+.c-nav .cta{background:#1B34C4; color:#F5F4F0; padding:6px 13px; border-radius:2px; font-size:11.5px}
+.c-type{padding:34px 26px 26px}
+.c-mega{
+  font-weight:700; font-size:clamp(38px,7.4vw,92px); line-height:.87;
+  letter-spacing:-.045em; text-transform:uppercase; margin:0; color:#111311;
+}
+.c-mega .blue{color:#1B34C4}
+.c-mega .out{
+  color:transparent; -webkit-text-stroke:1.5px #111311; text-stroke:1.5px #111311;
+}
+.c-meta{
+  margin-top:22px; padding-top:14px; border-top:1.5px solid #111311;
+  display:flex; gap:26px; flex-wrap:wrap; font-size:11px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase;
+}
+.c-meta span{color:#5F5E58}
+.c-meta b{color:#111311}
+.c-strip{display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; border-top:1.5px solid #111311}
+.c-strip .photo{min-height:118px; border-right:1.5px solid #111311}
+.c-strip .photo:last-child{border-right:0}
+.c-strip .ph-label{color:#111311; background:rgba(245,244,240,.9); margin:8px; font-size:9px}
+.c-p1{background:linear-gradient(140deg,#DDDCD6,#A9A79C)}
+.c-p2{background:linear-gradient(140deg,#CFD6EE,#8E9BD0)}
+.c-p3{background:linear-gradient(140deg,#E9E1CE,#C4B698)}
+
+.c-quote{background:#111311; color:#F5F4F0; padding:34px 26px 30px; font-family:"Familjen Grotesk",sans-serif}
+.c-quote .q{
+  font-family:"Fraunces",Georgia,serif; font-style:italic; font-weight:400;
+  font-variation-settings:"SOFT" 30,"WONK" 1;
+  font-size:clamp(20px,2.9vw,32px); line-height:1.22; letter-spacing:-.02em; max-width:24ch;
+}
+.c-quote .who{
+  margin-top:20px; font-size:11px; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+  color:#9B9C96;
+}
+.c-sand{background:#E3D9C6; color:#111311; padding:24px 26px 26px}
+.c-sand .hd{font-size:11px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#5F5E58}
+.c-sand .rows{margin-top:14px; display:grid; gap:0}
+.c-row{
+  display:flex; align-items:baseline; gap:16px; padding:11px 0;
+  border-bottom:1px solid rgba(17,19,17,.2);
+}
+.c-row .n{font-size:11px; font-weight:700; letter-spacing:.1em; color:#1B34C4; width:56px; flex:none;
+  font-variant-numeric:tabular-nums}
+.c-row .t{font-size:17px; font-weight:600; letter-spacing:-.018em}
+.c-row .x{margin-left:auto; font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#5F5E58}
+
+/* ============ TYPOGRAFICKÉ VZORNÍKY ============ */
+.spec{border:1px solid var(--line); border-radius:4px; overflow:hidden; background:var(--surface)}
+.spec-row{padding:18px 20px; border-bottom:1px solid var(--line)}
+.spec-row:last-child{border-bottom:0}
+.spec-meta{
+  font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+  font-weight:700; margin-bottom:10px; font-family:"Instrument Sans",sans-serif;
+}
+.spec-big{font-size:clamp(26px,3.4vw,40px); line-height:1.06; letter-spacing:-.028em; color:var(--ink)}
+.spec-txt{font-size:15px; line-height:1.6; color:var(--ink-2); max-width:48ch}
+.fa-d{font-family:"Newsreader",serif; font-weight:400}
+.fa-b{font-family:"Archivo",sans-serif; font-weight:600}
+.fb-d{font-family:"Bricolage Grotesque",sans-serif; font-weight:700; font-variation-settings:"wdth" 92}
+.fb-b{font-family:"Literata",serif; font-weight:400}
+.fc-d{font-family:"Familjen Grotesk",sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:-.04em}
+.fc-b{font-family:"Fraunces",serif; font-weight:400; font-variation-settings:"SOFT" 30}
+
+/* ============ MATICE ============ */
+.tablewrap{overflow-x:auto; margin-top:36px; border:1px solid var(--line); border-radius:4px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:760px; font-size:14px}
+th,td{padding:15px 18px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line)}
+thead th{
+  font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+  font-weight:700; background:var(--surface-2); border-bottom:1px solid var(--line-2);
+}
+tbody tr:last-child td{border-bottom:0}
+td .trend{font-weight:600; color:var(--ink); display:block; margin-bottom:3px}
+td .src{font-size:12px; color:var(--ink-3)}
+td small{display:block; color:var(--ink-2); font-size:13px; line-height:1.45; margin-top:5px}
+.dots{letter-spacing:2px; font-size:13px; color:var(--accent); white-space:nowrap}
+.dots .off{color:var(--line-2)}
+
+/* ============ ZÁVĚR ============ */
+.steps{margin-top:36px; display:grid; gap:1px; background:var(--line);
+  border:1px solid var(--line); border-radius:4px; overflow:hidden}
+.step{background:var(--surface); padding:22px; display:grid; grid-template-columns:38px 1fr; gap:18px}
+.step .k{
+  font-size:13px; font-weight:700; color:var(--accent); padding-top:1px;
+  font-variant-numeric:tabular-nums;
+}
+.step h4{font-size:16px; margin-bottom:7px; letter-spacing:-.015em}
+.step p{font-size:14px; color:var(--ink-2); line-height:1.55}
+.foot{
+  margin-top:72px; padding:28px 0 76px; border-top:1px solid var(--line);
+  font-size:13px; color:var(--ink-3); line-height:1.6;
+}
+.foot a{color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px}
+
+/* ============ POHYB ============ */
+.rise{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.3,1)}
+.rise.in{opacity:1; transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rise{opacity:1; transform:none; transition:none}
+}
+
+@media (max-width:760px){
+  .a-body{grid-template-columns:1fr}
+  .a-left{border-right:0; border-bottom:1px solid #DCDAD3}
+  .b-main{grid-template-columns:1fr}
+  .b-cards{grid-template-columns:repeat(2,1fr)}
+  .c-strip{grid-template-columns:1fr}
+  .c-strip .photo{border-right:0; border-bottom:1.5px solid #111311}
+  .wrap{padding:0 20px}
+  section{padding:52px 0}
+}
+</style>
+
+<!-- procedurální filtry: akvarel + rozpitá hrana -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="wc1" x="-25%" y="-25%" width="150%" height="150%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="4" seed="7" result="t"/>
+    <feDisplacementMap in="SourceGraphic" in2="t" scale="46" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="wc2" x="-25%" y="-25%" width="150%" height="150%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.019" numOctaves="3" seed="23" result="t"/>
+    <feDisplacementMap in="SourceGraphic" in2="t" scale="30" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="wc3" x="-30%" y="-30%" width="160%" height="160%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.026" numOctaves="3" seed="41" result="t"/>
+    <feDisplacementMap in="SourceGraphic" in2="t" scale="22" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="wrap">
+
+  <!-- ============ MASTHEAD ============ -->
+  <header class="masthead">
+    <p class="eyebrow">Art direction · návrh vizuálního směru webu</p>
+    <h1>Modern&nbsp;Waldorf&nbsp;2026</h1>
+    <p class="sub">
+      Tři úmyslně rozdílné směry pro nový web Waldorfské školy Olomouc. Ne tři odstíny jednoho
+      nápadu — tři různé odpovědi na otázku, čím škola působí v prvních třech vteřinách.
+      Trendy 2026 tu nejsou převzaté mechanicky: jsou použité tam, kde sedí na to, co škola
+      opravdu dělá.
+    </p>
+    <div class="rule-line">
+      <span class="rule-chip">Real people</span>
+      <span class="rule-chip">Real work</span>
+      <span class="rule-chip">Real school</span>
+    </div>
+    <div class="meta-row">
+      <div><b>Klient</b>Waldorfská ZŠ a MŠ Olomouc s.&nbsp;r.&nbsp;o.</div>
+      <div><b>Rozsah</b>MŠ · ZŠ · SŠ · ZUŠ Fantazie</div>
+      <div><b>Ve škole od</b>1.&nbsp;9.&nbsp;2010</div>
+      <div><b>Fáze</b>Rozhodnutí o směru, ne finální design</div>
+    </div>
+  </header>
+
+  <!-- ============ CO JE SPOLEČNÉ ============ -->
+  <section class="rise">
+    <div class="sec-head"><h2>Co platí ve všech třech</h2></div>
+    <p class="sec-lead">
+      Tohle nejsou proměnné. Jsou to pravidla, která oddělují „moderní škola“ od
+      „alternativní spolek“ — a platí bez ohledu na to, který směr vyhraje.
+    </p>
+    <div class="rules">
+      <div class="rule">
+        <span class="n">PRAVIDLO 01</span>
+        <h4>Jeden ruční prvek na obrazovku</h4>
+        <p>Akvarel <em>nebo</em> kresba <em>nebo</em> ručně psané slovo. Ne všechno najednou.
+          Ruční prvek je přízvuk, ne tapeta.</p>
+      </div>
+      <div class="rule">
+        <span class="n">PRAVIDLO 02</span>
+        <h4>Žádná fotobanka, žádné AI děti</h4>
+        <p>Dokumentární fotografie z Rožňavské, Dobnerovy a Na Střelnici. Ruce při práci,
+          sešity, dílna, zahrada, jeviště. Nedokonalé světlo je součást stylu.</p>
+      </div>
+      <div class="rule">
+        <span class="n">PRAVIDLO 03</span>
+        <h4>Ruční prvky musí být profesionální</h4>
+        <p>Naskenovaná studentská práce v rozlišení 600 dpi, ne fotka mobilem. „Human-made“
+          nikdy neznamená „amatérské“.</p>
+      </div>
+      <div class="rule">
+        <span class="n">PRAVIDLO 04</span>
+        <h4>Česká typografie bez výmluv</h4>
+        <p>Kompletní diakritika (ř, ě, ů, Ď), české uvozovky „takto“, pomlčky, nezlomitelné
+          mezery u předložek. Každé písmo prošlo testem latin-ext.</p>
+      </div>
+      <div class="rule">
+        <span class="n">PRAVIDLO 05</span>
+        <h4>Rodič hledá informaci, ne zážitek</h4>
+        <p>Zápis, termíny, jídelníček, dokumenty a kontakt musí jít najít do dvou kliknutí —
+          i ve směru, který je vizuálně nejodvážnější.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SMĚR A                                                                -->
+  <!-- ===================================================================== -->
+  <article class="dir rise">
+    <div class="dir-head">
+      <span class="dir-tag"><span class="dot" style="background:#1F3A5F"></span>Směr A</span>
+      <h3>Papír a mřížka</h3>
+      <p class="dir-thesis">
+        Škola, která nemá potřebu se zdobit. Editorial minimalism dotažený do konce: hodně
+        prostoru, přísná mřížka, jedno serifové písmo a <strong>jediná</strong> ruční linka na
+        celou stránku. Zdrženlivost je tady sdělení.
+      </p>
+    </div>
+
+    <div class="mocks">
+      <div>
+        <div class="frame">
+          <div class="frame-bar">
+            <span class="url">waldorf-olomouc.cz</span>
+            <span class="kind">Homepage</span>
+          </div>
+          <div class="a-hero">
+            <nav class="a-nav">
+              <span class="brand">WALDORF OLOMOUC</span>
+              <span>Mateřská škola</span><span>Základní škola</span>
+              <span>Střední škola</span><span>ZUŠ Fantazie</span>
+              <span class="sp"></span><span class="cta">Zápis 2026</span>
+            </nav>
+            <div class="a-body">
+              <div class="a-left">
+                <p class="a-kicker">Olomouc · Rožňavská 21</p>
+                <h2 class="a-h1">Učíme se hlavou,<br>rukama <em>i srdcem</em>.</h2>
+                <p class="a-deck">
+                  Od roku 2010 provázíme děti od mateřské školy až po maturitu. Jeden třídní
+                  učitel, devět let, jedna třída — a čas na to, aby každý přišel na svoje.
+                </p>
+                <svg class="a-scribble" width="176" height="20" viewBox="0 0 176 20" aria-hidden="true">
+                  <path d="M3 13C26 5 43 16 66 11c22-5 33 6 55 1s31-9 50-4"
+                        fill="none" stroke="#1F3A5F" stroke-width="2.2" stroke-linecap="round"/>
+                </svg>
+                <div class="a-facts">
+                  <div><b>2010</b>Ve škole od</div>
+                  <div><b>MŠ–SŠ</b>Celá cesta</div>
+                  <div><b>3</b>Místa v Olomouci</div>
+                </div>
+              </div>
+              <div class="a-right">
+                <div class="photo grain">
+                  <span class="ph-label">Foto · hlavní vyučování,<br>3. třída, dokumentárně</span>
+                </div>
+              </div>
+            </div>
+            <div class="a-list">
+              <p class="hd">Aktuálně ze školy</p>
+              <div class="a-item">
+                <span class="dt">14. 09.</span>
+                <span><span class="ti">Michaelská slavnost na zahradě</span>
+                <span class="ex">Odvaha, drak a chleba z vlastní pece. Začínáme v 15.00, rodiče vítáni.</span></span>
+              </div>
+              <div class="a-item">
+                <span class="dt">02. 10.</span>
+                <span><span class="ti">Den otevřených dveří</span>
+                <span class="ex">Můžete si sednout do hodiny hlavního vyučování. Bez rezervace.</span></span>
+              </div>
+              <div class="a-item" style="border-bottom:0">
+                <span class="dt">21. 10.</span>
+                <span><span class="ti">Výroční práce studentů střední školy</span>
+                <span class="ex">Obhajoby v aule — od kovářského nože po vlastní hudební album.</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="caption">
+          <b>Ukázkový obsah.</b> Ruční prvek je na celé stránce jediný — modrá tahová linka pod
+          leadem. Fotografie nese veškerou „lidskost“, grafika ustupuje. Aktuality mají
+          novinovou hustotu: datum, titulek, jedna věta.
+        </p>
+      </div>
+
+      <div class="dir-grid" style="margin-top:0">
+        <div class="card">
+          <h5>Paleta — pět hodnot, ani o jednu víc</h5>
+          <div class="swatches">
+            <div class="sw"><span class="chip" style="background:#FBFAF7"></span>
+              <span><span class="nm">Papír</span><span class="role">podklad, 85 % plochy</span></span>
+              <span class="hx">#FBFAF7</span></div>
+            <div class="sw"><span class="chip" style="background:#16181C"></span>
+              <span><span class="nm">Inkoust</span><span class="role">text, nadpisy</span></span>
+              <span class="hx">#16181C</span></div>
+            <div class="sw"><span class="chip" style="background:#1F3A5F"></span>
+              <span><span class="nm">Školní modř</span><span class="role">jediný akcent, CTA</span></span>
+              <span class="hx">#1F3A5F</span></div>
+            <div class="sw"><span class="chip" style="background:#C9D6E2"></span>
+              <span><span class="nm">Křídová</span><span class="role">plochy pod fotkou</span></span>
+              <span class="hx">#C9D6E2</span></div>
+            <div class="sw"><span class="chip" style="background:#DCDAD3"></span>
+              <span><span class="nm">Linka</span><span class="role">mřížka, oddělovače</span></span>
+              <span class="hx">#DCDAD3</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h5>Kdy vyhrává / kde selže</h5>
+          <ul>
+            <li><strong>Vyhrává</strong> u rodiče, který váhá, jestli je waldorf „vážná škola“.</li>
+            <li><strong>Vyhrává</strong> na výroční zprávě, dokumentech, zápisu.</li>
+            <li><strong>Selže</strong>, když nebudou skvělé fotky — bez nich je to prázdné.</li>
+            <li><strong>Riziko:</strong> může působit chladně. Léčí se teplem fotografií, ne přidáním barev.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mocks" style="margin-top:26px">
+      <div class="spec">
+        <div class="spec-row">
+          <p class="spec-meta">Display &amp; text — Newsreader</p>
+          <p class="spec-big fa-d">Řemeslo, příběh, ůroda&nbsp;&amp;&nbsp;výroční práce</p>
+        </div>
+        <div class="spec-row">
+          <p class="spec-meta">Text 300 — Newsreader Light</p>
+          <p class="spec-txt fa-d" style="font-weight:300">
+            Devět let provází třídu jeden učitel. Nejde o pohodlí — jde o to, aby někdo znal
+            dítě natolik dobře, že pozná, kdy se mu daří a kdy jen tiše přestalo.
+          </p>
+        </div>
+        <div class="spec-row">
+          <p class="spec-meta">Navigace &amp; popisky — Archivo 600</p>
+          <p class="spec-txt fa-b" style="letter-spacing:.11em; text-transform:uppercase; font-size:12.5px">
+            Mateřská škola · Základní škola · Střední škola · ZUŠ Fantazie · Zápis 2026
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <h5>Pohyb a materiál</h5>
+        <p style="margin-bottom:12px">
+          Skoro žádný. Text se při načtení objeví v jedné vlně shora dolů, fotografie
+          nabíhá o půl vteřiny později. Žádný parallax, žádné hover efekty na kartách.
+        </p>
+        <p><strong style="color:var(--ink)">Do tohohle směru nepatří:</strong> pastelové přechody,
+          kytičky, spirály, duhy, kulaté rohy, stíny pod kartami, ikony s emoji.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ===================================================================== -->
+  <!-- SMĚR B                                                                -->
+  <!-- ===================================================================== -->
+  <article class="dir rise">
+    <div class="dir-head">
+      <span class="dir-tag"><span class="dot" style="background:#A8792F"></span>Směr B</span>
+      <h3>Dílna</h3>
+      <p class="dir-thesis">
+        Web, na který je vidět, že je z papíru. Skutečný akvarel žáka jako podklad, zrno
+        ručního papíru, kresebná linka, mírně nepravidelný grotesk. Není to grafika, která
+        předstírá waldorf — je to waldorf naskenovaný a použitý jako materiál.
+      </p>
+    </div>
+
+    <div class="mocks">
+      <div>
+        <div class="frame">
+          <div class="frame-bar">
+            <span class="url">waldorf-olomouc.cz</span>
+            <span class="kind">Homepage</span>
+          </div>
+          <div class="b-hero grain">
+            <svg class="b-wash" viewBox="0 0 800 460" preserveAspectRatio="none" aria-hidden="true">
+              <ellipse cx="255" cy="150" rx="270" ry="185" fill="#C9B78E" opacity="0.5" filter="url(#wc1)"/>
+              <ellipse cx="600" cy="255" rx="230" ry="170" fill="#8FA5A9" opacity="0.34" filter="url(#wc2)"/>
+              <ellipse cx="415" cy="360" rx="245" ry="130" fill="#A8792F" opacity="0.2" filter="url(#wc3)"/>
+            </svg>
+            <div class="b-inner">
+              <nav class="b-nav">
+                <span class="brand">Waldorf Olomouc</span>
+                <span>Školka</span><span>Základní</span><span>Střední</span><span>ZUŠ</span>
+                <span class="sp"></span><span class="cta">Přijďte se podívat</span>
+              </nav>
+              <div class="b-main">
+                <div>
+                  <p class="b-kicker">Rožňavská · Dobnerova · Na Střelnici</p>
+                  <h2 class="b-h1">Devět let. Jedna třída.<br>Jeden učitel.</h2>
+                  <svg class="b-underline" width="212" height="16" viewBox="0 0 212 16" aria-hidden="true">
+                    <path d="M4 10c30-6 52 5 80 1s44-8 72-3 34 4 52 1" fill="none"
+                          stroke="#A8792F" stroke-width="3" stroke-linecap="round" filter="url(#wc3)"/>
+                  </svg>
+                  <p class="b-deck">
+                    Třídní učitel jde s dětmi celou základní školu. Zná je líp než rozvrh —
+                    a to je celé tajemství.
+                  </p>
+                </div>
+                <div class="b-photo grain">
+                  <span class="b-tape"></span>
+                  <span class="ph-label">Foto · dílna, ruce<br>u hoblice, 7. třída</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="b-year grain">
+            <p class="hd">Rok ve škole</p>
+            <div class="b-cards">
+              <div class="b-card">
+                <svg viewBox="0 0 200 140" preserveAspectRatio="none" aria-hidden="true">
+                  <rect width="200" height="140" fill="#DFD2B4"/>
+                  <ellipse cx="100" cy="72" rx="88" ry="62" fill="#B98F3E" opacity="0.45" filter="url(#wc2)"/>
+                </svg>
+                <span class="m">Září</span><span class="t">Michaelská<br>slavnost</span>
+              </div>
+              <div class="b-card">
+                <svg viewBox="0 0 200 140" preserveAspectRatio="none" aria-hidden="true">
+                  <rect width="200" height="140" fill="#D6D9CB"/>
+                  <ellipse cx="100" cy="72" rx="88" ry="62" fill="#4C5B3C" opacity="0.42" filter="url(#wc1)"/>
+                </svg>
+                <span class="m">Listopad</span><span class="t">Martinská<br>lucerna</span>
+              </div>
+              <div class="b-card">
+                <svg viewBox="0 0 200 140" preserveAspectRatio="none" aria-hidden="true">
+                  <rect width="200" height="140" fill="#CFD6DA"/>
+                  <ellipse cx="100" cy="72" rx="88" ry="62" fill="#7C93A6" opacity="0.55" filter="url(#wc3)"/>
+                </svg>
+                <span class="m">Prosinec</span><span class="t">Adventní<br>spirála</span>
+              </div>
+              <div class="b-card">
+                <svg viewBox="0 0 200 140" preserveAspectRatio="none" aria-hidden="true">
+                  <rect width="200" height="140" fill="#E2D6C0"/>
+                  <ellipse cx="100" cy="72" rx="88" ry="62" fill="#A8792F" opacity="0.4" filter="url(#wc2)"/>
+                </svg>
+                <span class="m">Únor</span><span class="t">Masopustní<br>průvod</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="caption">
+          <b>Ukázkový obsah.</b> Všechny akvarely na téhle stránce jsou generované procedurálně
+          jako zástupný materiál — v ostrém provozu je nahradí <b>skeny skutečných prací žáků</b>,
+          s podpisem třídy. Tím se z dekorace stane obsah.
+        </p>
+      </div>
+
+      <div class="dir-grid" style="margin-top:0">
+        <div class="card">
+          <h5>Paleta — z materiálů, ne z trendu</h5>
+          <div class="swatches">
+            <div class="sw"><span class="chip" style="background:#EFE9DD"></span>
+              <span><span class="nm">Ruční papír</span><span class="role">podklad se zrnem</span></span>
+              <span class="hx">#EFE9DD</span></div>
+            <div class="sw"><span class="chip" style="background:#26221C"></span>
+              <span><span class="nm">Hnědočerná</span><span class="role">text</span></span>
+              <span class="hx">#26221C</span></div>
+            <div class="sw"><span class="chip" style="background:#A8792F"></span>
+              <span><span class="nm">Včelí vosk</span><span class="role">akcent, podtržení</span></span>
+              <span class="hx">#A8792F</span></div>
+            <div class="sw"><span class="chip" style="background:#4C5B3C"></span>
+              <span><span class="nm">Mech</span><span class="role">tlačítka, druhý akcent</span></span>
+              <span class="hx">#4C5B3C</span></div>
+            <div class="sw"><span class="chip" style="background:#7C93A6"></span>
+              <span><span class="nm">Křídová modř</span><span class="role">akvarelové plochy</span></span>
+              <span class="hx">#7C93A6</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h5>Kdy vyhrává / kde selže</h5>
+          <ul>
+            <li><strong>Vyhrává</strong> u rodiče, který hledá teplo a jinakost — a u MŠ a 1. stupně.</li>
+            <li><strong>Vyhrává</strong> jako tiskový systém: plakáty, pozvánky, jarmark.</li>
+            <li><strong>Selže</strong>, když se akvarel vrství všude — pak je z toho „waldorfský Disneyland“.</li>
+            <li><strong>Riziko:</strong> nejblíž k ezoterickému nádechu. Léčí se přísnou mřížkou a moderním groteskem, ne méně barvami.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mocks" style="margin-top:26px">
+      <div class="spec">
+        <div class="spec-row">
+          <p class="spec-meta">Display — Bricolage Grotesque 700 (mírně nepravidelný)</p>
+          <p class="spec-big fb-d">Řemeslo, příběh, ůroda&nbsp;&amp;&nbsp;výroční práce</p>
+        </div>
+        <div class="spec-row">
+          <p class="spec-meta">Text — Literata 400</p>
+          <p class="spec-txt fb-b">
+            V hlavním vyučování se jednomu tématu věnujeme čtyři týdny v kuse. Není to
+            pomalost — je to jediný způsob, jak se něco stihne usadit.
+          </p>
+        </div>
+        <div class="spec-row">
+          <p class="spec-meta">Popisky — Bricolage 700, verzálky</p>
+          <p class="spec-txt fb-d" style="letter-spacing:.14em; text-transform:uppercase; font-size:12px">
+            Slavnosti · Eurytmie · Ruční práce · Zahrada · Jarmark
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <h5>Pohyb a materiál</h5>
+        <p style="margin-bottom:12px">
+          Akvarelové plochy se při načtení <em>rozpíjejí</em> — jedna animace, dvě vteřiny,
+          pak klid. Fotky mají lehké naklonění a pásku, nikdy ne stín.
+        </p>
+        <p><strong style="color:var(--ink)">Do tohohle směru nepatří:</strong> více než dva
+          akvarely na obrazovku, ručně psané písmo v běžném textu, textura pod odstavci
+          (nečitelné), duhové přechody.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ===================================================================== -->
+  <!-- SMĚR C                                                                -->
+  <!-- ===================================================================== -->
+  <article class="dir rise">
+    <div class="dir-head">
+      <span class="dir-tag"><span class="dot" style="background:#1B34C4"></span>Směr C</span>
+      <h3>Hlas</h3>
+      <p class="dir-thesis">
+        Typografie je obraz. Nadpis zabere půl obrazovky, fotky se zmenší na dokumentární
+        pásku a jediná sytá barva drží celý systém. Směr pro střední školu, koncerty,
+        Den otevřených dveří a Instagram — tam, kde škola potřebuje být slyšet.
+      </p>
+    </div>
+
+    <div class="mocks">
+      <div>
+        <div class="frame">
+          <div class="frame-bar">
+            <span class="url">waldorf-olomouc.cz/den-otevrenych-dveri</span>
+            <span class="kind">Kampaňová stránka</span>
+          </div>
+          <div class="c-hero">
+            <nav class="c-nav">
+              <span class="brand">WALDORF OLOMOUC</span>
+              <span>MŠ</span><span>ZŠ</span><span>SŠ</span><span>ZUŠ Fantazie</span>
+              <span class="sp"></span><span class="cta">Zápis 2026</span>
+            </nav>
+            <div class="c-type">
+              <h2 class="c-mega">Den<br><span class="out">otevřených</span><br><span class="blue">dveří</span></h2>
+              <div class="c-meta">
+                <span><b>2. 10. 2026</b></span>
+                <span>8.00–13.00</span>
+                <span>Rožňavská 728/21</span>
+                <span>Bez rezervace</span>
+              </div>
+            </div>
+            <div class="c-strip">
+              <div class="photo c-p1 grain"><span class="ph-label">Foto · kovářská dílna</span></div>
+              <div class="photo c-p2 grain"><span class="ph-label">Foto · zkouška divadla</span></div>
+              <div class="photo c-p3 grain"><span class="ph-label">Foto · sešit z epochy</span></div>
+            </div>
+            <div class="c-quote">
+              <p class="q">„Nejde o to být jiná škola. Jde o to nechat člověka dodělat, co začal.“</p>
+              <p class="who">Absolventka střední školy, ročník 2025 · ukázkový citát</p>
+            </div>
+            <div class="c-sand">
+              <p class="hd">Program dne</p>
+              <div class="rows">
+                <div class="c-row"><span class="n">8.00</span><span class="t">Hlavní vyučování — můžete si sednout dozadu</span><span class="x">1.–9. třída</span></div>
+                <div class="c-row"><span class="n">10.30</span><span class="t">Dílny: dřevo, kov, tkaní, keramika</span><span class="x">Otevřeno</span></div>
+                <div class="c-row"><span class="n">11.30</span><span class="t">Výroční práce — ukázky obhajob</span><span class="x">Střední škola</span></div>
+                <div class="c-row" style="border-bottom:0"><span class="n">12.30</span><span class="t">Otázky a odpovědi s učiteli</span><span class="x">Aula</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="caption">
+          <b>Ukázkový obsah.</b> Nadpis nese 60 % plochy, jak popisuje trend 4 — ale kontrolovaně:
+          jeden efekt (obrysové písmo), jedna barva, zbytek přísně černobílý. Fotopáska je
+          dokumentární a záměrně malá.
+        </p>
+      </div>
+
+      <div class="dir-grid" style="margin-top:0">
+        <div class="card">
+          <h5>Paleta — kontrast místo pestrosti</h5>
+          <div class="swatches">
+            <div class="sw"><span class="chip" style="background:#F5F4F0"></span>
+              <span><span class="nm">Tiskový papír</span><span class="role">podklad</span></span>
+              <span class="hx">#F5F4F0</span></div>
+            <div class="sw"><span class="chip" style="background:#111311"></span>
+              <span><span class="nm">Černá</span><span class="role">mega typografie, inverze</span></span>
+              <span class="hx">#111311</span></div>
+            <div class="sw"><span class="chip" style="background:#1B34C4"></span>
+              <span><span class="nm">Ultramarín</span><span class="role">jediná sytá barva</span></span>
+              <span class="hx">#1B34C4</span></div>
+            <div class="sw"><span class="chip" style="background:#E3D9C6"></span>
+              <span><span class="nm">Písek</span><span class="role">informační bloky</span></span>
+              <span class="hx">#E3D9C6</span></div>
+            <div class="sw"><span class="chip" style="background:#5F5E58"></span>
+              <span><span class="nm">Šedá</span><span class="role">sekundární text</span></span>
+              <span class="hx">#5F5E58</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h5>Kdy vyhrává / kde selže</h5>
+          <ul>
+            <li><strong>Vyhrává</strong> u čtrnáctiletého uchazeče o střední školu a jeho rodičů.</li>
+            <li><strong>Vyhrává</strong> na Instagramu, plakátech, koncertech, jarmarku.</li>
+            <li><strong>Selže</strong> na výroční zprávě a stránce se školním řádem — tam potřebuje klidnější variantu.</li>
+            <li><strong>Riziko:</strong> nejblíž ke „startupu“. Léčí ho serifový citát, sytá barva místo přechodu a nula kulatých rohů.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mocks" style="margin-top:26px">
+      <div class="spec">
+        <div class="spec-row">
+          <p class="spec-meta">Display — Familjen Grotesk 700, verzálky</p>
+          <p class="spec-big fc-d">Řemeslo · Příběh · Výroční práce</p>
+        </div>
+        <div class="spec-row">
+          <p class="spec-meta">Citáty a akcenty — Fraunces Italic</p>
+          <p class="spec-big fc-b" style="font-style:italic; font-size:clamp(20px,2.4vw,28px)">
+            „Nechat člověka dodělat, co začal.“
+          </p>
+        </div>
+        <div class="spec-row">
+          <p class="spec-meta">Text — Familjen Grotesk 400</p>
+          <p class="spec-txt" style="font-family:'Familjen Grotesk',sans-serif">
+            Střední škola končí výroční prací. Rok na jedno téma, které si student zvolí sám,
+            a veřejná obhajoba před celou školou.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <h5>Pohyb a materiál</h5>
+        <p style="margin-bottom:12px">
+          Nadpis přijíždí po řádcích s odstupem 80 ms — jedna orchestrovaná sekvence při
+          načtení. Jinde nic. Fotopáska se nehýbe.
+        </p>
+        <p><strong style="color:var(--ink)">Do tohohle směru nepatří:</strong> přechody, zaoblené
+          karty, stíny, druhá sytá barva, „wavy“ a „bubble“ fonty (do dvou let vypadají jako 2026).</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ MATICE ============ -->
+  <section class="rise">
+    <div class="sec-head"><h2>Trendy vs. směry</h2></div>
+    <p class="sec-lead">
+      Jak silně každý směr pracuje s pěti trendy z tvé analýzy. Prázdná kolečka nejsou
+      slabina — jsou rozhodnutí, čím se směr <em>nezabývá</em>.
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">Trend</th>
+            <th style="width:25%">A · Papír a mřížka</th>
+            <th style="width:25%">B · Dílna</th>
+            <th style="width:24%">C · Hlas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="trend">Human-made / Imperfect by Design</span><span class="src">Canva 2026</span></td>
+            <td><span class="dots">●●<span class="off">●●●</span></span><small>Jedna kresebná linka na stránku. Přízvuk.</small></td>
+            <td><span class="dots">●●●●●</span><small>Nese celý směr. Skeny prací žáků jako materiál.</small></td>
+            <td><span class="dots">●<span class="off">●●●●</span></span><small>Jen obrysové písmo. Jinak čistě digitální.</small></td>
+          </tr>
+          <tr>
+            <td><span class="trend">Tactile / sensory design</span><span class="src">Canva „Texture Check“, Adobe</span></td>
+            <td><span class="dots">●●<span class="off">●●●</span></span><small>Jemné zrno papíru pod fotkou, nic víc.</small></td>
+            <td><span class="dots">●●●●●</span><small>Zrno, akvarel, páska, náklon. Nejodvážnější.</small></td>
+            <td><span class="dots">●<span class="off">●●●●</span></span><small>Zrno jen na fotopásce — tiskový, ne malířský.</small></td>
+          </tr>
+          <tr>
+            <td><span class="trend">Editorial minimalism / Opt-Out</span><span class="src">Canva „Opt-Out Era“</span></td>
+            <td><span class="dots">●●●●●</span><small>Je to celá teze směru. Mřížka, serif, prostor.</small></td>
+            <td><span class="dots">●●●<span class="off">●●</span></span><small>Přísná mřížka drží teplý materiál na uzdě.</small></td>
+            <td><span class="dots">●●●●<span class="off">●</span></span><small>Málo barev, tvrdá hierarchie, žádné efekty.</small></td>
+          </tr>
+          <tr>
+            <td><span class="trend">Výrazná, hravá typografie</span><span class="src">Adobe 2026</span></td>
+            <td><span class="dots">●●<span class="off">●●●</span></span><small>Velikost ano, hravost ne. Klidný systém.</small></td>
+            <td><span class="dots">●●●<span class="off">●●</span></span><small>Mírně nepravidelný grotesk, žádná deformace.</small></td>
+            <td><span class="dots">●●●●●</span><small>Nadpis jako obraz. Kontrolovaně: jeden efekt.</small></td>
+          </tr>
+          <tr>
+            <td><span class="trend">Hyperlokální autenticita</span><span class="src">Adobe „Local Flavor“</span></td>
+            <td><span class="dots">●●●●●</span><small>Bez skvělých fotek směr nefunguje vůbec.</small></td>
+            <td><span class="dots">●●●●<span class="off">●</span></span><small>Autenticita jde i přes práce žáků, nejen fotky.</small></td>
+            <td><span class="dots">●●●●<span class="off">●</span></span><small>Málo fotek, ale o to konkrétnějších. Citáty studentů.</small></td>
+          </tr>
+          <tr>
+            <td><span class="trend">Odolnost vůči zastarání</span><span class="src">odhad na 5 let</span></td>
+            <td><span class="dots">●●●●●</span><small>Editorial nestárne. Nejbezpečnější sázka.</small></td>
+            <td><span class="dots">●●●●<span class="off">●</span></span><small>Princip vydrží, konkrétní efekty se obmění.</small></td>
+            <td><span class="dots">●●●<span class="off">●●</span></span><small>Za tři roky bude chtít osvěžit. Počítá se s tím.</small></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ DOPORUČENÍ ============ -->
+  <section class="rise">
+    <div class="sec-head"><h2>Co bych doporučil</h2></div>
+    <div class="narrow">
+      <p class="sec-lead" style="max-width:none">
+        <strong style="color:var(--ink)">Základ A, materiál z B, hlas C na kampaně.</strong>
+        Souhlasím s tvým čtením, že kombinace 1&nbsp;+&nbsp;3 je nejsilnější — ale nedělal bych z ní
+        jeden zprůměrovaný směr. Udělal bych z ní <em>systém se dvěma polohami</em>: klidná
+        (rodič hledá informaci) a hlasitá (škola něco pořádá). Tři směry výše nejsou tři
+        soutěžící — jsou to tři body, mezi kterými se rozhodne, kde přesně systém stojí.
+      </p>
+      <p class="sec-lead" style="max-width:none; margin-top:16px">
+        Jedna věcná námitka k zadání: <strong style="color:var(--ink)">bez fotografování se
+        nedá rozhodnout.</strong> Všechny tři směry stojí a padají s obrazovým materiálem a
+        rozhodovat je podle zástupných ploch znamená rozhodovat o něčem jiném, než co pak
+        vznikne. Doporučuju do rozhodnutí zařadit dva dny focení — jinak vybíráme obal na
+        obsah, který neznáme.
+      </p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="k">01</span>
+        <div>
+          <h4>Vyřadit, ne vybrat</h4>
+          <p>Nejdřív se shodneme, který směr škola <em>nechce</em>, a proč. Vyřazení je rychlejší
+            a upřímnější než výběr — a důvod vyřazení je většinou to nejcennější v celém procesu.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="k">02</span>
+        <div>
+          <h4>Dva dny focení a skenování</h4>
+          <p>Dokumentární fotograf na Rožňavské, jeden den běžná výuka, jeden den dílny a
+            slavnost. Souběžně sken 20–30 studentských prací v 600 dpi. Bez toho nemá smysl
+            pokračovat.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="k">03</span>
+        <div>
+          <h4>Test na nejhorší stránce</h4>
+          <p>Vítězný směr aplikovat nejdřív na stránku „Dokumenty a formuláře“ a na jídelníček.
+            Když směr přežije nudný obsah, přežije všechno. Homepage je nejsnadnější disciplína.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="k">04</span>
+        <div>
+          <h4>Ověřit na rodičích, ne na pedagogické radě</h4>
+          <p>Pět rodičů, kteří školu neznají, dostane úkol: „najdi termín zápisu“. Měří se
+            čas a první dojem jednou větou. Vizuální směr, který tímhle neprojde, není směr.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="foot">
+    Ukázkové texty, termíny a citáty slouží k posouzení vizuálního směru — nejde o ověřený
+    obsah školy. Ověřená fakta: Waldorfská základní škola a mateřská škola Olomouc s.&nbsp;r.&nbsp;o.,
+    výuka na Rožňavské 728/21, školky na Dobnerově a Na Střelnici, provoz od 1.&nbsp;9.&nbsp;2010,
+    součástí je střední škola a ZUŠ Fantazie.
+    Akvarelové plochy a zrno papíru jsou generované procedurálně (SVG feTurbulence) jako
+    zástupný materiál za skeny skutečných prací.
+    Písma: Newsreader, Archivo, Bricolage Grotesque, Literata, Familjen Grotesk, Fraunces,
+    Instrument Sans — všechna s podporou latin-ext.
+  </p>
+</div>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('.rise');
+  if (!('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    els.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
