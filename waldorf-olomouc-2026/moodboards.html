@@ -13,7 +13,7 @@
   --ink:#101216; --white:#FFFFFF; --grey:#F5F5F7; --line:#E8E8EA;
   --ms:#C0509A; --zs:#3F905D; --zus:#EE9B00; --ss:#4A3CB0;
   /* --- textově bezpečné varianty (dopočítané, v manuálu chybí) --- */
-  --ms-t:#BE4B97; --zs-t:#3A8455; --zus-t:#A36A00; --ss-t:#4A3CB0;
+  --ms-t:#BC4D96; --zs-t:#3D8553; --zus-t:#AB6703; --ss-t:#4A3CB0;
   /* --- odvozené neutrály --- */
   --ink-2:#54575E; --ink-3:#8B8D94; --surface:#FFFFFF; --ground:#FFFFFF;
   --shadow:0 1px 2px rgba(16,18,22,.05), 0 14px 34px -20px rgba(16,18,22,.32);
@@ -124,6 +124,12 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 :root[data-theme="dark"] .b-fail{background:#2A1215;color:#FF8A80}
 :root[data-theme="dark"] .b-warn{background:#2A2011;color:#F0B95B}
 :root[data-theme="dark"] .b-ok{background:#12251A;color:#7FD3A0}
+.fields{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:0;
+  margin-top:28px; border-radius:3px; overflow:hidden}
+.field{padding:26px 20px 24px; font-family:'Space Grotesk',sans-serif; font-size:17px;
+  font-weight:500; letter-spacing:-.02em; line-height:1.25}
+.field span{display:block; font-family:Manrope,sans-serif; font-size:11.5px; font-weight:700;
+  letter-spacing:.13em; text-transform:uppercase; margin-top:8px; opacity:.72}
 .chipc{display:inline-flex; align-items:center; gap:9px; font-weight:600}
 .chipc i{width:15px; height:15px; border-radius:2px; display:block; border:1px solid rgba(0,0,0,.14)}
 
@@ -190,17 +196,18 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .b-card .t{font-family:'Space Grotesk',sans-serif; font-size:14px; line-height:1.22; margin-top:4px; font-weight:500}
 
 /* Směr C */
-.c-hero{background:#101216; color:#FFFFFF}
-.c-nav{border-bottom:1px solid rgba(255,255,255,.16); color:#fff}
-.c-nav .cta{background:#fff; color:#101216}
+.c-hero{background:#EE9B00; color:#101216}
+.c-nav{border-bottom:1px solid rgba(16,18,22,.18); color:#101216}
+.c-nav .cta{background:#101216; color:#FFFFFF}
 .c-type{padding:34px 26px 28px}
+.c-mega .out{color:transparent; -webkit-text-stroke:2px #101216}
 .c-mega{font-family:'Space Grotesk',sans-serif; font-weight:700; text-transform:uppercase;
   font-size:clamp(36px,7vw,86px); line-height:.98; letter-spacing:-.045em; margin:0}
-.c-meta{margin-top:22px; padding-top:14px; border-top:1px solid rgba(255,255,255,.2);
+.c-meta{margin-top:22px; padding-top:14px; border-top:1px solid rgba(16,18,22,.24);
   display:flex; gap:24px; flex-wrap:wrap; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase}
-.c-meta span{color:#8B8D94}
+.c-meta span{color:#5C4409}
 .c-strip3{display:grid; grid-template-columns:repeat(3,1fr)}
-.c-strip3 .ph{min-height:112px; border-right:1px solid rgba(255,255,255,.16)}
+.c-strip3 .ph{min-height:112px; border-right:1px solid rgba(16,18,22,.18)}
 .c-strip3 .ph:last-child{border-right:0}
 .c-prog{background:#FFFFFF; color:#101216; padding:22px 26px 24px}
 .c-row{display:flex; align-items:baseline; gap:14px; padding:10px 0; border-bottom:1px solid #E8E8EA}
@@ -357,93 +364,164 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 
   <!-- ============ BARVY ============ -->
   <section class="rise">
-    <h2 class="sec-h">Barvy: tři ze čtyř neprojdou na text</h2>
+    <h2 class="sec-h">Barvy: strop je fyzikální, ne estetický</h2>
     <p class="sec-lead">
-      Manuál barvy definuje pro tisk — pruh v hlavičce a barvu nadpisů. Na webu ale platí
-      WCAG. Změřil jsem kontrast každé barvy proti bílé a doplnil textové varianty, které
-      drží odstín a projdou poměrem 4,5:1.
+      Kontrast řídí jas, ne odstín. Aby barva prošla na běžný text poměrem 4,5:1 vůči bílé,
+      musí mít relativní jas nejvýš <strong>0,183</strong>. Amber #EE9B00 má 0,416 — víc než
+      dvojnásobek. Žádná svítivá teplá barva tedy neprojde, ať se odstín otočí kamkoli.
+      To není nedostatek manuálu, to je vlastnost světla.
+    </p>
+    <div class="metricrow">
+      <div class="metric"><p class="v">0,416</p><p class="k">jas #EE9B00</p></div>
+      <div class="metric"><p class="v">0,183</p><p class="k">strop pro text 4,5:1</p></div>
+      <div class="metric good"><p class="v">8,32:1</p><p class="k">inkoust na ambru</p></div>
+      <div class="metric"><p class="v">2,25:1</p><p class="k">amber jako text</p></div>
+    </div>
+    <p class="cap2" style="margin-top:14px">
+      Otočení odstínu k oranžové zvýší sytost tmavého sourozence z 0,122 na 0,212, ale jas
+      zůstane kolem 0,18 — vždycky vznikne tmavá barva. Dvoustupňový systém proto není
+      kompromis, ale jediné řešení, které existuje.
+    </p>
+
+    <h3 class="sec-h" style="font-size:20px;margin-top:44px">Nejlepší varianta pro ZUŠ</h3>
+    <p class="sec-lead">
+      Tvůj návrh je správný a spočítal jsem k němu přesná čísla. Jen bych obrátil pořadí
+      argumentu: <strong>amber není nejslabší barva systému, ale nejsilnější plocha v něm.</strong>
+      Inkoust na ambru má 8,32:1 — víc než kterákoli jiná škola. Problém není amber, ale to,
+      že se používá jako text.
+    </p>
+    <div class="grid g2">
+      <div class="box" style="border-top:3px solid #EE9B00">
+        <h4>Plocha — #EE9B00, beze změny</h4>
+        <p>Pruh, pole, tlačítko, plakát, obal na koncert. Text na ní je vždy inkoustový,
+          nikdy bílý (bílá by měla 2,25:1). Je to nejlepší poměr v celém systému a ZUŠ
+          by na tom měla stavět, ne se tomu vyhýbat.</p>
+      </div>
+      <div class="box" style="border-top:3px solid #AB6703">
+        <h4>Text a odkazy — #AB6703</h4>
+        <p>Dopočítáno jako nejbližší legální barva k ambru: 4,50:1, odchylka ΔE 0,182.
+          Tvůj #A36A00 dává 4,55:1 při ΔE 0,188 — prakticky totéž, jen o chlup olivovější.
+          Doporučuju #AB6703, drží blíž ke zlaté.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <p><strong>Ve znaku se nemění nic.</strong> Souhlas s tvou formulací — tohle není
+      přebarvení znaku, ale doplnění textového tokenu vedle něj. Spirála ZUŠ zůstává
+      přesně taková, jaká je.</p>
+    </div>
+
+    <h3 class="sec-h" style="font-size:20px;margin-top:44px">Oprava, kterou jsem minule přehlédl</h3>
+    <p class="sec-lead">
+      Napsal jsem, že nejvíc bolí ZUŠ. Po přepočtu to neplatí. <strong>Nejhorší barva systému
+      je mateřská #C0509A</strong> — má 4,33:1 vůči bílé i vůči inkoustu. Není to náhoda:
+      4,33 je odmocnina z 18,75, tedy přesný geometrický střed mezi bílou a inkoustem.
+      Barva ležící na tomhle středu neunese ani jeden z nich. ZUŠ selhává v jedné roli,
+      MŠ ve všech.
+    </p>
+    <div class="callout">
+      <p><strong>Oprava je nepatrná.</strong> Posun #C0509A → <strong>#BC4D96</strong> má odchylku
+      ΔE 0,011, tedy pouhým okem nerozeznatelnou. Tím MŠ získá 4,53:1 jako text na bílé
+      i jako plocha s bílým textem. Jediná barva v systému, u které doporučuju sáhnout
+      na samotnou hodnotu.</p>
+    </div>
+
+    <h3 class="sec-h" style="font-size:20px;margin-top:44px">Celá sada, po generacích</h3>
+    <p class="sec-lead">
+      Čtyři tokeny na školu. Pořadí sleduje cestu dítěte školou, jak jsi ji popsal —
+      od mateřské po střední.
     </p>
     <div class="tw">
       <table>
         <thead><tr>
-          <th>Organizace</th><th>Barva z manuálu</th><th class="num">Na bílé</th>
-          <th>Běžný text</th><th>Textová varianta</th><th class="num">Nově</th>
+          <th>Generace</th><th>Světlá plocha<br><span style="font-weight:400;text-transform:none;letter-spacing:0">inkoust ≥ 7:1</span></th>
+          <th>Sytá plocha<br><span style="font-weight:400;text-transform:none;letter-spacing:0">bílá ≥ 4,5:1</span></th>
+          <th>Text na bílé<br><span style="font-weight:400;text-transform:none;letter-spacing:0">≥ 4,5:1</span></th>
+          <th>Jemný tint<br><span style="font-weight:400;text-transform:none;letter-spacing:0">bloky</span></th>
         </tr></thead>
         <tbody>
           <tr>
-            <td>Mateřská škola</td>
-            <td><span class="chipc"><i style="background:#C0509A"></i>#C0509A</span></td>
-            <td class="num">4,33:1</td><td><span class="badge b-warn">jen velký</span></td>
-            <td><span class="chipc"><i style="background:#BE4B97"></i>#BE4B97</span></td>
-            <td class="num">4,52:1</td>
+            <td><span class="chipc"><i style="background:#C0509A"></i>Mateřská</span></td>
+            <td><span class="chipc"><i style="background:#D684B7"></i>#D684B7</span><small>7,00:1</small></td>
+            <td><span class="chipc"><i style="background:#BC4D96"></i>#BC4D96</span><small>4,53:1 · upraveno</small></td>
+            <td><span class="chipc"><i style="background:#BC4D96"></i>#BC4D96</span><small>4,53:1</small></td>
+            <td><span class="chipc"><i style="background:#EEC4DC"></i>#EEC4DC</span><small>12,1:1</small></td>
           </tr>
           <tr>
-            <td>Základní škola</td>
-            <td><span class="chipc"><i style="background:#3F905D"></i>#3F905D</span></td>
-            <td class="num">3,92:1</td><td><span class="badge b-warn">jen velký</span></td>
-            <td><span class="chipc"><i style="background:#3A8455"></i>#3A8455</span></td>
-            <td class="num">4,55:1</td>
+            <td><span class="chipc"><i style="background:#3F905D"></i>Základní</span></td>
+            <td><span class="chipc"><i style="background:#72AB84"></i>#72AB84</span><small>7,03:1</small></td>
+            <td><span class="chipc"><i style="background:#3D8553"></i>#3D8553</span><small>4,50:1</small></td>
+            <td><span class="chipc"><i style="background:#3D8553"></i>#3D8553</span><small>4,50:1</small></td>
+            <td><span class="chipc"><i style="background:#BBD7C2"></i>#BBD7C2</span><small>12,1:1</small></td>
           </tr>
           <tr>
-            <td>ZUŠ Fantazie</td>
-            <td><span class="chipc"><i style="background:#EE9B00"></i>#EE9B00</span></td>
-            <td class="num">2,25:1</td><td><span class="badge b-fail">neprojde vůbec</span></td>
-            <td><span class="chipc"><i style="background:#A36A00"></i>#A36A00</span></td>
-            <td class="num">4,55:1</td>
+            <td><span class="chipc"><i style="background:#EE9B00"></i>ZUŠ Fantazie</span></td>
+            <td><span class="chipc"><i style="background:#EE9B00"></i>#EE9B00</span><small>8,32:1 · beze změny</small></td>
+            <td><span class="chipc"><i style="background:#AB6703"></i>#AB6703</span><small>4,50:1</small></td>
+            <td><span class="chipc"><i style="background:#AB6703"></i>#AB6703</span><small>4,50:1</small></td>
+            <td><span class="chipc"><i style="background:#F7C68B"></i>#F7C68B</span><small>12,0:1</small></td>
           </tr>
           <tr>
-            <td>Střední škola</td>
-            <td><span class="chipc"><i style="background:#4A3CB0"></i>#4A3CB0</span></td>
-            <td class="num">8,19:1</td><td><span class="badge b-ok">projde</span></td>
-            <td>beze změny</td><td class="num">8,19:1</td>
-          </tr>
-          <tr>
-            <td>Inkoust</td>
-            <td><span class="chipc"><i style="background:#101216"></i>#101216</span></td>
-            <td class="num">18,75:1</td><td><span class="badge b-ok">projde</span></td>
-            <td>beze změny</td><td class="num">18,75:1</td>
+            <td><span class="chipc"><i style="background:#4A3CB0"></i>Střední</span></td>
+            <td><span class="chipc"><i style="background:#9699D9"></i>#9699D9</span><small>7,01:1</small></td>
+            <td><span class="chipc"><i style="background:#4A3CB0"></i>#4A3CB0</span><small>8,19:1 · beze změny</small></td>
+            <td><span class="chipc"><i style="background:#4A3CB0"></i>#4A3CB0</span><small>8,19:1</small></td>
+            <td><span class="chipc"><i style="background:#CCCEEE"></i>#CCCEEE</span><small>12,2:1</small></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="callout">
-      <p><strong>Nejvíc bolí ZUŠ.</strong> Amber #EE9B00 má na bílé 2,25:1 — neprojde ani jako
-      velký nadpis, a bílý text na téhle ploše je na tom stejně. Přitom je to barva školy, která
-      má nejvíc plakátů a nejvíc mladých uživatelů. Návrh: <strong>#EE9B00 zůstává pro plochy a
-      pruhy</strong> (tam kontrast neřešíme), <strong>#A36A00 se používá na text a odkazy</strong>.
-      Znak zůstává nedotčený — manuál zakazuje přebarvení a tohle není přebarvení znaku.</p>
+    <div class="fields">
+      <div class="field" style="background:#D684B7;color:#101216">Mateřská<br><span>inkoust 7,00:1</span></div>
+      <div class="field" style="background:#72AB84;color:#101216">Základní<br><span>inkoust 7,03:1</span></div>
+      <div class="field" style="background:#EE9B00;color:#101216">ZUŠ Fantazie<br><span>inkoust 8,32:1</span></div>
+      <div class="field" style="background:#4A3CB0;color:#FFFFFF">Střední<br><span>bílá 8,19:1</span></div>
     </div>
+    <p class="cap2">
+      <b>Jedno pravidlo místo čtyř výjimek.</b> Světlá plocha vždycky nese inkoust, sytá plocha
+      vždycky bílou. Který ze dvou stupňů má škola použít, plyne z jejího odstínu: teplé a
+      světlé barvy (ZUŠ) mají silnou světlou plochu, chladné a tmavé (SŠ) silnou sytou.
+      Žádná plocha v systému už není černá ani šedá.
+    </p>
   </section>
 
   <!-- ============ PĚT ORGANIZACÍ ============ -->
   <section class="rise">
     <h2 class="sec-h">Rozpor, který se objeví až na webu</h2>
     <p class="sec-lead">
-      Manuál říká: „Na jednom dokumentu se objevuje vždy jen jedna barva“ a „Nikdy dvě barevné
-      verze na jedné stránce.“ V tisku to funguje — přihláška patří jedné škole. Jenže homepage
-      skupiny musí ze své podstaty nabídnout všechny čtyři organizace najednou. To pravidlo se
-      na webu porušit musí; jde o to, jak vědomě.
+      Plné spektrum znamená celý waldorfský koncept. Podbarvy znamenají jednotlivé školy,
+      tedy jednotlivé generace dětí. Z toho plyne jednoduché pravidlo pro web: barva říká,
+      <strong>ke které generaci právě mluvíš</strong>. Spektrum patří skupině, podbarva vždy
+      jen jedné etapě cesty.
+    </p>
+    <p class="sec-lead" style="margin-top:14px">
+      Manuál k tomu ale říká „nikdy dvě barevné verze na jedné stránce“. V tisku to sedí —
+      přihláška patří jedné škole. Homepage skupiny musí ze své podstaty nabídnout všechny
+      čtyři generace najednou, takže se to pravidlo na webu porušit musí; jde o to, jak vědomě.
     </p>
     <div class="grid g4">
       <div class="box" style="border-top:3px solid #C0509A">
         <h4>Mateřská škola</h4>
-        <p>Vlastní sekce webu. Barva na pruhu, nadpisech a odkazech. Znak ve verzi MŠ.</p>
+        <p>Nejmladší generace. Světlá plocha #D684B7 s inkoustem, sytá #BC4D96 s bílou.
+          Jediná barva, u které doporučuju drobnou úpravu hodnoty.</p>
       </div>
       <div class="box" style="border-top:3px solid #3F905D">
         <h4>Základní škola</h4>
-        <p>Největší část obsahu. Zelená drží celou sekci od zápisu po jídelníček.</p>
+        <p>Nejdelší etapa a největší část obsahu. Zelená drží celou sekci od zápisu
+          po jídelníček, text v #3D8553.</p>
       </div>
       <div class="box" style="border-top:3px solid #EE9B00">
         <h4>ZUŠ Fantazie</h4>
-        <p>Nejvíc akcí a plakátů. Plochy v #EE9B00, text v #A36A00.</p>
+        <p>Prochází napříč generacemi a má nejvíc akcí a plakátů. Amber #EE9B00 jako plocha
+          s inkoustem, #AB6703 na text a odkazy.</p>
       </div>
       <div class="box" style="border-top:3px solid #4A3CB0">
         <h4>Střední škola</h4>
-        <p>Nejsamostatnější publikum. Jediná barva s dostatečným kontrastem na text.</p>
+        <p>Nejsamostatnější publikum. Jediná barva, která funguje jako text i jako sytá
+          plocha bez jakékoli úpravy.</p>
       </div>
     </div>
     <div class="callout">
-      <p><strong>Navrhované rozšíření pravidla.</strong> Barva organizace platí uvnitř její sekce —
+      <p><strong>Navrhované rozšíření pravidla.</strong> Barva generace platí uvnitř její sekce —
       tam je stránka jednobarevná přesně podle manuálu. Na rozcestníku skupiny (homepage, patička,
       hlavní menu) se čtyři barvy objevit smějí, ale <strong>jen jako identifikační značka
       v navigaci</strong>: pruh, tečka, podtržení. Nikdy ne jako čtyři obarvené nadpisy nebo čtyři
@@ -525,7 +603,7 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
                 </div>
               </div>
               <div class="a-r">
-                <div class="ph grain" style="position:absolute;inset:0;background:linear-gradient(158deg,#E6EDE8,#C6D6CB 55%,#93A99B)">
+                <div class="ph grain" style="position:absolute;inset:0;background:linear-gradient(158deg,#D7E7DC,#A6CBB2 55%,#5E9A75)">
                   <span class="t">Foto · hlavní vyučování,<br>3. třída, dokumentárně</span>
                 </div>
               </div>
@@ -602,7 +680,7 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
                     <p class="b-d">Ve školce se každý den opakuje ve stejném pořadí. Dítě, které ví,
                       co přijde, má sílu na to, co se učí.</p>
                   </div>
-                  <div class="b-photo ph grain" style="background:linear-gradient(150deg,#E8D5E2,#C9A8BE 55%,#8E6B80)">
+                  <div class="b-photo ph grain" style="background:linear-gradient(150deg,#F3D9E9,#E0A8C8 55%,#C471A0)">
                     <span class="t">Foto · ranní kruh,<br>Tomkova</span>
                   </div>
                 </div>
@@ -660,54 +738,57 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
     <p class="lab">Směr C</p>
     <h2 class="sec-h" style="margin-top:12px">Hlas</h2>
     <p class="sec-lead">
-      Space Grotesk ve verzálkách přes celou šířku, inkoustová plocha, jedna barva organizace
-      a dokumentární fotopáska. Směr pro střední školu, ZUŠ, koncerty a Den otevřených dveří —
-      tam, kde škola nepotřebuje informovat, ale být slyšet.
+      Space Grotesk ve verzálkách přes celou šířku, plocha v barvě školy a dokumentární
+      fotopáska. Žádná černá, žádná šeď — pole nese barvu generace, které patří. Směr pro ZUŠ,
+      střední školu, koncerty a Den otevřených dveří: tam, kde škola nepotřebuje informovat,
+      ale být slyšet.
     </p>
     <div class="mocks">
       <div>
         <div class="frame">
-          <div class="fbar"><span class="u">waldorf-olomouc.cz/stredni-skola/prijimacky</span><span class="k">Kampaň SŠ</span></div>
+          <div class="fbar"><span class="u">waldorf-olomouc.cz/zus-fantazie/den-otevrenych-dveri</span><span class="k">Kampaň ZUŠ</span></div>
           <div class="mk">
+            <div class="a-strip" style="background:#AB6703"></div>
+            <nav class="mk-nav">
+              <span class="brandwrap">
+                <span class="mark g-zus" style="width:26px;height:25.3px"><i style="transform:scale(.106)"></i></span>
+                <span class="bn">ZUŠ Fantazie</span>
+              </span>
+              <span>Obory</span><span>Koncerty</span><span>Přihláška</span>
+              <span class="sp"></span><span class="cta" style="background:#AB6703">Přihláška</span>
+            </nav>
             <div class="c-hero">
-              <nav class="mk-nav c-nav">
-                <span class="brandwrap">
-                  <span class="mark g-white" style="width:26px;height:25.3px"><i style="transform:scale(.106)"></i></span>
-                  <span class="bn">Střední škola</span>
-                </span>
-                <span>Obor</span><span>Přijímačky</span><span>Výroční práce</span>
-                <span class="sp"></span><span class="cta">Přihláška</span>
-              </nav>
               <div class="c-type">
-                <h3 class="c-mega">Den<br><span style="color:#9E92E8">otevřených</span><br>dveří</h3>
+                <h3 class="c-mega">Den<br><span class="out">otevřených</span><br>dveří</h3>
                 <div class="c-meta">
-                  <b>2. 10. 2026</b><span>8.00–13.00</span>
+                  <b>2. 10. 2026</b><span>14.00–18.00</span>
                   <span>Tomkova 420/48</span><span>Bez rezervace</span>
                 </div>
               </div>
               <div class="c-strip3">
-                <div class="ph grain" style="background:linear-gradient(140deg,#D8D4EA,#8C86B8)"><span class="t">Foto · kovářská dílna</span></div>
-                <div class="ph grain" style="background:linear-gradient(140deg,#DEDCE4,#9A96A6)"><span class="t">Foto · zkouška divadla</span></div>
-                <div class="ph grain" style="background:linear-gradient(140deg,#E4E0D6,#ABA492)"><span class="t">Foto · sešit z epochy</span></div>
+                <div class="ph grain" style="background:linear-gradient(140deg,#F7C68B,#E0A64A)"><span class="t">Foto · zkouška orchestru</span></div>
+                <div class="ph grain" style="background:linear-gradient(140deg,#F3D3A2,#D99B3C)"><span class="t">Foto · hodina houslí</span></div>
+                <div class="ph grain" style="background:linear-gradient(140deg,#F9DCB4,#E5AE55)"><span class="t">Foto · výtvarný ateliér</span></div>
               </div>
             </div>
             <div class="c-prog">
-              <p class="lab" style="color:#4A3CB0;margin-bottom:10px">Program dne</p>
-              <div class="c-row"><span class="n" style="color:#4A3CB0">8.00</span><span class="t">Hlavní vyučování — můžete si sednout dozadu</span><span class="x">Všechny ročníky</span></div>
-              <div class="c-row"><span class="n" style="color:#4A3CB0">10.30</span><span class="t">Dílny: dřevo, kov, tkaní, keramika</span><span class="x">Otevřeno</span></div>
-              <div class="c-row"><span class="n" style="color:#4A3CB0">11.30</span><span class="t">Výroční práce — ukázky obhajob</span><span class="x">Aula</span></div>
-              <div class="c-row"><span class="n" style="color:#4A3CB0">12.30</span><span class="t">Otázky a odpovědi s učiteli</span><span class="x">Aula</span></div>
+              <p class="lab" style="color:#AB6703;margin-bottom:10px">Program dne</p>
+              <div class="c-row"><span class="n" style="color:#AB6703">14.00</span><span class="t">Otevřené zkoušky — přijďte si sednout</span><span class="x">Všechny obory</span></div>
+              <div class="c-row"><span class="n" style="color:#AB6703">15.30</span><span class="t">Vyzkoušej si nástroj — housle, flétna, bicí</span><span class="x">Pro děti</span></div>
+              <div class="c-row"><span class="n" style="color:#AB6703">16.30</span><span class="t">Výtvarný ateliér a keramická dílna</span><span class="x">Otevřeno</span></div>
+              <div class="c-row"><span class="n" style="color:#AB6703">17.30</span><span class="t">Koncert žáků na závěr</span><span class="x">Sál</span></div>
             </div>
           </div>
         </div>
-        <p class="cap2"><b>Ukázkový obsah.</b> Na inkoustové ploše je znak v negativní verzi —
-          přesně podle pravidla „na barevnou plochu patří bílá verze“. Barva organizace se
-          objevuje jen ve zvýrazněném slově a v číslech programu, a to ve světlejší variantě,
-          aby na tmavém podkladu držela kontrast.</p>
+        <p class="cap2"><b>Ukázkový obsah, přestavěný bez černé plochy.</b> Pole nese barvu školy,
+          ne inkoust — a právě u ZUŠ to funguje nejlépe v celém systému: inkoustový text na
+          ambru má 8,32:1. Zvýrazněný řádek je obrysový, takže zůstává inkoustový a nepotřebuje
+          druhou barvu. Fotopáska je podbarvená ambrem, ne šedí.</p>
       </div>
       <div class="grid g2" style="margin-top:0">
         <div class="box"><h4>Co dělá dobře</h4><ul>
           <li>Jediný směr, který zaujme čtrnáctiletého uchazeče.</li>
+          <li>Plocha v barvě školy rovnou říká, ke které generaci mluví.</li>
           <li>Převede se přímo na plakát a na Instagram bez překreslování.</li>
           <li>Space Grotesk ve velkém formátu konečně dává smysl.</li>
           <li>Fotek potřebuje málo — ale zato konkrétních.</li>
@@ -716,7 +797,7 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
           <li>Na školním řádu a výroční zprávě je nepoužitelný.</li>
           <li>Nejblíž k „technologickému startupu“, před kterým varuješ.</li>
           <li>Za tři roky bude chtít osvěžit. Počítat s tím.</li>
-          <li>Inkoustové plochy si žádají kontrolu kontrastu u všech čtyř barev.</li>
+          <li>U SŠ a MŠ nese pole bílý text, u ZŠ a ZUŠ inkoustový — nutno hlídat.</li>
         </ul></div>
       </div>
     </div>
@@ -733,11 +814,12 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
       <table>
         <thead><tr><th style="width:26%">Chybí</th><th>Proč to na webu vadí</th><th style="width:30%">Návrh</th></tr></thead>
         <tbody>
-          <tr><td>Kontrast barev</td><td>Tři ze čtyř barev neprojdou WCAG na běžný text, ZUŠ neprojde vůbec.</td><td>Přidat textové varianty ze sekce výše.</td></tr>
+          <tr><td>Kontrast barev</td><td>MŠ neunese text ani plochu, ZUŠ neunese text.</td><td>Doplnit čtyři tokeny na školu podle tabulky výše.</td></tr>
           <tr><td>Minimum znaku</td><td>Spektrální verze se na 20 px slévá.</td><td>Pod 44 px jen jednobarevná verze.</td></tr>
           <tr><td>Dvě značky na stránce</td><td>Homepage skupiny musí ukázat všechny čtyři školy.</td><td>Barvy jen jako značka v navigaci.</td></tr>
-          <tr><td>Stavy prvků</td><td>Není definován hover, focus, aktivní odkaz, chyba formuláře.</td><td>Odvodit z barvy organizace, focus jednotně inkoust.</td></tr>
-          <tr><td>Tmavý režim</td><td>Polovina rodičů má telefon v tmavém režimu.</td><td>Buď ho vědomě nedělat, nebo dodat druhou sadu.</td></tr>
+          <tr><td>Stavy prvků</td><td>Není definován hover, focus, aktivní odkaz, chyba formuláře.</td><td>Odvodit z textového tokenu generace, focus jednotně inkoust.</td></tr>
+          <tr><td>Zákaz šedi a černi</td><td>Plochy mají nést barvu generace, ne neutrál.</td><td>Zapsat do manuálu: pole jsou barevná, neutrál je jen bílá.</td></tr>
+          <tr><td>Tmavý režim</td><td>Vyžadoval by tmavé plochy, které škola nechce.</td><td>Vědomě ho nedělat. Web zůstává světlý.</td></tr>
           <tr><td>Pravidla fotografie</td><td>Manuál řeší znak a písmo, obraz vůbec.</td><td>Dokumentární styl, žádná fotobanka, žádné AI děti.</td></tr>
           <tr><td>Nesoulad v souboru</td><td>Jednobarevný znak v dodaném SVG je #161E90, manuál uvádí inkoust #101216.</td><td>Sjednotit — podle manuálu #101216.</td></tr>
           <tr><td>Adresa</td><td>Manuál uvádí Tomkova 420/48; veřejné rejstříky uvádějí i Kosinovu a Rožňavskou.</td><td>Ověřit, která adresa patří které organizaci.</td></tr>
@@ -780,7 +862,10 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
     neutrální paleta a písma Space Grotesk + Manrope pocházejí z něj. Znak je na téhle stránce
     rekonstruován z ořezové cesty dodaného SVG a vykreslen kuželovým přechodem; barvy organizací
     jsou dopočítané z parametrů původních 999 výsečí, takže se od originálu mohou o zlomek lišit —
-    před tiskem platí hodnoty z manuálu. Kontrastní poměry jsou měřené podle WCAG 2.1 proti bílé.
+    před tiskem platí hodnoty z manuálu. Kontrastní poměry jsou měřené podle WCAG 2.1;
+    navrhované barvy jsou dopočítané v OKLCH jako nejbližší legální hodnota k originálu, ne
+    odhadem. Mockupy drží barvy značky nezávisle na motivu prohlížeče; rám této prezentace
+    se řídí nastavením čtenáře a není součástí návrhu.
     Texty, termíny a citace v mockupech jsou ukázkové a neověřené. Kontakt z manuálu:
     waldorf@waldorf-olomouc.cz, +420 777 850 488, Tomkova 420/48, Olomouc-Hejčín.
   </p>

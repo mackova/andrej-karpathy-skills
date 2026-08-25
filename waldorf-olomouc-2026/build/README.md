@@ -12,3 +12,13 @@
 
 Znak se vykresluje jednou ořezovou cestou plus CSS `conic-gradient` místo
 sedmi SVG po 110–124 kB.
+
+## Barevné výpočty
+
+- `color.py` — OKLab/OKLCH ↔ sRGB (Björn Ottosson) + WCAG kontrast.
+- `solve.py` — hledá nejbližší barvu k originálu (OKLab ΔE), která splní zadaný
+  kontrastní práh. Používá se pro dopočet textových tokenů, sytých ploch a tintů.
+
+Klíčový výsledek: kontrast řídí jas, ne odstín. Barva projde 4,5:1 na bílé jen
+při relativním jasu ≤ 0,183; #EE9B00 má 0,416. Žádná svítivá teplá barva tedy
+projít nemůže a dvoustupňový systém je jediné řešení.
