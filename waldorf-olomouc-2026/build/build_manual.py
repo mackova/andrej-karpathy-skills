@@ -19,7 +19,7 @@ vals = {
  '__ZUS__': school(35.0,  92, 13, 52.5, 9.5),
  '__CLIP__': CLIP, '__SPEC__': SPEC,
 }
-H = open('appendix.tpl',encoding='utf-8').read()
+H = open('manual.tpl',encoding='utf-8').read()
 for k,v in vals.items(): H = H.replace(k, v)
-open('/home/user/andrej-karpathy-skills/waldorf-olomouc-2026/priloha-manualu.html','w',encoding='utf-8').write(H)
+open('/home/user/andrej-karpathy-skills/waldorf-olomouc-2026/logomanual.html','w',encoding='utf-8').write(H)
 print("written", len(H), "bytes")

@@ -585,7 +585,7 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
             <div class="a-strip" style="background:#3F905D"></div>
             <nav class="mk-nav">
               <span class="brandwrap">
-                <span class="mark g-zs" style="width:26px;height:25.3px"><i style="transform:scale(.106)"></i></span>
+                <span class="mark g-ink" style="width:26px;height:25.3px"><i style="transform:scale(.106)"></i></span>
                 <span class="bn">Základní škola</span>
               </span>
               <span>O škole</span><span>Zápis</span><span>Dokumenty</span><span>Jídelníček</span>
@@ -662,7 +662,7 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
             <div class="a-strip" style="background:#C0509A"></div>
             <nav class="mk-nav">
               <span class="brandwrap">
-                <span class="mark g-ms" style="width:26px;height:25.3px"><i style="transform:scale(.106)"></i></span>
+                <span class="mark g-ink" style="width:26px;height:25.3px"><i style="transform:scale(.106)"></i></span>
                 <span class="bn">Mateřská škola</span>
               </span>
               <span>O školce</span><span>Den ve školce</span><span>Přijetí</span><span>Kontakt</span>
@@ -752,7 +752,7 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
             <div class="a-strip" style="background:#AB6703"></div>
             <nav class="mk-nav">
               <span class="brandwrap">
-                <span class="mark g-zus" style="width:26px;height:25.3px"><i style="transform:scale(.106)"></i></span>
+                <span class="mark g-ink" style="width:26px;height:25.3px"><i style="transform:scale(.106)"></i></span>
                 <span class="bn">ZUŠ Fantazie</span>
               </span>
               <span>Obory</span><span>Koncerty</span><span>Přihláška</span>
@@ -786,6 +786,48 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
           ambru má 8,32:1. Zvýrazněný řádek je obrysový, takže zůstává inkoustový a nepotřebuje
           druhou barvu. Fotopáska je podbarvená ambrem, ne šedí.</p>
       </div>
+      <div>
+        <div class="frame">
+          <div class="fbar"><span class="u">waldorf-olomouc.cz/stredni-skola/prijimacky</span><span class="k">Kampaň SŠ · sytá plocha</span></div>
+          <div class="mk">
+            <div class="a-strip" style="background:#4A3CB0"></div>
+            <nav class="mk-nav">
+              <span class="brandwrap">
+                <span class="mark g-ink" style="width:26px;height:25.3px"><i style="transform:scale(.106)"></i></span>
+                <span class="bn">Střední škola · lyceum</span>
+              </span>
+              <span>Obor</span><span>Přijímačky</span><span>Výroční práce</span>
+              <span class="sp"></span><span class="cta" style="background:#4A3CB0">Přihláška</span>
+            </nav>
+            <div class="c-hero" style="background:#4A3CB0;color:#FFFFFF">
+              <div class="c-type">
+                <h3 class="c-mega" style="color:#FFFFFF">Rok<br><span style="color:#CCCEEE">na jedno</span><br>téma</h3>
+                <div class="c-meta" style="border-top-color:rgba(255,255,255,.28)">
+                  <b style="color:#FFFFFF">Výroční práce</b><span style="color:#CCCEEE">Obhajoba před celou školou</span>
+                  <span style="color:#CCCEEE">Čtvrtý ročník</span>
+                </div>
+              </div>
+              <div class="c-strip3" style="border-top-color:rgba(255,255,255,.28)">
+                <div class="ph grain" style="background:linear-gradient(140deg,#CCCEEE,#9699D9);border-right-color:rgba(255,255,255,.28)"><span class="t">Foto · kovářská dílna</span></div>
+                <div class="ph grain" style="background:linear-gradient(140deg,#D8D9F0,#8F92CF);border-right-color:rgba(255,255,255,.28)"><span class="t">Foto · obhajoba v aule</span></div>
+                <div class="ph grain" style="background:linear-gradient(140deg,#C6C8EA,#A3A6DE)"><span class="t">Foto · nákres a model</span></div>
+              </div>
+            </div>
+            <div class="c-prog">
+              <p class="lab" style="color:#4A3CB0;margin-bottom:10px">Jak přijímačky probíhají</p>
+              <div class="c-row"><span class="n" style="color:#4A3CB0">01</span><span class="t">Přihláška do 1. března</span><span class="x">Online</span></div>
+              <div class="c-row"><span class="n" style="color:#4A3CB0">02</span><span class="t">Jednotná přijímací zkouška</span><span class="x">Duben</span></div>
+              <div class="c-row"><span class="n" style="color:#4A3CB0">03</span><span class="t">Rozhovor s uchazečem a rodiči</span><span class="x">Bez známek</span></div>
+              <div class="c-row"><span class="n" style="color:#4A3CB0">04</span><span class="t">Den nanečisto ve třídě</span><span class="x">Dobrovolné</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="cap2"><b>Tentýž směr, opačný pól systému.</b> ZUŠ má nejsilnější světlou plochu,
+          střední škola nejsilnější sytou: inkoust na indigu má jen 2,29:1, zato bílá 8,19:1.
+          Proto tady pole nese bílý text a zvýrazněné slovo je ve světlé variantě #CCCEEE.
+          Stejná pravidla, jiná polovina tabulky.</p>
+      </div>
+
       <div class="grid g2" style="margin-top:0">
         <div class="box"><h4>Co dělá dobře</h4><ul>
           <li>Jediný směr, který zaujme čtrnáctiletého uchazeče.</li>

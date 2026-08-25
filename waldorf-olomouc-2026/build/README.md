@@ -1,6 +1,16 @@
 # Build
 
-`moodboards.html` se generuje z `page.tpl`:
+Dva dokumenty, oba generované ze šablon:
+
+- `logomanual.html` ← `manual.tpl` (spojení `manual_head/a/b/c/d.tpl`) přes `build_manual.py`
+- `moodboards.html` ← `page.tpl` přes `build.py`
+
+Spojení částí manuálu:
+
+    cat manual_head.tpl manual_a.tpl manual_b.tpl manual_c.tpl manual_d.tpl > manual.tpl
+    python3 build_manual.py
+
+Prezentace směrů:
 
     python3 build.py
 
