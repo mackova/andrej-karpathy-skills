@@ -50,16 +50,16 @@ p{margin:0}
 .mark{display:block; overflow:hidden; flex:none}
 .mark > i{display:block; width:245.15px; height:238.7px;
   clip-path:url(#waldorf-spiral); transform-origin:0 0}
-.g-spec > i{background:conic-gradient(from 0deg at 50% 50%, #0000FF 0.0deg, #0000FF 7.5deg, #0000FF 15.0deg, #0000FF 22.5deg, #0101FB 30.0deg, #0305ED 37.5deg, #090ECF 45.0deg, #0D14B5 52.5deg, #131B9B 60.0deg, #1A2282 67.5deg, #21276D 75.0deg, #292A61 82.5deg, #322B60 90.0deg, #392869 97.5deg, #42247A 105.0deg, #4C1E90 112.5deg, #5617AA 120.0deg, #6110C5 127.5deg, #6C09DC 135.0deg, #7704F0 142.5deg, #8201FC 150.0deg, #8800FF 157.5deg, #8800FF 165.0deg, #A100EA 172.5deg, #E70048 180.0deg, #FC000C 187.5deg, #FF0001 195.0deg, #FF0B00 202.5deg, #FF2700 210.0deg, #FF3900 217.5deg, #FF0B00 225.0deg, #FF1100 232.5deg, #FF2500 240.0deg, #FF4100 247.5deg, #FF6C00 255.0deg, #FF9A00 262.5deg, #FFDC00 270.0deg, #FFFC00 277.5deg, #FCFF00 285.0deg, #E5FF00 292.5deg, #B8FF00 300.0deg, #76FF00 307.5deg, #21FF00 315.0deg, #00FF00 322.5deg, #00F609 330.0deg, #00DB24 337.5deg, #0000FF 345.0deg, #0000FF 352.5deg, #0000FF 360.0deg)}
-.g-ms   > i{background:conic-gradient(from 0deg at 50% 50%, hsl(320.3 62% 62.0%) 0deg, hsl(326.4 62% 60.6%) 22deg, hsl(331.6 62% 56.4%) 45deg, hsl(335.1 62% 50.3%) 68deg, hsl(336.3 62% 43.0%) 90deg, hsl(335.1 62% 35.7%) 112deg, hsl(331.6 62% 29.6%) 135deg, hsl(326.4 62% 25.4%) 158deg, hsl(320.3 62% 24.0%) 180deg, hsl(314.2 62% 25.4%) 202deg, hsl(309.0 62% 29.6%) 225deg, hsl(305.5 62% 35.7%) 248deg, hsl(304.3 62% 43.0%) 270deg, hsl(305.5 62% 50.3%) 292deg, hsl(309.0 62% 56.4%) 315deg, hsl(314.2 62% 60.6%) 338deg, hsl(320.3 62% 62.0%) 360deg)}
-.g-zs   > i{background:conic-gradient(from 0deg at 50% 50%, hsl(142.2 62% 62.0%) 0deg, hsl(148.3 62% 60.6%) 22deg, hsl(153.5 62% 56.4%) 45deg, hsl(157.0 62% 50.3%) 68deg, hsl(158.2 62% 43.0%) 90deg, hsl(157.0 62% 35.7%) 112deg, hsl(153.5 62% 29.6%) 135deg, hsl(148.3 62% 25.4%) 158deg, hsl(142.2 62% 24.0%) 180deg, hsl(136.1 62% 25.4%) 202deg, hsl(130.9 62% 29.6%) 225deg, hsl(127.4 62% 35.7%) 248deg, hsl(126.2 62% 43.0%) 270deg, hsl(127.4 62% 50.3%) 292deg, hsl(130.9 62% 56.4%) 315deg, hsl(136.1 62% 60.6%) 338deg, hsl(142.2 62% 62.0%) 360deg)}
-.g-zus  > i{background:conic-gradient(from 0deg at 50% 50%, hsl(35.0 92% 62.0%) 0deg, hsl(40.0 92% 61.3%) 22deg, hsl(44.2 92% 59.2%) 45deg, hsl(47.0 92% 56.1%) 68deg, hsl(48.0 92% 52.5%) 90deg, hsl(47.0 92% 48.9%) 112deg, hsl(44.2 92% 45.8%) 135deg, hsl(40.0 92% 43.7%) 158deg, hsl(35.0 92% 43.0%) 180deg, hsl(30.0 92% 43.7%) 202deg, hsl(25.8 92% 45.8%) 225deg, hsl(23.0 92% 48.9%) 248deg, hsl(22.0 92% 52.5%) 270deg, hsl(23.0 92% 56.1%) 292deg, hsl(25.8 92% 59.2%) 315deg, hsl(30.0 92% 61.3%) 338deg, hsl(35.0 92% 62.0%) 360deg)}
-.g-ss   > i{background:conic-gradient(from 0deg at 50% 50%, hsl(247.2 62% 62.0%) 0deg, hsl(253.3 62% 60.6%) 22deg, hsl(258.5 62% 56.4%) 45deg, hsl(262.0 62% 50.3%) 68deg, hsl(263.2 62% 43.0%) 90deg, hsl(262.0 62% 35.7%) 112deg, hsl(258.5 62% 29.6%) 135deg, hsl(253.3 62% 25.4%) 158deg, hsl(247.2 62% 24.0%) 180deg, hsl(241.1 62% 25.4%) 202deg, hsl(235.9 62% 29.6%) 225deg, hsl(232.4 62% 35.7%) 248deg, hsl(231.2 62% 43.0%) 270deg, hsl(232.4 62% 50.3%) 292deg, hsl(235.9 62% 56.4%) 315deg, hsl(241.1 62% 60.6%) 338deg, hsl(247.2 62% 62.0%) 360deg)}
+.g-spec > i{background:__SPEC__}
+.g-ms   > i{background:__MS__}
+.g-zs   > i{background:__ZS__}
+.g-zus  > i{background:__ZUS__}
+.g-ss   > i{background:__SS__}
 .g-ink  > i{background:var(--ink)}
 .g-white> i{background:#FFFFFF}
 
 /* ============ MASTHEAD ============ */
-.stripe{height:6px; background:conic-gradient(from 0deg at 50% 50%, #0000FF 0.0deg, #0000FF 7.5deg, #0000FF 15.0deg, #0000FF 22.5deg, #0101FB 30.0deg, #0305ED 37.5deg, #090ECF 45.0deg, #0D14B5 52.5deg, #131B9B 60.0deg, #1A2282 67.5deg, #21276D 75.0deg, #292A61 82.5deg, #322B60 90.0deg, #392869 97.5deg, #42247A 105.0deg, #4C1E90 112.5deg, #5617AA 120.0deg, #6110C5 127.5deg, #6C09DC 135.0deg, #7704F0 142.5deg, #8201FC 150.0deg, #8800FF 157.5deg, #8800FF 165.0deg, #A100EA 172.5deg, #E70048 180.0deg, #FC000C 187.5deg, #FF0001 195.0deg, #FF0B00 202.5deg, #FF2700 210.0deg, #FF3900 217.5deg, #FF0B00 225.0deg, #FF1100 232.5deg, #FF2500 240.0deg, #FF4100 247.5deg, #FF6C00 255.0deg, #FF9A00 262.5deg, #FFDC00 270.0deg, #FFFC00 277.5deg, #FCFF00 285.0deg, #E5FF00 292.5deg, #B8FF00 300.0deg, #76FF00 307.5deg, #21FF00 315.0deg, #00FF00 322.5deg, #00F609 330.0deg, #00DB24 337.5deg, #0000FF 345.0deg, #0000FF 352.5deg, #0000FF 360.0deg)}
+.stripe{height:6px; background:__SPEC__}
 .masthead{padding:64px 0 52px; border-bottom:1px solid var(--line)}
 .mh-top{display:flex; align-items:flex-start; gap:30px; flex-wrap:wrap}
 .masthead h1{font-size:clamp(34px,5.4vw,62px); margin:16px 0 0}
@@ -241,7 +241,7 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <clipPath id="waldorf-spiral" transform="translate(-174.43 -275.35)"><path d="M252.45,385.88c-27.23,49,38.23,96.07,75.6,49.94,17.48-24.54-3.3-35.32-13.87-26.23-4.29,4.22-3.14,8.73-10.08,16.31-31,35.29-66-14.3-51.65-40Zm93.88-23.48c-28.56-48.24-102.24-15.48-81.27,40.07,12.37,27.47,32.17,15,29.65,1.26-1.48-5.84-6-7.12-9-16.94-14.82-44.57,45.74-49.49,60.62-24.39Zm-25.79,92.3c56-2.71,61.45-83.16,2.54-90.56-30.06-1.91-28.26,21.44-15,25.62,5.85,1.42,9.08-1.94,19.18-.05,46.33,7.73,22.31,63.58-6.76,65Z"></path></clipPath>
+  <clipPath id="waldorf-spiral" transform="translate(-174.43 -275.35)">__CLIP__</clipPath>
   <filter id="wc1" x="-25%" y="-25%" width="150%" height="150%">
     <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="7" result="t"/>
     <feDisplacementMap in="SourceGraphic" in2="t" scale="44" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation="3"/>
