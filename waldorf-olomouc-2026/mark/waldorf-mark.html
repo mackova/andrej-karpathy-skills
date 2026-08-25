@@ -1,0 +1,56 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Znak Waldorfské školy Olomouc — nasazení</title>
+<link rel="icon" href="waldorf-mark-ink.svg">
+<link rel="stylesheet" href="waldorf-mark.css">
+<style>
+  body{font:16px/1.7 Manrope,system-ui,sans-serif; color:#101216; background:#fff;
+       margin:0; padding:48px 32px; max-width:900px}
+  h1,h2{font-family:'Space Grotesk',system-ui,sans-serif; font-weight:500; letter-spacing:-.02em; margin:0}
+  h2{font-size:18px; margin:40px 0 14px}
+  .row{display:flex; align-items:flex-end; gap:28px; flex-wrap:wrap;
+       padding:24px; background:#F5F5F7; border-radius:3px}
+  .cell{display:flex; flex-direction:column; align-items:center; gap:10px}
+  .cap{font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#8B8D94; font-weight:700}
+  .dark{background:#101216; padding:16px; border-radius:3px}
+  code{background:#F5F5F7; padding:2px 6px; border-radius:2px; font-size:13.5px}
+  pre{background:#F5F5F7; padding:16px; border-radius:3px; overflow-x:auto; font-size:13px; line-height:1.6}
+</style>
+
+<!-- Ořezová cesta. Vkládá se do stránky jednou, kdekoli v <body>. -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute"><clipPath id="waldorf-spiral" transform="translate(-174.43 -275.35)"><path d="M252.45,385.88c-27.23,49,38.23,96.07,75.6,49.94,17.48-24.54-3.3-35.32-13.87-26.23-4.29,4.22-3.14,8.73-10.08,16.31-31,35.29-66-14.3-51.65-40Zm93.88-23.48c-28.56-48.24-102.24-15.48-81.27,40.07,12.37,27.47,32.17,15,29.65,1.26-1.48-5.84-6-7.12-9-16.94-14.82-44.57,45.74-49.49,60.62-24.39Zm-25.79,92.3c56-2.71,61.45-83.16,2.54-90.56-30.06-1.91-28.26,21.44-15,25.62,5.85,1.42,9.08-1.94,19.18-.05,46.33,7.73,22.31,63.58-6.76,65Z"/></clipPath></svg>
+
+<h1>Znak jako kód</h1>
+<p>Jedna ořezová cesta o 421 bajtech plus <code>conic-gradient</code>. Nahrazuje sedm SVG
+po 110–124 kB. Ostrý v jakékoli velikosti, barvu mění jedna proměnná.</p>
+
+<h2>Sedm variant</h2>
+<div class="row">
+  <div class="cell"><span class="wm wm--spectrum" style="--wm-size:120px" role="img" aria-label="Waldorfská škola Olomouc"></span><span class="cap">Spektrum</span></div>
+  <div class="cell"><span class="wm wm--ms"  style="--wm-size:72px" role="img" aria-label="Mateřská škola"></span><span class="cap">Mateřská</span></div>
+  <div class="cell"><span class="wm wm--zs"  style="--wm-size:72px" role="img" aria-label="Základní škola"></span><span class="cap">Základní</span></div>
+  <div class="cell"><span class="wm wm--zus" style="--wm-size:72px" role="img" aria-label="ZUŠ Fantazie"></span><span class="cap">ZUŠ Fantazie</span></div>
+  <div class="cell"><span class="wm wm--ss"  style="--wm-size:72px" role="img" aria-label="Střední škola"></span><span class="cap">Střední</span></div>
+  <div class="cell"><span class="wm wm--ink" style="--wm-size:72px" role="img" aria-label="Waldorfská škola Olomouc"></span><span class="cap">Jednobarevná</span></div>
+  <div class="cell dark"><span class="wm wm--white" style="--wm-size:72px" role="img" aria-label="Waldorfská škola Olomouc"></span><span class="cap">Negativní</span></div>
+</div>
+
+<h2>Pravidlo minimální velikosti hlídá kód</h2>
+<p>Pod 44 px se spektrum automaticky přepne na jednobarevnou verzi — spirála by se slila.
+Níže je třikrát tentýž zápis <code>class="wm wm--spectrum"</code>, mění se jen velikost.</p>
+<div class="row">
+  <div class="cell"><span class="wm wm--spectrum" style="--wm-size:20px"></span><span class="cap">20 px</span></div>
+  <div class="cell"><span class="wm wm--spectrum" style="--wm-size:32px"></span><span class="cap">32 px</span></div>
+  <div class="cell"><span class="wm wm--spectrum" style="--wm-size:44px"></span><span class="cap">44 px</span></div>
+  <div class="cell"><span class="wm wm--spectrum" style="--wm-size:64px"></span><span class="cap">64 px</span></div>
+</div>
+
+<h2>Použití</h2>
+<pre>&lt;!-- jednou do &lt;body&gt;: obsah waldorf-mark-clip.svg --&gt;
+&lt;link rel="stylesheet" href="waldorf-mark.css"&gt;
+
+&lt;span class="wm wm--zs" style="--wm-size:44px"
+      role="img" aria-label="Základní škola"&gt;&lt;/span&gt;</pre>
+<p>Kde <code>conic-gradient</code> nedosáhne — favicon, e-mailová šablona, tisk —
+slouží samostatné soubory: <code>waldorf-mark-ink.svg</code> (560 B),
+<code>waldorf-mark-white.svg</code> a barevné varianty z <code>build_svg.py</code>.</p>

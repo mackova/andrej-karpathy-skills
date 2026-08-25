@@ -279,8 +279,9 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
     <div class="meta">
       <div><b>Klient</b>Waldorfská škola Olomouc</div>
       <div><b>Organizace</b>MŠ · ZŠ · ZUŠ Fantazie · SŠ</div>
-      <div><b>Adresa</b>Tomkova 420/48, Olomouc-Hejčín</div>
-      <div><b>Podklad</b>Logomanuál v1.0 · 2026</div>
+      <div><b>Adresa</b>Tomkova 420/48, Hejčín, 779 00 Olomouc</div>
+      <div><b>Podklad</b>Logomanuál v1.0 · příloha hotová</div>
+      <div><b>Design</b>WOLIP</div>
     </div>
   </header>
 
@@ -592,7 +593,7 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
             </nav>
             <div class="a-body">
               <div class="a-l">
-                <p class="lab" style="color:#3A8455">Tomkova 420/48 · Olomouc-Hejčín</p>
+                <p class="lab" style="color:#3A8455">Tomkova 420/48 · Hejčín, 779 00 Olomouc</p>
                 <h3 class="a-h">Devět let, jedna třída,<br>jeden učitel.</h3>
                 <p class="a-d">Třídní učitel jde s dětmi celou základní školou. Zná je líp než
                   rozvrh — a to je celé tajemství.</p>
@@ -866,8 +867,8 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
     navrhované barvy jsou dopočítané v OKLCH jako nejbližší legální hodnota k originálu, ne
     odhadem. Mockupy drží barvy značky nezávisle na motivu prohlížeče; rám této prezentace
     se řídí nastavením čtenáře a není součástí návrhu.
-    Texty, termíny a citace v mockupech jsou ukázkové a neověřené. Kontakt z manuálu:
-    waldorf@waldorf-olomouc.cz, +420 777 850 488, Tomkova 420/48, Olomouc-Hejčín.
+    Texty, termíny a citace v mockupech jsou ukázkové a neověřené. Kontakt: waldorf@waldorf-olomouc.cz, +420 777 850 488,
+    Tomkova 420/48, Hejčín, 779 00 Olomouc. Design by WOLIP.
   </p>
 </div>
 

@@ -1,0 +1,122 @@
+/* Znak Waldorfské školy Olomouc — jedna ořezová cesta, sedm variant.
+   Vyžaduje, aby byl obsah waldorf-mark-clip.svg vložen do stránky (jednou, kdekoli v <body>).
+   Poměr stran znaku: 245,15 × 238,7. */
+
+:root{
+  --wm-size: 44px;
+  --wm-spectrum: conic-gradient(from 0deg at 50% 50%, #0000FF 0.0deg, #0000FF 7.5deg, #0000FF 15.0deg, #0000FF 22.5deg, #0101FB 30.0deg, #0305ED 37.5deg, #090ECF 45.0deg, #0D14B5 52.5deg, #131B9B 60.0deg, #1A2282 67.5deg, #21276D 75.0deg, #292A61 82.5deg, #322B60 90.0deg, #392869 97.5deg, #42247A 105.0deg, #4C1E90 112.5deg, #5617AA 120.0deg, #6110C5 127.5deg, #6C09DC 135.0deg, #7704F0 142.5deg, #8201FC 150.0deg, #8800FF 157.5deg, #8800FF 165.0deg, #A100EA 172.5deg, #E70048 180.0deg, #FC000C 187.5deg, #FF0001 195.0deg, #FF0B00 202.5deg, #FF2700 210.0deg, #FF3900 217.5deg, #FF0B00 225.0deg, #FF1100 232.5deg, #FF2500 240.0deg, #FF4100 247.5deg, #FF6C00 255.0deg, #FF9A00 262.5deg, #FFDC00 270.0deg, #FFFC00 277.5deg, #FCFF00 285.0deg, #E5FF00 292.5deg, #B8FF00 300.0deg, #76FF00 307.5deg, #21FF00 315.0deg, #00FF00 322.5deg, #00F609 330.0deg, #00DB24 337.5deg, #0000FF 345.0deg, #0000FF 352.5deg, #0000FF 360.0deg);
+  --wm-ms: conic-gradient(from 0deg at 50% 50%,
+      hsl(320.3 62% 62.0%) 0deg,
+      hsl(326.4 62% 60.6%) 22deg,
+      hsl(331.6 62% 56.4%) 45deg,
+      hsl(335.1 62% 50.3%) 68deg,
+      hsl(336.3 62% 43.0%) 90deg,
+      hsl(335.1 62% 35.7%) 112deg,
+      hsl(331.6 62% 29.6%) 135deg,
+      hsl(326.4 62% 25.4%) 158deg,
+      hsl(320.3 62% 24.0%) 180deg,
+      hsl(314.2 62% 25.4%) 202deg,
+      hsl(309.0 62% 29.6%) 225deg,
+      hsl(305.5 62% 35.7%) 248deg,
+      hsl(304.3 62% 43.0%) 270deg,
+      hsl(305.5 62% 50.3%) 292deg,
+      hsl(309.0 62% 56.4%) 315deg,
+      hsl(314.2 62% 60.6%) 338deg,
+      hsl(320.3 62% 62.0%) 360deg);
+  --wm-zs: conic-gradient(from 0deg at 50% 50%,
+      hsl(142.2 62% 62.0%) 0deg,
+      hsl(148.3 62% 60.6%) 22deg,
+      hsl(153.5 62% 56.4%) 45deg,
+      hsl(157.0 62% 50.3%) 68deg,
+      hsl(158.2 62% 43.0%) 90deg,
+      hsl(157.0 62% 35.7%) 112deg,
+      hsl(153.5 62% 29.6%) 135deg,
+      hsl(148.3 62% 25.4%) 158deg,
+      hsl(142.2 62% 24.0%) 180deg,
+      hsl(136.1 62% 25.4%) 202deg,
+      hsl(130.9 62% 29.6%) 225deg,
+      hsl(127.4 62% 35.7%) 248deg,
+      hsl(126.2 62% 43.0%) 270deg,
+      hsl(127.4 62% 50.3%) 292deg,
+      hsl(130.9 62% 56.4%) 315deg,
+      hsl(136.1 62% 60.6%) 338deg,
+      hsl(142.2 62% 62.0%) 360deg);
+  --wm-zus: conic-gradient(from 0deg at 50% 50%,
+      hsl(35.0 92% 62.0%) 0deg,
+      hsl(40.0 92% 61.3%) 22deg,
+      hsl(44.2 92% 59.2%) 45deg,
+      hsl(47.0 92% 56.1%) 68deg,
+      hsl(48.0 92% 52.5%) 90deg,
+      hsl(47.0 92% 48.9%) 112deg,
+      hsl(44.2 92% 45.8%) 135deg,
+      hsl(40.0 92% 43.7%) 158deg,
+      hsl(35.0 92% 43.0%) 180deg,
+      hsl(30.0 92% 43.7%) 202deg,
+      hsl(25.8 92% 45.8%) 225deg,
+      hsl(23.0 92% 48.9%) 248deg,
+      hsl(22.0 92% 52.5%) 270deg,
+      hsl(23.0 92% 56.1%) 292deg,
+      hsl(25.8 92% 59.2%) 315deg,
+      hsl(30.0 92% 61.3%) 338deg,
+      hsl(35.0 92% 62.0%) 360deg);
+  --wm-ss: conic-gradient(from 0deg at 50% 50%,
+      hsl(247.2 62% 62.0%) 0deg,
+      hsl(253.3 62% 60.6%) 22deg,
+      hsl(258.5 62% 56.4%) 45deg,
+      hsl(262.0 62% 50.3%) 68deg,
+      hsl(263.2 62% 43.0%) 90deg,
+      hsl(262.0 62% 35.7%) 112deg,
+      hsl(258.5 62% 29.6%) 135deg,
+      hsl(253.3 62% 25.4%) 158deg,
+      hsl(247.2 62% 24.0%) 180deg,
+      hsl(241.1 62% 25.4%) 202deg,
+      hsl(235.9 62% 29.6%) 225deg,
+      hsl(232.4 62% 35.7%) 248deg,
+      hsl(231.2 62% 43.0%) 270deg,
+      hsl(232.4 62% 50.3%) 292deg,
+      hsl(235.9 62% 56.4%) 315deg,
+      hsl(241.1 62% 60.6%) 338deg,
+      hsl(247.2 62% 62.0%) 360deg);
+}
+
+.wm{
+  display: inline-block;
+  width: var(--wm-size);
+  aspect-ratio: 245.15 / 238.7;
+  overflow: hidden;
+  flex: none;
+  vertical-align: middle;
+  container-type: inline-size;
+}
+.wm::before{
+  content: "";
+  display: block;
+  width: 245.15px;
+  height: 238.7px;
+  transform: scale(calc(var(--wm-size) / 245.15px));
+  transform-origin: 0 0;
+  clip-path: url(#waldorf-spiral);
+  background: var(--wm-fill, var(--wm-spectrum));
+}
+
+/* Varianty */
+.wm--spectrum{ --wm-fill: var(--wm-spectrum); }   /* celý waldorfský koncept */
+.wm--ms      { --wm-fill: var(--wm-ms); }         /* mateřská škola */
+.wm--zs      { --wm-fill: var(--wm-zs); }         /* základní škola */
+.wm--zus     { --wm-fill: var(--wm-zus); }        /* ZUŠ Fantazie */
+.wm--ss      { --wm-fill: var(--wm-ss); }         /* střední škola */
+.wm--ink     { --wm-fill: #101216; }              /* jednobarevná */
+.wm--white   { --wm-fill: #FFFFFF; }              /* negativní, na barevnou plochu */
+
+/* Pravidlo z přílohy manuálu: pod 44 px vždy jednobarevná verze.
+   Hlídá to i kód, aby se spektrum nepoužilo omylem v malé velikosti.
+   Negativní varianta se nepřepisuje — ta na tmavé ploše platí v každé velikosti. */
+@container (max-width: 43.9px){
+  .wm:not(.wm--white)::before{ background: #101216; }
+}
+
+/* Nouzové řešení tam, kde prohlížeč neumí clip-path: url() */
+@supports not (clip-path: url(#waldorf-spiral)){
+  .wm::before{ clip-path: none; background: none; }
+  .wm{ background: url("waldorf-mark-ink.svg") center / contain no-repeat; }
+}
