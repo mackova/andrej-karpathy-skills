@@ -106,13 +106,14 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 .g-bad > i{background:#1B9AAA}
 
 /* ---------- obálka ---------- */
-.cover .inner{padding:54px; display:flex; align-items:center; min-height:min(58vh,420px)}
+.cover .inner{padding:54px; display:flex; align-items:center; min-height:min(72vh,560px)}
 .cover h1{font-family:'Space Grotesk',sans-serif; font-weight:500;
   font-size:21px; letter-spacing:-.015em; margin:0; line-height:1.3}
-.cover .lockup{display:flex; align-items:center; gap:clamp(22px,3.4vw,40px); --m:clamp(150px,26vw,300px)}
+.cover .lockup{display:flex; align-items:center; gap:clamp(22px,3.4vw,44px); --m:clamp(170px,38vw,440px)}
+.cover .lockup > div{max-width:300px}
 .cover .lockup .mark{width:var(--m); height:calc(var(--m) * 238.7 / 245.15)}
 .cover .lockup .mark > i{transform:scale(calc(var(--m) / 245.15px))}
-.cover .orgs{margin-top:9px; font-size:11px; letter-spacing:.16em;
+.cover .orgs{margin-top:9px; font-size:11px; letter-spacing:.16em; text-wrap:balance;
   text-transform:uppercase; font-weight:700; color:var(--ink-3); line-height:1.6}
 .cover .who{font-size:13px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--ink-3)}
 /* ---------- lockup, varianty ---------- */
