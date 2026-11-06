@@ -1,6 +1,6 @@
 
 <!-- ==================== 05 BARVY ==================== -->
-<article class="page" id="s05">
+<article class="page" id="k05">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">05 · Barvy</p>
@@ -40,14 +40,14 @@
       na <code>#BC4D96</code> — původní hodnota měla vůči bílé i vůči inkoustu shodně 4,33:1,
       tedy přesný geometrický střed mezi nimi, a neunesla ani jeden z nich. Posun je pouhým
       okem nerozeznatelný. Šedá plocha <code>#F5F5F7</code> byla z palety vyřazena; místo ní
-      slouží jemné tinty jednotlivých generací ze strany 10.</p>
+      slouží jemné tinty jednotlivých generací z <a class="kap" href="#k09">kapitoly 09 · Barvy pro obrazovku</a>.</p>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">6</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 05 · Barvy</span></div>
 </article>
 
 <!-- ==================== 06 PÍSMO ==================== -->
-<article class="page" id="s06">
+<article class="page" id="k06">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">06 · Písmo</p>
@@ -91,11 +91,11 @@
       předložkami.</p>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">7</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 06 · Písmo</span></div>
 </article>
 
 <!-- ==================== 07 ZNAK JEDNOTLIVÝCH ŠKOL ==================== -->
-<article class="page" id="s07">
+<article class="page" id="k07">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">07 · Znak pro jednotlivé školy</p>
@@ -131,15 +131,15 @@
       <div class="note" style="margin-top:0">
         <p><strong>Kdy barvu školy.</strong> Dokumenty, přihlášky, informace pro rodiče
         a kalendáře jedné školy. Nikdy dvě barevné verze na jedné stránce — jedinou výjimkou
-        je rozcestník skupiny na webu, viz strana 13.</p>
+        je rozcestník skupiny na webu, viz <a class="kap" href="#k14">kapitola 14 · Čtyři generace na jedné stránce</a>.</p>
       </div>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">8</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 07 · Znak jednotlivých škol</span></div>
 </article>
 
 <!-- ==================== 08 APLIKACE ==================== -->
-<article class="page" id="s08">
+<article class="page" id="k08">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">08 · Aplikace</p>
@@ -190,7 +190,7 @@
           <li><code>waldorf-mark-ink.svg</code> — jednobarevná</li>
           <li><code>waldorf-mark-white.svg</code> — negativní</li>
           <li><code>waldorf-mark-ms / -zs / -zus / -ss.svg</code> — barvy škol</li>
-          <li><code>waldorf-mark.css</code> — znak pro web, viz strana 11</li>
+          <li><code>waldorf-mark.css</code> — znak pro web, viz <a class="kap" href="#k10">kapitola 10 · Znak v kódu</a></li>
         </ul>
       </div>
       <div>
@@ -203,5 +203,5 @@
       </div>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">9</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 08 · Aplikace</span></div>
 </article>

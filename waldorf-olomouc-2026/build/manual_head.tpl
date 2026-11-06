@@ -29,7 +29,13 @@
 *{box-sizing:border-box}
 body{margin:0; background:var(--canvas); color:var(--ink);
   font-family:Manrope,system-ui,-apple-system,sans-serif; font-size:15px; line-height:1.7;
-  -webkit-font-smoothing:antialiased; padding:32px 18px 70px}
+  -webkit-font-smoothing:antialiased}
+.layout{display:grid; grid-template-columns:1fr; gap:0}
+.obsah{padding:28px 18px 70px; min-width:0}
+@media (min-width:1000px){
+  .layout{grid-template-columns:244px minmax(0,1fr)}
+  .obsah{padding:34px 28px 90px}
+}
 h1,h2,h3,h4{margin:0; font-family:'Space Grotesk',system-ui,sans-serif; font-weight:500;
   line-height:1.14; letter-spacing:-.022em; text-wrap:balance}
 p{margin:0}
@@ -37,8 +43,38 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
   background:#F5F5F7; padding:2px 6px; border-radius:2px}
 :focus-visible{outline:2px solid var(--ink); outline-offset:3px}
 
+/* ---------- trvalá navigace ---------- */
+.nav{background:var(--page); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:40}
+.nav-hlava{display:flex; align-items:center; gap:12px; padding:14px 18px}
+.nav-hlava .nm{font-family:'Space Grotesk',sans-serif; font-size:14.5px; font-weight:500;
+  letter-spacing:-.02em; line-height:1.2}
+.nav-hlava .vz{font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:700; color:var(--ink-3); margin-top:2px}
+.nav-tog{margin-left:auto; font:inherit; font-size:11px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; background:none; border:1px solid var(--line); border-radius:999px;
+  padding:6px 13px; cursor:pointer; color:var(--ink)}
+.nav-seznam{display:none; padding:0 10px 14px; max-height:62vh; overflow:auto}
+.nav[data-otevreno] .nav-seznam{display:block}
+.nav-dil{font-size:10px; letter-spacing:.15em; text-transform:uppercase; font-weight:700;
+  color:var(--ink-3); padding:14px 10px 6px}
+.nav a{display:flex; gap:10px; align-items:baseline; padding:7px 10px; border-radius:3px;
+  text-decoration:none; color:var(--ink-2); font-size:13.5px; line-height:1.35;
+  transition:background var(--pohyb-stav) var(--krivka-klid), color var(--pohyb-stav) var(--krivka-klid)}
+.nav a:hover{background:#F5F5F7; color:var(--ink)}
+.nav a .k{font-size:11px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums;
+  min-width:17px}
+.nav a[aria-current="true"]{background:#F5F5F7; color:var(--ink); font-weight:600}
+.nav a[aria-current="true"] .k{color:var(--zs)}
+@media (min-width:1000px){
+  .nav{position:sticky; top:0; height:100vh; border-bottom:0; border-right:1px solid var(--line);
+    overflow:auto; display:flex; flex-direction:column}
+  .nav-hlava{padding:26px 18px 6px; display:block}
+  .nav-tog{display:none}
+  .nav-seznam{display:block; max-height:none; overflow:visible; padding:0 8px 30px}
+}
+
 /* ---------- strana ---------- */
-.page{background:var(--page); color:var(--ink); max-width:1000px; margin:0 auto 24px;
+.page{background:var(--page); color:var(--ink); max-width:940px; margin:0 auto 22px; scroll-margin-top:72px;
   border-radius:3px; box-shadow:0 1px 2px rgba(16,18,22,.06), 0 22px 50px -30px rgba(16,18,22,.5);
   display:flex; flex-direction:column; overflow:hidden}
 .page > .inner{padding:50px 54px 32px; flex:1}
@@ -48,8 +84,12 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
 .lead{margin-top:15px; color:var(--ink-2); max-width:66ch; font-size:15.5px}
 .pfoot{display:flex; align-items:center; padding:13px 54px 19px; border-top:1px solid var(--line);
   font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:700}
-.pfoot .n{margin-left:auto; font-variant-numeric:tabular-nums}
+.pfoot .n{margin-left:auto; font-variant-numeric:tabular-nums; letter-spacing:.1em}
 h3.sub{font-size:16.5px; margin:34px 0 10px}
+a.kap{color:var(--zs); text-decoration:underline; text-decoration-thickness:1px;
+  text-underline-offset:3px; font-weight:600;
+  transition:text-decoration-thickness var(--pohyb-stav) var(--krivka-klid)}
+a.kap:hover{text-decoration-thickness:2px}
 .note{background:#F5F5F7; border-left:3px solid var(--ink); padding:15px 19px; margin-top:20px; border-radius:2px}
 .note p{font-size:14.5px; color:var(--ink-2)}
 .note strong{color:var(--ink)}
@@ -75,13 +115,14 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 .cover .meta{margin-top:38px; padding-top:20px; border-top:1px solid var(--line);
   display:flex; flex-wrap:wrap; gap:0 40px; row-gap:14px; font-size:13px; color:var(--ink-3)}
 .cover .meta b{display:block; color:var(--ink); font-weight:600; font-size:13.5px}
-.toc{margin-top:34px; display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:1px;
-  background:var(--line); border:1px solid var(--line); border-radius:2px}
-.toc a{background:var(--white); padding:13px 16px; text-decoration:none; color:var(--ink); display:block}
-.toc a:hover{background:#F5F5F7}
-.toc .k{display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--ink-3)}
-.toc .t{font-family:'Space Grotesk',sans-serif; font-size:14.5px; margin-top:3px; letter-spacing:-.015em}
-
+.dily{margin-top:30px; display:grid; gap:1px; background:var(--line);
+  border:1px solid var(--line); border-radius:2px;
+  grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.dily > div{background:var(--white); padding:16px 18px}
+.dily b{display:block; font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:500}
+.dily span{display:block; font-size:10.5px; letter-spacing:.13em; text-transform:uppercase;
+  font-weight:700; color:var(--ink-3); margin:3px 0 8px}
+.dily p{font-size:13px; color:var(--ink-2); line-height:1.6}
 /* ---------- lockup, varianty ---------- */
 .stage{margin-top:26px; padding:34px 26px; background:#F5F5F7; border-radius:2px;
   display:flex; align-items:center; justify-content:center; gap:26px; flex-wrap:wrap}

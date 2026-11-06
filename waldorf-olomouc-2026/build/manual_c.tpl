@@ -1,6 +1,6 @@
 
 <!-- ==================== 09 WEB · BARVY ==================== -->
-<article class="page" id="s09">
+<article class="page" id="k09">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">09 · Web</p>
@@ -61,7 +61,7 @@
       <li><strong>Světlá plocha nese vždy inkoust</strong>, sytá plocha vždy bílou. Nikdy naopak.</li>
       <li><strong>Text na bílé</strong> se používá na nadpisy, odkazy a čísla. Syté plochy nikdy jako text.</li>
       <li><strong>Jemný tint</strong> je pro bloky, tabulky a zvýrazněné odstavce; text v nich je inkoust.
-        Tinty nahradily vyřazenou šedou plochu ze strany 6.</li>
+        Tinty nahradily vyřazenou šedou plochu z <a class="kap" href="#k05">kapitoly 05 · Barvy</a>.</li>
       <li><strong>Amber #EE9B00 je nejlepší plocha v systému</strong> — inkoust na něm má 8,32:1,
         nejvíc ze všech čtyř. ZUŠ na tom má stavět, ne se tomu vyhýbat.</li>
       <li><strong>Střední škola je opačný případ</strong> — jediná barva, která funguje jako text
@@ -69,11 +69,11 @@
         vždy bílou.</li>
     </ul>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">10</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 09 · Barvy pro obrazovku</span></div>
 </article>
 
 <!-- ==================== 10 WEB · ZNAK V KÓDU ==================== -->
-<article class="page" id="s10">
+<article class="page" id="k10">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">10 · Web</p>
@@ -130,5 +130,5 @@
       jako paprsky.</p>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">11</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 10 · Znak v kódu</span></div>
 </article>

@@ -1,15 +1,14 @@
-
-<!-- ==================== 11 WEB · PLOCHY, STAVY, OBRÁZKY ==================== -->
-<article class="page" id="s11">
+<!-- ==================== 11 PLOCHY NESOU BARVU ==================== -->
+<article class="page" id="k11">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">11 · Web</p>
-    <h2>Plochy, stavy a obrázky</h2>
+    <h2>Plochy nesou barvu</h2>
     <p class="lead">
-      Tři věci, které tiskový manuál neřešil, protože je papír nepotřebuje: čím se plochy
-      vyplňují, jak vypadají prvky pod kurzorem a co smí být na fotkách.
+      Papír si vystačí s bílou a šedou. Na obrazovce nese plocha barvu generace, které patří —
+      neutrální šeď ani černá do systému nepatří vůbec.
     </p>
-    <h3 class="sub">Plochy nesou barvu</h3>
+
     <ul>
       <li><strong>Žádná černá, šedá ani béžová plocha.</strong> Pole má barvu generace,
         které patří. Jediný neutrál je bílá.</li>
@@ -18,17 +17,31 @@
         nikdy neutrální šedí.</li>
       <li>Tmavý režim se vědomě nedělá. Vyžadoval by tmavé plochy, které do systému nepatří.</li>
     </ul>
-    <h3 class="sub">Stavy prvků</h3>
+  </div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 11 · Plochy</span></div>
+</article>
+
+<!-- ==================== 12 STAVY PRVKŮ ==================== -->
+<article class="page" id="k12">
+  <div class="rule"></div>
+  <div class="inner">
+    <p class="eyebrow">12 · Web</p>
+    <h2>Stavy prvků</h2>
+    <p class="lead">
+      Jak vypadá odkaz pod kurzorem, zaměření z klávesnice nebo chybová hláška. Tiskový manuál
+      to neřešil, protože papír nemá kurzor.
+    </p>
+
     <div class="states">
       <div class="state">
         <h4>Odkaz</h4>
         <p>Textová barva generace, podtržení 1 px s odstupem 3 px.</p>
-        <p class="demo"><a href="#s11">termíny zápisu</a></p>
+        <p class="demo"><a href="#k12">termíny zápisu</a></p>
       </div>
       <div class="state">
         <h4>Pod kurzorem</h4>
         <p>Podtržení zesílí na 2 px. Barva se nemění — ztmavení by rozbilo kontrast.</p>
-        <p class="demo"><a href="#s11" class="hov">termíny zápisu</a></p>
+        <p class="demo"><a href="#k12" class="hov">termíny zápisu</a></p>
       </div>
       <div class="state">
         <h4>Zaměření z klávesnice</h4>
@@ -58,7 +71,21 @@
       Zelená by se ale s barvou základní školy pletla vždy — proto se úspěch značí inkoustem
       a ikonou, ne barvou.</p>
     </div>
-    <h3 class="sub">Obrázky</h3>
+  </div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 12 · Stavy prvků</span></div>
+</article>
+
+<!-- ==================== 13 OBRÁZKY ==================== -->
+<article class="page" id="k13">
+  <div class="rule"></div>
+  <div class="inner">
+    <p class="eyebrow">13 · Web</p>
+    <h2>Obrázky</h2>
+    <p class="lead">
+      Manuál dosud řešil znak a písmo, obraz vůbec. Přitom u školy rozhoduje o důvěře
+      právě fotografie.
+    </p>
+
     <div class="imgrules">
       <div class="ir">
         <h4>Cíl: skutečná škola</h4>
@@ -94,13 +121,16 @@
       <div class="pr"><span class="k">Formát</span><span class="v">3:2 na šířku pro pásky, 4:5 na výšku pro karty. Bez textu, bez log, bez ostrého protisvětla.</span></div>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">12</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 13 · Obrázky</span></div>
 </article>
 
-<!-- ==================== 12 WEB · ROZCESTNÍK A ZMĚNY ==================== -->
-<article class="page" id="s12">
+<!-- ==================== 14 ČTYŘI GENERACE NA JEDNÉ STRÁNCE ==================== -->
+<article class="page" id="k14">
   <div class="rule"></div>
   <div class="inner">
+    <p class="eyebrow">14 · Web</p>
+    <h2>Čtyři generace na jedné stránce</h2>
+
     <p class="eyebrow">12 · Web</p>
     <h2>Čtyři generace na jedné stránce</h2>
     <p class="lead">
@@ -108,10 +138,10 @@
       patří jedné škole. Rozcestník skupiny ale musí ze své podstaty nabídnout všechny čtyři
       generace najednou. Tohle je jediné povolené místo, kde se to pravidlo poruší.
     </p>
-    <h3 class="sub">Co kde platí</h3>
+<h3 class="sub">Co kde platí</h3>
     <ul>
       <li><strong>Sekce jedné školy</strong> — jedna barva generace, znak ve variantě té školy.
-        Přesně podle strany 8.</li>
+        Přesně podle <a class="kap" href="#k07">kapitoly 07 · Znak jednotlivých škol</a>.</li>
       <li><strong>Rozcestník skupiny</strong> — znak vždy plný spektrální, text vždy inkoustový.
         Barvy generací se smějí objevit <strong>jen jako značka v navigaci</strong>: pruh,
         tečka, podtržení.</li>
@@ -119,32 +149,6 @@
       <li>Plné spektrum znamená celý waldorfský koncept, podbarva jednu etapu cesty.
         Barva na stránce říká, ke které generaci se právě mluví.</li>
     </ul>
-    <h3 class="sub">Shrnutí změn oproti verzi 1.0</h3>
-    <div class="chg">
-      <div class="chgrow"><span class="s m">Mění</span><p><b>Mateřská #C0509A → #BC4D96.</b> Jediná změněná barevná hodnota. Strana 6.</p></div>
-      <div class="chgrow"><span class="s m">Mění</span><p><b>Jednobarevný znak sjednocen na #101216.</b> Dodaný soubor měl #161E90, strana 3 uvádí inkoust. Platí manuál.</p></div>
-      <div class="chgrow"><span class="s r">Ruší</span><p><b>Šedá plocha #F5F5F7.</b> Plochy nesou barvu generace, neutrál je jen bílá. Nahrazují ji jemné tinty ze strany 10.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Čtyři tokeny na generaci</b> místo jedné hodnoty — strana 10.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Pod 44 px jen jednobarevný znak</b> na obrazovce — strana 11.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Znak jako kód</b> a soubory pro tisk a e-mail — strana 11.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Stavy prvků</b> a chybová červená #B2261E — strana 12.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Pravidla pro obrázky</b> včetně dočasného režimu bez vlastních fotek — strana 12.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Výjimka pro rozcestník skupiny</b> — tato strana.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Rozhodnutí nedělat tmavý režim</b> — strana 12.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Kapitolu o pohybu</b> — tokeny časů a křivek, živé ukázky, pravidlo, že se znak neotáčí ani v pohybu. Strany 14 a 15.</p></div>
-    </div>
-    <div class="note">
-      <p><strong>Beze změny zůstává.</strong> Tvar znaku a všech sedm variant. Space Grotesk
-      a Manrope. Barvy základní školy, ZUŠ Fantazie a střední školy. Ochranná zóna, umístění
-      na dokumentu a zakázané varianty ze stran 4 a 5. Logika, podle níž plné spektrum patří
-      celku a podbarva jedné škole.</p>
-    </div>
-    <p class="lead" style="margin-top:24px; font-size:12.5px; color:var(--ink-3)">
-      Kontrastní poměry měřené podle WCAG 2.1 proti bílé, případně proti inkoustu #101216.
-      Barvy doplněné ve verzi 2.0 jsou dopočítané v OKLCH jako nejbližší vyhovující hodnota
-      k původní, ne odhadem. Hodnoty CMYK jsou orientační — před tiskem je ověřte v tiskárně.
-      Znak je v tomto dokumentu vykreslen z ořezové cesty originálního souboru.
-    </p>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">13</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 14 · Čtyři generace na jedné stránce</span></div>
 </article>

@@ -29,7 +29,13 @@
 *{box-sizing:border-box}
 body{margin:0; background:var(--canvas); color:var(--ink);
   font-family:Manrope,system-ui,-apple-system,sans-serif; font-size:15px; line-height:1.7;
-  -webkit-font-smoothing:antialiased; padding:32px 18px 70px}
+  -webkit-font-smoothing:antialiased}
+.layout{display:grid; grid-template-columns:1fr; gap:0}
+.obsah{padding:28px 18px 70px; min-width:0}
+@media (min-width:1000px){
+  .layout{grid-template-columns:244px minmax(0,1fr)}
+  .obsah{padding:34px 28px 90px}
+}
 h1,h2,h3,h4{margin:0; font-family:'Space Grotesk',system-ui,sans-serif; font-weight:500;
   line-height:1.14; letter-spacing:-.022em; text-wrap:balance}
 p{margin:0}
@@ -37,8 +43,38 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
   background:#F5F5F7; padding:2px 6px; border-radius:2px}
 :focus-visible{outline:2px solid var(--ink); outline-offset:3px}
 
+/* ---------- trvalá navigace ---------- */
+.nav{background:var(--page); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:40}
+.nav-hlava{display:flex; align-items:center; gap:12px; padding:14px 18px}
+.nav-hlava .nm{font-family:'Space Grotesk',sans-serif; font-size:14.5px; font-weight:500;
+  letter-spacing:-.02em; line-height:1.2}
+.nav-hlava .vz{font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:700; color:var(--ink-3); margin-top:2px}
+.nav-tog{margin-left:auto; font:inherit; font-size:11px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; background:none; border:1px solid var(--line); border-radius:999px;
+  padding:6px 13px; cursor:pointer; color:var(--ink)}
+.nav-seznam{display:none; padding:0 10px 14px; max-height:62vh; overflow:auto}
+.nav[data-otevreno] .nav-seznam{display:block}
+.nav-dil{font-size:10px; letter-spacing:.15em; text-transform:uppercase; font-weight:700;
+  color:var(--ink-3); padding:14px 10px 6px}
+.nav a{display:flex; gap:10px; align-items:baseline; padding:7px 10px; border-radius:3px;
+  text-decoration:none; color:var(--ink-2); font-size:13.5px; line-height:1.35;
+  transition:background var(--pohyb-stav) var(--krivka-klid), color var(--pohyb-stav) var(--krivka-klid)}
+.nav a:hover{background:#F5F5F7; color:var(--ink)}
+.nav a .k{font-size:11px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums;
+  min-width:17px}
+.nav a[aria-current="true"]{background:#F5F5F7; color:var(--ink); font-weight:600}
+.nav a[aria-current="true"] .k{color:var(--zs)}
+@media (min-width:1000px){
+  .nav{position:sticky; top:0; height:100vh; border-bottom:0; border-right:1px solid var(--line);
+    overflow:auto; display:flex; flex-direction:column}
+  .nav-hlava{padding:26px 18px 6px; display:block}
+  .nav-tog{display:none}
+  .nav-seznam{display:block; max-height:none; overflow:visible; padding:0 8px 30px}
+}
+
 /* ---------- strana ---------- */
-.page{background:var(--page); color:var(--ink); max-width:1000px; margin:0 auto 24px;
+.page{background:var(--page); color:var(--ink); max-width:940px; margin:0 auto 22px; scroll-margin-top:72px;
   border-radius:3px; box-shadow:0 1px 2px rgba(16,18,22,.06), 0 22px 50px -30px rgba(16,18,22,.5);
   display:flex; flex-direction:column; overflow:hidden}
 .page > .inner{padding:50px 54px 32px; flex:1}
@@ -48,8 +84,12 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
 .lead{margin-top:15px; color:var(--ink-2); max-width:66ch; font-size:15.5px}
 .pfoot{display:flex; align-items:center; padding:13px 54px 19px; border-top:1px solid var(--line);
   font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:700}
-.pfoot .n{margin-left:auto; font-variant-numeric:tabular-nums}
+.pfoot .n{margin-left:auto; font-variant-numeric:tabular-nums; letter-spacing:.1em}
 h3.sub{font-size:16.5px; margin:34px 0 10px}
+a.kap{color:var(--zs); text-decoration:underline; text-decoration-thickness:1px;
+  text-underline-offset:3px; font-weight:600;
+  transition:text-decoration-thickness var(--pohyb-stav) var(--krivka-klid)}
+a.kap:hover{text-decoration-thickness:2px}
 .note{background:#F5F5F7; border-left:3px solid var(--ink); padding:15px 19px; margin-top:20px; border-radius:2px}
 .note p{font-size:14.5px; color:var(--ink-2)}
 .note strong{color:var(--ink)}
@@ -75,13 +115,14 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 .cover .meta{margin-top:38px; padding-top:20px; border-top:1px solid var(--line);
   display:flex; flex-wrap:wrap; gap:0 40px; row-gap:14px; font-size:13px; color:var(--ink-3)}
 .cover .meta b{display:block; color:var(--ink); font-weight:600; font-size:13.5px}
-.toc{margin-top:34px; display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:1px;
-  background:var(--line); border:1px solid var(--line); border-radius:2px}
-.toc a{background:var(--white); padding:13px 16px; text-decoration:none; color:var(--ink); display:block}
-.toc a:hover{background:#F5F5F7}
-.toc .k{display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--ink-3)}
-.toc .t{font-family:'Space Grotesk',sans-serif; font-size:14.5px; margin-top:3px; letter-spacing:-.015em}
-
+.dily{margin-top:30px; display:grid; gap:1px; background:var(--line);
+  border:1px solid var(--line); border-radius:2px;
+  grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.dily > div{background:var(--white); padding:16px 18px}
+.dily b{display:block; font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:500}
+.dily span{display:block; font-size:10.5px; letter-spacing:.13em; text-transform:uppercase;
+  font-weight:700; color:var(--ink-3); margin:3px 0 8px}
+.dily p{font-size:13px; color:var(--ink-2); line-height:1.6}
 /* ---------- lockup, varianty ---------- */
 .stage{margin-top:26px; padding:34px 26px; background:#F5F5F7; border-radius:2px;
   display:flex; align-items:center; justify-content:center; gap:26px; flex-wrap:wrap}
@@ -316,9 +357,42 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <clipPath id="waldorf-spiral" transform="translate(-174.43 -275.35)">__CLIP__</clipPath>
 </svg>
-
+<div class="layout">
+<nav class="nav" aria-label="Obsah manuálu">
+  <div class="nav-hlava">
+    <div><p class="nm">Logomanuál<br>Waldorf Olomouc</p><p class="vz">Verze 2.1 · WOLIP</p></div>
+    <button class="nav-tog" aria-expanded="false">Obsah</button>
+  </div>
+  <div class="nav-seznam">
+    <p class="nav-dil">Začněte zde</p>
+    <a href="#prehled"><span class="k">—</span><span>Rychlý přehled</span></a>
+    <p class="nav-dil">A · Značka</p>
+    <a href="#k01"><span class="k">01</span><span>Znak</span></a>
+    <a href="#k02"><span class="k">02</span><span>Varianty</span></a>
+    <a href="#k03"><span class="k">03</span><span>Prostor a velikost</span></a>
+    <a href="#k04"><span class="k">04</span><span>Zakázané varianty</span></a>
+    <a href="#k05"><span class="k">05</span><span>Barvy</span></a>
+    <a href="#k06"><span class="k">06</span><span>Písmo</span></a>
+    <a href="#k07"><span class="k">07</span><span>Znak jednotlivých škol</span></a>
+    <a href="#k08"><span class="k">08</span><span>Aplikace</span></a>
+    <p class="nav-dil">B · Web</p>
+    <a href="#k09"><span class="k">09</span><span>Barvy pro obrazovku</span></a>
+    <a href="#k10"><span class="k">10</span><span>Znak v kódu</span></a>
+    <a href="#k11"><span class="k">11</span><span>Plochy</span></a>
+    <a href="#k12"><span class="k">12</span><span>Stavy prvků</span></a>
+    <a href="#k13"><span class="k">13</span><span>Obrázky</span></a>
+    <a href="#k14"><span class="k">14</span><span>Čtyři generace na jedné stránce</span></a>
+    <p class="nav-dil">C · Pohyb</p>
+    <a href="#k15"><span class="k">15</span><span>Rytmus, ne efekt</span></a>
+    <a href="#k16"><span class="k">16</span><span>Časy a křivky</span></a>
+    <a href="#k17"><span class="k">17</span><span>Živé ukázky</span></a>
+    <p class="nav-dil">Závěr</p>
+    <a href="#k18"><span class="k">18</span><span>Změny oproti verzi 1.0</span></a>
+  </div>
+</nav>
+<div class="obsah">
 <!-- ==================== OBÁLKA ==================== -->
-<article class="page cover">
+<article class="page cover" id="obalka">
   <div class="rule"></div>
   <div class="inner">
     <div class="head">
@@ -328,36 +402,107 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
         <h1 style="margin-top:8px">Logomanuál</h1>
       </div>
     </div>
-    <p class="cl">Pravidla pro znak, barvy a písmo napříč pěti organizacemi školy —
-      včetně kapitoly pro web.</p>
+    <p class="cl">Pravidla pro znak, barvy, písmo a pohyb napříč pěti organizacemi školy.</p>
+    <div class="dily">
+      <div><b>A · Značka</b><span>Kapitoly 01–08</span><p>Znak, barvy, písmo a tiskové aplikace. Pro kohokoli, kdo dělá dokument nebo plakát.</p></div>
+      <div><b>B · Web</b><span>Kapitoly 09–14</span><p>Barevné tokeny, znak jako kód, plochy, stavy a obrázky. Pro toho, kdo staví web.</p></div>
+      <div><b>C · Pohyb</b><span>Kapitoly 15–17</span><p>Časy, křivky a funkční ukázky. Co se hýbe a co zůstává v klidu.</p></div>
+    </div>
     <div class="meta">
-      <div><b>Verze</b>2.0 · 2026</div>
+      <div><b>Verze</b>2.1 · 2026</div>
       <div><b>Adresa</b>Tomkova 420/48, Hejčín, 779 00 Olomouc</div>
       <div><b>Web</b>waldorf-olomouc.cz</div>
       <div><b>Design</b>WOLIP</div>
     </div>
-    <div class="toc">
-      <a href="#s01"><span class="k">01</span><span class="t">Znak</span></a>
-      <a href="#s02"><span class="k">02</span><span class="t">Varianty</span></a>
-      <a href="#s03"><span class="k">03</span><span class="t">Prostor a velikost</span></a>
-      <a href="#s04"><span class="k">04</span><span class="t">Zakázané varianty</span></a>
-      <a href="#s05"><span class="k">05</span><span class="t">Barvy</span></a>
-      <a href="#s06"><span class="k">06</span><span class="t">Písmo</span></a>
-      <a href="#s07"><span class="k">07</span><span class="t">Znak jednotlivých škol</span></a>
-      <a href="#s08"><span class="k">08</span><span class="t">Aplikace</span></a>
-      <a href="#s09"><span class="k">09 · Web</span><span class="t">Barvy pro obrazovku</span></a>
-      <a href="#s10"><span class="k">10 · Web</span><span class="t">Znak v kódu</span></a>
-      <a href="#s11"><span class="k">11 · Web</span><span class="t">Plochy, stavy, obrázky</span></a>
-      <a href="#s12"><span class="k">12 · Web</span><span class="t">Rozcestník a změny</span></a>
-      <a href="#s13"><span class="k">13 · Pohyb</span><span class="t">Rytmus, ne efekt</span></a>
-      <a href="#s14"><span class="k">14 · Pohyb</span><span class="t">Časy a živé ukázky</span></a>
+  </div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Obálka</span></div>
+</article>
+
+<!-- ==================== RYCHLÝ PŘEHLED ==================== -->
+<article class="page" id="prehled">
+  <div class="rule"></div>
+  <div class="inner">
+    <p class="eyebrow">Začněte zde</p>
+    <h2>Rychlý přehled</h2>
+    <p class="lead">
+      Všechny hodnoty, které člověk hledá nejčastěji, na jedné obrazovce. Každý řádek odkazuje
+      do kapitoly, kde je pravidlo vysvětlené.
+    </p>
+
+    <h3 class="sub">Barvy generací <a class="kap" href="#k09">kapitola 09</a></h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Generace</th><th>Tisk a znak</th><th>Světlá plocha<br><span style="font-weight:400;text-transform:none;letter-spacing:0">nese inkoust</span></th><th>Sytá plocha<br><span style="font-weight:400;text-transform:none;letter-spacing:0">nese bílou</span></th><th>Text na bílé</th><th>Tint</th></tr></thead>
+        <tbody>
+          <tr><td><span class="sw"><i style="background:#BC4D96"></i>Mateřská</span></td>
+            <td>#BC4D96</td><td>#D684B7</td><td>#BC4D96</td><td>#BC4D96</td><td>#EEC4DC</td></tr>
+          <tr><td><span class="sw"><i style="background:#3F905D"></i>Základní</span></td>
+            <td>#3F905D</td><td>#72AB84</td><td>#3D8553</td><td>#3D8553</td><td>#BBD7C2</td></tr>
+          <tr><td><span class="sw"><i style="background:#EE9B00"></i>ZUŠ Fantazie</span></td>
+            <td>#EE9B00</td><td>#EE9B00</td><td>#AB6703</td><td>#AB6703</td><td>#F7C68B</td></tr>
+          <tr><td><span class="sw"><i style="background:#4A3CB0"></i>Střední · lyceum</span></td>
+            <td>#4A3CB0</td><td>#9699D9</td><td>#4A3CB0</td><td>#4A3CB0</td><td>#CCCEEE</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="zone" style="margin-top:26px">
+      <div>
+        <h3 class="sub" style="margin-top:0">Znak <a class="kap" href="#k01">kapitola 01</a></h3>
+        <ul style="margin-top:8px">
+          <li>Sedm variant, jedna ořezová cesta. Nikdy se nepřebarvuje ani neotáčí.</li>
+          <li>Ochranná zóna: <strong>polovina šířky znaku</strong> na všech stranách.</li>
+          <li>Minimum: <strong>8 mm</strong> tisk, <strong>20 px</strong> obrazovka jednobarevně.</li>
+          <li>Barevně na obrazovce až <strong>od 44 px</strong> — <a class="kap" href="#k10">kapitola 10</a>.</li>
+          <li>Na barevné i tmavé ploše vždy <strong>bílá verze</strong>.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="sub" style="margin-top:0">Písmo <a class="kap" href="#k06">kapitola 06</a></h3>
+        <ul style="margin-top:8px">
+          <li><strong>Space Grotesk</strong> 400/500 — nadpisy, jména, data.</li>
+          <li><strong>Manrope</strong> 400/600/700 — text, tabulky, formuláře.</li>
+          <li>Řádkování <strong>1,7</strong>. Minimum 9 pt tisk, 15 px web.</li>
+          <li>Verzálky s prostrkáním 0,16 em jen na návěstí, nikdy na větu.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="zone" style="margin-top:26px">
+      <div>
+        <h3 class="sub" style="margin-top:0">Neutrály a stavy <a class="kap" href="#k12">kapitola 12</a></h3>
+        <div class="neutral" style="margin-top:8px">
+          <div><i style="background:#101216"></i><b>Inkoust</b><span>#101216 · text</span></div>
+          <div><i style="background:#FFFFFF"></i><b>Bílá</b><span>#FFFFFF · jediný neutrál plochy</span></div>
+          <div><i style="background:#E8E8EA"></i><b>Linka</b><span>#E8E8EA · rámy</span></div>
+          <div><i style="background:#B2261E"></i><b>Chyba</b><span>#B2261E · 6,57:1</span></div>
+        </div>
+      </div>
+      <div>
+        <h3 class="sub" style="margin-top:0">Pohyb <a class="kap" href="#k16">kapitola 16</a></h3>
+        <ul style="margin-top:8px">
+          <li><code>--pohyb-stav</code> 160 ms — hover, focus.</li>
+          <li><code>--pohyb-prvek</code> 320 ms — objevení, přechod barvy.</li>
+          <li><code>--pohyb-sekce</code> 640 ms — příchod sekce.</li>
+          <li><code>--pohyb-znak</code> 1200 ms — tok barvy, jednou.</li>
+          <li>Křivky <code>.2,.7,.3,1</code> a <code>.16,1,.3,1</code>, prodleva 60 ms.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <p><strong>Tři pravidla, která platí všude.</strong> Plocha nese barvu generace —
+      šedá ani černá plocha do systému nepatří (<a class="kap" href="#k11">kapitola 11</a>).
+      Na jedné stránce je jedna barva; jedinou výjimkou je rozcestník skupiny
+      (<a class="kap" href="#k14">kapitola 14</a>). Znak se neotáčí ani v pohybu —
+      hýbe se barva uvnitř něj (<a class="kap" href="#k15">kapitola 15</a>).</p>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">1</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Rychlý přehled</span></div>
 </article>
 
 <!-- ==================== 01 ZNAK ==================== -->
-<article class="page" id="s01">
+<article class="page" id="k01">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">01 · Znak</p>
@@ -384,11 +529,11 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       Znak s názvem — základní sestava. Odstup znaku od textu je vždy alespoň polovina šířky znaku.
     </p>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">2</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 01 · Znak</span></div>
 </article>
 
 <!-- ==================== 02 VARIANTY ==================== -->
-<article class="page" id="s02">
+<article class="page" id="k02">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">02 · Varianty</p>
@@ -418,7 +563,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
         <thead><tr><th>Podklad</th><th>Která verze</th><th>Poznámka</th></tr></thead>
         <tbody>
           <tr><td>Bílá</td><td>barevná</td><td>Základní situace. Platí i pro web.</td></tr>
-          <tr><td>Světlá plocha školy</td><td>barevná nebo jednobarevná</td><td>Viz strana 12, plochy s inkoustovým textem.</td></tr>
+          <tr><td>Světlá plocha školy</td><td>barevná nebo jednobarevná</td><td>Viz <a class="kap" href="#k11">kapitola 11 · Plochy</a>, plochy s inkoustovým textem.</td></tr>
           <tr><td>Inkoust #101216</td><td>negativní</td><td>Bílá verze, nikdy barevná.</td></tr>
           <tr><td>Sytá barva školy</td><td>negativní</td><td>Bílá verze, nikdy barevná.</td></tr>
           <tr><td>Fotografie</td><td>negativní</td><td>Jen na klidném místě snímku, nikdy přes detail.</td></tr>
@@ -427,14 +572,14 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
     </div>
     <div class="note">
       <p><strong>Změna oproti verzi 1.0.</strong> Šedá plocha jako podklad byla vyřazena.
-      Plochy nesou barvu organizace, jediný neutrál je bílá. Podrobně na straně 12.</p>
+      Plochy nesou barvu organizace, jediný neutrál je bílá. Podrobně v <a class="kap" href="#k11">kapitole 11 · Plochy</a>.</p>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">3</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 02 · Varianty</span></div>
 </article>
 
 <!-- ==================== 03 PROSTOR A VELIKOST ==================== -->
-<article class="page" id="s03">
+<article class="page" id="k03">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">03 · Prostor a velikost</p>
@@ -461,7 +606,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
         <p class="lead" style="font-size:14.5px">
           Pod uvedenou velikostí se spirály slévají a znak přestává být čitelný.
           Pro tisk platí <strong>8 mm</strong> šířky, pro obrazovku <strong>20 px</strong>.
-          Ve spektrální verzi na obrazovce platí přísnější hranice, viz strana 11.
+          Ve spektrální verzi na obrazovce platí přísnější hranice, viz <a class="kap" href="#k10">kapitola 10 · Znak v kódu</a>.
         </p>
         <div class="sizes" style="margin-top:16px">
           <div class="scell"><span class="mark g-spec" style="width:78px;height:75.94px"><i style="transform:scale(.3182)"></i></span><span class="c">26 mm</span></div>
@@ -476,18 +621,18 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       Na obálkách může být zvětšen a umístěn na střed. Jiné pozice se nepoužívají.
     </p>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">4</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 03 · Prostor a velikost</span></div>
 </article>
 
 <!-- ==================== 04 ZAKÁZANÉ VARIANTY ==================== -->
-<article class="page" id="s04">
+<article class="page" id="k04">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">04 · Zakázané varianty</p>
     <h2>Co se znakem nedělat</h2>
     <p class="lead">
       Znak se používá vždy z originálního zdroje, bez úprav. Schválené jsou pouze verze
-      ze stran 3 a 8 — žádné jiné přebarvení. Následující zásahy poškozují čitelnost
+      z <a class="kap" href="#k02">kapitoly 02 · Varianty</a> a <a class="kap" href="#k07">kapitoly 07 · Znak jednotlivých škol</a> — žádné jiné přebarvení. Následující zásahy poškozují čitelnost
       i význam a nejsou přípustné.
     </p>
     <div class="dont">
@@ -497,7 +642,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       </div>
       <div class="dcell">
         <div class="b"><span class="x">✕</span><span class="mark g-bad" style="width:66px;height:64.26px"><i style="transform:scale(.2692)"></i></span></div>
-        <div class="c"><b>Nepřebarvovat</b><span>Jen verze ze stran 3 a 8</span></div>
+        <div class="c"><b>Nepřebarvovat</b><span>Jen schválené verze</span></div>
       </div>
       <div class="dcell">
         <div class="b"><span class="x">✕</span><span class="mark g-spec" style="width:66px;height:64.26px;filter:drop-shadow(4px 5px 3px rgba(16,18,22,.5))"><i style="transform:scale(.2692)"></i></span></div>
@@ -519,11 +664,11 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       </div>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">5</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 04 · Zakázané varianty</span></div>
 </article>
 
 <!-- ==================== 05 BARVY ==================== -->
-<article class="page" id="s05">
+<article class="page" id="k05">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">05 · Barvy</p>
@@ -563,14 +708,14 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       na <code>#BC4D96</code> — původní hodnota měla vůči bílé i vůči inkoustu shodně 4,33:1,
       tedy přesný geometrický střed mezi nimi, a neunesla ani jeden z nich. Posun je pouhým
       okem nerozeznatelný. Šedá plocha <code>#F5F5F7</code> byla z palety vyřazena; místo ní
-      slouží jemné tinty jednotlivých generací ze strany 10.</p>
+      slouží jemné tinty jednotlivých generací z <a class="kap" href="#k09">kapitoly 09 · Barvy pro obrazovku</a>.</p>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">6</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 05 · Barvy</span></div>
 </article>
 
 <!-- ==================== 06 PÍSMO ==================== -->
-<article class="page" id="s06">
+<article class="page" id="k06">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">06 · Písmo</p>
@@ -614,11 +759,11 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       předložkami.</p>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">7</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 06 · Písmo</span></div>
 </article>
 
 <!-- ==================== 07 ZNAK JEDNOTLIVÝCH ŠKOL ==================== -->
-<article class="page" id="s07">
+<article class="page" id="k07">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">07 · Znak pro jednotlivé školy</p>
@@ -654,15 +799,15 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <div class="note" style="margin-top:0">
         <p><strong>Kdy barvu školy.</strong> Dokumenty, přihlášky, informace pro rodiče
         a kalendáře jedné školy. Nikdy dvě barevné verze na jedné stránce — jedinou výjimkou
-        je rozcestník skupiny na webu, viz strana 13.</p>
+        je rozcestník skupiny na webu, viz <a class="kap" href="#k14">kapitola 14 · Čtyři generace na jedné stránce</a>.</p>
       </div>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">8</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 07 · Znak jednotlivých škol</span></div>
 </article>
 
 <!-- ==================== 08 APLIKACE ==================== -->
-<article class="page" id="s08">
+<article class="page" id="k08">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">08 · Aplikace</p>
@@ -713,7 +858,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
           <li><code>waldorf-mark-ink.svg</code> — jednobarevná</li>
           <li><code>waldorf-mark-white.svg</code> — negativní</li>
           <li><code>waldorf-mark-ms / -zs / -zus / -ss.svg</code> — barvy škol</li>
-          <li><code>waldorf-mark.css</code> — znak pro web, viz strana 11</li>
+          <li><code>waldorf-mark.css</code> — znak pro web, viz <a class="kap" href="#k10">kapitola 10 · Znak v kódu</a></li>
         </ul>
       </div>
       <div>
@@ -726,11 +871,11 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       </div>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">9</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 08 · Aplikace</span></div>
 </article>
 
 <!-- ==================== 09 WEB · BARVY ==================== -->
-<article class="page" id="s09">
+<article class="page" id="k09">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">09 · Web</p>
@@ -791,7 +936,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <li><strong>Světlá plocha nese vždy inkoust</strong>, sytá plocha vždy bílou. Nikdy naopak.</li>
       <li><strong>Text na bílé</strong> se používá na nadpisy, odkazy a čísla. Syté plochy nikdy jako text.</li>
       <li><strong>Jemný tint</strong> je pro bloky, tabulky a zvýrazněné odstavce; text v nich je inkoust.
-        Tinty nahradily vyřazenou šedou plochu ze strany 6.</li>
+        Tinty nahradily vyřazenou šedou plochu z <a class="kap" href="#k05">kapitoly 05 · Barvy</a>.</li>
       <li><strong>Amber #EE9B00 je nejlepší plocha v systému</strong> — inkoust na něm má 8,32:1,
         nejvíc ze všech čtyř. ZUŠ na tom má stavět, ne se tomu vyhýbat.</li>
       <li><strong>Střední škola je opačný případ</strong> — jediná barva, která funguje jako text
@@ -799,11 +944,11 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
         vždy bílou.</li>
     </ul>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">10</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 09 · Barvy pro obrazovku</span></div>
 </article>
 
 <!-- ==================== 10 WEB · ZNAK V KÓDU ==================== -->
-<article class="page" id="s10">
+<article class="page" id="k10">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">10 · Web</p>
@@ -860,20 +1005,19 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       jako paprsky.</p>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">11</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 10 · Znak v kódu</span></div>
 </article>
-
-<!-- ==================== 11 WEB · PLOCHY, STAVY, OBRÁZKY ==================== -->
-<article class="page" id="s11">
+<!-- ==================== 11 PLOCHY NESOU BARVU ==================== -->
+<article class="page" id="k11">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">11 · Web</p>
-    <h2>Plochy, stavy a obrázky</h2>
+    <h2>Plochy nesou barvu</h2>
     <p class="lead">
-      Tři věci, které tiskový manuál neřešil, protože je papír nepotřebuje: čím se plochy
-      vyplňují, jak vypadají prvky pod kurzorem a co smí být na fotkách.
+      Papír si vystačí s bílou a šedou. Na obrazovce nese plocha barvu generace, které patří —
+      neutrální šeď ani černá do systému nepatří vůbec.
     </p>
-    <h3 class="sub">Plochy nesou barvu</h3>
+
     <ul>
       <li><strong>Žádná černá, šedá ani béžová plocha.</strong> Pole má barvu generace,
         které patří. Jediný neutrál je bílá.</li>
@@ -882,17 +1026,31 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
         nikdy neutrální šedí.</li>
       <li>Tmavý režim se vědomě nedělá. Vyžadoval by tmavé plochy, které do systému nepatří.</li>
     </ul>
-    <h3 class="sub">Stavy prvků</h3>
+  </div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 11 · Plochy</span></div>
+</article>
+
+<!-- ==================== 12 STAVY PRVKŮ ==================== -->
+<article class="page" id="k12">
+  <div class="rule"></div>
+  <div class="inner">
+    <p class="eyebrow">12 · Web</p>
+    <h2>Stavy prvků</h2>
+    <p class="lead">
+      Jak vypadá odkaz pod kurzorem, zaměření z klávesnice nebo chybová hláška. Tiskový manuál
+      to neřešil, protože papír nemá kurzor.
+    </p>
+
     <div class="states">
       <div class="state">
         <h4>Odkaz</h4>
         <p>Textová barva generace, podtržení 1 px s odstupem 3 px.</p>
-        <p class="demo"><a href="#s11">termíny zápisu</a></p>
+        <p class="demo"><a href="#k12">termíny zápisu</a></p>
       </div>
       <div class="state">
         <h4>Pod kurzorem</h4>
         <p>Podtržení zesílí na 2 px. Barva se nemění — ztmavení by rozbilo kontrast.</p>
-        <p class="demo"><a href="#s11" class="hov">termíny zápisu</a></p>
+        <p class="demo"><a href="#k12" class="hov">termíny zápisu</a></p>
       </div>
       <div class="state">
         <h4>Zaměření z klávesnice</h4>
@@ -922,7 +1080,21 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       Zelená by se ale s barvou základní školy pletla vždy — proto se úspěch značí inkoustem
       a ikonou, ne barvou.</p>
     </div>
-    <h3 class="sub">Obrázky</h3>
+  </div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 12 · Stavy prvků</span></div>
+</article>
+
+<!-- ==================== 13 OBRÁZKY ==================== -->
+<article class="page" id="k13">
+  <div class="rule"></div>
+  <div class="inner">
+    <p class="eyebrow">13 · Web</p>
+    <h2>Obrázky</h2>
+    <p class="lead">
+      Manuál dosud řešil znak a písmo, obraz vůbec. Přitom u školy rozhoduje o důvěře
+      právě fotografie.
+    </p>
+
     <div class="imgrules">
       <div class="ir">
         <h4>Cíl: skutečná škola</h4>
@@ -958,13 +1130,16 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <div class="pr"><span class="k">Formát</span><span class="v">3:2 na šířku pro pásky, 4:5 na výšku pro karty. Bez textu, bez log, bez ostrého protisvětla.</span></div>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">12</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 13 · Obrázky</span></div>
 </article>
 
-<!-- ==================== 12 WEB · ROZCESTNÍK A ZMĚNY ==================== -->
-<article class="page" id="s12">
+<!-- ==================== 14 ČTYŘI GENERACE NA JEDNÉ STRÁNCE ==================== -->
+<article class="page" id="k14">
   <div class="rule"></div>
   <div class="inner">
+    <p class="eyebrow">14 · Web</p>
+    <h2>Čtyři generace na jedné stránce</h2>
+
     <p class="eyebrow">12 · Web</p>
     <h2>Čtyři generace na jedné stránce</h2>
     <p class="lead">
@@ -972,10 +1147,10 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       patří jedné škole. Rozcestník skupiny ale musí ze své podstaty nabídnout všechny čtyři
       generace najednou. Tohle je jediné povolené místo, kde se to pravidlo poruší.
     </p>
-    <h3 class="sub">Co kde platí</h3>
+<h3 class="sub">Co kde platí</h3>
     <ul>
       <li><strong>Sekce jedné školy</strong> — jedna barva generace, znak ve variantě té školy.
-        Přesně podle strany 8.</li>
+        Přesně podle <a class="kap" href="#k07">kapitoly 07 · Znak jednotlivých škol</a>.</li>
       <li><strong>Rozcestník skupiny</strong> — znak vždy plný spektrální, text vždy inkoustový.
         Barvy generací se smějí objevit <strong>jen jako značka v navigaci</strong>: pruh,
         tečka, podtržení.</li>
@@ -983,40 +1158,16 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <li>Plné spektrum znamená celý waldorfský koncept, podbarva jednu etapu cesty.
         Barva na stránce říká, ke které generaci se právě mluví.</li>
     </ul>
-    <h3 class="sub">Shrnutí změn oproti verzi 1.0</h3>
-    <div class="chg">
-      <div class="chgrow"><span class="s m">Mění</span><p><b>Mateřská #C0509A → #BC4D96.</b> Jediná změněná barevná hodnota. Strana 6.</p></div>
-      <div class="chgrow"><span class="s m">Mění</span><p><b>Jednobarevný znak sjednocen na #101216.</b> Dodaný soubor měl #161E90, strana 3 uvádí inkoust. Platí manuál.</p></div>
-      <div class="chgrow"><span class="s r">Ruší</span><p><b>Šedá plocha #F5F5F7.</b> Plochy nesou barvu generace, neutrál je jen bílá. Nahrazují ji jemné tinty ze strany 10.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Čtyři tokeny na generaci</b> místo jedné hodnoty — strana 10.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Pod 44 px jen jednobarevný znak</b> na obrazovce — strana 11.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Znak jako kód</b> a soubory pro tisk a e-mail — strana 11.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Stavy prvků</b> a chybová červená #B2261E — strana 12.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Pravidla pro obrázky</b> včetně dočasného režimu bez vlastních fotek — strana 12.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Výjimka pro rozcestník skupiny</b> — tato strana.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Rozhodnutí nedělat tmavý režim</b> — strana 12.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Kapitolu o pohybu</b> — tokeny časů a křivek, živé ukázky, pravidlo, že se znak neotáčí ani v pohybu. Strany 14 a 15.</p></div>
-    </div>
-    <div class="note">
-      <p><strong>Beze změny zůstává.</strong> Tvar znaku a všech sedm variant. Space Grotesk
-      a Manrope. Barvy základní školy, ZUŠ Fantazie a střední školy. Ochranná zóna, umístění
-      na dokumentu a zakázané varianty ze stran 4 a 5. Logika, podle níž plné spektrum patří
-      celku a podbarva jedné škole.</p>
-    </div>
-    <p class="lead" style="margin-top:24px; font-size:12.5px; color:var(--ink-3)">
-      Kontrastní poměry měřené podle WCAG 2.1 proti bílé, případně proti inkoustu #101216.
-      Barvy doplněné ve verzi 2.0 jsou dopočítané v OKLCH jako nejbližší vyhovující hodnota
-      k původní, ne odhadem. Hodnoty CMYK jsou orientační — před tiskem je ověřte v tiskárně.
-      Znak je v tomto dokumentu vykreslen z ořezové cesty originálního souboru.
-    </p>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">13</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 14 · Čtyři generace na jedné stránce</span></div>
 </article>
-
-<!-- ==================== 13 POHYB ==================== -->
-<article class="page" id="s13">
+<!-- ==================== 15 RYTMUS, NE EFEKT ==================== -->
+<article class="page" id="k15">
   <div class="rule"></div>
   <div class="inner">
+    <p class="eyebrow">15 · Pohyb</p>
+    <h2>Rytmus, ne efekt</h2>
+
     <p class="eyebrow">13 · Pohyb</p>
     <h2>Rytmus, ne efekt</h2>
     <p class="lead">
@@ -1025,10 +1176,9 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       nenápadný, že si ho nikdo nevšimne. Nic nepřeskakuje, nic nepruží, nic nepoutá pozornost
       samo na sebe.
     </p>
-
-    <h3 class="sub">Znak se neotáčí ani v pohybu</h3>
+<h3 class="sub">Znak se neotáčí ani v pohybu</h3>
     <p class="lead">
-      Strana 5 zakazuje otáčení znaku a v pohybu to platí beze změny. Hýbe se
+      <a class="kap" href="#k04">Kapitola 04 · Zakázané varianty</a> zakazuje otáčení znaku a v pohybu to platí beze změny. Hýbe se
       <strong>barva uvnitř spirály</strong>, ne spirála sama: animuje se úhel kuželového
       přechodu, tvar zůstává přesně tam, kde je. Tok běží jen tam, kde je znak velký —
       na obálce, v úvodu stránky — a nikdy v hlavičce ani v patičce.
@@ -1038,12 +1188,11 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <div class="scell"><span class="mark g-spec" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">V klidu</span></div>
       <div class="scell zakaz"><span class="mark g-spec" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">Otáčení tvaru — zakázáno</span></div>
     </div>
-
-    <h3 class="sub">Cesta generací</h3>
+<h3 class="sub">Cesta generací</h3>
     <p class="lead">
       Barva na stránce říká, ke které generaci se právě mluví. Když návštěvník přechází mezi
       sekcemi, mění se plocha pod ním — pomalu, jedním prolnutím, nikdy posunem ani otočením.
-      Znak na světlé ploše zůstává inkoustový podle strany 10; vlastní barevná varianta
+      Znak na světlé ploše zůstává inkoustový podle <a class="kap" href="#k09">kapitoly 09 · Barvy pro obrazovku</a>; vlastní barevná varianta
       by se na ploše téže barvy ztratila.
     </p>
     <div class="journey">
@@ -1083,17 +1232,20 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       </div>
     </div>
     <p class="lead" style="font-size:13px; color:var(--ink-3); margin-top:12px">
-      Všechny čtyři plochy jsou světlé a nesou inkoustový text podle strany 10. Prolnutí trvá
+      Všechny čtyři plochy jsou světlé a nesou inkoustový text podle <a class="kap" href="#k09">kapitoly 09 · Barvy pro obrazovku</a>. Prolnutí trvá
       jeden krok <code>--pohyb-sekce</code>, mezi přechody je klid.
     </p>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">14</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 15 · Rytmus, ne efekt</span></div>
 </article>
 
-<!-- ==================== 14 POHYB V PRAXI ==================== -->
-<article class="page" id="s14">
+<!-- ==================== 16 ČASY A KŘIVKY ==================== -->
+<article class="page" id="k16">
   <div class="rule"></div>
   <div class="inner">
+    <p class="eyebrow">16 · Pohyb</p>
+    <h2>Časy a křivky</h2>
+
     <p class="eyebrow">14 · Pohyb</p>
     <h2>Časy, křivky a živé ukázky</h2>
     <p class="lead">
@@ -1114,8 +1266,20 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 16 · Časy a křivky</span></div>
+</article>
 
-    <h3 class="sub">Živé ukázky</h3>
+<!-- ==================== 17 ŽIVÉ UKÁZKY ==================== -->
+<article class="page" id="k17">
+  <div class="rule"></div>
+  <div class="inner">
+    <p class="eyebrow">17 · Pohyb</p>
+    <h2>Živé ukázky</h2>
+    <p class="lead">
+      Ukázky níže jsou funkční, ne obrázky — běží na tokenech z <a class="kap" href="#k16">kapitoly 16 · Časy a křivky</a>.
+    </p>
+
     <div class="specimens">
       <div class="sp">
         <h4>Příchod sekce</h4>
@@ -1126,7 +1290,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <div class="sp">
         <h4>Odkaz pod kurzorem</h4>
         <p>Podtržení zesílí z 1 na 2 px za 160 ms. Barva se nemění.</p>
-        <div class="plocha"><p class="demo" style="margin:0"><a href="#s14">termíny zápisu</a></p></div>
+        <div class="plocha"><p class="demo" style="margin:0"><a href="#k17">termíny zápisu</a></p></div>
       </div>
       <div class="sp">
         <h4>Aktivní položka menu</h4>
@@ -1150,11 +1314,10 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <div class="sp">
         <h4>Zaměření z klávesnice</h4>
         <p>Obrys se objeví okamžitě, bez prodlevy. Projděte stránku tabulátorem.</p>
-        <div class="plocha"><p class="demo" style="margin:0"><a href="#s14">zkuste klávesu Tab</a></p></div>
+        <div class="plocha"><p class="demo" style="margin:0"><a href="#k17">zkuste klávesu Tab</a></p></div>
       </div>
     </div>
-
-    <h3 class="sub">Co se hýbe a co ne</h3>
+<h3 class="sub">Co se hýbe a co ne</h3>
     <div class="zone">
       <div class="note" style="margin-top:0">
         <p><strong>Hýbe se.</strong> Příchod sekce při scrollu. Podtržení odkazu a linka
@@ -1167,8 +1330,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
         kromě toku barvy ve velkém znaku. Žádné automatické přehrávání videa.</p>
       </div>
     </div>
-
-    <h3 class="sub">Vypnutý pohyb</h3>
+<h3 class="sub">Vypnutý pohyb</h3>
     <p class="lead">
       Kdo má v systému zapnuté omezení pohybu, nevidí nic z výše uvedeného — a nepřijde
       o žádnou informaci. Žádné sdělení nesmí být neseno jen pohybem. Vyzkoušejte si to
@@ -1185,8 +1347,51 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <code>--wm-uhel</code>; ořezová cesta zůstává nedotčená, proto se tvar nikdy nehýbe.
     </p>
   </div>
-  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">15</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 17 · Živé ukázky</span></div>
 </article>
+
+<!-- ==================== 18 ZMĚNY ==================== -->
+<article class="page" id="k18">
+  <div class="rule"></div>
+  <div class="inner">
+    <p class="eyebrow">18 · Závěr</p>
+    <h2>Změny oproti verzi 1.0</h2>
+    <p class="lead">
+      Verze 2.1 nechává tvar znaku, obě písma i logiku generací beze změny. Mění dvě barevné
+      hodnoty, jednu ruší a doplňuje kapitoly pro web a pohyb.
+    </p>
+
+    <div class="chg">
+      <div class="chgrow"><span class="s m">Mění</span><p><b>Mateřská #C0509A → #BC4D96.</b> Jediná změněná barevná hodnota. Strana 6.</p></div>
+      <div class="chgrow"><span class="s m">Mění</span><p><b>Jednobarevný znak sjednocen na #101216.</b> Dodaný soubor měl #161E90, <a class="kap" href="#k02">kapitola 02 · Varianty</a> uvádí inkoust. Platí manuál.</p></div>
+      <div class="chgrow"><span class="s r">Ruší</span><p><b>Šedá plocha #F5F5F7.</b> Plochy nesou barvu generace, neutrál je jen bílá. Nahrazují ji jemné tinty z <a class="kap" href="#k09">kapitoly 09 · Barvy pro obrazovku</a>.</p></div>
+      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Čtyři tokeny na generaci</b> místo jedné hodnoty — <a class="kap" href="#k09">kapitola 09 · Barvy pro obrazovku</a>.</p></div>
+      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Pod 44 px jen jednobarevný znak</b> na obrazovce — <a class="kap" href="#k10">kapitola 10 · Znak v kódu</a>.</p></div>
+      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Znak jako kód</b> a soubory pro tisk a e-mail — <a class="kap" href="#k10">kapitola 10 · Znak v kódu</a>.</p></div>
+      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Stavy prvků</b> a chybová červená #B2261E — <a class="kap" href="#k12">kapitola 12 · Stavy prvků</a>.</p></div>
+      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Pravidla pro obrázky</b> včetně dočasného režimu bez vlastních fotek — <a class="kap" href="#k13">kapitola 13 · Obrázky</a>.</p></div>
+      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Výjimka pro rozcestník skupiny</b> — tato strana.</p></div>
+      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Rozhodnutí nedělat tmavý režim</b> — <a class="kap" href="#k11">kapitola 11 · Plochy</a>.</p></div>
+      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Kapitolu o pohybu</b> — tokeny časů a křivek, živé ukázky, pravidlo, že se znak neotáčí ani v pohybu. Strany 14 a 15.</p></div>
+    </div>
+    <div class="note">
+      <p><strong>Beze změny zůstává.</strong> Tvar znaku a všech sedm variant. Space Grotesk
+      a Manrope. Barvy základní školy, ZUŠ Fantazie a střední školy. Ochranná zóna, umístění
+      na dokumentu a zakázané varianty z <a class="kap" href="#k03">kapitoly 03 · Prostor a velikost</a> a <a class="kap" href="#k04">kapitoly 04 · Zakázané varianty</a>. Logika, podle níž plné spektrum patří
+      celku a podbarva jedné škole.</p>
+    </div>
+    <p class="lead" style="margin-top:24px; font-size:12.5px; color:var(--ink-3)">
+      Kontrastní poměry měřené podle WCAG 2.1 proti bílé, případně proti inkoustu #101216.
+      Barvy doplněné ve verzi 2.0 jsou dopočítané v OKLCH jako nejbližší vyhovující hodnota
+      k původní, ne odhadem. Hodnoty CMYK jsou orientační — před tiskem je ověřte v tiskárně.
+      Znak je v tomto dokumentu vykreslen z ořezové cesty originálního souboru.
+    </p>
+  </div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 18 · Změny</span></div>
+</article>
+
+  </div><!-- /obsah -->
+</div><!-- /layout -->
 
 <script>
 (function () {
@@ -1244,6 +1449,42 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       posun(menu.querySelector('[aria-current="true"]') || tlacitka[0], false);
     });
   });
+
+  // navigace: zvýraznění kapitoly, ve které čtenář je
+  var odkazy = [].slice.call(document.querySelectorAll('.nav a[href^="#"]'));
+  var cile = odkazy.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  var ceka = false;
+  function oznacit() {
+    ceka = false;
+    var aktivni = -1;
+    for (var i = 0; i < cile.length; i++) {
+      if (cile[i] && cile[i].getBoundingClientRect().top <= 140) aktivni = i;
+    }
+    odkazy.forEach(function (a, i) {
+      if (i === aktivni) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+  }
+  function naplanovat() { if (!ceka) { ceka = true; requestAnimationFrame(oznacit); } }
+  window.addEventListener('scroll', naplanovat, { passive: true });
+  window.addEventListener('resize', naplanovat);
+  oznacit();
+
+  // navigace na úzké obrazovce
+  var nav = document.querySelector('.nav');
+  var tog = document.querySelector('.nav-tog');
+  if (tog) {
+    tog.addEventListener('click', function () {
+      var otevreno = nav.hasAttribute('data-otevreno');
+      if (otevreno) nav.removeAttribute('data-otevreno'); else nav.setAttribute('data-otevreno', '');
+      tog.setAttribute('aria-expanded', String(!otevreno));
+    });
+    nav.querySelectorAll('.nav-seznam a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (window.innerWidth < 1000) { nav.removeAttribute('data-otevreno'); tog.setAttribute('aria-expanded','false'); }
+      });
+    });
+  }
 
   // přepínač pohybu
   var prepinac = document.getElementById('pohyb-off');
