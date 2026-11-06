@@ -43,19 +43,6 @@
         <p class="orgs">Mateřská · Základní · ZUŠ Fantazie · Střední</p>
       </div>
     </div>
-    <p class="doktyp">Logomanuál · verze 2.1</p>
-    <p class="cl">Pravidla pro znak, barvy, písmo a pohyb napříč pěti organizacemi školy.</p>
-    <div class="dily">
-      <div><b>A · Značka</b><span>Kapitoly 01–08</span><p>Znak, barvy, písmo a tiskové aplikace. Pro kohokoli, kdo dělá dokument nebo plakát.</p></div>
-      <div><b>B · Web</b><span>Kapitoly 09–14</span><p>Barevné tokeny, znak jako kód, plochy, stavy a obrázky. Pro toho, kdo staví web.</p></div>
-      <div><b>C · Pohyb</b><span>Kapitoly 15–17</span><p>Časy, křivky a funkční ukázky. Co se hýbe a co zůstává v klidu.</p></div>
-    </div>
-    <div class="meta">
-      <div><b>Verze</b>2.1 · 2026</div>
-      <div><b>Adresa</b>Tomkova 420/48, Hejčín, 779 00 Olomouc</div>
-      <div><b>Web</b>waldorf-olomouc.cz</div>
-      <div><b>Design</b>WOLIP</div>
-    </div>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Obálka</span></div>
 </article>

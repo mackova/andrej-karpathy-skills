@@ -106,7 +106,7 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 .g-bad > i{background:#1B9AAA}
 
 /* ---------- obálka ---------- */
-.cover .inner{padding:64px 54px 44px}
+.cover .inner{padding:54px; display:flex; align-items:center; min-height:min(58vh,420px)}
 .cover h1{font-family:'Space Grotesk',sans-serif; font-weight:500;
   font-size:clamp(28px,4.4vw,50px); letter-spacing:-.032em; margin:0; line-height:1.06}
 .cover .lockup{display:flex; align-items:center; gap:clamp(20px,3vw,34px); --m:168px}
@@ -114,21 +114,7 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 .cover .lockup .mark > i{transform:scale(calc(var(--m) / 245.15px))}
 .cover .orgs{margin-top:14px; font-size:clamp(11px,1.1vw,13px); letter-spacing:.16em;
   text-transform:uppercase; font-weight:700; color:var(--ink-3); line-height:1.6}
-.cover .doktyp{margin-top:30px; padding-top:18px; border-top:1px solid var(--line);
-  font-size:12px; letter-spacing:.15em; text-transform:uppercase; font-weight:700; color:var(--ink-3)}
 .cover .who{font-size:13px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--ink-3)}
-.cover .cl{margin-top:16px; font-size:16.5px; color:var(--ink-2); max-width:54ch}
-.cover .meta{margin-top:38px; padding-top:20px; border-top:1px solid var(--line);
-  display:flex; flex-wrap:wrap; gap:0 40px; row-gap:14px; font-size:13px; color:var(--ink-3)}
-.cover .meta b{display:block; color:var(--ink); font-weight:600; font-size:13.5px}
-.dily{margin-top:30px; display:grid; gap:1px; background:var(--line);
-  border:1px solid var(--line); border-radius:2px;
-  grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
-.dily > div{background:var(--white); padding:16px 18px}
-.dily b{display:block; font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:500}
-.dily span{display:block; font-size:10.5px; letter-spacing:.13em; text-transform:uppercase;
-  font-weight:700; color:var(--ink-3); margin:3px 0 8px}
-.dily p{font-size:13px; color:var(--ink-2); line-height:1.6}
 /* ---------- lockup, varianty ---------- */
 .stage{margin-top:26px; padding:34px 26px; background:#F5F5F7; border-radius:2px;
   display:flex; align-items:center; justify-content:center; gap:26px; flex-wrap:wrap}
