@@ -1,11 +1,10 @@
-
-<!-- ==================== 05 BARVY ==================== -->
-<article class="page" id="k05">
+<!-- ==================== 06 BARVY ==================== -->
+<article class="page" id="k06">
   <div class="rule"></div>
   <div class="inner">
-    <p class="eyebrow">05 · Barvy</p>
+    <p class="eyebrow">06 · Značka</p>
     <h2>Každá generace má svou barvu</h2>
-    <p class="lead">Vytažené ze spirály. Plné spektrum znamená celou školu, podbarva jednu generaci. Na dokumentu vždy jen jedna.</p>
+    <p class="lead">Hodnoty pro tisk a znak. Proč má každá škola svou barvu, vysvětluje <a class="kap" href="#k02">kapitola 02 · Proč má každá škola jinou barvu</a>.</p>
     <div class="cols">
       <div class="col">
         <div class="chip" style="background:#BC4D96"></div>
@@ -32,14 +31,14 @@
     </div>
     
   </div>
-  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 05 · Barvy</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 06 · Barvy</span></div>
 </article>
 
-<!-- ==================== 06 PÍSMO ==================== -->
-<article class="page" id="k06">
+<!-- ==================== 07 PÍSMO ==================== -->
+<article class="page" id="k07">
   <div class="rule"></div>
   <div class="inner">
-    <p class="eyebrow">06 · Písmo</p>
+    <p class="eyebrow">07 · Značka</p>
     <h2>Dvě písma na všechno</h2>
     <div class="spec">
       <div class="r">
@@ -69,51 +68,14 @@
       <p><strong>Česká sazba.</strong> České uvozovky „takto“, pomlčka s mezerami — takto — a nezlomitelné mezery za jednopísmennými předložkami.</p>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 06 · Písmo</span></div>
-</article>
-
-<!-- ==================== 07 ZNAK JEDNOTLIVÝCH ŠKOL ==================== -->
-<article class="page" id="k07">
-  <div class="rule"></div>
-  <div class="inner">
-    <p class="eyebrow">07 · Znak pro jednotlivé školy</p>
-    <h2>Stejná spirála, barva školy</h2>
-    <p class="lead">Tvar zůstává, spektrum nahradí jedna barva školy. Na materiálech celé skupiny platí plná barevná verze.</p>
-    <div class="trio" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
-      <div class="tile">
-        <div class="body"><span class="mark g-ms" style="width:70px;height:68.16px"><i style="transform:scale(.2855)"></i></span></div>
-        <div class="cap"><b>Mateřská škola</b><span>#BC4D96</span></div>
-      </div>
-      <div class="tile">
-        <div class="body"><span class="mark g-zs" style="width:70px;height:68.16px"><i style="transform:scale(.2855)"></i></span></div>
-        <div class="cap"><b>Základní škola</b><span>#3F905D</span></div>
-      </div>
-      <div class="tile">
-        <div class="body"><span class="mark g-zus" style="width:70px;height:68.16px"><i style="transform:scale(.2855)"></i></span></div>
-        <div class="cap"><b>ZUŠ Fantazie</b><span>#EE9B00</span></div>
-      </div>
-      <div class="tile">
-        <div class="body"><span class="mark g-ss" style="width:70px;height:68.16px"><i style="transform:scale(.2855)"></i></span></div>
-        <div class="cap"><b>Střední škola · lyceum</b><span>#4A3CB0</span></div>
-      </div>
-    </div>
-    <div class="zone" style="margin-top:26px">
-      <div class="note">
-      <p><strong>Plnou barevnou.</strong> Rozcestník webu, výroční zpráva, zpravodaj, společné pozvánky, razítka, hlavičkový papír.</p>
-    </div>
-      <div class="note">
-      <p><strong>Barvu školy.</strong> Dokumenty, přihlášky, informace pro rodiče, kalendáře jedné školy. Nikdy dvě barevné verze na stránce — jedinou výjimkou je <a class="kap" href="#k14">kapitola 14</a>.</p>
-    </div>
-    </div>
-  </div>
-  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 07 · Znak jednotlivých škol</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 07 · Písmo</span></div>
 </article>
 
 <!-- ==================== 08 APLIKACE ==================== -->
 <article class="page" id="k08">
   <div class="rule"></div>
   <div class="inner">
-    <p class="eyebrow">08 · Aplikace</p>
+    <p class="eyebrow">08 · Značka</p>
     <h2>Jedna šablona, čtyři barvy</h2>
     <p class="lead">Každý dokument začíná stejně: pruh, znak, název organizace, název dokumentu, školní rok.</p>
     <div class="apps">

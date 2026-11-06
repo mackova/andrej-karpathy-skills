@@ -9,7 +9,7 @@
 
     <div class="chg">
       <div class="chgrow"><span class="s m">Mění</span><p><b>Mateřská #C0509A → #BC4D96.</b> Jediná změněná barevná hodnota. Strana 6.</p></div>
-      <div class="chgrow"><span class="s m">Mění</span><p><b>Jednobarevný znak sjednocen na #101216.</b> Dodaný soubor měl #161E90, <a class="kap" href="#k02">kapitola 02 · Varianty</a> uvádí inkoust. Platí manuál.</p></div>
+      <div class="chgrow"><span class="s m">Mění</span><p><b>Jednobarevný znak sjednocen na #101216.</b> Dodaný soubor měl #161E90, <a class="kap" href="#k03">kapitola 03 · Varianty</a> uvádí inkoust. Platí manuál.</p></div>
       <div class="chgrow"><span class="s r">Ruší</span><p><b>Šedá plocha #F5F5F7.</b> Plochy nesou barvu generace, neutrál je jen bílá. Nahrazují ji jemné tinty z <a class="kap" href="#k09">kapitoly 09 · Barvy pro obrazovku</a>.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Čtyři tokeny na generaci</b> místo jedné hodnoty — <a class="kap" href="#k09">kapitola 09 · Barvy pro obrazovku</a>.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Pod 44 px jen jednobarevný znak</b> na obrazovce — <a class="kap" href="#k10">kapitola 10 · Znak v kódu</a>.</p></div>

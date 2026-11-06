@@ -9,7 +9,7 @@
     <h2>Rytmus, ne efekt</h2>
     <p class="lead">Pohyb má být klidný a předvídatelný. Nic nepřeskakuje, nic nepruží, nic nepoutá pozornost samo na sebe.</p>
 <h3 class="sub">Znak se neotáčí ani v pohybu</h3>
-    <p class="lead">Znak se neotáčí ani v pohybu (<a class="kap" href="#k04">kapitola 04</a>). Hýbe se barva uvnitř spirály — animuje se úhel přechodu, tvar stojí. Jen u velkého znaku, nikdy v hlavičce.</p>
+    <p class="lead">Znak se neotáčí ani v pohybu (<a class="kap" href="#k05">kapitola 05</a>). Hýbe se barva uvnitř spirály — animuje se úhel přechodu, tvar stojí. Jen u velkého znaku, nikdy v hlavičce.</p>
     <div class="stage flowrow">
       <div class="scell"><span class="mark g-flow" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">Tok barvy — správně</span></div>
       <div class="scell"><span class="mark g-spec" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">V klidu</span></div>
