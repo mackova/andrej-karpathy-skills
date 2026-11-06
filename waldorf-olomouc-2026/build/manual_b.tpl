@@ -4,7 +4,7 @@
   <div class="inner">
     <p class="eyebrow">06 · Značka</p>
     <h2>Každá generace má svou barvu</h2>
-    <p class="lead">Hodnoty pro tisk a znak. Proč má každá škola svou barvu, vysvětluje <a class="kap" href="#k02">kapitola 02 · Proč má každá škola jinou barvu</a>.</p>
+    <p class="lead">Hodnoty pro tisk a znak. Proč má každá škola svou barvu, vysvětluje <a class="kap" href="#k01">kapitola 01 · Proč má každá škola jinou barvu</a>.</p>
     <div class="cols">
       <div class="col">
         <div class="chip" style="background:#BC4D96"></div>

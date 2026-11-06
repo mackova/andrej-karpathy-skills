@@ -8,8 +8,8 @@
     <p class="nav-dil">Začněte zde</p>
     <a href="#prehled"><span class="k">—</span><span>Rychlý přehled</span></a>
     <p class="nav-dil">A · Značka</p>
-    <a href="#k01"><span class="k">01</span><span>Znak</span></a>
-    <a href="#k02"><span class="k">02</span><span>Proč má každá škola jinou barvu</span></a>
+    <a href="#k01"><span class="k">01</span><span>Proč má každá škola jinou barvu</span></a>
+    <a href="#k02"><span class="k">02</span><span>Znak</span></a>
     <a href="#k03"><span class="k">03</span><span>Varianty</span></a>
     <a href="#k04"><span class="k">04</span><span>Prostor a velikost</span></a>
     <a href="#k05"><span class="k">05</span><span>Zakázané varianty</span></a>
@@ -74,7 +74,7 @@
 
     <div class="zone" style="margin-top:26px">
       <div>
-        <h3 class="sub" style="margin-top:0">Znak <a class="kap" href="#k01">kapitola 01</a></h3>
+        <h3 class="sub" style="margin-top:0">Znak <a class="kap" href="#k02">kapitola 02</a></h3>
         <ul style="margin-top:8px">
           <li>Sedm variant, jedna ořezová cesta. Nikdy se nepřebarvuje ani neotáčí.</li>
           <li>Ochranná zóna: <strong>polovina šířky znaku</strong> na všech stranách.</li>
@@ -123,37 +123,14 @@
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Rychlý přehled</span></div>
 </article>
 
-<!-- ==================== 01 ZNAK ==================== -->
+<!-- ==================== 01 PROČ MÁ KAŽDÁ ŠKOLA JINOU BARVU ==================== -->
 <article class="page" id="k01">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">01 · Značka</p>
-    <h2>Trojitá spirála</h2>
-    <p class="lead">Tři propletené spirály — hlava, ruce a srdce. Z jejich spektra jsou odvozené barvy jednotlivých škol.</p>
-    <p class="lead">Znak je jediný obrazový prvek identity. Nekombinuje se s ilustracemi ani fotografiemi ve stejné ploše.</p>
-    <div class="stage">
-      <div class="lock">
-        <span class="mark g-spec" style="width:104px;height:101.26px" role="img" aria-label="Znak Waldorfské školy Olomouc"><i style="transform:scale(.4242)"></i></span>
-        <div>
-          <p class="nm">Waldorfská škola Olomouc</p>
-          <p class="sub">Mateřská · Základní · Umělecká · Lyceum</p>
-        </div>
-      </div>
-    </div>
-    <p class="lead" style="margin-top:16px; font-size:13px; color:var(--ink-3)">
-      Znak s názvem — základní sestava. Odstup znaku od textu je vždy alespoň polovina šířky znaku.
-    </p>
-  </div>
-  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 01 · Znak</span></div>
-</article>
-
-<!-- ==================== 02 PROČ MÁ KAŽDÁ ŠKOLA JINOU BARVU ==================== -->
-<article class="page" id="k02">
-  <div class="rule"></div>
-  <div class="inner">
-    <p class="eyebrow">02 · Značka</p>
     <h2>Proč má každá škola jinou barvu</h2>
-    <p class="lead">Přechod ve znaku prochází celým spektrem a každá škola si z něj bere jeden odstín.
+    <p class="lead">Znak tvoří tři propletené spirály a jeho barevný přechod prochází celým spektrem;
+      každá škola si z něj bere jeden odstín.
       <strong>Plné spektrum znamená celou školu, podbarva jednu generaci dětí</strong> — barva na dokumentu
       tedy říká, komu je určený. Tvar spirály zůstává ve všech případech stejný.</p>
     <div class="trio" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
@@ -183,7 +160,31 @@
     </div>
     </div>
   </div>
-  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 02 · Proč má každá škola jinou barvu</span></div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 01 · Proč má každá škola jinou barvu</span></div>
+</article>
+
+<!-- ==================== 02 ZNAK ==================== -->
+<article class="page" id="k02">
+  <div class="rule"></div>
+  <div class="inner">
+    <p class="eyebrow">02 · Značka</p>
+    <h2>Trojitá spirála</h2>
+    <p class="lead">Tři propletené spirály — hlava, ruce a srdce. Z jejich spektra jsou odvozené barvy jednotlivých škol.</p>
+    <p class="lead">Znak je jediný obrazový prvek identity. Nekombinuje se s ilustracemi ani fotografiemi ve stejné ploše.</p>
+    <div class="stage">
+      <div class="lock">
+        <span class="mark g-spec" style="width:104px;height:101.26px" role="img" aria-label="Znak Waldorfské školy Olomouc"><i style="transform:scale(.4242)"></i></span>
+        <div>
+          <p class="nm">Waldorfská škola Olomouc</p>
+          <p class="sub">Mateřská · Základní · Umělecká · Lyceum</p>
+        </div>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:16px; font-size:13px; color:var(--ink-3)">
+      Znak s názvem — základní sestava. Odstup znaku od textu je vždy alespoň polovina šířky znaku.
+    </p>
+  </div>
+  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 02 · Znak</span></div>
 </article>
 
 <!-- ==================== 03 VARIANTY ==================== -->
@@ -267,7 +268,7 @@
   <div class="inner">
     <p class="eyebrow">05 · Značka</p>
     <h2>Co se znakem nedělat</h2>
-    <p class="lead">Vždy z originálního zdroje, bez úprav. Schválené jsou jen verze z <a class="kap" href="#k03">kapitoly 03</a> a <a class="kap" href="#k02">02</a>.</p>
+    <p class="lead">Vždy z originálního zdroje, bez úprav. Schválené jsou jen verze z <a class="kap" href="#k03">kapitoly 03</a> a <a class="kap" href="#k01">01</a>.</p>
     <div class="dont">
       <div class="dcell">
         <div class="b"><span class="x">✕</span><span class="mark g-spec" style="width:66px;height:64.26px;transform:scale(1.5,.78)"><i style="transform:scale(.2692)"></i></span></div>
