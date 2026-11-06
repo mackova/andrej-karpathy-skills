@@ -5,12 +5,7 @@
   <div class="inner">
     <p class="eyebrow">05 · Barvy</p>
     <h2>Každá generace má svou barvu</h2>
-    <p class="lead">
-      Barvy jsou vytažené ze spirály v logu. Plné spektrum znamená celý waldorfský koncept,
-      podbarva znamená jednu školu, tedy jednu generaci dětí. Na jednom dokumentu se objevuje
-      vždy jen jedna — jako pruh v hlavičce a jako barva nadpisů. Skupinové materiály
-      používají inkoust.
-    </p>
+    <p class="lead">Vytažené ze spirály. Plné spektrum znamená celou školu, podbarva jednu generaci. Na dokumentu vždy jen jedna.</p>
     <div class="cols">
       <div class="col">
         <div class="chip" style="background:#BC4D96"></div>
@@ -35,13 +30,7 @@
       <div><i style="background:#FFFFFF"></i><b>Bílá</b><span>#FFFFFF · plocha</span></div>
       <div><i style="background:#E8E8EA"></i><b>Linka</b><span>#E8E8EA · rámy a oddělovače</span></div>
     </div>
-    <div class="note">
-      <p><strong>Dvě změny oproti verzi 1.0.</strong> Mateřská se posunula z <code>#C0509A</code>
-      na <code>#BC4D96</code> — původní hodnota měla vůči bílé i vůči inkoustu shodně 4,33:1,
-      tedy přesný geometrický střed mezi nimi, a neunesla ani jeden z nich. Posun je pouhým
-      okem nerozeznatelný. Šedá plocha <code>#F5F5F7</code> byla z palety vyřazena; místo ní
-      slouží jemné tinty jednotlivých generací z <a class="kap" href="#k09">kapitoly 09 · Barvy pro obrazovku</a>.</p>
-    </div>
+    
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 05 · Barvy</span></div>
 </article>
@@ -56,10 +45,7 @@
       <div class="r">
         <p class="m">Nadpisy — Space Grotesk · Regular 400, Medium 500</p>
         <p class="sg">Příšerně žluťoučký kůň úpěl ďábelské ódy — 0123456789</p>
-        <p class="lead" style="font-size:14px; margin-top:14px">
-          Geometrický sans s výraznými, otevřenými tvary. Používá se pro nadpisy, jména, data
-          a citace. Nikdy pro dlouhý běžný text ani pro formulářová pole.
-        </p>
+        <p class="lead">Nadpisy, jména, data, citace. Nikdy dlouhý text ani formulářová pole.</p>
       </div>
       <div class="r">
         <p class="m">Text, tabulky, formuláře — Manrope · Regular 400, SemiBold 600, Bold 700</p>
@@ -69,26 +55,18 @@
           v nich smysl pro týmovou spolupráci, zdravé sebevědomí a vystavět dobrý základ jejich
           morálních hodnot.
         </p>
-        <p class="lead" style="font-size:14px; margin-top:14px">
-          Humanistický sans pro odstavce, tabulky, štítky a vyplňovací pole. Řádkování 1,7.
-          Minimální velikost v tisku 9 pt, na obrazovce 15 px.
-        </p>
+        <p class="lead">Odstavce, tabulky, štítky, pole. Řádkování 1,7; minimum 9 pt tisk, 15 px web.</p>
       </div>
       <div class="r">
         <p class="m">Velká písmena s prostrkáním — Manrope 700, 0,16 em</p>
         <p class="mr" style="font-weight:700; letter-spacing:.16em; text-transform:uppercase; font-size:12.5px; color:var(--ink)">
           Zápis · Termíny · Dokumenty · Jídelníček · Kontakt
         </p>
-        <p class="lead" style="font-size:14px; margin-top:14px">
-          Verzálky s prostrkáním 0,16 em se používají jen pro malé návěstí nad nadpisem
-          a pro popisky. Nikdy pro nadpis ani pro celou větu.
-        </p>
+        <p class="lead">Jen malá návěstí a popisky. Nikdy nadpis ani celá věta.</p>
       </div>
     </div>
     <div class="note">
-      <p><strong>Česká sazba.</strong> Obě písma mají kompletní diakritiku. Používají se české
-      uvozovky „takto“, pomlčka s mezerami — takto — a nezlomitelné mezery za jednopísmennými
-      předložkami.</p>
+      <p><strong>Česká sazba.</strong> České uvozovky „takto“, pomlčka s mezerami — takto — a nezlomitelné mezery za jednopísmennými předložkami.</p>
     </div>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 06 · Písmo</span></div>
@@ -100,11 +78,7 @@
   <div class="inner">
     <p class="eyebrow">07 · Znak pro jednotlivé školy</p>
     <h2>Stejná spirála, barva školy</h2>
-    <p class="lead">
-      Každá organizace má vlastní verzi znaku: tvar zůstává, spektrum je nahrazeno jednou barvou
-      školy s přechodem od světlé ke tmavé. Používá se na materiálech dané školy. Na materiálech
-      celé skupiny Waldorf Olomouc platí plná barevná verze.
-    </p>
+    <p class="lead">Tvar zůstává, spektrum nahradí jedna barva školy. Na materiálech celé skupiny platí plná barevná verze.</p>
     <div class="trio" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
       <div class="tile">
         <div class="body"><span class="mark g-ms" style="width:70px;height:68.16px"><i style="transform:scale(.2855)"></i></span></div>
@@ -124,15 +98,12 @@
       </div>
     </div>
     <div class="zone" style="margin-top:26px">
-      <div class="note" style="margin-top:0">
-        <p><strong>Kdy plnou barevnou verzi.</strong> Web skupiny a jeho rozcestník, výroční
-        zpráva, zpravodaj, pozvánky na společné akce, razítka, hlavičkový papír společnosti.</p>
-      </div>
-      <div class="note" style="margin-top:0">
-        <p><strong>Kdy barvu školy.</strong> Dokumenty, přihlášky, informace pro rodiče
-        a kalendáře jedné školy. Nikdy dvě barevné verze na jedné stránce — jedinou výjimkou
-        je rozcestník skupiny na webu, viz <a class="kap" href="#k14">kapitola 14 · Čtyři generace na jedné stránce</a>.</p>
-      </div>
+      <div class="note">
+      <p><strong>Plnou barevnou.</strong> Rozcestník webu, výroční zpráva, zpravodaj, společné pozvánky, razítka, hlavičkový papír.</p>
+    </div>
+      <div class="note">
+      <p><strong>Barvu školy.</strong> Dokumenty, přihlášky, informace pro rodiče, kalendáře jedné školy. Nikdy dvě barevné verze na stránce — jedinou výjimkou je <a class="kap" href="#k14">kapitola 14</a>.</p>
+    </div>
     </div>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 07 · Znak jednotlivých škol</span></div>
@@ -144,10 +115,7 @@
   <div class="inner">
     <p class="eyebrow">08 · Aplikace</p>
     <h2>Jedna šablona, čtyři barvy</h2>
-    <p class="lead">
-      Každý dokument začíná stejně: barevný pruh, znak, název organizace, název dokumentu,
-      školní rok. Mění se jen barva a text.
-    </p>
+    <p class="lead">Každý dokument začíná stejně: pruh, znak, název organizace, název dokumentu, školní rok.</p>
     <div class="apps">
       <div class="app">
         <div class="st" style="background:#BC4D96"></div>

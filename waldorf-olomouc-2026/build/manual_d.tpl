@@ -4,18 +4,13 @@
   <div class="inner">
     <p class="eyebrow">11 · Web</p>
     <h2>Plochy nesou barvu</h2>
-    <p class="lead">
-      Papír si vystačí s bílou a šedou. Na obrazovce nese plocha barvu generace, které patří —
-      neutrální šeď ani černá do systému nepatří vůbec.
-    </p>
+    <p class="lead">Plocha nese barvu generace. Jediný neutrál je bílá.</p>
 
     <ul>
-      <li><strong>Žádná černá, šedá ani béžová plocha.</strong> Pole má barvu generace,
-        které patří. Jediný neutrál je bílá.</li>
+      <li>Žádná černá, šedá ani béžová plocha — ani jako podklad fotky.</li>
       <li>Inkoust <code>#101216</code> zůstává barvou textu, nikoli barvou ploch.</li>
-      <li>Podklady pod fotkami a prázdné stavy se podbarvují jemným tintem generace,
-        nikdy neutrální šedí.</li>
-      <li>Tmavý režim se vědomě nedělá. Vyžadoval by tmavé plochy, které do systému nepatří.</li>
+      <li>Podklady fotek a prázdné stavy se podbarvují tintem generace.</li>
+      <li>Tmavý režim se vědomě nedělá — vyžadoval by tmavé plochy.</li>
     </ul>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 11 · Plochy</span></div>
@@ -27,10 +22,7 @@
   <div class="inner">
     <p class="eyebrow">12 · Web</p>
     <h2>Stavy prvků</h2>
-    <p class="lead">
-      Jak vypadá odkaz pod kurzorem, zaměření z klávesnice nebo chybová hláška. Tiskový manuál
-      to neřešil, protože papír nemá kurzor.
-    </p>
+    <p class="lead">Odkaz, zaměření, chyba a potvrzení. Co papír nepotřebuje.</p>
 
     <div class="states">
       <div class="state">
@@ -66,10 +58,7 @@
       </div>
     </div>
     <div class="note">
-      <p><strong>Proč chybová červená a ne zelená pro úspěch.</strong> Červená <code>#B2261E</code>
-      je od mateřské vzdálená 46° a od ZUŠ 43°, takže se s žádnou barvou generace neplete.
-      Zelená by se ale s barvou základní školy pletla vždy — proto se úspěch značí inkoustem
-      a ikonou, ne barvou.</p>
+      <p><strong>Úspěch se neznačí barvou.</strong> Červená <code>#B2261E</code> se s žádnou generací neplete, zelená by se pletla se základní školou — proto inkoust a ikona.</p>
     </div>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 12 · Stavy prvků</span></div>
@@ -81,10 +70,7 @@
   <div class="inner">
     <p class="eyebrow">13 · Web</p>
     <h2>Obrázky</h2>
-    <p class="lead">
-      Manuál dosud řešil znak a písmo, obraz vůbec. Přitom u školy rozhoduje o důvěře
-      právě fotografie.
-    </p>
+    <p class="lead">U školy rozhoduje o důvěře fotografie.</p>
 
     <div class="imgrules">
       <div class="ir">
@@ -107,12 +93,7 @@
           a detailů</strong> — bez rozpoznatelných tváří.</p>
       </div>
     </div>
-    <p class="lead" style="margin-top:18px">
-      Generovaný obrázek je stavební lešení, ne fasáda. Proto platí: žádné tváře, žádný záběr,
-      který tvrdí „tohle je naše třída“, každý takový soubor má v názvu předponu <code>tmp-</code>
-      a v redakčním systému štítek <em>dočasné</em>, aby šlo kdykoli vypsat, co ještě čeká
-      na výměnu.
-    </p>
+    <p class="lead">Generovaný obrázek je lešení, ne fasáda. Soubory mají předponu <code>tmp-</code> a štítek <em>dočasné</em>.</p>
     <div class="prompts">
       <div class="pr"><span class="k">Materiál</span><span class="v">Detail ručního papíru s vlákny, akvarelová skvrna v barvě generace, měkké denní světlo z boku, bez lidí.</span></div>
       <div class="pr"><span class="k">Dílna</span><span class="v">Hoblina, dláto a kus lipového dřeva na ponku, shora, přirozené světlo, bez rukou a tváří.</span></div>
@@ -133,21 +114,13 @@
 
     <p class="eyebrow">12 · Web</p>
     <h2>Čtyři generace na jedné stránce</h2>
-    <p class="lead">
-      Strana 8 říká: nikdy dvě barevné verze na jedné stránce. V tisku to platí — přihláška
-      patří jedné škole. Rozcestník skupiny ale musí ze své podstaty nabídnout všechny čtyři
-      generace najednou. Tohle je jediné povolené místo, kde se to pravidlo poruší.
-    </p>
+    <p class="lead"><a class="kap" href="#k07">Kapitola 07</a> zakazuje dvě barevné verze na stránce. Rozcestník skupiny je jediná výjimka.</p>
 <h3 class="sub">Co kde platí</h3>
     <ul>
-      <li><strong>Sekce jedné školy</strong> — jedna barva generace, znak ve variantě té školy.
-        Přesně podle <a class="kap" href="#k07">kapitoly 07 · Znak jednotlivých škol</a>.</li>
-      <li><strong>Rozcestník skupiny</strong> — znak vždy plný spektrální, text vždy inkoustový.
-        Barvy generací se smějí objevit <strong>jen jako značka v navigaci</strong>: pruh,
-        tečka, podtržení.</li>
+      <li><strong>Sekce jedné školy</strong> — jedna barva, znak ve variantě té školy.</li>
+      <li><strong>Rozcestník skupiny</strong> — znak plný spektrální, text inkoustový. Barvy generací jen jako značka v navigaci: pruh, tečka, podtržení.</li>
       <li><strong>Nikdy</strong> čtyři obarvené nadpisy ani čtyři barevné znaky vedle sebe.</li>
-      <li>Plné spektrum znamená celý waldorfský koncept, podbarva jednu etapu cesty.
-        Barva na stránce říká, ke které generaci se právě mluví.</li>
+      
     </ul>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 14 · Čtyři generace na jedné stránce</span></div>

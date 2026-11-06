@@ -5,10 +5,7 @@
   <div class="inner">
     <p class="eyebrow">18 · Závěr</p>
     <h2>Změny oproti verzi 1.0</h2>
-    <p class="lead">
-      Verze 2.1 nechává tvar znaku, obě písma i logiku generací beze změny. Mění dvě barevné
-      hodnoty, jednu ruší a doplňuje kapitoly pro web a pohyb.
-    </p>
+    <p class="lead">Tvar znaku, obě písma i logika generací zůstávají. Mění se dvě barevné hodnoty, jedna se ruší.</p>
 
     <div class="chg">
       <div class="chgrow"><span class="s m">Mění</span><p><b>Mateřská #C0509A → #BC4D96.</b> Jediná změněná barevná hodnota. Strana 6.</p></div>
@@ -24,17 +21,9 @@
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Kapitolu o pohybu</b> — tokeny časů a křivek, živé ukázky, pravidlo, že se znak neotáčí ani v pohybu. Strany 14 a 15.</p></div>
     </div>
     <div class="note">
-      <p><strong>Beze změny zůstává.</strong> Tvar znaku a všech sedm variant. Space Grotesk
-      a Manrope. Barvy základní školy, ZUŠ Fantazie a střední školy. Ochranná zóna, umístění
-      na dokumentu a zakázané varianty z <a class="kap" href="#k03">kapitoly 03 · Prostor a velikost</a> a <a class="kap" href="#k04">kapitoly 04 · Zakázané varianty</a>. Logika, podle níž plné spektrum patří
-      celku a podbarva jedné škole.</p>
+      <p><strong>Beze změny.</strong> Znak a jeho sedm variant, Space Grotesk a Manrope, barvy základní školy, ZUŠ a střední, ochranná zóna i zakázané varianty.</p>
     </div>
-    <p class="lead" style="margin-top:24px; font-size:12.5px; color:var(--ink-3)">
-      Kontrastní poměry měřené podle WCAG 2.1 proti bílé, případně proti inkoustu #101216.
-      Barvy doplněné ve verzi 2.0 jsou dopočítané v OKLCH jako nejbližší vyhovující hodnota
-      k původní, ne odhadem. Hodnoty CMYK jsou orientační — před tiskem je ověřte v tiskárně.
-      Znak je v tomto dokumentu vykreslen z ořezové cesty originálního souboru.
-    </p>
+    <p class="lead">Kontrast měřen podle WCAG 2.1, barvy dopočítané v OKLCH. CMYK je orientační — před tiskem ověřte v tiskárně.</p>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 18 · Změny</span></div>
 </article>

@@ -5,13 +5,7 @@
   <div class="inner">
     <p class="eyebrow">09 · Web</p>
     <h2>Barvy pro obrazovku</h2>
-    <p class="lead">
-      V tisku stačí na školu jedna barva. Na webu platí WCAG a jedna hodnota nemůže zároveň
-      nést text i sloužit jako plocha. Kontrast totiž řídí jas, ne odstín: barva projde na
-      běžný text poměrem 4,5:1 vůči bílé jen tehdy, má-li relativní jas nejvýš 0,183.
-      Amber ZUŠ má 0,416 — víc než dvojnásobek. Proto má každá generace na webu čtyři hodnoty
-      místo jedné.
-    </p>
+    <p class="lead">Jedna hodnota nemůže zároveň nést text a sloužit jako plocha. Proto má každá generace na webu čtyři.</p>
     <div class="tw">
       <table>
         <thead><tr>
@@ -60,13 +54,9 @@
     <ul>
       <li><strong>Světlá plocha nese vždy inkoust</strong>, sytá plocha vždy bílou. Nikdy naopak.</li>
       <li><strong>Text na bílé</strong> se používá na nadpisy, odkazy a čísla. Syté plochy nikdy jako text.</li>
-      <li><strong>Jemný tint</strong> je pro bloky, tabulky a zvýrazněné odstavce; text v nich je inkoust.
-        Tinty nahradily vyřazenou šedou plochu z <a class="kap" href="#k05">kapitoly 05 · Barvy</a>.</li>
-      <li><strong>Amber #EE9B00 je nejlepší plocha v systému</strong> — inkoust na něm má 8,32:1,
-        nejvíc ze všech čtyř. ZUŠ na tom má stavět, ne se tomu vyhýbat.</li>
-      <li><strong>Střední škola je opačný případ</strong> — jediná barva, která funguje jako text
-        i jako sytá plocha bez jakékoli úpravy, ale inkoust na ní má jen 2,29:1, takže nese
-        vždy bílou.</li>
+      <li><strong>Jemný tint</strong> na bloky a tabulky, text v nich inkoust.</li>
+      <li><strong>Amber</strong> nese inkoust v poměru 8,32:1 — nejlepší plocha v systému. Jako text neprojde nikdy.</li>
+      <li><strong>Střední škola</strong> je opak: funguje i jako text, ale plocha nese vždy bílou.</li>
     </ul>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 09 · Barvy pro obrazovku</span></div>
@@ -78,11 +68,7 @@
   <div class="inner">
     <p class="eyebrow">10 · Web</p>
     <h2>Znak se nasazuje jako kód</h2>
-    <p class="lead">
-      Na webu není znak obrázek, ale jedna ořezová cesta o 421 bajtech a barevný přechod.
-      Všech sedm variant vzniká z téhož zdroje, je ostrých v jakékoli velikosti a mění se
-      jedinou proměnnou.
-    </p>
+    <p class="lead">Na webu je znak jedna ořezová cesta o 421 bajtech a barevný přechod. Sedm variant z téhož zdroje.</p>
     <div class="stage" style="gap:22px">
       <div class="scell"><span class="mark g-spec" style="width:96px;height:93.47px"><i style="transform:scale(.3916)"></i></span><span class="c">Spektrum</span></div>
       <div class="scell"><span class="mark g-ms" style="width:60px;height:58.42px"><i style="transform:scale(.2448)"></i></span><span class="c">Mateřská</span></div>
@@ -100,11 +86,7 @@
 &lt;span class="wm wm--zs" style="--wm-size:44px"
       role="img" aria-label="Základní škola"&gt;&lt;/span&gt;</pre>
     <h3 class="sub">Minimální velikost na obrazovce hlídá kód</h3>
-    <p class="lead">
-      Strana 4 uvádí pro obrazovku 20 px. To platí pro jednobarevnou verzi. Ve spektrální
-      a barevné verzi se na téhle velikosti spirála slévá, proto <strong>pod 44 px platí vždy
-      jednobarevná verze</strong>. Přepnutí obstará CSS samo, zapíše se jen varianta a velikost.
-    </p>
+    <p class="lead">Jednobarevně od 20 px, barevně až <strong>od 44 px</strong> — pod ní se spirála slévá. Přepnutí obstará CSS.</p>
     <div class="sizes">
       <div class="scell"><span class="mark g-spec" style="width:20px;height:19.47px"><i style="transform:scale(.0816)"></i></span><span class="c">20 px — slévá se</span></div>
       <div class="scell"><span class="mark g-ink" style="width:20px;height:19.47px"><i style="transform:scale(.0816)"></i></span><span class="c">20 px — správně</span></div>
@@ -124,10 +106,7 @@
       </table>
     </div>
     <div class="note">
-      <p><strong>Mimo web platí soubory.</strong> Barevný přechod je CSS a do SVG se nepřenese.
-      Pro tisk, e-mail a sociální sítě slouží vygenerovaná samostatná SVG. Jejich výseče se
-      mírně překrývají — bez překryvu vznikají mezi nimi antialiasové spáry, které se projeví
-      jako paprsky.</p>
+      <p><strong>Mimo web platí soubory.</strong> Přechod je CSS a do SVG se nepřenese; pro tisk, e-mail a sítě slouží vygenerovaná SVG.</p>
     </div>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 10 · Znak v kódu</span></div>

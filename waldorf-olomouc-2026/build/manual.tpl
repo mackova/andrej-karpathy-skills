@@ -424,10 +424,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="inner">
     <p class="eyebrow">Začněte zde</p>
     <h2>Rychlý přehled</h2>
-    <p class="lead">
-      Všechny hodnoty, které člověk hledá nejčastěji, na jedné obrazovce. Každý řádek odkazuje
-      do kapitoly, kde je pravidlo vysvětlené.
-    </p>
+    <p class="lead">Co se hledá nejčastěji, na jedné obrazovce. Každý řádek odkazuje do kapitoly s vysvětlením.</p>
 
     <h3 class="sub">Barvy generací <a class="kap" href="#k09">kapitola 09</a></h3>
     <div class="tw">
@@ -491,11 +488,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
     </div>
 
     <div class="note">
-      <p><strong>Tři pravidla, která platí všude.</strong> Plocha nese barvu generace —
-      šedá ani černá plocha do systému nepatří (<a class="kap" href="#k11">kapitola 11</a>).
-      Na jedné stránce je jedna barva; jedinou výjimkou je rozcestník skupiny
-      (<a class="kap" href="#k14">kapitola 14</a>). Znak se neotáčí ani v pohybu —
-      hýbe se barva uvnitř něj (<a class="kap" href="#k15">kapitola 15</a>).</p>
+      <p><strong>Tři pravidla všude.</strong> Plocha nese barvu generace, nikdy šeď ani černou (<a class="kap" href="#k11">11</a>). Na stránce je jedna barva; výjimkou je rozcestník (<a class="kap" href="#k14">14</a>). Znak se neotáčí ani v pohybu (<a class="kap" href="#k15">15</a>).</p>
     </div>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Rychlý přehled</span></div>
@@ -507,15 +500,8 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="inner">
     <p class="eyebrow">01 · Znak</p>
     <h2>Trojitá spirála</h2>
-    <p class="lead">
-      Znak tvoří tři propletené spirály v plynulém barevném přechodu. Tři ramena odpovídají tomu,
-      jak waldorfská pedagogika vnímá člověka — hlava, ruce a srdce. Barevný přechod prochází
-      celým spektrem: z něj jsou odvozeny barvy jednotlivých organizací.
-    </p>
-    <p class="lead" style="margin-top:12px">
-      Znak je jediný obrazový prvek identity. Nekombinuje se s dalšími ilustracemi, ornamenty
-      ani fotografiemi ve stejné ploše.
-    </p>
+    <p class="lead">Tři propletené spirály — hlava, ruce a srdce. Z jejich spektra jsou odvozené barvy jednotlivých škol.</p>
+    <p class="lead">Znak je jediný obrazový prvek identity. Nekombinuje se s ilustracemi ani fotografiemi ve stejné ploše.</p>
     <div class="stage">
       <div class="lock">
         <span class="mark g-spec" style="width:104px;height:101.26px" role="img" aria-label="Znak Waldorfské školy Olomouc"><i style="transform:scale(.4242)"></i></span>
@@ -538,11 +524,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="inner">
     <p class="eyebrow">02 · Varianty</p>
     <h2>Tři verze, jasná pravidla</h2>
-    <p class="lead">
-      Barevná verze je základní a používá se vždy, kdy to tisk dovolí. Jednobarevná inkoustová
-      verze slouží pro razítka, jednobarevný tisk a formuláře. Bílá verze jen na tmavém
-      nebo barevném podkladu.
-    </p>
+    <p class="lead">Barevná verze je základní. Jednobarevná na razítka a jednobarevný tisk, bílá na tmavý a barevný podklad.</p>
     <div class="trio">
       <div class="tile">
         <div class="body"><span class="mark g-spec" style="width:74px;height:72.05px"><i style="transform:scale(.3018)"></i></span></div>
@@ -570,10 +552,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
         </tbody>
       </table>
     </div>
-    <div class="note">
-      <p><strong>Změna oproti verzi 1.0.</strong> Šedá plocha jako podklad byla vyřazena.
-      Plochy nesou barvu organizace, jediný neutrál je bílá. Podrobně v <a class="kap" href="#k11">kapitole 11 · Plochy</a>.</p>
-    </div>
+    
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 02 · Varianty</span></div>
 </article>
@@ -587,10 +566,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
     <div class="zone">
       <div>
         <h3 class="sub" style="margin-top:22px">Ochranná zóna</h3>
-        <p class="lead" style="font-size:14.5px">
-          Volný prostor okolo znaku je vždy alespoň <strong>polovina šířky znaku</strong> na všech
-          stranách. Do této zóny nevstupuje text, linka, obrázek ani okraj stránky.
-        </p>
+        <p class="lead">Alespoň <strong>polovina šířky znaku</strong> na všech stranách. Nevstupuje do ní text, linka, obrázek ani okraj.</p>
         <div class="zbox" style="margin-top:16px">
           <div class="zinner">
             <span class="mark g-spec" style="width:88px;height:85.68px"><i style="transform:scale(.359)"></i></span>
@@ -603,11 +579,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       </div>
       <div>
         <h3 class="sub" style="margin-top:22px">Minimální velikost</h3>
-        <p class="lead" style="font-size:14.5px">
-          Pod uvedenou velikostí se spirály slévají a znak přestává být čitelný.
-          Pro tisk platí <strong>8 mm</strong> šířky, pro obrazovku <strong>20 px</strong>.
-          Ve spektrální verzi na obrazovce platí přísnější hranice, viz <a class="kap" href="#k10">kapitola 10 · Znak v kódu</a>.
-        </p>
+        <p class="lead">Tisk <strong>8 mm</strong>, obrazovka <strong>20 px</strong> jednobarevně. Barevně až od 44 px — <a class="kap" href="#k10">kapitola 10</a>.</p>
         <div class="sizes" style="margin-top:16px">
           <div class="scell"><span class="mark g-spec" style="width:78px;height:75.94px"><i style="transform:scale(.3182)"></i></span><span class="c">26 mm</span></div>
           <div class="scell"><span class="mark g-spec" style="width:42px;height:40.89px"><i style="transform:scale(.1713)"></i></span><span class="c">14 mm</span></div>
@@ -616,10 +588,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       </div>
     </div>
     <h3 class="sub">Umístění na dokumentu</h3>
-    <p class="lead">
-      Znak stojí v levém horním rohu, 20 mm od okraje, pod barevným pruhem organizace.
-      Na obálkách může být zvětšen a umístěn na střed. Jiné pozice se nepoužívají.
-    </p>
+    <p class="lead">Levý horní roh, 20 mm od okraje, pod barevným pruhem. Na obálkách zvětšený na střed.</p>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 03 · Prostor a velikost</span></div>
 </article>
@@ -630,11 +599,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="inner">
     <p class="eyebrow">04 · Zakázané varianty</p>
     <h2>Co se znakem nedělat</h2>
-    <p class="lead">
-      Znak se používá vždy z originálního zdroje, bez úprav. Schválené jsou pouze verze
-      z <a class="kap" href="#k02">kapitoly 02 · Varianty</a> a <a class="kap" href="#k07">kapitoly 07 · Znak jednotlivých škol</a> — žádné jiné přebarvení. Následující zásahy poškozují čitelnost
-      i význam a nejsou přípustné.
-    </p>
+    <p class="lead">Vždy z originálního zdroje, bez úprav. Schválené jsou jen verze z <a class="kap" href="#k02">kapitoly 02</a> a <a class="kap" href="#k07">07</a>.</p>
     <div class="dont">
       <div class="dcell">
         <div class="b"><span class="x">✕</span><span class="mark g-spec" style="width:66px;height:64.26px;transform:scale(1.5,.78)"><i style="transform:scale(.2692)"></i></span></div>
@@ -673,12 +638,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="inner">
     <p class="eyebrow">05 · Barvy</p>
     <h2>Každá generace má svou barvu</h2>
-    <p class="lead">
-      Barvy jsou vytažené ze spirály v logu. Plné spektrum znamená celý waldorfský koncept,
-      podbarva znamená jednu školu, tedy jednu generaci dětí. Na jednom dokumentu se objevuje
-      vždy jen jedna — jako pruh v hlavičce a jako barva nadpisů. Skupinové materiály
-      používají inkoust.
-    </p>
+    <p class="lead">Vytažené ze spirály. Plné spektrum znamená celou školu, podbarva jednu generaci. Na dokumentu vždy jen jedna.</p>
     <div class="cols">
       <div class="col">
         <div class="chip" style="background:#BC4D96"></div>
@@ -703,13 +663,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <div><i style="background:#FFFFFF"></i><b>Bílá</b><span>#FFFFFF · plocha</span></div>
       <div><i style="background:#E8E8EA"></i><b>Linka</b><span>#E8E8EA · rámy a oddělovače</span></div>
     </div>
-    <div class="note">
-      <p><strong>Dvě změny oproti verzi 1.0.</strong> Mateřská se posunula z <code>#C0509A</code>
-      na <code>#BC4D96</code> — původní hodnota měla vůči bílé i vůči inkoustu shodně 4,33:1,
-      tedy přesný geometrický střed mezi nimi, a neunesla ani jeden z nich. Posun je pouhým
-      okem nerozeznatelný. Šedá plocha <code>#F5F5F7</code> byla z palety vyřazena; místo ní
-      slouží jemné tinty jednotlivých generací z <a class="kap" href="#k09">kapitoly 09 · Barvy pro obrazovku</a>.</p>
-    </div>
+    
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 05 · Barvy</span></div>
 </article>
@@ -724,10 +678,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <div class="r">
         <p class="m">Nadpisy — Space Grotesk · Regular 400, Medium 500</p>
         <p class="sg">Příšerně žluťoučký kůň úpěl ďábelské ódy — 0123456789</p>
-        <p class="lead" style="font-size:14px; margin-top:14px">
-          Geometrický sans s výraznými, otevřenými tvary. Používá se pro nadpisy, jména, data
-          a citace. Nikdy pro dlouhý běžný text ani pro formulářová pole.
-        </p>
+        <p class="lead">Nadpisy, jména, data, citace. Nikdy dlouhý text ani formulářová pole.</p>
       </div>
       <div class="r">
         <p class="m">Text, tabulky, formuláře — Manrope · Regular 400, SemiBold 600, Bold 700</p>
@@ -737,26 +688,18 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
           v nich smysl pro týmovou spolupráci, zdravé sebevědomí a vystavět dobrý základ jejich
           morálních hodnot.
         </p>
-        <p class="lead" style="font-size:14px; margin-top:14px">
-          Humanistický sans pro odstavce, tabulky, štítky a vyplňovací pole. Řádkování 1,7.
-          Minimální velikost v tisku 9 pt, na obrazovce 15 px.
-        </p>
+        <p class="lead">Odstavce, tabulky, štítky, pole. Řádkování 1,7; minimum 9 pt tisk, 15 px web.</p>
       </div>
       <div class="r">
         <p class="m">Velká písmena s prostrkáním — Manrope 700, 0,16 em</p>
         <p class="mr" style="font-weight:700; letter-spacing:.16em; text-transform:uppercase; font-size:12.5px; color:var(--ink)">
           Zápis · Termíny · Dokumenty · Jídelníček · Kontakt
         </p>
-        <p class="lead" style="font-size:14px; margin-top:14px">
-          Verzálky s prostrkáním 0,16 em se používají jen pro malé návěstí nad nadpisem
-          a pro popisky. Nikdy pro nadpis ani pro celou větu.
-        </p>
+        <p class="lead">Jen malá návěstí a popisky. Nikdy nadpis ani celá věta.</p>
       </div>
     </div>
     <div class="note">
-      <p><strong>Česká sazba.</strong> Obě písma mají kompletní diakritiku. Používají se české
-      uvozovky „takto“, pomlčka s mezerami — takto — a nezlomitelné mezery za jednopísmennými
-      předložkami.</p>
+      <p><strong>Česká sazba.</strong> České uvozovky „takto“, pomlčka s mezerami — takto — a nezlomitelné mezery za jednopísmennými předložkami.</p>
     </div>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 06 · Písmo</span></div>
@@ -768,11 +711,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="inner">
     <p class="eyebrow">07 · Znak pro jednotlivé školy</p>
     <h2>Stejná spirála, barva školy</h2>
-    <p class="lead">
-      Každá organizace má vlastní verzi znaku: tvar zůstává, spektrum je nahrazeno jednou barvou
-      školy s přechodem od světlé ke tmavé. Používá se na materiálech dané školy. Na materiálech
-      celé skupiny Waldorf Olomouc platí plná barevná verze.
-    </p>
+    <p class="lead">Tvar zůstává, spektrum nahradí jedna barva školy. Na materiálech celé skupiny platí plná barevná verze.</p>
     <div class="trio" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
       <div class="tile">
         <div class="body"><span class="mark g-ms" style="width:70px;height:68.16px"><i style="transform:scale(.2855)"></i></span></div>
@@ -792,15 +731,12 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       </div>
     </div>
     <div class="zone" style="margin-top:26px">
-      <div class="note" style="margin-top:0">
-        <p><strong>Kdy plnou barevnou verzi.</strong> Web skupiny a jeho rozcestník, výroční
-        zpráva, zpravodaj, pozvánky na společné akce, razítka, hlavičkový papír společnosti.</p>
-      </div>
-      <div class="note" style="margin-top:0">
-        <p><strong>Kdy barvu školy.</strong> Dokumenty, přihlášky, informace pro rodiče
-        a kalendáře jedné školy. Nikdy dvě barevné verze na jedné stránce — jedinou výjimkou
-        je rozcestník skupiny na webu, viz <a class="kap" href="#k14">kapitola 14 · Čtyři generace na jedné stránce</a>.</p>
-      </div>
+      <div class="note">
+      <p><strong>Plnou barevnou.</strong> Rozcestník webu, výroční zpráva, zpravodaj, společné pozvánky, razítka, hlavičkový papír.</p>
+    </div>
+      <div class="note">
+      <p><strong>Barvu školy.</strong> Dokumenty, přihlášky, informace pro rodiče, kalendáře jedné školy. Nikdy dvě barevné verze na stránce — jedinou výjimkou je <a class="kap" href="#k14">kapitola 14</a>.</p>
+    </div>
     </div>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 07 · Znak jednotlivých škol</span></div>
@@ -812,10 +748,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="inner">
     <p class="eyebrow">08 · Aplikace</p>
     <h2>Jedna šablona, čtyři barvy</h2>
-    <p class="lead">
-      Každý dokument začíná stejně: barevný pruh, znak, název organizace, název dokumentu,
-      školní rok. Mění se jen barva a text.
-    </p>
+    <p class="lead">Každý dokument začíná stejně: pruh, znak, název organizace, název dokumentu, školní rok.</p>
     <div class="apps">
       <div class="app">
         <div class="st" style="background:#BC4D96"></div>
@@ -880,13 +813,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="inner">
     <p class="eyebrow">09 · Web</p>
     <h2>Barvy pro obrazovku</h2>
-    <p class="lead">
-      V tisku stačí na školu jedna barva. Na webu platí WCAG a jedna hodnota nemůže zároveň
-      nést text i sloužit jako plocha. Kontrast totiž řídí jas, ne odstín: barva projde na
-      běžný text poměrem 4,5:1 vůči bílé jen tehdy, má-li relativní jas nejvýš 0,183.
-      Amber ZUŠ má 0,416 — víc než dvojnásobek. Proto má každá generace na webu čtyři hodnoty
-      místo jedné.
-    </p>
+    <p class="lead">Jedna hodnota nemůže zároveň nést text a sloužit jako plocha. Proto má každá generace na webu čtyři.</p>
     <div class="tw">
       <table>
         <thead><tr>
@@ -935,13 +862,9 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
     <ul>
       <li><strong>Světlá plocha nese vždy inkoust</strong>, sytá plocha vždy bílou. Nikdy naopak.</li>
       <li><strong>Text na bílé</strong> se používá na nadpisy, odkazy a čísla. Syté plochy nikdy jako text.</li>
-      <li><strong>Jemný tint</strong> je pro bloky, tabulky a zvýrazněné odstavce; text v nich je inkoust.
-        Tinty nahradily vyřazenou šedou plochu z <a class="kap" href="#k05">kapitoly 05 · Barvy</a>.</li>
-      <li><strong>Amber #EE9B00 je nejlepší plocha v systému</strong> — inkoust na něm má 8,32:1,
-        nejvíc ze všech čtyř. ZUŠ na tom má stavět, ne se tomu vyhýbat.</li>
-      <li><strong>Střední škola je opačný případ</strong> — jediná barva, která funguje jako text
-        i jako sytá plocha bez jakékoli úpravy, ale inkoust na ní má jen 2,29:1, takže nese
-        vždy bílou.</li>
+      <li><strong>Jemný tint</strong> na bloky a tabulky, text v nich inkoust.</li>
+      <li><strong>Amber</strong> nese inkoust v poměru 8,32:1 — nejlepší plocha v systému. Jako text neprojde nikdy.</li>
+      <li><strong>Střední škola</strong> je opak: funguje i jako text, ale plocha nese vždy bílou.</li>
     </ul>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 09 · Barvy pro obrazovku</span></div>
@@ -953,11 +876,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="inner">
     <p class="eyebrow">10 · Web</p>
     <h2>Znak se nasazuje jako kód</h2>
-    <p class="lead">
-      Na webu není znak obrázek, ale jedna ořezová cesta o 421 bajtech a barevný přechod.
-      Všech sedm variant vzniká z téhož zdroje, je ostrých v jakékoli velikosti a mění se
-      jedinou proměnnou.
-    </p>
+    <p class="lead">Na webu je znak jedna ořezová cesta o 421 bajtech a barevný přechod. Sedm variant z téhož zdroje.</p>
     <div class="stage" style="gap:22px">
       <div class="scell"><span class="mark g-spec" style="width:96px;height:93.47px"><i style="transform:scale(.3916)"></i></span><span class="c">Spektrum</span></div>
       <div class="scell"><span class="mark g-ms" style="width:60px;height:58.42px"><i style="transform:scale(.2448)"></i></span><span class="c">Mateřská</span></div>
@@ -975,11 +894,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 &lt;span class="wm wm--zs" style="--wm-size:44px"
       role="img" aria-label="Základní škola"&gt;&lt;/span&gt;</pre>
     <h3 class="sub">Minimální velikost na obrazovce hlídá kód</h3>
-    <p class="lead">
-      Strana 4 uvádí pro obrazovku 20 px. To platí pro jednobarevnou verzi. Ve spektrální
-      a barevné verzi se na téhle velikosti spirála slévá, proto <strong>pod 44 px platí vždy
-      jednobarevná verze</strong>. Přepnutí obstará CSS samo, zapíše se jen varianta a velikost.
-    </p>
+    <p class="lead">Jednobarevně od 20 px, barevně až <strong>od 44 px</strong> — pod ní se spirála slévá. Přepnutí obstará CSS.</p>
     <div class="sizes">
       <div class="scell"><span class="mark g-spec" style="width:20px;height:19.47px"><i style="transform:scale(.0816)"></i></span><span class="c">20 px — slévá se</span></div>
       <div class="scell"><span class="mark g-ink" style="width:20px;height:19.47px"><i style="transform:scale(.0816)"></i></span><span class="c">20 px — správně</span></div>
@@ -999,10 +914,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       </table>
     </div>
     <div class="note">
-      <p><strong>Mimo web platí soubory.</strong> Barevný přechod je CSS a do SVG se nepřenese.
-      Pro tisk, e-mail a sociální sítě slouží vygenerovaná samostatná SVG. Jejich výseče se
-      mírně překrývají — bez překryvu vznikají mezi nimi antialiasové spáry, které se projeví
-      jako paprsky.</p>
+      <p><strong>Mimo web platí soubory.</strong> Přechod je CSS a do SVG se nepřenese; pro tisk, e-mail a sítě slouží vygenerovaná SVG.</p>
     </div>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 10 · Znak v kódu</span></div>
@@ -1013,18 +925,13 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="inner">
     <p class="eyebrow">11 · Web</p>
     <h2>Plochy nesou barvu</h2>
-    <p class="lead">
-      Papír si vystačí s bílou a šedou. Na obrazovce nese plocha barvu generace, které patří —
-      neutrální šeď ani černá do systému nepatří vůbec.
-    </p>
+    <p class="lead">Plocha nese barvu generace. Jediný neutrál je bílá.</p>
 
     <ul>
-      <li><strong>Žádná černá, šedá ani béžová plocha.</strong> Pole má barvu generace,
-        které patří. Jediný neutrál je bílá.</li>
+      <li>Žádná černá, šedá ani béžová plocha — ani jako podklad fotky.</li>
       <li>Inkoust <code>#101216</code> zůstává barvou textu, nikoli barvou ploch.</li>
-      <li>Podklady pod fotkami a prázdné stavy se podbarvují jemným tintem generace,
-        nikdy neutrální šedí.</li>
-      <li>Tmavý režim se vědomě nedělá. Vyžadoval by tmavé plochy, které do systému nepatří.</li>
+      <li>Podklady fotek a prázdné stavy se podbarvují tintem generace.</li>
+      <li>Tmavý režim se vědomě nedělá — vyžadoval by tmavé plochy.</li>
     </ul>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 11 · Plochy</span></div>
@@ -1036,10 +943,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="inner">
     <p class="eyebrow">12 · Web</p>
     <h2>Stavy prvků</h2>
-    <p class="lead">
-      Jak vypadá odkaz pod kurzorem, zaměření z klávesnice nebo chybová hláška. Tiskový manuál
-      to neřešil, protože papír nemá kurzor.
-    </p>
+    <p class="lead">Odkaz, zaměření, chyba a potvrzení. Co papír nepotřebuje.</p>
 
     <div class="states">
       <div class="state">
@@ -1075,10 +979,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       </div>
     </div>
     <div class="note">
-      <p><strong>Proč chybová červená a ne zelená pro úspěch.</strong> Červená <code>#B2261E</code>
-      je od mateřské vzdálená 46° a od ZUŠ 43°, takže se s žádnou barvou generace neplete.
-      Zelená by se ale s barvou základní školy pletla vždy — proto se úspěch značí inkoustem
-      a ikonou, ne barvou.</p>
+      <p><strong>Úspěch se neznačí barvou.</strong> Červená <code>#B2261E</code> se s žádnou generací neplete, zelená by se pletla se základní školou — proto inkoust a ikona.</p>
     </div>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 12 · Stavy prvků</span></div>
@@ -1090,10 +991,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="inner">
     <p class="eyebrow">13 · Web</p>
     <h2>Obrázky</h2>
-    <p class="lead">
-      Manuál dosud řešil znak a písmo, obraz vůbec. Přitom u školy rozhoduje o důvěře
-      právě fotografie.
-    </p>
+    <p class="lead">U školy rozhoduje o důvěře fotografie.</p>
 
     <div class="imgrules">
       <div class="ir">
@@ -1116,12 +1014,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
           a detailů</strong> — bez rozpoznatelných tváří.</p>
       </div>
     </div>
-    <p class="lead" style="margin-top:18px">
-      Generovaný obrázek je stavební lešení, ne fasáda. Proto platí: žádné tváře, žádný záběr,
-      který tvrdí „tohle je naše třída“, každý takový soubor má v názvu předponu <code>tmp-</code>
-      a v redakčním systému štítek <em>dočasné</em>, aby šlo kdykoli vypsat, co ještě čeká
-      na výměnu.
-    </p>
+    <p class="lead">Generovaný obrázek je lešení, ne fasáda. Soubory mají předponu <code>tmp-</code> a štítek <em>dočasné</em>.</p>
     <div class="prompts">
       <div class="pr"><span class="k">Materiál</span><span class="v">Detail ručního papíru s vlákny, akvarelová skvrna v barvě generace, měkké denní světlo z boku, bez lidí.</span></div>
       <div class="pr"><span class="k">Dílna</span><span class="v">Hoblina, dláto a kus lipového dřeva na ponku, shora, přirozené světlo, bez rukou a tváří.</span></div>
@@ -1142,21 +1035,13 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 
     <p class="eyebrow">12 · Web</p>
     <h2>Čtyři generace na jedné stránce</h2>
-    <p class="lead">
-      Strana 8 říká: nikdy dvě barevné verze na jedné stránce. V tisku to platí — přihláška
-      patří jedné škole. Rozcestník skupiny ale musí ze své podstaty nabídnout všechny čtyři
-      generace najednou. Tohle je jediné povolené místo, kde se to pravidlo poruší.
-    </p>
+    <p class="lead"><a class="kap" href="#k07">Kapitola 07</a> zakazuje dvě barevné verze na stránce. Rozcestník skupiny je jediná výjimka.</p>
 <h3 class="sub">Co kde platí</h3>
     <ul>
-      <li><strong>Sekce jedné školy</strong> — jedna barva generace, znak ve variantě té školy.
-        Přesně podle <a class="kap" href="#k07">kapitoly 07 · Znak jednotlivých škol</a>.</li>
-      <li><strong>Rozcestník skupiny</strong> — znak vždy plný spektrální, text vždy inkoustový.
-        Barvy generací se smějí objevit <strong>jen jako značka v navigaci</strong>: pruh,
-        tečka, podtržení.</li>
+      <li><strong>Sekce jedné školy</strong> — jedna barva, znak ve variantě té školy.</li>
+      <li><strong>Rozcestník skupiny</strong> — znak plný spektrální, text inkoustový. Barvy generací jen jako značka v navigaci: pruh, tečka, podtržení.</li>
       <li><strong>Nikdy</strong> čtyři obarvené nadpisy ani čtyři barevné znaky vedle sebe.</li>
-      <li>Plné spektrum znamená celý waldorfský koncept, podbarva jednu etapu cesty.
-        Barva na stránce říká, ke které generaci se právě mluví.</li>
+      
     </ul>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 14 · Čtyři generace na jedné stránce</span></div>
@@ -1170,31 +1055,16 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 
     <p class="eyebrow">13 · Pohyb</p>
     <h2>Rytmus, ne efekt</h2>
-    <p class="lead">
-      Waldorfská pedagogika stojí na rytmu a opakování — na tom, že se den, týden a rok vracejí
-      v poznatelném pořádku. Pohyb na webu má dělat totéž: být klidný, předvídatelný a tak
-      nenápadný, že si ho nikdo nevšimne. Nic nepřeskakuje, nic nepruží, nic nepoutá pozornost
-      samo na sebe.
-    </p>
+    <p class="lead">Pohyb má být klidný a předvídatelný. Nic nepřeskakuje, nic nepruží, nic nepoutá pozornost samo na sebe.</p>
 <h3 class="sub">Znak se neotáčí ani v pohybu</h3>
-    <p class="lead">
-      <a class="kap" href="#k04">Kapitola 04 · Zakázané varianty</a> zakazuje otáčení znaku a v pohybu to platí beze změny. Hýbe se
-      <strong>barva uvnitř spirály</strong>, ne spirála sama: animuje se úhel kuželového
-      přechodu, tvar zůstává přesně tam, kde je. Tok běží jen tam, kde je znak velký —
-      na obálce, v úvodu stránky — a nikdy v hlavičce ani v patičce.
-    </p>
+    <p class="lead">Znak se neotáčí ani v pohybu (<a class="kap" href="#k04">kapitola 04</a>). Hýbe se barva uvnitř spirály — animuje se úhel přechodu, tvar stojí. Jen u velkého znaku, nikdy v hlavičce.</p>
     <div class="stage flowrow">
       <div class="scell"><span class="mark g-flow" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">Tok barvy — správně</span></div>
       <div class="scell"><span class="mark g-spec" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">V klidu</span></div>
       <div class="scell zakaz"><span class="mark g-spec" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">Otáčení tvaru — zakázáno</span></div>
     </div>
 <h3 class="sub">Cesta generací</h3>
-    <p class="lead">
-      Barva na stránce říká, ke které generaci se právě mluví. Když návštěvník přechází mezi
-      sekcemi, mění se plocha pod ním — pomalu, jedním prolnutím, nikdy posunem ani otočením.
-      Znak na světlé ploše zůstává inkoustový podle <a class="kap" href="#k09">kapitoly 09 · Barvy pro obrazovku</a>; vlastní barevná varianta
-      by se na ploše téže barvy ztratila.
-    </p>
+    <p class="lead">Při přechodu mezi sekcemi se plocha prolne, nikdy neposune. Znak na světlé ploše zůstává inkoustový (<a class="kap" href="#k09">kapitola 09</a>).</p>
     <div class="journey">
       <div class="jstage">
         <div class="jslide j1">
@@ -1231,10 +1101,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
         <i style="background:#EE9B00"></i><i style="background:#4A3CB0"></i>
       </div>
     </div>
-    <p class="lead" style="font-size:13px; color:var(--ink-3); margin-top:12px">
-      Všechny čtyři plochy jsou světlé a nesou inkoustový text podle <a class="kap" href="#k09">kapitoly 09 · Barvy pro obrazovku</a>. Prolnutí trvá
-      jeden krok <code>--pohyb-sekce</code>, mezi přechody je klid.
-    </p>
+    <p class="lead">Prolnutí trvá jeden krok <code>--pohyb-sekce</code>, mezi přechody je klid.</p>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 15 · Rytmus, ne efekt</span></div>
 </article>
@@ -1248,10 +1115,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 
     <p class="eyebrow">14 · Pohyb</p>
     <h2>Časy, křivky a živé ukázky</h2>
-    <p class="lead">
-      Čtyři délky a dvě křivky stačí na celý web. Čím větší plocha se hýbe, tím déle to trvá;
-      všechno zpomaluje do klidu a nic nepřestřelí za cíl.
-    </p>
+    <p class="lead">Čtyři délky a dvě křivky na celý web. Větší plocha, delší pohyb; vše dojíždí do klidu.</p>
     <div class="tw">
       <table>
         <thead><tr><th>Token</th><th>Hodnota</th><th>Kde se používá</th></tr></thead>
@@ -1276,9 +1140,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="inner">
     <p class="eyebrow">17 · Pohyb</p>
     <h2>Živé ukázky</h2>
-    <p class="lead">
-      Ukázky níže jsou funkční, ne obrázky — běží na tokenech z <a class="kap" href="#k16">kapitoly 16 · Časy a křivky</a>.
-    </p>
+    <p class="lead">Ukázky jsou funkční, ne obrázky — běží na tokenech z <a class="kap" href="#k16">kapitoly 16</a>.</p>
 
     <div class="specimens">
       <div class="sp">
@@ -1331,21 +1193,13 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       </div>
     </div>
 <h3 class="sub">Vypnutý pohyb</h3>
-    <p class="lead">
-      Kdo má v systému zapnuté omezení pohybu, nevidí nic z výše uvedeného — a nepřijde
-      o žádnou informaci. Žádné sdělení nesmí být neseno jen pohybem. Vyzkoušejte si to
-      rovnou tady: přepínač vypne pohyb v celém dokumentu.
-    </p>
+    <p class="lead">Při zapnutém omezení pohybu se nic nepřehraje a žádná informace se neztratí. Vyzkoušejte přepínačem.</p>
     <label class="switch">
       <input type="checkbox" id="pohyb-off">
       <span>Vypnout pohyb v tomto dokumentu</span>
     </label>
 
-    <p class="lead" style="margin-top:26px; font-size:12.5px; color:var(--ink-3)">
-      Ukázky na této straně jsou funkční, ne obrázky — běží na stejných tokenech, které
-      má převzít web. Tok barvy ve znaku se animuje přes registrovanou vlastnost
-      <code>--wm-uhel</code>; ořezová cesta zůstává nedotčená, proto se tvar nikdy nehýbe.
-    </p>
+    
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 17 · Živé ukázky</span></div>
 </article>
@@ -1356,10 +1210,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="inner">
     <p class="eyebrow">18 · Závěr</p>
     <h2>Změny oproti verzi 1.0</h2>
-    <p class="lead">
-      Verze 2.1 nechává tvar znaku, obě písma i logiku generací beze změny. Mění dvě barevné
-      hodnoty, jednu ruší a doplňuje kapitoly pro web a pohyb.
-    </p>
+    <p class="lead">Tvar znaku, obě písma i logika generací zůstávají. Mění se dvě barevné hodnoty, jedna se ruší.</p>
 
     <div class="chg">
       <div class="chgrow"><span class="s m">Mění</span><p><b>Mateřská #C0509A → #BC4D96.</b> Jediná změněná barevná hodnota. Strana 6.</p></div>
@@ -1375,17 +1226,9 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Kapitolu o pohybu</b> — tokeny časů a křivek, živé ukázky, pravidlo, že se znak neotáčí ani v pohybu. Strany 14 a 15.</p></div>
     </div>
     <div class="note">
-      <p><strong>Beze změny zůstává.</strong> Tvar znaku a všech sedm variant. Space Grotesk
-      a Manrope. Barvy základní školy, ZUŠ Fantazie a střední školy. Ochranná zóna, umístění
-      na dokumentu a zakázané varianty z <a class="kap" href="#k03">kapitoly 03 · Prostor a velikost</a> a <a class="kap" href="#k04">kapitoly 04 · Zakázané varianty</a>. Logika, podle níž plné spektrum patří
-      celku a podbarva jedné škole.</p>
+      <p><strong>Beze změny.</strong> Znak a jeho sedm variant, Space Grotesk a Manrope, barvy základní školy, ZUŠ a střední, ochranná zóna i zakázané varianty.</p>
     </div>
-    <p class="lead" style="margin-top:24px; font-size:12.5px; color:var(--ink-3)">
-      Kontrastní poměry měřené podle WCAG 2.1 proti bílé, případně proti inkoustu #101216.
-      Barvy doplněné ve verzi 2.0 jsou dopočítané v OKLCH jako nejbližší vyhovující hodnota
-      k původní, ne odhadem. Hodnoty CMYK jsou orientační — před tiskem je ověřte v tiskárně.
-      Znak je v tomto dokumentu vykreslen z ořezové cesty originálního souboru.
-    </p>
+    <p class="lead">Kontrast měřen podle WCAG 2.1, barvy dopočítané v OKLCH. CMYK je orientační — před tiskem ověřte v tiskárně.</p>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 18 · Změny</span></div>
 </article>

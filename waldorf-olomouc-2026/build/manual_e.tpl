@@ -7,31 +7,16 @@
 
     <p class="eyebrow">13 · Pohyb</p>
     <h2>Rytmus, ne efekt</h2>
-    <p class="lead">
-      Waldorfská pedagogika stojí na rytmu a opakování — na tom, že se den, týden a rok vracejí
-      v poznatelném pořádku. Pohyb na webu má dělat totéž: být klidný, předvídatelný a tak
-      nenápadný, že si ho nikdo nevšimne. Nic nepřeskakuje, nic nepruží, nic nepoutá pozornost
-      samo na sebe.
-    </p>
+    <p class="lead">Pohyb má být klidný a předvídatelný. Nic nepřeskakuje, nic nepruží, nic nepoutá pozornost samo na sebe.</p>
 <h3 class="sub">Znak se neotáčí ani v pohybu</h3>
-    <p class="lead">
-      <a class="kap" href="#k04">Kapitola 04 · Zakázané varianty</a> zakazuje otáčení znaku a v pohybu to platí beze změny. Hýbe se
-      <strong>barva uvnitř spirály</strong>, ne spirála sama: animuje se úhel kuželového
-      přechodu, tvar zůstává přesně tam, kde je. Tok běží jen tam, kde je znak velký —
-      na obálce, v úvodu stránky — a nikdy v hlavičce ani v patičce.
-    </p>
+    <p class="lead">Znak se neotáčí ani v pohybu (<a class="kap" href="#k04">kapitola 04</a>). Hýbe se barva uvnitř spirály — animuje se úhel přechodu, tvar stojí. Jen u velkého znaku, nikdy v hlavičce.</p>
     <div class="stage flowrow">
       <div class="scell"><span class="mark g-flow" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">Tok barvy — správně</span></div>
       <div class="scell"><span class="mark g-spec" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">V klidu</span></div>
       <div class="scell zakaz"><span class="mark g-spec" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">Otáčení tvaru — zakázáno</span></div>
     </div>
 <h3 class="sub">Cesta generací</h3>
-    <p class="lead">
-      Barva na stránce říká, ke které generaci se právě mluví. Když návštěvník přechází mezi
-      sekcemi, mění se plocha pod ním — pomalu, jedním prolnutím, nikdy posunem ani otočením.
-      Znak na světlé ploše zůstává inkoustový podle <a class="kap" href="#k09">kapitoly 09 · Barvy pro obrazovku</a>; vlastní barevná varianta
-      by se na ploše téže barvy ztratila.
-    </p>
+    <p class="lead">Při přechodu mezi sekcemi se plocha prolne, nikdy neposune. Znak na světlé ploše zůstává inkoustový (<a class="kap" href="#k09">kapitola 09</a>).</p>
     <div class="journey">
       <div class="jstage">
         <div class="jslide j1">
@@ -68,10 +53,7 @@
         <i style="background:#EE9B00"></i><i style="background:#4A3CB0"></i>
       </div>
     </div>
-    <p class="lead" style="font-size:13px; color:var(--ink-3); margin-top:12px">
-      Všechny čtyři plochy jsou světlé a nesou inkoustový text podle <a class="kap" href="#k09">kapitoly 09 · Barvy pro obrazovku</a>. Prolnutí trvá
-      jeden krok <code>--pohyb-sekce</code>, mezi přechody je klid.
-    </p>
+    <p class="lead">Prolnutí trvá jeden krok <code>--pohyb-sekce</code>, mezi přechody je klid.</p>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 15 · Rytmus, ne efekt</span></div>
 </article>
@@ -85,10 +67,7 @@
 
     <p class="eyebrow">14 · Pohyb</p>
     <h2>Časy, křivky a živé ukázky</h2>
-    <p class="lead">
-      Čtyři délky a dvě křivky stačí na celý web. Čím větší plocha se hýbe, tím déle to trvá;
-      všechno zpomaluje do klidu a nic nepřestřelí za cíl.
-    </p>
+    <p class="lead">Čtyři délky a dvě křivky na celý web. Větší plocha, delší pohyb; vše dojíždí do klidu.</p>
     <div class="tw">
       <table>
         <thead><tr><th>Token</th><th>Hodnota</th><th>Kde se používá</th></tr></thead>
@@ -113,9 +92,7 @@
   <div class="inner">
     <p class="eyebrow">17 · Pohyb</p>
     <h2>Živé ukázky</h2>
-    <p class="lead">
-      Ukázky níže jsou funkční, ne obrázky — běží na tokenech z <a class="kap" href="#k16">kapitoly 16 · Časy a křivky</a>.
-    </p>
+    <p class="lead">Ukázky jsou funkční, ne obrázky — běží na tokenech z <a class="kap" href="#k16">kapitoly 16</a>.</p>
 
     <div class="specimens">
       <div class="sp">
@@ -168,21 +145,13 @@
       </div>
     </div>
 <h3 class="sub">Vypnutý pohyb</h3>
-    <p class="lead">
-      Kdo má v systému zapnuté omezení pohybu, nevidí nic z výše uvedeného — a nepřijde
-      o žádnou informaci. Žádné sdělení nesmí být neseno jen pohybem. Vyzkoušejte si to
-      rovnou tady: přepínač vypne pohyb v celém dokumentu.
-    </p>
+    <p class="lead">Při zapnutém omezení pohybu se nic nepřehraje a žádná informace se neztratí. Vyzkoušejte přepínačem.</p>
     <label class="switch">
       <input type="checkbox" id="pohyb-off">
       <span>Vypnout pohyb v tomto dokumentu</span>
     </label>
 
-    <p class="lead" style="margin-top:26px; font-size:12.5px; color:var(--ink-3)">
-      Ukázky na této straně jsou funkční, ne obrázky — běží na stejných tokenech, které
-      má převzít web. Tok barvy ve znaku se animuje přes registrovanou vlastnost
-      <code>--wm-uhel</code>; ořezová cesta zůstává nedotčená, proto se tvar nikdy nehýbe.
-    </p>
+    
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 17 · Živé ukázky</span></div>
 </article>

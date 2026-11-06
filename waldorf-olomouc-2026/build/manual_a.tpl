@@ -65,10 +65,7 @@
   <div class="inner">
     <p class="eyebrow">Začněte zde</p>
     <h2>Rychlý přehled</h2>
-    <p class="lead">
-      Všechny hodnoty, které člověk hledá nejčastěji, na jedné obrazovce. Každý řádek odkazuje
-      do kapitoly, kde je pravidlo vysvětlené.
-    </p>
+    <p class="lead">Co se hledá nejčastěji, na jedné obrazovce. Každý řádek odkazuje do kapitoly s vysvětlením.</p>
 
     <h3 class="sub">Barvy generací <a class="kap" href="#k09">kapitola 09</a></h3>
     <div class="tw">
@@ -132,11 +129,7 @@
     </div>
 
     <div class="note">
-      <p><strong>Tři pravidla, která platí všude.</strong> Plocha nese barvu generace —
-      šedá ani černá plocha do systému nepatří (<a class="kap" href="#k11">kapitola 11</a>).
-      Na jedné stránce je jedna barva; jedinou výjimkou je rozcestník skupiny
-      (<a class="kap" href="#k14">kapitola 14</a>). Znak se neotáčí ani v pohybu —
-      hýbe se barva uvnitř něj (<a class="kap" href="#k15">kapitola 15</a>).</p>
+      <p><strong>Tři pravidla všude.</strong> Plocha nese barvu generace, nikdy šeď ani černou (<a class="kap" href="#k11">11</a>). Na stránce je jedna barva; výjimkou je rozcestník (<a class="kap" href="#k14">14</a>). Znak se neotáčí ani v pohybu (<a class="kap" href="#k15">15</a>).</p>
     </div>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Rychlý přehled</span></div>
@@ -148,15 +141,8 @@
   <div class="inner">
     <p class="eyebrow">01 · Znak</p>
     <h2>Trojitá spirála</h2>
-    <p class="lead">
-      Znak tvoří tři propletené spirály v plynulém barevném přechodu. Tři ramena odpovídají tomu,
-      jak waldorfská pedagogika vnímá člověka — hlava, ruce a srdce. Barevný přechod prochází
-      celým spektrem: z něj jsou odvozeny barvy jednotlivých organizací.
-    </p>
-    <p class="lead" style="margin-top:12px">
-      Znak je jediný obrazový prvek identity. Nekombinuje se s dalšími ilustracemi, ornamenty
-      ani fotografiemi ve stejné ploše.
-    </p>
+    <p class="lead">Tři propletené spirály — hlava, ruce a srdce. Z jejich spektra jsou odvozené barvy jednotlivých škol.</p>
+    <p class="lead">Znak je jediný obrazový prvek identity. Nekombinuje se s ilustracemi ani fotografiemi ve stejné ploše.</p>
     <div class="stage">
       <div class="lock">
         <span class="mark g-spec" style="width:104px;height:101.26px" role="img" aria-label="Znak Waldorfské školy Olomouc"><i style="transform:scale(.4242)"></i></span>
@@ -179,11 +165,7 @@
   <div class="inner">
     <p class="eyebrow">02 · Varianty</p>
     <h2>Tři verze, jasná pravidla</h2>
-    <p class="lead">
-      Barevná verze je základní a používá se vždy, kdy to tisk dovolí. Jednobarevná inkoustová
-      verze slouží pro razítka, jednobarevný tisk a formuláře. Bílá verze jen na tmavém
-      nebo barevném podkladu.
-    </p>
+    <p class="lead">Barevná verze je základní. Jednobarevná na razítka a jednobarevný tisk, bílá na tmavý a barevný podklad.</p>
     <div class="trio">
       <div class="tile">
         <div class="body"><span class="mark g-spec" style="width:74px;height:72.05px"><i style="transform:scale(.3018)"></i></span></div>
@@ -211,10 +193,7 @@
         </tbody>
       </table>
     </div>
-    <div class="note">
-      <p><strong>Změna oproti verzi 1.0.</strong> Šedá plocha jako podklad byla vyřazena.
-      Plochy nesou barvu organizace, jediný neutrál je bílá. Podrobně v <a class="kap" href="#k11">kapitole 11 · Plochy</a>.</p>
-    </div>
+    
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 02 · Varianty</span></div>
 </article>
@@ -228,10 +207,7 @@
     <div class="zone">
       <div>
         <h3 class="sub" style="margin-top:22px">Ochranná zóna</h3>
-        <p class="lead" style="font-size:14.5px">
-          Volný prostor okolo znaku je vždy alespoň <strong>polovina šířky znaku</strong> na všech
-          stranách. Do této zóny nevstupuje text, linka, obrázek ani okraj stránky.
-        </p>
+        <p class="lead">Alespoň <strong>polovina šířky znaku</strong> na všech stranách. Nevstupuje do ní text, linka, obrázek ani okraj.</p>
         <div class="zbox" style="margin-top:16px">
           <div class="zinner">
             <span class="mark g-spec" style="width:88px;height:85.68px"><i style="transform:scale(.359)"></i></span>
@@ -244,11 +220,7 @@
       </div>
       <div>
         <h3 class="sub" style="margin-top:22px">Minimální velikost</h3>
-        <p class="lead" style="font-size:14.5px">
-          Pod uvedenou velikostí se spirály slévají a znak přestává být čitelný.
-          Pro tisk platí <strong>8 mm</strong> šířky, pro obrazovku <strong>20 px</strong>.
-          Ve spektrální verzi na obrazovce platí přísnější hranice, viz <a class="kap" href="#k10">kapitola 10 · Znak v kódu</a>.
-        </p>
+        <p class="lead">Tisk <strong>8 mm</strong>, obrazovka <strong>20 px</strong> jednobarevně. Barevně až od 44 px — <a class="kap" href="#k10">kapitola 10</a>.</p>
         <div class="sizes" style="margin-top:16px">
           <div class="scell"><span class="mark g-spec" style="width:78px;height:75.94px"><i style="transform:scale(.3182)"></i></span><span class="c">26 mm</span></div>
           <div class="scell"><span class="mark g-spec" style="width:42px;height:40.89px"><i style="transform:scale(.1713)"></i></span><span class="c">14 mm</span></div>
@@ -257,10 +229,7 @@
       </div>
     </div>
     <h3 class="sub">Umístění na dokumentu</h3>
-    <p class="lead">
-      Znak stojí v levém horním rohu, 20 mm od okraje, pod barevným pruhem organizace.
-      Na obálkách může být zvětšen a umístěn na střed. Jiné pozice se nepoužívají.
-    </p>
+    <p class="lead">Levý horní roh, 20 mm od okraje, pod barevným pruhem. Na obálkách zvětšený na střed.</p>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 03 · Prostor a velikost</span></div>
 </article>
@@ -271,11 +240,7 @@
   <div class="inner">
     <p class="eyebrow">04 · Zakázané varianty</p>
     <h2>Co se znakem nedělat</h2>
-    <p class="lead">
-      Znak se používá vždy z originálního zdroje, bez úprav. Schválené jsou pouze verze
-      z <a class="kap" href="#k02">kapitoly 02 · Varianty</a> a <a class="kap" href="#k07">kapitoly 07 · Znak jednotlivých škol</a> — žádné jiné přebarvení. Následující zásahy poškozují čitelnost
-      i význam a nejsou přípustné.
-    </p>
+    <p class="lead">Vždy z originálního zdroje, bez úprav. Schválené jsou jen verze z <a class="kap" href="#k02">kapitoly 02</a> a <a class="kap" href="#k07">07</a>.</p>
     <div class="dont">
       <div class="dcell">
         <div class="b"><span class="x">✕</span><span class="mark g-spec" style="width:66px;height:64.26px;transform:scale(1.5,.78)"><i style="transform:scale(.2692)"></i></span></div>
