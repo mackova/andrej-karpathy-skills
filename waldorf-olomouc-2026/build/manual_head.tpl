@@ -107,11 +107,17 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 
 /* ---------- obálka ---------- */
 .cover .inner{padding:64px 54px 44px}
-.cover h1{font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:52px;
-  letter-spacing:-.03em; margin:26px 0 0; line-height:1.05}
-.cover .head{display:flex; align-items:center; gap:22px}
+.cover h1{font-family:'Space Grotesk',sans-serif; font-weight:500;
+  font-size:clamp(28px,4.4vw,50px); letter-spacing:-.032em; margin:0; line-height:1.06}
+.cover .lockup{display:flex; align-items:center; gap:clamp(20px,3vw,34px); --m:168px}
+.cover .lockup .mark{width:var(--m); height:calc(var(--m) * 238.7 / 245.15)}
+.cover .lockup .mark > i{transform:scale(calc(var(--m) / 245.15px))}
+.cover .orgs{margin-top:14px; font-size:clamp(11px,1.1vw,13px); letter-spacing:.16em;
+  text-transform:uppercase; font-weight:700; color:var(--ink-3); line-height:1.6}
+.cover .doktyp{margin-top:30px; padding-top:18px; border-top:1px solid var(--line);
+  font-size:12px; letter-spacing:.15em; text-transform:uppercase; font-weight:700; color:var(--ink-3)}
 .cover .who{font-size:13px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--ink-3)}
-.cover .cl{margin-top:18px; font-size:17px; color:var(--ink-2); max-width:50ch}
+.cover .cl{margin-top:16px; font-size:16.5px; color:var(--ink-2); max-width:54ch}
 .cover .meta{margin-top:38px; padding-top:20px; border-top:1px solid var(--line);
   display:flex; flex-wrap:wrap; gap:0 40px; row-gap:14px; font-size:13px; color:var(--ink-3)}
 .cover .meta b{display:block; color:var(--ink); font-weight:600; font-size:13.5px}
@@ -348,7 +354,11 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 
 @media (max-width:720px){
   .page > .inner{padding:32px 22px 24px} .pfoot{padding:12px 22px 17px}
-  .page h2{font-size:23px} .cover h1{font-size:36px} .cover .inner{padding:38px 22px 30px}
+  .page h2{font-size:23px} .cover .inner{padding:34px 22px 28px}
+  .cover .lockup{--m:96px; gap:18px}
+}
+@media (max-width:560px){
+  .cover .lockup{flex-direction:column; align-items:flex-start; gap:20px}
   .pr{grid-template-columns:1fr; gap:5px} body{padding:16px 10px 50px}
   .dont{grid-template-columns:repeat(2,1fr)}
 }

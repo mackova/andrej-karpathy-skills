@@ -36,13 +36,14 @@
 <article class="page cover" id="obalka">
   <div class="rule"></div>
   <div class="inner">
-    <div class="head">
-      <span class="mark g-flow once" style="width:76px;height:73.99px" role="img" aria-label="Znak Waldorfské školy Olomouc"><i style="transform:scale(.31)"></i></span>
+    <div class="lockup">
+      <span class="mark g-flow once" role="img" aria-label="Znak Waldorfské školy Olomouc"><i></i></span>
       <div>
-        <p class="who">Waldorfská škola Olomouc</p>
-        <h1 style="margin-top:8px">Logomanuál</h1>
+        <h1>Waldorfská škola Olomouc</h1>
+        <p class="orgs">Mateřská · Základní · ZUŠ Fantazie · Střední</p>
       </div>
     </div>
+    <p class="doktyp">Logomanuál · verze 2.1</p>
     <p class="cl">Pravidla pro znak, barvy, písmo a pohyb napříč pěti organizacemi školy.</p>
     <div class="dily">
       <div><b>A · Značka</b><span>Kapitoly 01–08</span><p>Znak, barvy, písmo a tiskové aplikace. Pro kohokoli, kdo dělá dokument nebo plakát.</p></div>
