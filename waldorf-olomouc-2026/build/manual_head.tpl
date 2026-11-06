@@ -12,7 +12,17 @@
   --ms-tint:#EEC4DC; --zs-tint:#BBD7C2; --zus-tint:#F7C68B; --ss-tint:#CCCEEE;
   --err:#B2261E; --err-bg:#F0C5BF;
   --page:#FFFFFF; --canvas:#E9EAEC;
+
+  /* pohyb — kapitola 13 */
+  --pohyb-stav:160ms;
+  --pohyb-prvek:320ms;
+  --pohyb-sekce:640ms;
+  --pohyb-znak:1200ms;
+  --krivka-klid:cubic-bezier(.2,.7,.3,1);
+  --krivka-vstup:cubic-bezier(.16,1,.3,1);
+  --prodleva:60ms;
 }
+@property --wm-uhel{ syntax:'<angle>'; initial-value:0deg; inherits:false; }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --canvas:#191B1F; } }
 :root[data-theme="dark"]{ --canvas:#191B1F; }
 
@@ -196,6 +206,104 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 .chgrow .s.m{color:var(--zus)} .chgrow .s.a{color:var(--zs)} .chgrow .s.r{color:var(--err)}
 .chgrow p{font-size:13px; color:var(--ink-2); line-height:1.6}
 .chgrow b{color:var(--ink)}
+
+/* ---------- pohyb ---------- */
+[data-js] .page{opacity:0; transform:translateY(18px);
+  transition:opacity var(--pohyb-sekce) var(--krivka-vstup),
+             transform var(--pohyb-sekce) var(--krivka-vstup)}
+[data-js] .page.in{opacity:1; transform:none}
+
+/* tok barvy ve znaku — otáčí se přechod, nikdy tvar */
+.g-flow > i{background:__SPECFLOW__; animation:wm-tok 9s linear infinite}
+@keyframes wm-tok{ to{ --wm-uhel:360deg } }
+.g-flow.once > i{animation:wm-dosed var(--pohyb-znak) var(--krivka-klid) both}
+@keyframes wm-dosed{ from{ --wm-uhel:-120deg } to{ --wm-uhel:0deg } }
+
+/* obálka: znak přichází */
+.cover .mark{animation:znak-vstup var(--pohyb-znak) var(--krivka-vstup) both}
+@keyframes znak-vstup{ from{opacity:0; transform:scale(.93)} to{opacity:1; transform:none} }
+
+/* cesta generací */
+.journey{margin-top:24px; border:1px solid var(--line); border-radius:2px; overflow:hidden}
+.jstage{position:relative; height:152px; background:#D684B7;
+  animation:j-podklad 24s step-end infinite}
+@keyframes j-podklad{
+  0%{background:#D684B7} 25%{background:#72AB84}
+  50%{background:#EE9B00} 75%{background:#9699D9} }
+.jslide{position:absolute; inset:0; opacity:0; animation:j-slide 24s linear infinite}
+.jfield{position:absolute; inset:0}
+.jrow{position:relative; height:100%; display:flex; align-items:center; gap:22px; padding:0 28px; color:#101216}
+.jrow b{display:block; font-family:'Space Grotesk',sans-serif; font-size:23px;
+  font-weight:500; letter-spacing:-.025em; line-height:1.15}
+.jrow i{display:block; margin-top:7px; font-style:normal; font-size:11px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; opacity:.72}
+@keyframes j-slide{ 0%{opacity:0} 2%,25%{opacity:1} 27%,100%{opacity:0} }
+.j2{animation-delay:6s} .j3{animation-delay:12s} .j4{animation-delay:18s}
+.jbar{display:flex; height:5px}
+.jbar i{flex:1}
+
+/* ukázky pohybu */
+.specimens{display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+  border-radius:2px; margin-top:20px; grid-template-columns:repeat(auto-fit,minmax(248px,1fr))}
+.sp{background:var(--white); padding:17px 19px; display:flex; flex-direction:column}
+.sp h4{font-size:12.5px; margin-bottom:6px}
+.sp p{font-size:12.5px; color:var(--ink-2); line-height:1.6}
+.sp .plocha{margin-top:12px; flex:1; display:flex; align-items:center; min-height:62px}
+.replay{margin-top:11px; align-self:flex-start; font:inherit; font-size:11px; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink); background:none;
+  border:1px solid var(--line); border-radius:999px; padding:5px 12px; cursor:pointer;
+  transition:border-color var(--pohyb-stav) var(--krivka-klid)}
+.replay:hover{border-color:var(--ink)}
+
+.stagger span{display:block; height:9px; border-radius:2px; background:var(--zs-tint); margin-bottom:6px}
+.stagger.go span{animation:prvek-vstup var(--pohyb-prvek) var(--krivka-vstup) both}
+.stagger.go span:nth-child(2){animation-delay:var(--prodleva)}
+.stagger.go span:nth-child(3){animation-delay:calc(var(--prodleva)*2)}
+.stagger.go span:nth-child(4){animation-delay:calc(var(--prodleva)*3)}
+@keyframes prvek-vstup{ from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none} }
+
+.menu{position:relative; display:flex; gap:18px; font-size:13.5px; font-weight:600; padding-bottom:9px}
+.menu button{font:inherit; background:none; border:0; padding:0 0 2px; cursor:pointer; color:var(--ink-2);
+  transition:color var(--pohyb-stav) var(--krivka-klid)}
+.menu button[aria-current="true"]{color:var(--ink)}
+.menu .ind{position:absolute; bottom:0; height:2px; background:var(--zs); border-radius:1px;
+  transition:transform var(--pohyb-prvek) var(--krivka-klid), width var(--pohyb-prvek) var(--krivka-klid);
+  left:0; width:0}
+
+.errdemo.go .errbox{animation:prvek-vstup var(--pohyb-prvek) var(--krivka-klid) both}
+.nacitani{width:100%; height:5px; background:var(--zs-tint); border-radius:3px; overflow:hidden}
+.nacitani i{display:block; height:100%; width:0; background:var(--zs); border-radius:3px}
+.nacitani.go i{animation:nacist 2.4s var(--krivka-klid) both}
+@keyframes nacist{ to{ width:100% } }
+
+.flowrow{display:flex; align-items:center; gap:22px; flex-wrap:wrap}
+.zakaz{position:relative}
+.zakaz .mark{animation:zakazane-otaceni 6s linear infinite}
+@keyframes zakazane-otaceni{ to{ transform:rotate(360deg) } }
+.zakaz::after{content:"✕"; position:absolute; top:-4px; left:calc(50% + 30px); width:19px; height:19px;
+  border-radius:50%; background:var(--err); color:#fff; font-size:12px; font-weight:700;
+  line-height:19px; text-align:center}
+
+/* přepínač pro vyzkoušení vypnutého pohybu */
+.switch{display:inline-flex; align-items:center; gap:10px; margin-top:18px; font-size:12.5px;
+  color:var(--ink-2); cursor:pointer}
+.switch input{appearance:none; width:38px; height:21px; border-radius:999px; background:var(--line);
+  position:relative; cursor:pointer; transition:background var(--pohyb-stav) var(--krivka-klid)}
+.switch input::after{content:""; position:absolute; top:3px; left:3px; width:15px; height:15px;
+  border-radius:50%; background:var(--white); box-shadow:0 1px 2px rgba(16,18,22,.3);
+  transition:transform var(--pohyb-stav) var(--krivka-klid)}
+.switch input:checked{background:var(--zs)}
+.switch input:checked::after{transform:translateX(17px)}
+
+/* vypnutý pohyb — systémové nastavení i přepínač výše */
+@media (prefers-reduced-motion:reduce){
+  [data-js] .page{opacity:1; transform:none; transition:none}
+  *,*::before,*::after{animation:none !important; transition:none !important}
+}
+[data-pohyb="vypnuto"] .page{opacity:1; transform:none; transition:none}
+[data-pohyb="vypnuto"] *,
+[data-pohyb="vypnuto"] *::before,
+[data-pohyb="vypnuto"] *::after{animation:none !important; transition:none !important}
 
 @media (max-width:720px){
   .page > .inner{padding:32px 22px 24px} .pfoot{padding:12px 22px 17px}

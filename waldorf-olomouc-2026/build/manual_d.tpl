@@ -131,6 +131,7 @@
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Pravidla pro obrázky</b> včetně dočasného režimu bez vlastních fotek — strana 12.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Výjimka pro rozcestník skupiny</b> — tato strana.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Rozhodnutí nedělat tmavý režim</b> — strana 12.</p></div>
+      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Kapitolu o pohybu</b> — tokeny časů a křivek, živé ukázky, pravidlo, že se znak neotáčí ani v pohybu. Strany 14 a 15.</p></div>
     </div>
     <div class="note">
       <p><strong>Beze změny zůstává.</strong> Tvar znaku a všech sedm variant. Space Grotesk

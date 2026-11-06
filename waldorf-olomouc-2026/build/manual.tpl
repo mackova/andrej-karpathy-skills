@@ -12,7 +12,17 @@
   --ms-tint:#EEC4DC; --zs-tint:#BBD7C2; --zus-tint:#F7C68B; --ss-tint:#CCCEEE;
   --err:#B2261E; --err-bg:#F0C5BF;
   --page:#FFFFFF; --canvas:#E9EAEC;
+
+  /* pohyb — kapitola 13 */
+  --pohyb-stav:160ms;
+  --pohyb-prvek:320ms;
+  --pohyb-sekce:640ms;
+  --pohyb-znak:1200ms;
+  --krivka-klid:cubic-bezier(.2,.7,.3,1);
+  --krivka-vstup:cubic-bezier(.16,1,.3,1);
+  --prodleva:60ms;
 }
+@property --wm-uhel{ syntax:'<angle>'; initial-value:0deg; inherits:false; }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --canvas:#191B1F; } }
 :root[data-theme="dark"]{ --canvas:#191B1F; }
 
@@ -197,6 +207,104 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 .chgrow p{font-size:13px; color:var(--ink-2); line-height:1.6}
 .chgrow b{color:var(--ink)}
 
+/* ---------- pohyb ---------- */
+[data-js] .page{opacity:0; transform:translateY(18px);
+  transition:opacity var(--pohyb-sekce) var(--krivka-vstup),
+             transform var(--pohyb-sekce) var(--krivka-vstup)}
+[data-js] .page.in{opacity:1; transform:none}
+
+/* tok barvy ve znaku — otáčí se přechod, nikdy tvar */
+.g-flow > i{background:__SPECFLOW__; animation:wm-tok 9s linear infinite}
+@keyframes wm-tok{ to{ --wm-uhel:360deg } }
+.g-flow.once > i{animation:wm-dosed var(--pohyb-znak) var(--krivka-klid) both}
+@keyframes wm-dosed{ from{ --wm-uhel:-120deg } to{ --wm-uhel:0deg } }
+
+/* obálka: znak přichází */
+.cover .mark{animation:znak-vstup var(--pohyb-znak) var(--krivka-vstup) both}
+@keyframes znak-vstup{ from{opacity:0; transform:scale(.93)} to{opacity:1; transform:none} }
+
+/* cesta generací */
+.journey{margin-top:24px; border:1px solid var(--line); border-radius:2px; overflow:hidden}
+.jstage{position:relative; height:152px; background:#D684B7;
+  animation:j-podklad 24s step-end infinite}
+@keyframes j-podklad{
+  0%{background:#D684B7} 25%{background:#72AB84}
+  50%{background:#EE9B00} 75%{background:#9699D9} }
+.jslide{position:absolute; inset:0; opacity:0; animation:j-slide 24s linear infinite}
+.jfield{position:absolute; inset:0}
+.jrow{position:relative; height:100%; display:flex; align-items:center; gap:22px; padding:0 28px; color:#101216}
+.jrow b{display:block; font-family:'Space Grotesk',sans-serif; font-size:23px;
+  font-weight:500; letter-spacing:-.025em; line-height:1.15}
+.jrow i{display:block; margin-top:7px; font-style:normal; font-size:11px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; opacity:.72}
+@keyframes j-slide{ 0%{opacity:0} 2%,25%{opacity:1} 27%,100%{opacity:0} }
+.j2{animation-delay:6s} .j3{animation-delay:12s} .j4{animation-delay:18s}
+.jbar{display:flex; height:5px}
+.jbar i{flex:1}
+
+/* ukázky pohybu */
+.specimens{display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+  border-radius:2px; margin-top:20px; grid-template-columns:repeat(auto-fit,minmax(248px,1fr))}
+.sp{background:var(--white); padding:17px 19px; display:flex; flex-direction:column}
+.sp h4{font-size:12.5px; margin-bottom:6px}
+.sp p{font-size:12.5px; color:var(--ink-2); line-height:1.6}
+.sp .plocha{margin-top:12px; flex:1; display:flex; align-items:center; min-height:62px}
+.replay{margin-top:11px; align-self:flex-start; font:inherit; font-size:11px; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink); background:none;
+  border:1px solid var(--line); border-radius:999px; padding:5px 12px; cursor:pointer;
+  transition:border-color var(--pohyb-stav) var(--krivka-klid)}
+.replay:hover{border-color:var(--ink)}
+
+.stagger span{display:block; height:9px; border-radius:2px; background:var(--zs-tint); margin-bottom:6px}
+.stagger.go span{animation:prvek-vstup var(--pohyb-prvek) var(--krivka-vstup) both}
+.stagger.go span:nth-child(2){animation-delay:var(--prodleva)}
+.stagger.go span:nth-child(3){animation-delay:calc(var(--prodleva)*2)}
+.stagger.go span:nth-child(4){animation-delay:calc(var(--prodleva)*3)}
+@keyframes prvek-vstup{ from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none} }
+
+.menu{position:relative; display:flex; gap:18px; font-size:13.5px; font-weight:600; padding-bottom:9px}
+.menu button{font:inherit; background:none; border:0; padding:0 0 2px; cursor:pointer; color:var(--ink-2);
+  transition:color var(--pohyb-stav) var(--krivka-klid)}
+.menu button[aria-current="true"]{color:var(--ink)}
+.menu .ind{position:absolute; bottom:0; height:2px; background:var(--zs); border-radius:1px;
+  transition:transform var(--pohyb-prvek) var(--krivka-klid), width var(--pohyb-prvek) var(--krivka-klid);
+  left:0; width:0}
+
+.errdemo.go .errbox{animation:prvek-vstup var(--pohyb-prvek) var(--krivka-klid) both}
+.nacitani{width:100%; height:5px; background:var(--zs-tint); border-radius:3px; overflow:hidden}
+.nacitani i{display:block; height:100%; width:0; background:var(--zs); border-radius:3px}
+.nacitani.go i{animation:nacist 2.4s var(--krivka-klid) both}
+@keyframes nacist{ to{ width:100% } }
+
+.flowrow{display:flex; align-items:center; gap:22px; flex-wrap:wrap}
+.zakaz{position:relative}
+.zakaz .mark{animation:zakazane-otaceni 6s linear infinite}
+@keyframes zakazane-otaceni{ to{ transform:rotate(360deg) } }
+.zakaz::after{content:"✕"; position:absolute; top:-4px; left:calc(50% + 30px); width:19px; height:19px;
+  border-radius:50%; background:var(--err); color:#fff; font-size:12px; font-weight:700;
+  line-height:19px; text-align:center}
+
+/* přepínač pro vyzkoušení vypnutého pohybu */
+.switch{display:inline-flex; align-items:center; gap:10px; margin-top:18px; font-size:12.5px;
+  color:var(--ink-2); cursor:pointer}
+.switch input{appearance:none; width:38px; height:21px; border-radius:999px; background:var(--line);
+  position:relative; cursor:pointer; transition:background var(--pohyb-stav) var(--krivka-klid)}
+.switch input::after{content:""; position:absolute; top:3px; left:3px; width:15px; height:15px;
+  border-radius:50%; background:var(--white); box-shadow:0 1px 2px rgba(16,18,22,.3);
+  transition:transform var(--pohyb-stav) var(--krivka-klid)}
+.switch input:checked{background:var(--zs)}
+.switch input:checked::after{transform:translateX(17px)}
+
+/* vypnutý pohyb — systémové nastavení i přepínač výše */
+@media (prefers-reduced-motion:reduce){
+  [data-js] .page{opacity:1; transform:none; transition:none}
+  *,*::before,*::after{animation:none !important; transition:none !important}
+}
+[data-pohyb="vypnuto"] .page{opacity:1; transform:none; transition:none}
+[data-pohyb="vypnuto"] *,
+[data-pohyb="vypnuto"] *::before,
+[data-pohyb="vypnuto"] *::after{animation:none !important; transition:none !important}
+
 @media (max-width:720px){
   .page > .inner{padding:32px 22px 24px} .pfoot{padding:12px 22px 17px}
   .page h2{font-size:23px} .cover h1{font-size:36px} .cover .inner{padding:38px 22px 30px}
@@ -214,7 +322,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="rule"></div>
   <div class="inner">
     <div class="head">
-      <span class="mark g-spec" style="width:76px;height:73.99px" role="img" aria-label="Znak Waldorfské školy Olomouc"><i style="transform:scale(.31)"></i></span>
+      <span class="mark g-flow once" style="width:76px;height:73.99px" role="img" aria-label="Znak Waldorfské školy Olomouc"><i style="transform:scale(.31)"></i></span>
       <div>
         <p class="who">Waldorfská škola Olomouc</p>
         <h1 style="margin-top:8px">Logomanuál</h1>
@@ -241,6 +349,8 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <a href="#s10"><span class="k">10 · Web</span><span class="t">Znak v kódu</span></a>
       <a href="#s11"><span class="k">11 · Web</span><span class="t">Plochy, stavy, obrázky</span></a>
       <a href="#s12"><span class="k">12 · Web</span><span class="t">Rozcestník a změny</span></a>
+      <a href="#s13"><span class="k">13 · Pohyb</span><span class="t">Rytmus, ne efekt</span></a>
+      <a href="#s14"><span class="k">14 · Pohyb</span><span class="t">Časy a živé ukázky</span></a>
     </div>
   </div>
   <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">1</span></div>
@@ -885,6 +995,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Pravidla pro obrázky</b> včetně dočasného režimu bez vlastních fotek — strana 12.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Výjimka pro rozcestník skupiny</b> — tato strana.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Rozhodnutí nedělat tmavý režim</b> — strana 12.</p></div>
+      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Kapitolu o pohybu</b> — tokeny časů a křivek, živé ukázky, pravidlo, že se znak neotáčí ani v pohybu. Strany 14 a 15.</p></div>
     </div>
     <div class="note">
       <p><strong>Beze změny zůstává.</strong> Tvar znaku a všech sedm variant. Space Grotesk
@@ -901,3 +1012,248 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   </div>
   <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">13</span></div>
 </article>
+
+<!-- ==================== 13 POHYB ==================== -->
+<article class="page" id="s13">
+  <div class="rule"></div>
+  <div class="inner">
+    <p class="eyebrow">13 · Pohyb</p>
+    <h2>Rytmus, ne efekt</h2>
+    <p class="lead">
+      Waldorfská pedagogika stojí na rytmu a opakování — na tom, že se den, týden a rok vracejí
+      v poznatelném pořádku. Pohyb na webu má dělat totéž: být klidný, předvídatelný a tak
+      nenápadný, že si ho nikdo nevšimne. Nic nepřeskakuje, nic nepruží, nic nepoutá pozornost
+      samo na sebe.
+    </p>
+
+    <h3 class="sub">Znak se neotáčí ani v pohybu</h3>
+    <p class="lead">
+      Strana 5 zakazuje otáčení znaku a v pohybu to platí beze změny. Hýbe se
+      <strong>barva uvnitř spirály</strong>, ne spirála sama: animuje se úhel kuželového
+      přechodu, tvar zůstává přesně tam, kde je. Tok běží jen tam, kde je znak velký —
+      na obálce, v úvodu stránky — a nikdy v hlavičce ani v patičce.
+    </p>
+    <div class="stage flowrow">
+      <div class="scell"><span class="mark g-flow" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">Tok barvy — správně</span></div>
+      <div class="scell"><span class="mark g-spec" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">V klidu</span></div>
+      <div class="scell zakaz"><span class="mark g-spec" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">Otáčení tvaru — zakázáno</span></div>
+    </div>
+
+    <h3 class="sub">Cesta generací</h3>
+    <p class="lead">
+      Barva na stránce říká, ke které generaci se právě mluví. Když návštěvník přechází mezi
+      sekcemi, mění se plocha pod ním — pomalu, jedním prolnutím, nikdy posunem ani otočením.
+      Znak na světlé ploše zůstává inkoustový podle strany 10; vlastní barevná varianta
+      by se na ploše téže barvy ztratila.
+    </p>
+    <div class="journey">
+      <div class="jstage">
+        <div class="jslide j1">
+          <div class="jfield" style="background:#D684B7"></div>
+          <div class="jrow">
+            <span class="mark g-ink" style="width:62px;height:60.37px"><i style="transform:scale(.2529)"></i></span>
+            <div><b>Mateřská škola</b><i>Nejmladší generace · #D684B7</i></div>
+          </div>
+        </div>
+        <div class="jslide j2">
+          <div class="jfield" style="background:#72AB84"></div>
+          <div class="jrow">
+            <span class="mark g-ink" style="width:62px;height:60.37px"><i style="transform:scale(.2529)"></i></span>
+            <div><b>Základní škola</b><i>Devět let, jedna třída · #72AB84</i></div>
+          </div>
+        </div>
+        <div class="jslide j3">
+          <div class="jfield" style="background:#EE9B00"></div>
+          <div class="jrow">
+            <span class="mark g-ink" style="width:62px;height:60.37px"><i style="transform:scale(.2529)"></i></span>
+            <div><b>ZUŠ Fantazie</b><i>Napříč generacemi · #EE9B00</i></div>
+          </div>
+        </div>
+        <div class="jslide j4">
+          <div class="jfield" style="background:#9699D9"></div>
+          <div class="jrow">
+            <span class="mark g-ink" style="width:62px;height:60.37px"><i style="transform:scale(.2529)"></i></span>
+            <div><b>Střední škola · lyceum</b><i>Výroční práce · #9699D9</i></div>
+          </div>
+        </div>
+      </div>
+      <div class="jbar">
+        <i style="background:#BC4D96"></i><i style="background:#3F905D"></i>
+        <i style="background:#EE9B00"></i><i style="background:#4A3CB0"></i>
+      </div>
+    </div>
+    <p class="lead" style="font-size:13px; color:var(--ink-3); margin-top:12px">
+      Všechny čtyři plochy jsou světlé a nesou inkoustový text podle strany 10. Prolnutí trvá
+      jeden krok <code>--pohyb-sekce</code>, mezi přechody je klid.
+    </p>
+  </div>
+  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">14</span></div>
+</article>
+
+<!-- ==================== 14 POHYB V PRAXI ==================== -->
+<article class="page" id="s14">
+  <div class="rule"></div>
+  <div class="inner">
+    <p class="eyebrow">14 · Pohyb</p>
+    <h2>Časy, křivky a živé ukázky</h2>
+    <p class="lead">
+      Čtyři délky a dvě křivky stačí na celý web. Čím větší plocha se hýbe, tím déle to trvá;
+      všechno zpomaluje do klidu a nic nepřestřelí za cíl.
+    </p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Token</th><th>Hodnota</th><th>Kde se používá</th></tr></thead>
+        <tbody>
+          <tr><td><code>--pohyb-stav</code></td><td>160 ms</td><td>Podtržení odkazu, zaměření, tlačítko pod kurzorem.</td></tr>
+          <tr><td><code>--pohyb-prvek</code></td><td>320 ms</td><td>Objevení prvku, přechod barvy, posun linky v menu.</td></tr>
+          <tr><td><code>--pohyb-sekce</code></td><td>640 ms</td><td>Příchod sekce při scrollu, prolnutí generace.</td></tr>
+          <tr><td><code>--pohyb-znak</code></td><td>1200 ms</td><td>Úvodní tok barvy ve znaku. Jen jednou, při načtení.</td></tr>
+          <tr><td><code>--krivka-klid</code></td><td>cubic-bezier(.2,.7,.3,1)</td><td>Výchozí křivka. Rychlý začátek, klidný dojezd.</td></tr>
+          <tr><td><code>--krivka-vstup</code></td><td>cubic-bezier(.16,1,.3,1)</td><td>Příchod zdaleka — sekce, prvky v řadě.</td></tr>
+          <tr><td><code>--prodleva</code></td><td>60 ms</td><td>Odstup mezi sourozenci. Nejvýš šest prvků, pak najednou.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">Živé ukázky</h3>
+    <div class="specimens">
+      <div class="sp">
+        <h4>Příchod sekce</h4>
+        <p>Prvky přijdou zdola po 60 ms. Nejvýš šest, zbytek najednou.</p>
+        <div class="plocha"><div class="stagger" style="width:100%"><span></span><span></span><span></span><span></span></div></div>
+        <button class="replay" data-replay=".stagger">Přehrát</button>
+      </div>
+      <div class="sp">
+        <h4>Odkaz pod kurzorem</h4>
+        <p>Podtržení zesílí z 1 na 2 px za 160 ms. Barva se nemění.</p>
+        <div class="plocha"><p class="demo" style="margin:0"><a href="#s14">termíny zápisu</a></p></div>
+      </div>
+      <div class="sp">
+        <h4>Aktivní položka menu</h4>
+        <p>Linka klouže k nové položce, neproblikává. 320 ms.</p>
+        <div class="plocha"><div class="menu" style="width:100%">
+          <button aria-current="true">Školka</button><button>Základní</button><button>ZUŠ</button>
+          <span class="ind"></span></div></div>
+      </div>
+      <div class="sp">
+        <h4>Chybová hláška</h4>
+        <p>Objeví se a posune o 10 px. Netřese se — chyba není trest.</p>
+        <div class="plocha errdemo" style="display:block"><span class="errbox">Vyplňte prosím datum narození dítěte.</span></div>
+        <button class="replay" data-replay=".errdemo">Přehrát</button>
+      </div>
+      <div class="sp">
+        <h4>Načítání</h4>
+        <p>Pruh v barvě generace. Pokud je známý postup, nikdy nekonečná smyčka.</p>
+        <div class="plocha"><div class="nacitani" style="width:100%"><i></i></div></div>
+        <button class="replay" data-replay=".nacitani">Přehrát</button>
+      </div>
+      <div class="sp">
+        <h4>Zaměření z klávesnice</h4>
+        <p>Obrys se objeví okamžitě, bez prodlevy. Projděte stránku tabulátorem.</p>
+        <div class="plocha"><p class="demo" style="margin:0"><a href="#s14">zkuste klávesu Tab</a></p></div>
+      </div>
+    </div>
+
+    <h3 class="sub">Co se hýbe a co ne</h3>
+    <div class="zone">
+      <div class="note" style="margin-top:0">
+        <p><strong>Hýbe se.</strong> Příchod sekce při scrollu. Podtržení odkazu a linka
+        v menu. Prolnutí mezi generacemi. Objevení hlášky. Tok barvy ve znaku na obálce
+        a v úvodu stránky.</p>
+      </div>
+      <div class="note" style="margin-top:0; border-left-color:var(--err)">
+        <p><strong>Nehýbe se.</strong> Znak — neotáčí se, nepulzuje, nedeformuje se. Fotografie —
+        žádný parallax. Nic nepruží ani nepřestřelí za cíl. Nic neběží ve smyčce donekonečna
+        kromě toku barvy ve velkém znaku. Žádné automatické přehrávání videa.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">Vypnutý pohyb</h3>
+    <p class="lead">
+      Kdo má v systému zapnuté omezení pohybu, nevidí nic z výše uvedeného — a nepřijde
+      o žádnou informaci. Žádné sdělení nesmí být neseno jen pohybem. Vyzkoušejte si to
+      rovnou tady: přepínač vypne pohyb v celém dokumentu.
+    </p>
+    <label class="switch">
+      <input type="checkbox" id="pohyb-off">
+      <span>Vypnout pohyb v tomto dokumentu</span>
+    </label>
+
+    <p class="lead" style="margin-top:26px; font-size:12.5px; color:var(--ink-3)">
+      Ukázky na této straně jsou funkční, ne obrázky — běží na stejných tokenech, které
+      má převzít web. Tok barvy ve znaku se animuje přes registrovanou vlastnost
+      <code>--wm-uhel</code>; ořezová cesta zůstává nedotčená, proto se tvar nikdy nehýbe.
+    </p>
+  </div>
+  <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">15</span></div>
+</article>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  root.setAttribute('data-js', '');
+
+  var klid = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function bezPohybu() {
+    return klid.matches || root.getAttribute('data-pohyb') === 'vypnuto';
+  }
+
+  // příchod stran
+  var strany = document.querySelectorAll('.page');
+  if (!('IntersectionObserver' in window)) {
+    strany.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (zaznamy) {
+      zaznamy.forEach(function (z) {
+        if (z.isIntersecting) { z.target.classList.add('in'); io.unobserve(z.target); }
+      });
+    }, { rootMargin: '0px 0px -5% 0px', threshold: 0.03 });
+    strany.forEach(function (el) { io.observe(el); });
+  }
+
+  // tlačítka Přehrát
+  document.querySelectorAll('.replay').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var cil = btn.parentElement.querySelector(btn.dataset.replay);
+      if (!cil) return;
+      cil.classList.remove('go');
+      void cil.offsetWidth;          // vynutí restart animace
+      cil.classList.add('go');
+    });
+  });
+
+  // linka v menu
+  document.querySelectorAll('.menu').forEach(function (menu) {
+    var ind = menu.querySelector('.ind');
+    var tlacitka = menu.querySelectorAll('button');
+    function posun(btn, animovat) {
+      if (!animovat) ind.style.transition = 'none';
+      ind.style.width = btn.offsetWidth + 'px';
+      ind.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+      if (!animovat) { void ind.offsetWidth; ind.style.transition = ''; }
+    }
+    tlacitka.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        tlacitka.forEach(function (b) { b.removeAttribute('aria-current'); });
+        btn.setAttribute('aria-current', 'true');
+        posun(btn, !bezPohybu());
+      });
+    });
+    posun(menu.querySelector('[aria-current="true"]') || tlacitka[0], false);
+    window.addEventListener('resize', function () {
+      posun(menu.querySelector('[aria-current="true"]') || tlacitka[0], false);
+    });
+  });
+
+  // přepínač pohybu
+  var prepinac = document.getElementById('pohyb-off');
+  if (prepinac) {
+    prepinac.checked = root.getAttribute('data-pohyb') === 'vypnuto';
+    prepinac.addEventListener('change', function () {
+      if (prepinac.checked) root.setAttribute('data-pohyb', 'vypnuto');
+      else root.removeAttribute('data-pohyb');
+      strany.forEach(function (el) { el.classList.add('in'); });
+    });
+  }
+})();
+</script>

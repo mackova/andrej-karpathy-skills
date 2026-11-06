@@ -4,7 +4,7 @@
   <div class="rule"></div>
   <div class="inner">
     <div class="head">
-      <span class="mark g-spec" style="width:76px;height:73.99px" role="img" aria-label="Znak Waldorfské školy Olomouc"><i style="transform:scale(.31)"></i></span>
+      <span class="mark g-flow once" style="width:76px;height:73.99px" role="img" aria-label="Znak Waldorfské školy Olomouc"><i style="transform:scale(.31)"></i></span>
       <div>
         <p class="who">Waldorfská škola Olomouc</p>
         <h1 style="margin-top:8px">Logomanuál</h1>
@@ -31,6 +31,8 @@
       <a href="#s10"><span class="k">10 · Web</span><span class="t">Znak v kódu</span></a>
       <a href="#s11"><span class="k">11 · Web</span><span class="t">Plochy, stavy, obrázky</span></a>
       <a href="#s12"><span class="k">12 · Web</span><span class="t">Rozcestník a změny</span></a>
+      <a href="#s13"><span class="k">13 · Pohyb</span><span class="t">Rytmus, ne efekt</span></a>
+      <a href="#s14"><span class="k">14 · Pohyb</span><span class="t">Časy a živé ukázky</span></a>
     </div>
   </div>
   <div class="pfoot"><span>Logomanuál · Waldorfská škola Olomouc · design by WOLIP</span><span class="n">1</span></div>

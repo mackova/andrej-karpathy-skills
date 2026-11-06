@@ -18,6 +18,7 @@ vals = {
  '__SS__':  school(247.2, 62, 16, 43,   19),
  '__ZUS__': school(35.0,  92, 13, 52.5, 9.5),
  '__CLIP__': CLIP, '__SPEC__': SPEC,
+ '__SPECFLOW__': SPEC.replace('from 0deg', 'from var(--wm-uhel)', 1),
 }
 H = open('manual.tpl',encoding='utf-8').read()
 for k,v in vals.items(): H = H.replace(k, v)
