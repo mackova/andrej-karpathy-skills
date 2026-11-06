@@ -40,7 +40,7 @@
       <span class="mark g-flow once" role="img" aria-label="Znak Waldorfské školy Olomouc"><i></i></span>
       <div>
         <h1>Waldorfská škola Olomouc</h1>
-        <p class="orgs">Mateřská · Základní · ZUŠ Fantazie · Střední</p>
+        <p class="orgs">Mateřská · Základní · Umělecká · Lyceum</p>
       </div>
     </div>
   </div>
@@ -136,7 +136,7 @@
         <span class="mark g-spec" style="width:104px;height:101.26px" role="img" aria-label="Znak Waldorfské školy Olomouc"><i style="transform:scale(.4242)"></i></span>
         <div>
           <p class="nm">Waldorfská škola Olomouc</p>
-          <p class="sub">Mateřská · Základní · ZUŠ Fantazie · Střední</p>
+          <p class="sub">Mateřská · Základní · Umělecká · Lyceum</p>
         </div>
       </div>
     </div>

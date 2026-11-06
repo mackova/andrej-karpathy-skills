@@ -107,13 +107,13 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 
 /* ---------- obálka ---------- */
 .cover .inner{padding:54px; display:flex; align-items:center; min-height:min(72vh,560px)}
-.cover h1{font-family:'Space Grotesk',sans-serif; font-weight:500;
-  font-size:21px; letter-spacing:-.015em; margin:0; line-height:1.3}
+.cover h1{font-family:'Space Grotesk',sans-serif; font-weight:700;
+  font-size:clamp(23px,2.9vw,34px); letter-spacing:-.028em; margin:0; line-height:1.14}
 .cover .lockup{display:flex; align-items:center; gap:clamp(22px,3.4vw,44px); --m:clamp(170px,38vw,440px)}
-.cover .lockup > div{max-width:300px}
+.cover .lockup > div{max-width:320px}
 .cover .lockup .mark{width:var(--m); height:calc(var(--m) * 238.7 / 245.15)}
 .cover .lockup .mark > i{transform:scale(calc(var(--m) / 245.15px))}
-.cover .orgs{margin-top:9px; font-size:11px; letter-spacing:.16em; text-wrap:balance;
+.cover .orgs{margin-top:12px; font-size:11.5px; letter-spacing:.15em; text-wrap:balance;
   text-transform:uppercase; font-weight:700; color:var(--ink-3); line-height:1.6}
 .cover .who{font-size:13px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--ink-3)}
 /* ---------- lockup, varianty ---------- */
@@ -396,7 +396,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <span class="mark g-flow once" role="img" aria-label="Znak Waldorfské školy Olomouc"><i></i></span>
       <div>
         <h1>Waldorfská škola Olomouc</h1>
-        <p class="orgs">Mateřská · Základní · ZUŠ Fantazie · Střední</p>
+        <p class="orgs">Mateřská · Základní · Umělecká · Lyceum</p>
       </div>
     </div>
   </div>
@@ -492,7 +492,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
         <span class="mark g-spec" style="width:104px;height:101.26px" role="img" aria-label="Znak Waldorfské školy Olomouc"><i style="transform:scale(.4242)"></i></span>
         <div>
           <p class="nm">Waldorfská škola Olomouc</p>
-          <p class="sub">Mateřská · Základní · ZUŠ Fantazie · Střední</p>
+          <p class="sub">Mateřská · Základní · Umělecká · Lyceum</p>
         </div>
       </div>
     </div>
