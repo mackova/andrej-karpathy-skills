@@ -5,11 +5,13 @@
 
 <style>
 :root{
-  --ink:#101216; --ink-2:#54575E; --ink-3:#8B8D94;
+  --ink:#101216; --ink-2:#54575E; --ink-3:#6D707E;
   --white:#FFFFFF; --line:#E8E8EA;
   --ms:#BC4D96; --zs:#3F905D; --zus:#EE9B00; --ss:#4A3CB0;
   --ms-l:#D684B7; --zs-l:#72AB84; --zus-l:#EE9B00; --ss-l:#9699D9;
   --ms-tint:#EEC4DC; --zs-tint:#BBD7C2; --zus-tint:#F7C68B; --ss-tint:#CCCEEE;
+  /* textové tokeny — jediné barvy generací, které smí nést text (kapitola 09) */
+  --ms-t:#B54790; --zs-t:#337F4C; --zus-t:#A56001; --ss-t:#4A3CB0;
   --err:#B2261E; --err-bg:#F0C5BF;
   --page:#FFFFFF; --canvas:#E9EAEC;
 
@@ -64,7 +66,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
 .nav a .k{font-size:11px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums;
   min-width:17px}
 .nav a[aria-current="true"]{background:#F5F5F7; color:var(--ink); font-weight:600}
-.nav a[aria-current="true"] .k{color:var(--zs)}
+.nav a[aria-current="true"] .k{color:var(--zs-t)}
 @media (min-width:1000px){
   .nav{position:sticky; top:0; height:100vh; border-bottom:0; border-right:1px solid var(--line);
     overflow:auto; display:flex; flex-direction:column}
@@ -86,7 +88,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
   font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:700}
 .pfoot .n{margin-left:auto; font-variant-numeric:tabular-nums; letter-spacing:.1em}
 h3.sub{font-size:16.5px; margin:34px 0 10px}
-a.kap{color:var(--zs); text-decoration:underline; text-decoration-thickness:1px;
+a.kap{color:var(--zs-t); text-decoration:underline; text-decoration-thickness:1px;
   text-underline-offset:3px; font-weight:600;
   transition:text-decoration-thickness var(--pohyb-stav) var(--krivka-klid)}
 a.kap:hover{text-decoration-thickness:2px}
@@ -240,7 +242,7 @@ td small{display:block; color:var(--ink-3); font-size:11.5px; margin-top:2px}
 .state h4{font-size:12.5px; margin-bottom:7px}
 .state p{font-size:12.5px; color:var(--ink-2); line-height:1.6}
 .demo{margin-top:11px; font-size:14px}
-.demo a{color:var(--zs); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px}
+.demo a{color:var(--zs-t); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px}
 .demo a.hov{text-decoration-thickness:2px}
 .demo .foc{outline:2px solid var(--ink); outline-offset:2px; border-radius:2px; padding:1px 2px}
 .demo .act{border-bottom:2px solid var(--zs); padding-bottom:3px; font-weight:600}
@@ -263,7 +265,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 .chg{margin-top:18px; display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:2px}
 .chgrow{background:var(--white); padding:14px 19px; display:grid; grid-template-columns:64px 1fr; gap:16px}
 .chgrow .s{font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; padding-top:2px}
-.chgrow .s.m{color:var(--zus)} .chgrow .s.a{color:var(--zs)} .chgrow .s.r{color:var(--err)}
+.chgrow .s.m{color:var(--zus-t)} .chgrow .s.a{color:var(--zs-t)} .chgrow .s.r{color:var(--err)}
 .chgrow p{font-size:13px; color:var(--ink-2); line-height:1.6}
 .chgrow b{color:var(--ink)}
 

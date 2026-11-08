@@ -5,11 +5,13 @@
 
 <style>
 :root{
-  --ink:#101216; --ink-2:#54575E; --ink-3:#8B8D94;
+  --ink:#101216; --ink-2:#54575E; --ink-3:#6D707E;
   --white:#FFFFFF; --line:#E8E8EA;
   --ms:#BC4D96; --zs:#3F905D; --zus:#EE9B00; --ss:#4A3CB0;
   --ms-l:#D684B7; --zs-l:#72AB84; --zus-l:#EE9B00; --ss-l:#9699D9;
   --ms-tint:#EEC4DC; --zs-tint:#BBD7C2; --zus-tint:#F7C68B; --ss-tint:#CCCEEE;
+  /* textové tokeny — jediné barvy generací, které smí nést text (kapitola 09) */
+  --ms-t:#B54790; --zs-t:#337F4C; --zus-t:#A56001; --ss-t:#4A3CB0;
   --err:#B2261E; --err-bg:#F0C5BF;
   --page:#FFFFFF; --canvas:#E9EAEC;
 
@@ -64,7 +66,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
 .nav a .k{font-size:11px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums;
   min-width:17px}
 .nav a[aria-current="true"]{background:#F5F5F7; color:var(--ink); font-weight:600}
-.nav a[aria-current="true"] .k{color:var(--zs)}
+.nav a[aria-current="true"] .k{color:var(--zs-t)}
 @media (min-width:1000px){
   .nav{position:sticky; top:0; height:100vh; border-bottom:0; border-right:1px solid var(--line);
     overflow:auto; display:flex; flex-direction:column}
@@ -86,7 +88,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
   font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:700}
 .pfoot .n{margin-left:auto; font-variant-numeric:tabular-nums; letter-spacing:.1em}
 h3.sub{font-size:16.5px; margin:34px 0 10px}
-a.kap{color:var(--zs); text-decoration:underline; text-decoration-thickness:1px;
+a.kap{color:var(--zs-t); text-decoration:underline; text-decoration-thickness:1px;
   text-underline-offset:3px; font-weight:600;
   transition:text-decoration-thickness var(--pohyb-stav) var(--krivka-klid)}
 a.kap:hover{text-decoration-thickness:2px}
@@ -240,7 +242,7 @@ td small{display:block; color:var(--ink-3); font-size:11.5px; margin-top:2px}
 .state h4{font-size:12.5px; margin-bottom:7px}
 .state p{font-size:12.5px; color:var(--ink-2); line-height:1.6}
 .demo{margin-top:11px; font-size:14px}
-.demo a{color:var(--zs); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px}
+.demo a{color:var(--zs-t); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px}
 .demo a.hov{text-decoration-thickness:2px}
 .demo .foc{outline:2px solid var(--ink); outline-offset:2px; border-radius:2px; padding:1px 2px}
 .demo .act{border-bottom:2px solid var(--zs); padding-bottom:3px; font-weight:600}
@@ -263,7 +265,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 .chg{margin-top:18px; display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:2px}
 .chgrow{background:var(--white); padding:14px 19px; display:grid; grid-template-columns:64px 1fr; gap:16px}
 .chgrow .s{font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; padding-top:2px}
-.chgrow .s.m{color:var(--zus)} .chgrow .s.a{color:var(--zs)} .chgrow .s.r{color:var(--err)}
+.chgrow .s.m{color:var(--zus-t)} .chgrow .s.a{color:var(--zs-t)} .chgrow .s.r{color:var(--err)}
 .chgrow p{font-size:13px; color:var(--ink-2); line-height:1.6}
 .chgrow b{color:var(--ink)}
 
@@ -443,11 +445,11 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
         <thead><tr><th>Generace</th><th>Tisk a znak</th><th>Světlá plocha<br><span style="font-weight:400;text-transform:none;letter-spacing:0">nese inkoust</span></th><th>Sytá plocha<br><span style="font-weight:400;text-transform:none;letter-spacing:0">nese bílou</span></th><th>Text na bílé</th><th>Tint</th></tr></thead>
         <tbody>
           <tr><td><span class="sw"><i style="background:#BC4D96"></i>Mateřská</span></td>
-            <td>#BC4D96</td><td>#D684B7</td><td>#BC4D96</td><td>#BC4D96</td><td>#EEC4DC</td></tr>
+            <td>#BC4D96</td><td>#D684B7</td><td>#BC4D96</td><td>#B54790</td><td>#EEC4DC</td></tr>
           <tr><td><span class="sw"><i style="background:#3F905D"></i>Základní</span></td>
-            <td>#3F905D</td><td>#72AB84</td><td>#3D8553</td><td>#3D8553</td><td>#BBD7C2</td></tr>
+            <td>#3F905D</td><td>#72AB84</td><td>#337F4C</td><td>#337F4C</td><td>#BBD7C2</td></tr>
           <tr><td><span class="sw"><i style="background:#EE9B00"></i>ZUŠ Fantazie</span></td>
-            <td>#EE9B00</td><td>#EE9B00</td><td>#AB6703</td><td>#AB6703</td><td>#F7C68B</td></tr>
+            <td>#EE9B00</td><td>#EE9B00</td><td>#A56001</td><td>#A56001</td><td>#F7C68B</td></tr>
           <tr><td><span class="sw"><i style="background:#4A3CB0"></i>Střední · lyceum</span></td>
             <td>#4A3CB0</td><td>#9699D9</td><td>#4A3CB0</td><td>#4A3CB0</td><td>#CCCEEE</td></tr>
         </tbody>
@@ -835,7 +837,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
           <div class="telo">
             <div class="hlava"><span class="mark g-zs" style="width:30px;height:29.21px"><i style="transform:scale(0.1224)"></i></span><span class="org" style="font-size:11px">Základní škola</span></div>
             <p class="nad" style="font-size:16px; margin-top:16px">Organizace školního roku</p>
-            <p class="mala" style="margin-top:6px; color:#3F905D; opacity:1">Školní rok 2026/2027</p>
+            <p class="mala" style="margin-top:6px; color:#337F4C; opacity:1">Školní rok 2026/2027</p>
             <div style="margin-top:16px">
               <p class="mala" style="margin-bottom:4px">Jméno a příjmení dítěte</p><div class="pole"></div>
               <p class="mala" style="margin-bottom:4px">Datum narození</p><div class="pole"></div>
@@ -858,7 +860,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
           <div class="telo">
             <div class="hlava"><span class="mark g-zus" style="width:30px;height:29.21px"><i style="transform:scale(0.1224)"></i></span><span class="org" style="font-size:11px">ZUŠ Fantazie</span></div>
             <p class="nad" style="font-size:16px; margin-top:16px">Přihláška a školné</p>
-            <p class="mala" style="margin-top:6px; color:#EE9B00; opacity:1">Školní rok 2026/2027</p>
+            <p class="mala" style="margin-top:6px; color:#A56001; opacity:1">Školní rok 2026/2027</p>
             <div style="margin-top:16px">
               <p class="mala" style="margin-bottom:4px">Jméno a příjmení dítěte</p><div class="pole"></div>
               <p class="mala" style="margin-bottom:4px">Datum narození</p><div class="pole"></div>
@@ -895,7 +897,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
         <div class="mock slajd">
           <div class="pruh" style="background:#3F905D"></div>
           <div class="telo">
-            <p class="mala" style="color:#3D8553; opacity:1">Rytmus školního roku</p>
+            <p class="mala" style="color:#337F4C; opacity:1">Rytmus školního roku</p>
             <p class="nad" style="font-size:15px; margin-top:6px">Epocha trvá čtyři týdny</p>
             <div style="margin-top:12px"><div class="ln m"></div><div class="ln"></div><div class="ln s"></div></div>
             <div style="margin-top:auto; display:flex; gap:6px; align-items:center">
@@ -1026,21 +1028,21 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
             <td><span class="sw"><i style="background:#BC4D96"></i>Mateřská</span></td>
             <td><span class="sw"><i style="background:#D684B7"></i>#D684B7</span><small>inkoust 7,00:1</small></td>
             <td><span class="sw"><i style="background:#BC4D96"></i>#BC4D96</span><small>bílá 4,53:1</small></td>
-            <td><span class="sw"><i style="background:#BC4D96"></i>#BC4D96</span><small>4,53:1</small></td>
+            <td><span class="sw"><i style="background:#B54790"></i>#B54790</span><small>4,92:1</small></td>
             <td><span class="sw"><i style="background:#EEC4DC"></i>#EEC4DC</span><small>inkoust 12,1:1</small></td>
           </tr>
           <tr>
             <td><span class="sw"><i style="background:#3F905D"></i>Základní</span></td>
             <td><span class="sw"><i style="background:#72AB84"></i>#72AB84</span><small>inkoust 7,03:1</small></td>
-            <td><span class="sw"><i style="background:#3D8553"></i>#3D8553</span><small>bílá 4,50:1</small></td>
-            <td><span class="sw"><i style="background:#3D8553"></i>#3D8553</span><small>4,50:1</small></td>
+            <td><span class="sw"><i style="background:#337F4C"></i>#337F4C</span><small>bílá 4,91:1</small></td>
+            <td><span class="sw"><i style="background:#337F4C"></i>#337F4C</span><small>4,91:1</small></td>
             <td><span class="sw"><i style="background:#BBD7C2"></i>#BBD7C2</span><small>inkoust 12,1:1</small></td>
           </tr>
           <tr>
             <td><span class="sw"><i style="background:#EE9B00"></i>ZUŠ Fantazie</span></td>
             <td><span class="sw"><i style="background:#EE9B00"></i>#EE9B00</span><small>inkoust 8,32:1</small></td>
-            <td><span class="sw"><i style="background:#AB6703"></i>#AB6703</span><small>bílá 4,50:1</small></td>
-            <td><span class="sw"><i style="background:#AB6703"></i>#AB6703</span><small>4,50:1</small></td>
+            <td><span class="sw"><i style="background:#A56001"></i>#A56001</span><small>bílá 4,91:1</small></td>
+            <td><span class="sw"><i style="background:#A56001"></i>#A56001</span><small>4,91:1</small></td>
             <td><span class="sw"><i style="background:#F7C68B"></i>#F7C68B</span><small>inkoust 12,0:1</small></td>
           </tr>
           <tr>
@@ -1064,7 +1066,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <li><strong>Světlá plocha nese vždy inkoust</strong>, sytá plocha vždy bílou. Nikdy naopak.</li>
       <li><strong>Text na bílé</strong> se používá na nadpisy, odkazy a čísla. Syté plochy nikdy jako text.</li>
       <li><strong>Jemný tint</strong> na bloky a tabulky, text v nich inkoust.</li>
-      <li><strong>Amber</strong> nese inkoust v poměru 8,32:1 — nejlepší plocha v systému. Jako text neprojde nikdy.</li>
+      <li><strong>Amber</strong> nese inkoust v poměru 8,32:1 — nejlepší plocha v systému. Jako text neprojde nikdy; na text slouží #A56001.</li>
       <li><strong>Střední škola</strong> je opak: funguje i jako text, ale plocha nese vždy bílou.</li>
     </ul>
   </div>
@@ -1418,6 +1420,9 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Pravidla pro obrázky</b> včetně dočasného režimu bez vlastních fotek — <a class="kap" href="#k13">kapitola 13 · Obrázky</a>.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Výjimka pro rozcestník skupiny</b> — tato strana.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Rozhodnutí nedělat tmavý režim</b> — <a class="kap" href="#k11">kapitola 11 · Plochy</a>.</p></div>
+      <div class="chgrow"><span class="s m">Mění</span><p><b>Textové tokeny mají rezervu.</b> #B54790, #337F4C a #A56001 projdou 4,5:1 i na nebílém podkladu. Dřívější hodnoty byly přesně na hranici a pod tintem selhávaly.</p></div>
+      <div class="chgrow"><span class="s m">Mění</span><p><b>Tlumená šedá #8B8D94 → #6D707E.</b> Původní měla na bílé jen 3,31:1, přitom nese všechna návěstí a popisky.</p></div>
+      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Ukázky použití barev</b> na dopisním papíře, dokumentech, prezentaci, plakátech a sociálních sítích — <a class="kap" href="#k08">kapitola 08 · Aplikace</a>.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Kapitolu o pohybu</b> — tokeny časů a křivek, živé ukázky, pravidlo, že se znak neotáčí ani v pohybu. Strany 14 a 15.</p></div>
     </div>
     <div class="note">

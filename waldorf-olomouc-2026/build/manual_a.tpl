@@ -61,11 +61,11 @@
         <thead><tr><th>Generace</th><th>Tisk a znak</th><th>Světlá plocha<br><span style="font-weight:400;text-transform:none;letter-spacing:0">nese inkoust</span></th><th>Sytá plocha<br><span style="font-weight:400;text-transform:none;letter-spacing:0">nese bílou</span></th><th>Text na bílé</th><th>Tint</th></tr></thead>
         <tbody>
           <tr><td><span class="sw"><i style="background:#BC4D96"></i>Mateřská</span></td>
-            <td>#BC4D96</td><td>#D684B7</td><td>#BC4D96</td><td>#BC4D96</td><td>#EEC4DC</td></tr>
+            <td>#BC4D96</td><td>#D684B7</td><td>#BC4D96</td><td>#B54790</td><td>#EEC4DC</td></tr>
           <tr><td><span class="sw"><i style="background:#3F905D"></i>Základní</span></td>
-            <td>#3F905D</td><td>#72AB84</td><td>#3D8553</td><td>#3D8553</td><td>#BBD7C2</td></tr>
+            <td>#3F905D</td><td>#72AB84</td><td>#337F4C</td><td>#337F4C</td><td>#BBD7C2</td></tr>
           <tr><td><span class="sw"><i style="background:#EE9B00"></i>ZUŠ Fantazie</span></td>
-            <td>#EE9B00</td><td>#EE9B00</td><td>#AB6703</td><td>#AB6703</td><td>#F7C68B</td></tr>
+            <td>#EE9B00</td><td>#EE9B00</td><td>#A56001</td><td>#A56001</td><td>#F7C68B</td></tr>
           <tr><td><span class="sw"><i style="background:#4A3CB0"></i>Střední · lyceum</span></td>
             <td>#4A3CB0</td><td>#9699D9</td><td>#4A3CB0</td><td>#4A3CB0</td><td>#CCCEEE</td></tr>
         </tbody>

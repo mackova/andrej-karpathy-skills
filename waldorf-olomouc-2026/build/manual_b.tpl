@@ -151,7 +151,7 @@
           <div class="telo">
             <div class="hlava"><span class="mark g-zs" style="width:30px;height:29.21px"><i style="transform:scale(0.1224)"></i></span><span class="org" style="font-size:11px">Základní škola</span></div>
             <p class="nad" style="font-size:16px; margin-top:16px">Organizace školního roku</p>
-            <p class="mala" style="margin-top:6px; color:#3F905D; opacity:1">Školní rok 2026/2027</p>
+            <p class="mala" style="margin-top:6px; color:#337F4C; opacity:1">Školní rok 2026/2027</p>
             <div style="margin-top:16px">
               <p class="mala" style="margin-bottom:4px">Jméno a příjmení dítěte</p><div class="pole"></div>
               <p class="mala" style="margin-bottom:4px">Datum narození</p><div class="pole"></div>
@@ -174,7 +174,7 @@
           <div class="telo">
             <div class="hlava"><span class="mark g-zus" style="width:30px;height:29.21px"><i style="transform:scale(0.1224)"></i></span><span class="org" style="font-size:11px">ZUŠ Fantazie</span></div>
             <p class="nad" style="font-size:16px; margin-top:16px">Přihláška a školné</p>
-            <p class="mala" style="margin-top:6px; color:#EE9B00; opacity:1">Školní rok 2026/2027</p>
+            <p class="mala" style="margin-top:6px; color:#A56001; opacity:1">Školní rok 2026/2027</p>
             <div style="margin-top:16px">
               <p class="mala" style="margin-bottom:4px">Jméno a příjmení dítěte</p><div class="pole"></div>
               <p class="mala" style="margin-bottom:4px">Datum narození</p><div class="pole"></div>
@@ -211,7 +211,7 @@
         <div class="mock slajd">
           <div class="pruh" style="background:#3F905D"></div>
           <div class="telo">
-            <p class="mala" style="color:#3D8553; opacity:1">Rytmus školního roku</p>
+            <p class="mala" style="color:#337F4C; opacity:1">Rytmus školního roku</p>
             <p class="nad" style="font-size:15px; margin-top:6px">Epocha trvá čtyři týdny</p>
             <div style="margin-top:12px"><div class="ln m"></div><div class="ln"></div><div class="ln s"></div></div>
             <div style="margin-top:auto; display:flex; gap:6px; align-items:center">

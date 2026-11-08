@@ -17,21 +17,21 @@
             <td><span class="sw"><i style="background:#BC4D96"></i>Mateřská</span></td>
             <td><span class="sw"><i style="background:#D684B7"></i>#D684B7</span><small>inkoust 7,00:1</small></td>
             <td><span class="sw"><i style="background:#BC4D96"></i>#BC4D96</span><small>bílá 4,53:1</small></td>
-            <td><span class="sw"><i style="background:#BC4D96"></i>#BC4D96</span><small>4,53:1</small></td>
+            <td><span class="sw"><i style="background:#B54790"></i>#B54790</span><small>4,92:1</small></td>
             <td><span class="sw"><i style="background:#EEC4DC"></i>#EEC4DC</span><small>inkoust 12,1:1</small></td>
           </tr>
           <tr>
             <td><span class="sw"><i style="background:#3F905D"></i>Základní</span></td>
             <td><span class="sw"><i style="background:#72AB84"></i>#72AB84</span><small>inkoust 7,03:1</small></td>
-            <td><span class="sw"><i style="background:#3D8553"></i>#3D8553</span><small>bílá 4,50:1</small></td>
-            <td><span class="sw"><i style="background:#3D8553"></i>#3D8553</span><small>4,50:1</small></td>
+            <td><span class="sw"><i style="background:#337F4C"></i>#337F4C</span><small>bílá 4,91:1</small></td>
+            <td><span class="sw"><i style="background:#337F4C"></i>#337F4C</span><small>4,91:1</small></td>
             <td><span class="sw"><i style="background:#BBD7C2"></i>#BBD7C2</span><small>inkoust 12,1:1</small></td>
           </tr>
           <tr>
             <td><span class="sw"><i style="background:#EE9B00"></i>ZUŠ Fantazie</span></td>
             <td><span class="sw"><i style="background:#EE9B00"></i>#EE9B00</span><small>inkoust 8,32:1</small></td>
-            <td><span class="sw"><i style="background:#AB6703"></i>#AB6703</span><small>bílá 4,50:1</small></td>
-            <td><span class="sw"><i style="background:#AB6703"></i>#AB6703</span><small>4,50:1</small></td>
+            <td><span class="sw"><i style="background:#A56001"></i>#A56001</span><small>bílá 4,91:1</small></td>
+            <td><span class="sw"><i style="background:#A56001"></i>#A56001</span><small>4,91:1</small></td>
             <td><span class="sw"><i style="background:#F7C68B"></i>#F7C68B</span><small>inkoust 12,0:1</small></td>
           </tr>
           <tr>
@@ -55,7 +55,7 @@
       <li><strong>Světlá plocha nese vždy inkoust</strong>, sytá plocha vždy bílou. Nikdy naopak.</li>
       <li><strong>Text na bílé</strong> se používá na nadpisy, odkazy a čísla. Syté plochy nikdy jako text.</li>
       <li><strong>Jemný tint</strong> na bloky a tabulky, text v nich inkoust.</li>
-      <li><strong>Amber</strong> nese inkoust v poměru 8,32:1 — nejlepší plocha v systému. Jako text neprojde nikdy.</li>
+      <li><strong>Amber</strong> nese inkoust v poměru 8,32:1 — nejlepší plocha v systému. Jako text neprojde nikdy; na text slouží #A56001.</li>
       <li><strong>Střední škola</strong> je opak: funguje i jako text, ale plocha nese vždy bílou.</li>
     </ul>
   </div>
