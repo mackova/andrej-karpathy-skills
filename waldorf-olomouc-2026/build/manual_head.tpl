@@ -162,6 +162,12 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 
 /* ---------- barvy ---------- */
 .cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin-top:24px}
+.sheet{display:grid; grid-template-columns:minmax(170px,210px) 1fr; gap:14px; margin-top:24px; align-items:start}
+.sheet > *{min-width:0}
+.sheet .col .chip{height:54px}
+.sheet .znak{padding:26px 20px; display:flex; justify-content:center}
+.sheet .col .info{border-top:1px solid var(--line)}
+.sheet .prompts{margin-top:0}
 .col{border:1px solid var(--line); border-radius:2px; overflow:hidden}
 .col .chip{height:74px}
 .col .info{padding:13px 15px}
@@ -242,6 +248,8 @@ td small{display:block; color:var(--ink-3); font-size:11.5px; margin-top:2px}
 .states{display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
   border-radius:2px; margin-top:20px; grid-template-columns:repeat(auto-fit,minmax(225px,1fr))}
 .state{background:var(--white); padding:17px 19px}
+.states.c2{grid-template-columns:repeat(2,1fr)}
+.imgrules.c2{grid-template-columns:repeat(2,1fr)}
 .state h4{font-size:12.5px; margin-bottom:7px}
 .state p{font-size:12.5px; color:var(--ink-2); line-height:1.6}
 .demo{margin-top:11px; font-size:14px}
@@ -389,6 +397,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 [data-pohyb="vypnuto"] *::before,
 [data-pohyb="vypnuto"] *::after{animation:none !important; transition:none !important}
 
+@media (max-width:620px){ .sheet{grid-template-columns:1fr} .states.c2,.imgrules.c2{grid-template-columns:1fr} }
 @media (max-width:720px){
   .page > .inner{padding:32px 22px 24px} .pfoot{padding:12px 22px 17px}
   .page h2{font-size:23px} .cover .inner{padding:34px 22px 28px}

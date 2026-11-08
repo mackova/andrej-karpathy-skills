@@ -27,8 +27,16 @@
     <a href="#k15"><span class="k">15</span><span>Rytmus, ne efekt</span></a>
     <a href="#k16"><span class="k">16</span><span>Časy a křivky</span></a>
     <a href="#k17"><span class="k">17</span><span>Živé ukázky</span></a>
+    <p class="nav-dil">D · Identita</p>
+    <a href="#k18"><span class="k">18</span><span>Za čím škola stojí</span></a>
+    <a href="#k19"><span class="k">19</span><span>Jak škola mluví</span></a>
+    <p class="nav-dil">E · Školy</p>
+    <a href="#k20"><span class="k">20</span><span>Mateřská</span></a>
+    <a href="#k21"><span class="k">21</span><span>Základní</span></a>
+    <a href="#k22"><span class="k">22</span><span>ZUŠ Fantazie</span></a>
+    <a href="#k23"><span class="k">23</span><span>Střední · lyceum</span></a>
     <p class="nav-dil">Závěr</p>
-    <a href="#k18"><span class="k">18</span><span>Změny oproti verzi 1.0</span></a>
+    <a href="#k24"><span class="k">24</span><span>Změny oproti verzi 1.0</span></a>
   </div>
 </nav>
 <div class="obsah">
@@ -53,7 +61,7 @@
   <div class="inner">
     <p class="eyebrow">Začněte zde</p>
     <h2>Rychlý přehled</h2>
-    <p class="lead">Co se hledá nejčastěji, na jedné obrazovce. Každý řádek odkazuje do kapitoly s vysvětlením.</p>
+    <p class="lead">Co se hledá nejčastěji, na jedné obrazovce. Každý řádek odkazuje do kapitoly s vysvětlením. Za čím škola stojí a jak mluví je v <a class="kap" href="#k18">dílu D</a>, list každé ze čtyř škol v <a class="kap" href="#k20">dílu E</a>.</p>
 
     <h3 class="sub">Barvy generací <a class="kap" href="#k09">kapitola 09</a></h3>
     <div class="tw">
