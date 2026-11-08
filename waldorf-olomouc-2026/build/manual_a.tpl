@@ -35,8 +35,6 @@
     <a href="#k21"><span class="k">21</span><span>Základní</span></a>
     <a href="#k22"><span class="k">22</span><span>ZUŠ Fantazie</span></a>
     <a href="#k23"><span class="k">23</span><span>Střední · lyceum</span></a>
-    <p class="nav-dil">Závěr</p>
-    <a href="#k24"><span class="k">24</span><span>Změny oproti verzi 1.0</span></a>
   </div>
 </nav>
 <div class="obsah">

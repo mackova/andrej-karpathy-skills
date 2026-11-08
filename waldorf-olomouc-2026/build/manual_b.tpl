@@ -29,7 +29,9 @@
       <div><i style="background:#FFFFFF"></i><b>Bílá</b><span>#FFFFFF · plocha</span></div>
       <div><i style="background:#E8E8EA"></i><b>Linka</b><span>#E8E8EA · rámy a oddělovače</span></div>
     </div>
-    
+    <div class="note">
+      <p>Kontrast měřen podle WCAG 2.1, barvy dopočítané v OKLCH. CMYK je orientační — před tiskem ověřte v tiskárně.</p>
+    </div>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 06 · Barvy</span></div>
 </article>

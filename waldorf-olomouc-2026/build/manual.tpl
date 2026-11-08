@@ -450,8 +450,6 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
     <a href="#k21"><span class="k">21</span><span>Základní</span></a>
     <a href="#k22"><span class="k">22</span><span>ZUŠ Fantazie</span></a>
     <a href="#k23"><span class="k">23</span><span>Střední · lyceum</span></a>
-    <p class="nav-dil">Závěr</p>
-    <a href="#k24"><span class="k">24</span><span>Změny oproti verzi 1.0</span></a>
   </div>
 </nav>
 <div class="obsah">
@@ -754,7 +752,9 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <div><i style="background:#FFFFFF"></i><b>Bílá</b><span>#FFFFFF · plocha</span></div>
       <div><i style="background:#E8E8EA"></i><b>Linka</b><span>#E8E8EA · rámy a oddělovače</span></div>
     </div>
-    
+    <div class="note">
+      <p>Kontrast měřen podle WCAG 2.1, barvy dopočítané v OKLCH. CMYK je orientační — před tiskem ověřte v tiskárně.</p>
+    </div>
   </div>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 06 · Barvy</span></div>
 </article>
@@ -1644,40 +1644,6 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 23 · Střední škola · lyceum</span></div>
 </article>
 
-
-<!-- ==================== 18 ZMĚNY ==================== -->
-<article class="page" id="k24">
-  <div class="rule"></div>
-  <div class="inner">
-    <p class="eyebrow">24 · Závěr</p>
-    <h2>Změny oproti verzi 1.0</h2>
-    <p class="lead">Tvar znaku, obě písma i logika generací zůstávají. Mění se dvě barevné hodnoty, jedna se ruší.</p>
-
-    <div class="chg">
-      <div class="chgrow"><span class="s m">Mění</span><p><b>Mateřská #C0509A → #BC4D96.</b> Jediná změněná barevná hodnota. Strana 6.</p></div>
-      <div class="chgrow"><span class="s m">Mění</span><p><b>Jednobarevný znak sjednocen na #101216.</b> Dodaný soubor měl #161E90, <a class="kap" href="#k03">kapitola 03 · Varianty</a> uvádí inkoust. Platí manuál.</p></div>
-      <div class="chgrow"><span class="s r">Ruší</span><p><b>Šedá plocha #F5F5F7.</b> Plochy nesou barvu generace, neutrál je jen bílá. Nahrazují ji jemné tinty z <a class="kap" href="#k09">kapitoly 09 · Barvy pro obrazovku</a>.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Čtyři tokeny na generaci</b> místo jedné hodnoty — <a class="kap" href="#k09">kapitola 09 · Barvy pro obrazovku</a>.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Pod 44 px jen jednobarevný znak</b> na obrazovce — <a class="kap" href="#k10">kapitola 10 · Znak v kódu</a>.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Znak jako kód</b> a soubory pro tisk a e-mail — <a class="kap" href="#k10">kapitola 10 · Znak v kódu</a>.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Stavy prvků</b> a chybová červená #B2261E — <a class="kap" href="#k12">kapitola 12 · Stavy prvků</a>.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Pravidla pro obrázky</b> včetně dočasného režimu bez vlastních fotek — <a class="kap" href="#k13">kapitola 13 · Obrázky</a>.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Výjimka pro rozcestník skupiny</b> — tato strana.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Rozhodnutí nedělat tmavý režim</b> — <a class="kap" href="#k11">kapitola 11 · Plochy</a>.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Růst znaku generacemi.</b> Barva uvnitř spirály projde cestou dítěte školou a otevře se do spektra. Tvar se ani tady neotáčí — <a class="kap" href="#k15">kapitola 15</a>.</p></div>
-      <div class="chgrow"><span class="s m">Mění</span><p><b>Textové tokeny mají rezervu.</b> #B54790, #337F4C a #A56001 projdou 4,5:1 i na nebílém podkladu. Dřívější hodnoty byly přesně na hranici a pod tintem selhávaly.</p></div>
-      <div class="chgrow"><span class="s m">Mění</span><p><b>Tlumená šedá #8B8D94 → #6D707E.</b> Původní měla na bílé jen 3,31:1, přitom nese všechna návěstí a popisky.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Díl D · Identita a díl E · Školy.</b> Za čím škola stojí, jak mluví, a list každé ze čtyř škol — <a class="kap" href="#k18">kapitoly 18</a> až <a class="kap" href="#k23">23</a>. Positioning a tón hlasu jsou tam označené jako návrh k potvrzení.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Ukázky použití barev</b> na dopisním papíře, dokumentech, prezentaci, plakátech a sociálních sítích — <a class="kap" href="#k08">kapitola 08 · Aplikace</a>.</p></div>
-      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Kapitolu o pohybu</b> — tokeny časů a křivek, živé ukázky, pravidlo, že se znak neotáčí ani v pohybu. Strany 14 a 15.</p></div>
-    </div>
-    <div class="note">
-      <p><strong>Beze změny.</strong> Znak a jeho sedm variant, Space Grotesk a Manrope, barvy základní školy, ZUŠ a střední, ochranná zóna i zakázané varianty.</p>
-    </div>
-    <p class="lead">Kontrast měřen podle WCAG 2.1, barvy dopočítané v OKLCH. CMYK je orientační — před tiskem ověřte v tiskárně.</p>
-  </div>
-  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 24 · Změny</span></div>
-</article>
 
   </div><!-- /obsah -->
 </div><!-- /layout -->
