@@ -190,6 +190,32 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 .app .doc{font-family:'Space Grotesk',sans-serif; font-size:15.5px; margin-top:14px; letter-spacing:-.02em; line-height:1.25}
 .app .yr{font-size:11px; letter-spacing:.13em; text-transform:uppercase; font-weight:700; color:var(--ink-3); margin-top:8px}
 
+/* ---------- ukázky použití ---------- */
+.ukazky{margin-top:20px; display:grid; gap:13px}
+.u4{grid-template-columns:repeat(4,1fr)}
+.u3{grid-template-columns:repeat(3,1fr)}
+.u2{grid-template-columns:repeat(2,1fr)}
+.mock{background:#FFFFFF; border:1px solid var(--line); border-radius:2px; overflow:hidden;
+  display:flex; flex-direction:column; color:#101216}
+.mock .pruh{height:5px; flex:none}
+.mock .telo{padding:11px 12px 12px; flex:1; display:flex; flex-direction:column}
+.mock .hlava{display:flex; align-items:center; gap:7px}
+.mock .org{font-family:'Space Grotesk',sans-serif; font-size:9px; font-weight:600;
+  letter-spacing:-.01em; line-height:1.15}
+.mock .nad{font-family:'Space Grotesk',sans-serif; font-weight:500; letter-spacing:-.02em; line-height:1.15}
+.mock .mala{font-size:7.5px; letter-spacing:.11em; text-transform:uppercase; font-weight:700; opacity:.65}
+.ln{height:3.5px; border-radius:2px; background:#E8E8EA; margin-bottom:5px}
+.ln.m{width:86%} .ln.s{width:58%}
+.pole{height:13px; border:1px solid #E8E8EA; border-radius:2px; margin-bottom:7px}
+.papir{aspect-ratio:1/1.414}
+.slajd{aspect-ratio:16/9}
+.plakat{aspect-ratio:2/3}
+.ctverec{aspect-ratio:1/1}
+.ucap{margin-top:7px; font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+  font-weight:700; color:var(--ink-3)}
+.ublok{display:flex; flex-direction:column}
+@media (max-width:720px){ .u4{grid-template-columns:repeat(2,1fr)} .u3,.u2{grid-template-columns:1fr} }
+
 /* ---------- tabulky ---------- */
 .tw{overflow-x:auto; margin-top:20px; border:1px solid var(--line); border-radius:2px}
 table{border-collapse:collapse; width:100%; min-width:640px; font-size:13.5px}
