@@ -106,6 +106,9 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 .g-zus > i{background:__ZUS__} .g-ss > i{background:__SS__}
 .g-ink > i{background:#101216} .g-white > i{background:#FFFFFF}
 .g-bad > i{background:#1B9AAA}
+.g-ms-bg{background:__MS__} .g-zs-bg{background:__ZS__}
+.g-zus-bg{background:__ZUS__} .g-ss-bg{background:__SS__}
+.g-spec-bg{background:__SPEC__}
 
 /* ---------- obálka ---------- */
 .cover .inner{padding:54px; display:flex; align-items:center; min-height:min(72vh,560px)}
@@ -284,6 +287,25 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 /* obálka: znak přichází */
 .cover .mark{animation:znak-vstup var(--pohyb-znak) var(--krivka-vstup) both}
 @keyframes znak-vstup{ from{opacity:0; transform:scale(.93)} to{opacity:1; transform:none} }
+
+/* růst — znak prochází barvami generací, tvar se nehýbe */
+.rust{position:relative; display:block; overflow:hidden; flex:none}
+.rust > i{position:absolute; top:0; left:0; width:245.15px; height:238.7px;
+  clip-path:url(#waldorf-spiral); transform-origin:0 0}
+.rust > i + i{opacity:0; animation:rust 15s linear infinite}
+.rust .r2{animation-delay:0s} .rust .r3{animation-delay:0s}
+@keyframes rust{ 0%{opacity:1} 2%{opacity:0} 100%{opacity:0} }
+.rust .f2{animation:rust-2 15s linear infinite}
+.rust .f3{animation:rust-3 15s linear infinite}
+.rust .f4{animation:rust-4 15s linear infinite}
+.rust .f5{animation:rust-5 15s linear infinite}
+@keyframes rust-2{ 0%{opacity:1} 2%{opacity:0} 20%{opacity:0} 22%,100%{opacity:1} }
+@keyframes rust-3{ 0%{opacity:1} 2%{opacity:0} 40%{opacity:0} 42%,100%{opacity:1} }
+@keyframes rust-4{ 0%{opacity:1} 2%{opacity:0} 60%{opacity:0} 62%,100%{opacity:1} }
+@keyframes rust-5{ 0%{opacity:1} 2%{opacity:0} 80%{opacity:0} 82%,100%{opacity:1} }
+.rustrow{display:flex; align-items:center; gap:26px; flex-wrap:wrap}
+.rustpas{display:flex; height:5px; border-radius:3px; overflow:hidden; min-width:160px; flex:1}
+.rustpas i{flex:1}
 
 /* cesta generací */
 .journey{margin-top:24px; border:1px solid var(--line); border-radius:2px; overflow:hidden}
@@ -1262,6 +1284,40 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <div class="scell"><span class="mark g-spec" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">V klidu</span></div>
       <div class="scell zakaz"><span class="mark g-spec" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">Otáčení tvaru — zakázáno</span></div>
     </div>
+<h3 class="sub">Růst: znak prochází generacemi</h3>
+<p class="lead">Dítě ve škole roste od mateřské po lyceum a znak to umí ukázat, aniž by se
+  pohnul jeho tvar. Barva uvnitř spirály projde čtyřmi generacemi v pořadí té cesty a nakonec
+  se otevře do plného spektra, tedy celé školy.</p>
+<div class="stage rustrow">
+      <span class="rust" style="width:150px;height:146.05px" role="img" aria-label="Znak v barvách generací">
+        <i class="g-ms-bg" style="transform:scale(0.6119)"></i>
+        <i class="g-zs-bg f2" style="transform:scale(0.6119)"></i>
+        <i class="g-zus-bg f3" style="transform:scale(0.6119)"></i>
+        <i class="g-ss-bg f4" style="transform:scale(0.6119)"></i>
+        <i class="g-spec-bg f5" style="transform:scale(0.6119)"></i>
+      </span>
+      <div style="flex:1; min-width:210px">
+        <div class="rustpas">
+          <i style="background:#BC4D96"></i><i style="background:#3F905D"></i>
+          <i style="background:#EE9B00"></i><i style="background:#4A3CB0"></i>
+          <i style="background:linear-gradient(90deg,#0000FF,#8800FF,#FF0001,#FFDC00,#00FF00,#0000FF)"></i>
+        </div>
+        <p style="margin-top:10px; font-size:11px; letter-spacing:.13em; text-transform:uppercase; font-weight:700; color:var(--ink-3)">
+          Mateřská → Základní → Umělecká → Lyceum → celá škola</p>
+      </div>
+</div>
+<div class="note">
+  <p><strong>Kdy se smí použít.</strong> Jen na velkém znaku a jen jednou při načtení — na obálce,
+  na úvodní obrazovce, na začátku videa. Nikdy ve smyčce a nikdy v hlavičce.</p>
+</div>
+<div class="note" style="border-left-color:var(--err)">
+  <p><strong>Proč ani tady tvar nerotuje.</strong> Otáčení zakazuje
+  <a class="kap" href="#k05">kapitola 05</a> a v pohybu to platí ze dvou praktických důvodů:
+  zastavený snímek — náhled videa, snímek obrazovky, vytištěná stránka — ukáže znak nakřivo,
+  a točící se trojramenná spirála se čte jako kolečko načítání. Růst umí vyjádřit barva, která
+  tu cestu opravdu popisuje; rotace jen točí tvarem.</p>
+</div>
+
 <h3 class="sub">Cesta generací</h3>
     <p class="lead">Při přechodu mezi sekcemi se plocha prolne, nikdy neposune. Znak na světlé ploše zůstává inkoustový (<a class="kap" href="#k09">kapitola 09</a>).</p>
     <div class="journey">
@@ -1381,7 +1437,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <div class="note" style="margin-top:0">
         <p><strong>Hýbe se.</strong> Příchod sekce při scrollu. Podtržení odkazu a linka
         v menu. Prolnutí mezi generacemi. Objevení hlášky. Tok barvy ve znaku na obálce
-        a v úvodu stránky.</p>
+        a v úvodu stránky. Růst znaku generacemi, jednou při načtení.</p>
       </div>
       <div class="note" style="margin-top:0; border-left-color:var(--err)">
         <p><strong>Nehýbe se.</strong> Znak — neotáčí se, nepulzuje, nedeformuje se. Fotografie —
@@ -1420,6 +1476,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Pravidla pro obrázky</b> včetně dočasného režimu bez vlastních fotek — <a class="kap" href="#k13">kapitola 13 · Obrázky</a>.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Výjimka pro rozcestník skupiny</b> — tato strana.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Rozhodnutí nedělat tmavý režim</b> — <a class="kap" href="#k11">kapitola 11 · Plochy</a>.</p></div>
+      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Růst znaku generacemi.</b> Barva uvnitř spirály projde cestou dítěte školou a otevře se do spektra. Tvar se ani tady neotáčí — <a class="kap" href="#k15">kapitola 15</a>.</p></div>
       <div class="chgrow"><span class="s m">Mění</span><p><b>Textové tokeny mají rezervu.</b> #B54790, #337F4C a #A56001 projdou 4,5:1 i na nebílém podkladu. Dřívější hodnoty byly přesně na hranici a pod tintem selhávaly.</p></div>
       <div class="chgrow"><span class="s m">Mění</span><p><b>Tlumená šedá #8B8D94 → #6D707E.</b> Původní měla na bílé jen 3,31:1, přitom nese všechna návěstí a popisky.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Ukázky použití barev</b> na dopisním papíře, dokumentech, prezentaci, plakátech a sociálních sítích — <a class="kap" href="#k08">kapitola 08 · Aplikace</a>.</p></div>

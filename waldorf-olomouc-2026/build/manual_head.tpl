@@ -106,6 +106,9 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 .g-zus > i{background:__ZUS__} .g-ss > i{background:__SS__}
 .g-ink > i{background:#101216} .g-white > i{background:#FFFFFF}
 .g-bad > i{background:#1B9AAA}
+.g-ms-bg{background:__MS__} .g-zs-bg{background:__ZS__}
+.g-zus-bg{background:__ZUS__} .g-ss-bg{background:__SS__}
+.g-spec-bg{background:__SPEC__}
 
 /* ---------- obálka ---------- */
 .cover .inner{padding:54px; display:flex; align-items:center; min-height:min(72vh,560px)}
@@ -284,6 +287,25 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 /* obálka: znak přichází */
 .cover .mark{animation:znak-vstup var(--pohyb-znak) var(--krivka-vstup) both}
 @keyframes znak-vstup{ from{opacity:0; transform:scale(.93)} to{opacity:1; transform:none} }
+
+/* růst — znak prochází barvami generací, tvar se nehýbe */
+.rust{position:relative; display:block; overflow:hidden; flex:none}
+.rust > i{position:absolute; top:0; left:0; width:245.15px; height:238.7px;
+  clip-path:url(#waldorf-spiral); transform-origin:0 0}
+.rust > i + i{opacity:0; animation:rust 15s linear infinite}
+.rust .r2{animation-delay:0s} .rust .r3{animation-delay:0s}
+@keyframes rust{ 0%{opacity:1} 2%{opacity:0} 100%{opacity:0} }
+.rust .f2{animation:rust-2 15s linear infinite}
+.rust .f3{animation:rust-3 15s linear infinite}
+.rust .f4{animation:rust-4 15s linear infinite}
+.rust .f5{animation:rust-5 15s linear infinite}
+@keyframes rust-2{ 0%{opacity:1} 2%{opacity:0} 20%{opacity:0} 22%,100%{opacity:1} }
+@keyframes rust-3{ 0%{opacity:1} 2%{opacity:0} 40%{opacity:0} 42%,100%{opacity:1} }
+@keyframes rust-4{ 0%{opacity:1} 2%{opacity:0} 60%{opacity:0} 62%,100%{opacity:1} }
+@keyframes rust-5{ 0%{opacity:1} 2%{opacity:0} 80%{opacity:0} 82%,100%{opacity:1} }
+.rustrow{display:flex; align-items:center; gap:26px; flex-wrap:wrap}
+.rustpas{display:flex; height:5px; border-radius:3px; overflow:hidden; min-width:160px; flex:1}
+.rustpas i{flex:1}
 
 /* cesta generací */
 .journey{margin-top:24px; border:1px solid var(--line); border-radius:2px; overflow:hidden}

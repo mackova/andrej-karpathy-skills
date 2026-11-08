@@ -13,6 +13,40 @@
       <div class="scell"><span class="mark g-spec" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">V klidu</span></div>
       <div class="scell zakaz"><span class="mark g-spec" style="width:84px;height:81.79px"><i style="transform:scale(.3427)"></i></span><span class="c">Otáčení tvaru — zakázáno</span></div>
     </div>
+<h3 class="sub">Růst: znak prochází generacemi</h3>
+<p class="lead">Dítě ve škole roste od mateřské po lyceum a znak to umí ukázat, aniž by se
+  pohnul jeho tvar. Barva uvnitř spirály projde čtyřmi generacemi v pořadí té cesty a nakonec
+  se otevře do plného spektra, tedy celé školy.</p>
+<div class="stage rustrow">
+      <span class="rust" style="width:150px;height:146.05px" role="img" aria-label="Znak v barvách generací">
+        <i class="g-ms-bg" style="transform:scale(0.6119)"></i>
+        <i class="g-zs-bg f2" style="transform:scale(0.6119)"></i>
+        <i class="g-zus-bg f3" style="transform:scale(0.6119)"></i>
+        <i class="g-ss-bg f4" style="transform:scale(0.6119)"></i>
+        <i class="g-spec-bg f5" style="transform:scale(0.6119)"></i>
+      </span>
+      <div style="flex:1; min-width:210px">
+        <div class="rustpas">
+          <i style="background:#BC4D96"></i><i style="background:#3F905D"></i>
+          <i style="background:#EE9B00"></i><i style="background:#4A3CB0"></i>
+          <i style="background:linear-gradient(90deg,#0000FF,#8800FF,#FF0001,#FFDC00,#00FF00,#0000FF)"></i>
+        </div>
+        <p style="margin-top:10px; font-size:11px; letter-spacing:.13em; text-transform:uppercase; font-weight:700; color:var(--ink-3)">
+          Mateřská → Základní → Umělecká → Lyceum → celá škola</p>
+      </div>
+</div>
+<div class="note">
+  <p><strong>Kdy se smí použít.</strong> Jen na velkém znaku a jen jednou při načtení — na obálce,
+  na úvodní obrazovce, na začátku videa. Nikdy ve smyčce a nikdy v hlavičce.</p>
+</div>
+<div class="note" style="border-left-color:var(--err)">
+  <p><strong>Proč ani tady tvar nerotuje.</strong> Otáčení zakazuje
+  <a class="kap" href="#k05">kapitola 05</a> a v pohybu to platí ze dvou praktických důvodů:
+  zastavený snímek — náhled videa, snímek obrazovky, vytištěná stránka — ukáže znak nakřivo,
+  a točící se trojramenná spirála se čte jako kolečko načítání. Růst umí vyjádřit barva, která
+  tu cestu opravdu popisuje; rotace jen točí tvarem.</p>
+</div>
+
 <h3 class="sub">Cesta generací</h3>
     <p class="lead">Při přechodu mezi sekcemi se plocha prolne, nikdy neposune. Znak na světlé ploše zůstává inkoustový (<a class="kap" href="#k09">kapitola 09</a>).</p>
     <div class="journey">
@@ -132,7 +166,7 @@
       <div class="note" style="margin-top:0">
         <p><strong>Hýbe se.</strong> Příchod sekce při scrollu. Podtržení odkazu a linka
         v menu. Prolnutí mezi generacemi. Objevení hlášky. Tok barvy ve znaku na obálce
-        a v úvodu stránky.</p>
+        a v úvodu stránky. Růst znaku generacemi, jednou při načtení.</p>
       </div>
       <div class="note" style="margin-top:0; border-left-color:var(--err)">
         <p><strong>Nehýbe se.</strong> Znak — neotáčí se, nepulzuje, nedeformuje se. Fotografie —

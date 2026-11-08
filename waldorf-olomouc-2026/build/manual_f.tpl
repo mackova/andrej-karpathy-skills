@@ -18,6 +18,7 @@
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Pravidla pro obrázky</b> včetně dočasného režimu bez vlastních fotek — <a class="kap" href="#k13">kapitola 13 · Obrázky</a>.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Výjimka pro rozcestník skupiny</b> — tato strana.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Rozhodnutí nedělat tmavý režim</b> — <a class="kap" href="#k11">kapitola 11 · Plochy</a>.</p></div>
+      <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Růst znaku generacemi.</b> Barva uvnitř spirály projde cestou dítěte školou a otevře se do spektra. Tvar se ani tady neotáčí — <a class="kap" href="#k15">kapitola 15</a>.</p></div>
       <div class="chgrow"><span class="s m">Mění</span><p><b>Textové tokeny mají rezervu.</b> #B54790, #337F4C a #A56001 projdou 4,5:1 i na nebílém podkladu. Dřívější hodnoty byly přesně na hranici a pod tintem selhávaly.</p></div>
       <div class="chgrow"><span class="s m">Mění</span><p><b>Tlumená šedá #8B8D94 → #6D707E.</b> Původní měla na bílé jen 3,31:1, přitom nese všechna návěstí a popisky.</p></div>
       <div class="chgrow"><span class="s a">Doplňuje</span><p><b>Ukázky použití barev</b> na dopisním papíře, dokumentech, prezentaci, plakátech a sociálních sítích — <a class="kap" href="#k08">kapitola 08 · Aplikace</a>.</p></div>
