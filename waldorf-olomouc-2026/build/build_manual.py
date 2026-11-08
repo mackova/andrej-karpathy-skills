@@ -22,5 +22,13 @@ vals = {
 }
 H = open('manual.tpl',encoding='utf-8').read()
 for k,v in vals.items(): H = H.replace(k, v)
+# kontrola: každá kapitola má právě jednu hlavičku a jeden nadpis
+import re as _re
+for _id, _telo in _re.findall(r'<article class="page[^"]*" id="([^"]+)">(.*?)</article>', H, _re.S):
+    _e = len(_re.findall(r'<p class="eyebrow">', _telo))
+    _h = len(_re.findall(r'<h2', _telo))
+    if _id != 'obalka' and (_e != 1 or _h != 1):
+        raise SystemExit(f'CHYBA: kapitola {_id} má {_e} hlaviček a {_h} nadpisů')
+
 open('/home/user/andrej-karpathy-skills/waldorf-olomouc-2026/logomanual.html','w',encoding='utf-8').write(H)
 print("written", len(H), "bytes")

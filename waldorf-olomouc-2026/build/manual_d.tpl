@@ -112,8 +112,6 @@
     <p class="eyebrow">14 · Web</p>
     <h2>Čtyři generace na jedné stránce</h2>
 
-    <p class="eyebrow">12 · Web</p>
-    <h2>Čtyři generace na jedné stránce</h2>
     <p class="lead"><a class="kap" href="#k01">Kapitola 01</a> zakazuje dvě barevné verze na stránce. Rozcestník skupiny je jediná výjimka.</p>
 <h3 class="sub">Co kde platí</h3>
     <ul>

@@ -1020,8 +1020,6 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
     <p class="eyebrow">14 · Web</p>
     <h2>Čtyři generace na jedné stránce</h2>
 
-    <p class="eyebrow">12 · Web</p>
-    <h2>Čtyři generace na jedné stránce</h2>
     <p class="lead"><a class="kap" href="#k01">Kapitola 01</a> zakazuje dvě barevné verze na stránce. Rozcestník skupiny je jediná výjimka.</p>
 <h3 class="sub">Co kde platí</h3>
     <ul>
@@ -1040,8 +1038,6 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
     <p class="eyebrow">15 · Pohyb</p>
     <h2>Rytmus, ne efekt</h2>
 
-    <p class="eyebrow">13 · Pohyb</p>
-    <h2>Rytmus, ne efekt</h2>
     <p class="lead">Pohyb má být klidný a předvídatelný. Nic nepřeskakuje, nic nepruží, nic nepoutá pozornost samo na sebe.</p>
 <h3 class="sub">Znak se neotáčí ani v pohybu</h3>
     <p class="lead">Znak se neotáčí ani v pohybu (<a class="kap" href="#k05">kapitola 05</a>). Hýbe se barva uvnitř spirály — animuje se úhel přechodu, tvar stojí. Jen u velkého znaku, nikdy v hlavičce.</p>
@@ -1100,8 +1096,6 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
     <p class="eyebrow">16 · Pohyb</p>
     <h2>Časy a křivky</h2>
 
-    <p class="eyebrow">14 · Pohyb</p>
-    <h2>Časy, křivky a živé ukázky</h2>
     <p class="lead">Čtyři délky a dvě křivky na celý web. Větší plocha, delší pohyb; vše dojíždí do klidu.</p>
     <div class="tw">
       <table>
