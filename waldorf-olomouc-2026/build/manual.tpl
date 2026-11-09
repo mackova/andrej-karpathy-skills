@@ -14,6 +14,8 @@
   --ms-t:#B54790; --zs-t:#337F4C; --zus-t:#A56001; --ss-t:#4A3CB0;
   --err:#B2261E; --err-bg:#F0C5BF;
   --page:#FFFFFF; --canvas:#E9EAEC;
+  /* jediný text, který leží přímo na podkladu mimo kartu (návěstí skupin na rozcestníku) */
+  --na-podkladu:#54575E;
 
   /* pohyb — kapitola 13 */
   --pohyb-stav:160ms;
@@ -25,19 +27,13 @@
   --prodleva:60ms;
 }
 @property --wm-uhel{ syntax:'<angle>'; initial-value:0deg; inherits:false; }
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --canvas:#191B1F; } }
-:root[data-theme="dark"]{ --canvas:#191B1F; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --canvas:#191B1F; --na-podkladu:#B8BBC4; } }
+:root[data-theme="dark"]{ --canvas:#191B1F; --na-podkladu:#B8BBC4; }
 
 *{box-sizing:border-box}
 body{margin:0; background:var(--canvas); color:var(--ink);
   font-family:Manrope,system-ui,-apple-system,sans-serif; font-size:15px; line-height:1.7;
   -webkit-font-smoothing:antialiased}
-.layout{display:grid; grid-template-columns:1fr; gap:0}
-.obsah{padding:28px 18px 70px; min-width:0}
-@media (min-width:1000px){
-  .layout{grid-template-columns:244px minmax(0,1fr)}
-  .obsah{padding:34px 28px 90px}
-}
 h1,h2,h3,h4{margin:0; font-family:'Space Grotesk',system-ui,sans-serif; font-weight:500;
   line-height:1.14; letter-spacing:-.022em; text-wrap:balance}
 p{margin:0}
@@ -45,35 +41,58 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
   background:#F5F5F7; padding:2px 6px; border-radius:2px}
 :focus-visible{outline:2px solid var(--ink); outline-offset:3px}
 
-/* ---------- trvalá navigace ---------- */
-.nav{background:var(--page); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:40}
-.nav-hlava{display:flex; align-items:center; gap:12px; padding:14px 18px}
-.nav-hlava .nm{font-family:'Space Grotesk',sans-serif; font-size:14.5px; font-weight:500;
-  letter-spacing:-.02em; line-height:1.2}
-.nav-hlava .vz{font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
-  font-weight:700; color:var(--ink-3); margin-top:2px}
-.nav-tog{margin-left:auto; font:inherit; font-size:11px; font-weight:700; letter-spacing:.12em;
-  text-transform:uppercase; background:none; border:1px solid var(--line); border-radius:999px;
-  padding:6px 13px; cursor:pointer; color:var(--ink)}
-.nav-seznam{display:none; padding:0 10px 14px; max-height:62vh; overflow:auto}
-.nav[data-otevreno] .nav-seznam{display:block}
-.nav-dil{font-size:10px; letter-spacing:.15em; text-transform:uppercase; font-weight:700;
-  color:var(--ink-3); padding:14px 10px 6px}
-.nav a{display:flex; gap:10px; align-items:baseline; padding:7px 10px; border-radius:3px;
-  text-decoration:none; color:var(--ink-2); font-size:13.5px; line-height:1.35;
-  transition:background var(--pohyb-stav) var(--krivka-klid), color var(--pohyb-stav) var(--krivka-klid)}
-.nav a:hover{background:#F5F5F7; color:var(--ink)}
-.nav a .k{font-size:11px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums;
-  min-width:17px}
-.nav a[aria-current="true"]{background:#F5F5F7; color:var(--ink); font-weight:600}
-.nav a[aria-current="true"] .k{color:var(--zs-t)}
-@media (min-width:1000px){
-  .nav{position:sticky; top:0; height:100vh; border-bottom:0; border-right:1px solid var(--line);
-    overflow:auto; display:flex; flex-direction:column}
-  .nav-hlava{padding:26px 18px 6px; display:block}
-  .nav-tog{display:none}
-  .nav-seznam{display:block; max-height:none; overflow:visible; padding:0 8px 30px}
-}
+/* ---------- rozcestník ---------- */
+.domu{max-width:1140px; margin:0 auto; padding:clamp(26px,5vw,60px) 20px 90px}
+.domu-hlava{background:var(--page); border-radius:3px; overflow:hidden;
+  box-shadow:0 1px 2px rgba(16,18,22,.06), 0 22px 50px -30px rgba(16,18,22,.5)}
+.domu-hlava .vnitrek{display:flex; align-items:center; gap:clamp(22px,4vw,52px);
+  padding:clamp(28px,4.5vw,50px); max-width:800px; margin:0 auto; --m:clamp(130px,19vw,232px)}
+.domu-hlava .mark{width:var(--m); height:calc(var(--m) * 238.7 / 245.15); flex:none;
+  animation:znak-vstup var(--pohyb-znak) var(--krivka-vstup) both}
+.domu-hlava .mark > i{transform:scale(calc(var(--m) / 245.15px))}
+.domu-hlava h1{font-family:'Space Grotesk',sans-serif; font-weight:700;
+  font-size:clamp(21px,2.8vw,33px); letter-spacing:-.028em; line-height:1.14}
+.domu-hlava .orgs{margin-top:11px; font-size:11.5px; letter-spacing:.15em; text-transform:uppercase;
+  font-weight:700; color:var(--ink-3); line-height:1.6; text-wrap:balance}
+.domu-hlava .vz{margin-top:15px; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:700; color:var(--ink-3)}
+.skupina{margin-top:clamp(24px,4vw,42px)}
+.skupina .sl{font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+  font-weight:700; color:var(--na-podkladu)}
+.dlazdice{display:grid; grid-template-columns:repeat(auto-fill,minmax(224px,1fr)); gap:13px; margin-top:13px}
+.dl{display:flex; flex-direction:column; min-width:0; background:var(--page); color:inherit;
+  text-decoration:none; border:1px solid var(--line); border-radius:3px; overflow:hidden;
+  transition:transform var(--pohyb-stav) var(--krivka-klid),
+             box-shadow var(--pohyb-stav) var(--krivka-klid),
+             border-color var(--pohyb-stav) var(--krivka-klid)}
+.dl:hover{transform:translateY(-2px); border-color:var(--ink-3);
+  box-shadow:0 14px 30px -22px rgba(16,18,22,.85)}
+.dl .pas{height:4px; background:var(--ink)}
+.dl .telo{padding:15px 17px 18px; flex:1; display:flex; flex-direction:column; gap:7px}
+.dl .hl{display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:40px}
+.dl .c{font-size:11px; font-weight:700; letter-spacing:.14em; color:var(--ink-3);
+  font-variant-numeric:tabular-nums}
+.dl .t{font-family:'Space Grotesk',sans-serif; font-size:16px; letter-spacing:-.02em; line-height:1.25}
+.dl .p{font-size:12.5px; color:var(--ink-2); line-height:1.55}
+
+/* ---------- čtečka: jedna kapitola přes celou obrazovku ---------- */
+.ctecka{position:fixed; inset:0; z-index:60; background:var(--canvas); display:flex; flex-direction:column}
+.ctecka[hidden]{display:none}
+.ct-bar{flex:none; display:flex; align-items:center; gap:12px; padding:9px 14px;
+  background:var(--page); border-bottom:1px solid var(--line)}
+.ct-bar button{font:inherit; font-size:11px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; background:var(--page); color:var(--ink);
+  border:1px solid var(--line); border-radius:999px; padding:7px 14px; cursor:pointer;
+  transition:border-color var(--pohyb-stav) var(--krivka-klid)}
+.ct-bar button:hover{border-color:var(--ink)}
+.ct-bar button[disabled]{opacity:.35; cursor:default}
+.ct-bar button[disabled]:hover{border-color:var(--line)}
+.ct-kde{font-size:11px; letter-spacing:.13em; text-transform:uppercase; font-weight:700;
+  color:var(--ink-3); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.ct-sip{margin-left:auto; display:flex; gap:7px; flex:none}
+.ct-telo{flex:1; overflow:auto; padding:22px 18px 80px; overscroll-behavior:contain}
+[data-js] .ct-telo > .page{display:none}
+[data-js] .ct-telo > .page.je{display:flex}
 
 /* ---------- strana ---------- */
 .page{background:var(--page); color:var(--ink); max-width:940px; margin:0 auto 22px; scroll-margin-top:72px;
@@ -110,17 +129,6 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 .g-zus-bg{background:__ZUS__} .g-ss-bg{background:__SS__}
 .g-spec-bg{background:__SPEC__}
 
-/* ---------- obálka ---------- */
-.cover .inner{padding:54px; display:flex; align-items:center; min-height:min(72vh,560px)}
-.cover h1{font-family:'Space Grotesk',sans-serif; font-weight:700;
-  font-size:clamp(23px,2.9vw,34px); letter-spacing:-.028em; margin:0; line-height:1.14}
-.cover .lockup{display:flex; align-items:center; gap:clamp(22px,3.4vw,44px); --m:clamp(170px,38vw,440px)}
-.cover .lockup > div{max-width:320px}
-.cover .lockup .mark{width:var(--m); height:calc(var(--m) * 238.7 / 245.15)}
-.cover .lockup .mark > i{transform:scale(calc(var(--m) / 245.15px))}
-.cover .orgs{margin-top:12px; font-size:11.5px; letter-spacing:.15em; text-wrap:balance;
-  text-transform:uppercase; font-weight:700; color:var(--ink-3); line-height:1.6}
-.cover .who{font-size:13px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--ink-3)}
 /* ---------- lockup, varianty ---------- */
 .stage{margin-top:26px; padding:34px 26px; background:#F5F5F7; border-radius:2px;
   display:flex; align-items:center; justify-content:center; gap:26px; flex-wrap:wrap}
@@ -292,8 +300,6 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 .g-flow.once > i{animation:wm-dosed var(--pohyb-znak) var(--krivka-klid) both}
 @keyframes wm-dosed{ from{ --wm-uhel:-120deg } to{ --wm-uhel:0deg } }
 
-/* obálka: znak přichází */
-.cover .mark{animation:znak-vstup var(--pohyb-znak) var(--krivka-vstup) both}
 @keyframes znak-vstup{ from{opacity:0; transform:scale(.93)} to{opacity:1; transform:none} }
 
 /* růst — znak prochází barvami generací, tvar se nehýbe */
@@ -400,11 +406,12 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 @media (max-width:620px){ .sheet{grid-template-columns:1fr} .states.c2,.imgrules.c2{grid-template-columns:1fr} }
 @media (max-width:720px){
   .page > .inner{padding:32px 22px 24px} .pfoot{padding:12px 22px 17px}
-  .page h2{font-size:23px} .cover .inner{padding:34px 22px 28px}
-  .cover .lockup{gap:20px}
+  .page h2{font-size:23px}
 }
 @media (max-width:560px){
-  .cover .lockup{flex-direction:column; align-items:flex-start; gap:20px}
+  .domu-hlava .vnitrek{flex-direction:column; align-items:flex-start; gap:20px}
+  .ct-kde{display:none}
+  .ct-telo{padding:16px 10px 70px}
   .pr{grid-template-columns:1fr; gap:5px} body{padding:16px 10px 50px}
   .dont{grid-template-columns:repeat(2,1fr)}
 }
@@ -413,61 +420,31 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <clipPath id="waldorf-spiral" transform="translate(-174.43 -275.35)">__CLIP__</clipPath>
 </svg>
-<div class="layout">
-<nav class="nav" aria-label="Obsah manuálu">
-  <div class="nav-hlava">
-    <div><p class="nm">Logomanuál<br>Waldorf Olomouc</p><p class="vz">Verze 2.1 · WOLIP</p></div>
-    <button class="nav-tog" aria-expanded="false">Obsah</button>
-  </div>
-  <div class="nav-seznam">
-    <p class="nav-dil">Začněte zde</p>
-    <a href="#prehled"><span class="k">—</span><span>Rychlý přehled</span></a>
-    <p class="nav-dil">A · Značka</p>
-    <a href="#k01"><span class="k">01</span><span>Proč má každá škola jinou barvu</span></a>
-    <a href="#k02"><span class="k">02</span><span>Znak</span></a>
-    <a href="#k03"><span class="k">03</span><span>Varianty</span></a>
-    <a href="#k04"><span class="k">04</span><span>Prostor a velikost</span></a>
-    <a href="#k05"><span class="k">05</span><span>Zakázané varianty</span></a>
-    <a href="#k06"><span class="k">06</span><span>Barvy</span></a>
-    <a href="#k07"><span class="k">07</span><span>Písmo</span></a>
-    <a href="#k08"><span class="k">08</span><span>Aplikace</span></a>
-    <p class="nav-dil">B · Web</p>
-    <a href="#k09"><span class="k">09</span><span>Barvy pro obrazovku</span></a>
-    <a href="#k10"><span class="k">10</span><span>Znak v kódu</span></a>
-    <a href="#k11"><span class="k">11</span><span>Plochy</span></a>
-    <a href="#k12"><span class="k">12</span><span>Stavy prvků</span></a>
-    <a href="#k13"><span class="k">13</span><span>Obrázky</span></a>
-    <a href="#k14"><span class="k">14</span><span>Čtyři generace na jedné stránce</span></a>
-    <p class="nav-dil">C · Pohyb</p>
-    <a href="#k15"><span class="k">15</span><span>Rytmus, ne efekt</span></a>
-    <a href="#k16"><span class="k">16</span><span>Časy a křivky</span></a>
-    <a href="#k17"><span class="k">17</span><span>Živé ukázky</span></a>
-    <p class="nav-dil">D · Identita</p>
-    <a href="#k18"><span class="k">18</span><span>Za čím škola stojí</span></a>
-    <a href="#k19"><span class="k">19</span><span>Jak škola mluví</span></a>
-    <p class="nav-dil">E · Školy</p>
-    <a href="#k20"><span class="k">20</span><span>Mateřská</span></a>
-    <a href="#k21"><span class="k">21</span><span>Základní</span></a>
-    <a href="#k22"><span class="k">22</span><span>ZUŠ Fantazie</span></a>
-    <a href="#k23"><span class="k">23</span><span>Střední · lyceum</span></a>
-  </div>
-</nav>
-<div class="obsah">
-<!-- ==================== OBÁLKA ==================== -->
-<article class="page cover" id="obalka">
-  <div class="rule"></div>
-  <div class="inner">
-    <div class="lockup">
+<main class="domu" id="domu">
+  <header class="domu-hlava">
+    <div class="rule"></div>
+    <div class="vnitrek">
       <span class="mark g-flow once" role="img" aria-label="Znak Waldorfské školy Olomouc"><i></i></span>
       <div>
-        <h1>Waldorfská škola Olomouc</h1>
+        <h1>Logomanuál<br>Waldorfská škola Olomouc</h1>
         <p class="orgs">Mateřská · Základní · Umělecká · Lyceum</p>
+        <p class="vz">Verze 2.1 · design by WOLIP</p>
       </div>
     </div>
-  </div>
-  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Obálka</span></div>
-</article>
+  </header>
+__DLAZDICE__
+</main>
 
+<div class="ctecka" id="ctecka" hidden>
+  <div class="ct-bar">
+    <button type="button" id="ct-zpet">← Obsah</button>
+    <span class="ct-kde" id="ct-kde"></span>
+    <span class="ct-sip">
+      <button type="button" id="ct-prev" aria-label="Předchozí kapitola">‹</button>
+      <button type="button" id="ct-next" aria-label="Další kapitola">›</button>
+    </span>
+  </div>
+  <div class="ct-telo" id="ct-telo">
 <!-- ==================== RYCHLÝ PŘEHLED ==================== -->
 <article class="page" id="prehled">
   <div class="rule"></div>
@@ -1645,8 +1622,8 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 
-  </div><!-- /obsah -->
-</div><!-- /layout -->
+  </div><!-- /ct-telo -->
+</div><!-- /ctecka -->
 
 <script>
 (function () {
@@ -1658,18 +1635,78 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
     return klid.matches || root.getAttribute('data-pohyb') === 'vypnuto';
   }
 
-  // příchod stran
-  var strany = document.querySelectorAll('.page');
-  if (!('IntersectionObserver' in window)) {
-    strany.forEach(function (el) { el.classList.add('in'); });
-  } else {
-    var io = new IntersectionObserver(function (zaznamy) {
-      zaznamy.forEach(function (z) {
-        if (z.isIntersecting) { z.target.classList.add('in'); io.unobserve(z.target); }
-      });
-    }, { rootMargin: '0px 0px -5% 0px', threshold: 0.03 });
-    strany.forEach(function (el) { io.observe(el); });
+  var ctecka = document.getElementById('ctecka');
+  var telo   = document.getElementById('ct-telo');
+  var kde    = document.getElementById('ct-kde');
+  var zpet   = document.getElementById('ct-zpet');
+  var prev   = document.getElementById('ct-prev');
+  var next   = document.getElementById('ct-next');
+  var strany = [].slice.call(telo.querySelectorAll('.page'));
+  var poradi = strany.map(function (el) { return el.id; });
+
+  // linka v menu se měří až když je kapitola vidět
+  function srovnejMenu(kde2, animovat) {
+    kde2.querySelectorAll('.menu').forEach(function (menu) {
+      var ind = menu.querySelector('.ind');
+      var btn = menu.querySelector('[aria-current="true"]') || menu.querySelector('button');
+      if (!ind || !btn) return;
+      if (!animovat) ind.style.transition = 'none';
+      ind.style.width = btn.offsetWidth + 'px';
+      ind.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+      if (!animovat) { void ind.offsetWidth; ind.style.transition = ''; }
+    });
   }
+
+  function otevri(id) {
+    var cil = document.getElementById(id);
+    if (!cil || cil.parentElement !== telo) return false;
+    strany.forEach(function (el) { el.classList.remove('je'); });
+    cil.classList.add('je', 'in');
+    ctecka.hidden = false;
+    document.body.style.overflow = 'hidden';
+    var e = cil.querySelector('.eyebrow'), h = cil.querySelector('h2');
+    kde.textContent = (e ? e.textContent + ' · ' : '') + (h ? h.textContent : '');
+    var i = poradi.indexOf(id);
+    prev.disabled = i <= 0;
+    next.disabled = i >= poradi.length - 1;
+    telo.scrollTop = 0;
+    srovnejMenu(cil, false);
+    zpet.focus({ preventScroll: true });
+    return true;
+  }
+
+  function zavri() {
+    ctecka.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  function zhashe() {
+    var id = decodeURIComponent(location.hash.replace('#', ''));
+    if (id && otevri(id)) return;
+    zavri();
+  }
+
+  function jdi(id) { location.hash = id ? '#' + id : ''; }
+
+  window.addEventListener('hashchange', zhashe);
+  zpet.addEventListener('click', function () { jdi(''); });
+  prev.addEventListener('click', function () {
+    var i = poradi.indexOf(aktivni()); if (i > 0) jdi(poradi[i - 1]);
+  });
+  next.addEventListener('click', function () {
+    var i = poradi.indexOf(aktivni()); if (i > -1 && i < poradi.length - 1) jdi(poradi[i + 1]);
+  });
+  function aktivni() {
+    var el = telo.querySelector('.page.je');
+    return el ? el.id : '';
+  }
+  document.addEventListener('keydown', function (ev) {
+    if (ctecka.hidden) return;
+    if (ev.key === 'Escape') { jdi(''); }
+    else if (ev.key === 'ArrowLeft' && !prev.disabled) { prev.click(); }
+    else if (ev.key === 'ArrowRight' && !next.disabled) { next.click(); }
+  });
+  zhashe();
 
   // tlačítka Přehrát
   document.querySelectorAll('.replay').forEach(function (btn) {
@@ -1684,62 +1721,19 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 
   // linka v menu
   document.querySelectorAll('.menu').forEach(function (menu) {
-    var ind = menu.querySelector('.ind');
     var tlacitka = menu.querySelectorAll('button');
-    function posun(btn, animovat) {
-      if (!animovat) ind.style.transition = 'none';
-      ind.style.width = btn.offsetWidth + 'px';
-      ind.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
-      if (!animovat) { void ind.offsetWidth; ind.style.transition = ''; }
-    }
     tlacitka.forEach(function (btn) {
       btn.addEventListener('click', function () {
         tlacitka.forEach(function (b) { b.removeAttribute('aria-current'); });
         btn.setAttribute('aria-current', 'true');
-        posun(btn, !bezPohybu());
+        srovnejMenu(menu.closest('.page') || menu, !bezPohybu());
       });
-    });
-    posun(menu.querySelector('[aria-current="true"]') || tlacitka[0], false);
-    window.addEventListener('resize', function () {
-      posun(menu.querySelector('[aria-current="true"]') || tlacitka[0], false);
     });
   });
-
-  // navigace: zvýraznění kapitoly, ve které čtenář je
-  var odkazy = [].slice.call(document.querySelectorAll('.nav a[href^="#"]'));
-  var cile = odkazy.map(function (a) { return document.querySelector(a.getAttribute('href')); });
-  var ceka = false;
-  function oznacit() {
-    ceka = false;
-    var aktivni = -1;
-    for (var i = 0; i < cile.length; i++) {
-      if (cile[i] && cile[i].getBoundingClientRect().top <= 140) aktivni = i;
-    }
-    odkazy.forEach(function (a, i) {
-      if (i === aktivni) a.setAttribute('aria-current', 'true');
-      else a.removeAttribute('aria-current');
-    });
-  }
-  function naplanovat() { if (!ceka) { ceka = true; requestAnimationFrame(oznacit); } }
-  window.addEventListener('scroll', naplanovat, { passive: true });
-  window.addEventListener('resize', naplanovat);
-  oznacit();
-
-  // navigace na úzké obrazovce
-  var nav = document.querySelector('.nav');
-  var tog = document.querySelector('.nav-tog');
-  if (tog) {
-    tog.addEventListener('click', function () {
-      var otevreno = nav.hasAttribute('data-otevreno');
-      if (otevreno) nav.removeAttribute('data-otevreno'); else nav.setAttribute('data-otevreno', '');
-      tog.setAttribute('aria-expanded', String(!otevreno));
-    });
-    nav.querySelectorAll('.nav-seznam a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        if (window.innerWidth < 1000) { nav.removeAttribute('data-otevreno'); tog.setAttribute('aria-expanded','false'); }
-      });
-    });
-  }
+  window.addEventListener('resize', function () {
+    var el = telo.querySelector('.page.je');
+    if (el) srovnejMenu(el, false);
+  });
 
   // přepínač pohybu
   var prepinac = document.getElementById('pohyb-off');
@@ -1748,7 +1742,6 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
     prepinac.addEventListener('change', function () {
       if (prepinac.checked) root.setAttribute('data-pohyb', 'vypnuto');
       else root.removeAttribute('data-pohyb');
-      strany.forEach(function (el) { el.classList.add('in'); });
     });
   }
 })();

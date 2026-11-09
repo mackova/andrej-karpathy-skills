@@ -1,58 +1,28 @@
-<div class="layout">
-<nav class="nav" aria-label="Obsah manuálu">
-  <div class="nav-hlava">
-    <div><p class="nm">Logomanuál<br>Waldorf Olomouc</p><p class="vz">Verze 2.1 · WOLIP</p></div>
-    <button class="nav-tog" aria-expanded="false">Obsah</button>
-  </div>
-  <div class="nav-seznam">
-    <p class="nav-dil">Začněte zde</p>
-    <a href="#prehled"><span class="k">—</span><span>Rychlý přehled</span></a>
-    <p class="nav-dil">A · Značka</p>
-    <a href="#k01"><span class="k">01</span><span>Proč má každá škola jinou barvu</span></a>
-    <a href="#k02"><span class="k">02</span><span>Znak</span></a>
-    <a href="#k03"><span class="k">03</span><span>Varianty</span></a>
-    <a href="#k04"><span class="k">04</span><span>Prostor a velikost</span></a>
-    <a href="#k05"><span class="k">05</span><span>Zakázané varianty</span></a>
-    <a href="#k06"><span class="k">06</span><span>Barvy</span></a>
-    <a href="#k07"><span class="k">07</span><span>Písmo</span></a>
-    <a href="#k08"><span class="k">08</span><span>Aplikace</span></a>
-    <p class="nav-dil">B · Web</p>
-    <a href="#k09"><span class="k">09</span><span>Barvy pro obrazovku</span></a>
-    <a href="#k10"><span class="k">10</span><span>Znak v kódu</span></a>
-    <a href="#k11"><span class="k">11</span><span>Plochy</span></a>
-    <a href="#k12"><span class="k">12</span><span>Stavy prvků</span></a>
-    <a href="#k13"><span class="k">13</span><span>Obrázky</span></a>
-    <a href="#k14"><span class="k">14</span><span>Čtyři generace na jedné stránce</span></a>
-    <p class="nav-dil">C · Pohyb</p>
-    <a href="#k15"><span class="k">15</span><span>Rytmus, ne efekt</span></a>
-    <a href="#k16"><span class="k">16</span><span>Časy a křivky</span></a>
-    <a href="#k17"><span class="k">17</span><span>Živé ukázky</span></a>
-    <p class="nav-dil">D · Identita</p>
-    <a href="#k18"><span class="k">18</span><span>Za čím škola stojí</span></a>
-    <a href="#k19"><span class="k">19</span><span>Jak škola mluví</span></a>
-    <p class="nav-dil">E · Školy</p>
-    <a href="#k20"><span class="k">20</span><span>Mateřská</span></a>
-    <a href="#k21"><span class="k">21</span><span>Základní</span></a>
-    <a href="#k22"><span class="k">22</span><span>ZUŠ Fantazie</span></a>
-    <a href="#k23"><span class="k">23</span><span>Střední · lyceum</span></a>
-  </div>
-</nav>
-<div class="obsah">
-<!-- ==================== OBÁLKA ==================== -->
-<article class="page cover" id="obalka">
-  <div class="rule"></div>
-  <div class="inner">
-    <div class="lockup">
+<main class="domu" id="domu">
+  <header class="domu-hlava">
+    <div class="rule"></div>
+    <div class="vnitrek">
       <span class="mark g-flow once" role="img" aria-label="Znak Waldorfské školy Olomouc"><i></i></span>
       <div>
-        <h1>Waldorfská škola Olomouc</h1>
+        <h1>Logomanuál<br>Waldorfská škola Olomouc</h1>
         <p class="orgs">Mateřská · Základní · Umělecká · Lyceum</p>
+        <p class="vz">Verze 2.1 · design by WOLIP</p>
       </div>
     </div>
-  </div>
-  <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Obálka</span></div>
-</article>
+  </header>
+__DLAZDICE__
+</main>
 
+<div class="ctecka" id="ctecka" hidden>
+  <div class="ct-bar">
+    <button type="button" id="ct-zpet">← Obsah</button>
+    <span class="ct-kde" id="ct-kde"></span>
+    <span class="ct-sip">
+      <button type="button" id="ct-prev" aria-label="Předchozí kapitola">‹</button>
+      <button type="button" id="ct-next" aria-label="Další kapitola">›</button>
+    </span>
+  </div>
+  <div class="ct-telo" id="ct-telo">
 <!-- ==================== RYCHLÝ PŘEHLED ==================== -->
 <article class="page" id="prehled">
   <div class="rule"></div>

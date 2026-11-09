@@ -14,6 +14,8 @@
   --ms-t:#B54790; --zs-t:#337F4C; --zus-t:#A56001; --ss-t:#4A3CB0;
   --err:#B2261E; --err-bg:#F0C5BF;
   --page:#FFFFFF; --canvas:#E9EAEC;
+  /* jediný text, který leží přímo na podkladu mimo kartu (návěstí skupin na rozcestníku) */
+  --na-podkladu:#54575E;
 
   /* pohyb — kapitola 13 */
   --pohyb-stav:160ms;
@@ -25,19 +27,13 @@
   --prodleva:60ms;
 }
 @property --wm-uhel{ syntax:'<angle>'; initial-value:0deg; inherits:false; }
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --canvas:#191B1F; } }
-:root[data-theme="dark"]{ --canvas:#191B1F; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --canvas:#191B1F; --na-podkladu:#B8BBC4; } }
+:root[data-theme="dark"]{ --canvas:#191B1F; --na-podkladu:#B8BBC4; }
 
 *{box-sizing:border-box}
 body{margin:0; background:var(--canvas); color:var(--ink);
   font-family:Manrope,system-ui,-apple-system,sans-serif; font-size:15px; line-height:1.7;
   -webkit-font-smoothing:antialiased}
-.layout{display:grid; grid-template-columns:1fr; gap:0}
-.obsah{padding:28px 18px 70px; min-width:0}
-@media (min-width:1000px){
-  .layout{grid-template-columns:244px minmax(0,1fr)}
-  .obsah{padding:34px 28px 90px}
-}
 h1,h2,h3,h4{margin:0; font-family:'Space Grotesk',system-ui,sans-serif; font-weight:500;
   line-height:1.14; letter-spacing:-.022em; text-wrap:balance}
 p{margin:0}
@@ -45,35 +41,58 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
   background:#F5F5F7; padding:2px 6px; border-radius:2px}
 :focus-visible{outline:2px solid var(--ink); outline-offset:3px}
 
-/* ---------- trvalá navigace ---------- */
-.nav{background:var(--page); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:40}
-.nav-hlava{display:flex; align-items:center; gap:12px; padding:14px 18px}
-.nav-hlava .nm{font-family:'Space Grotesk',sans-serif; font-size:14.5px; font-weight:500;
-  letter-spacing:-.02em; line-height:1.2}
-.nav-hlava .vz{font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
-  font-weight:700; color:var(--ink-3); margin-top:2px}
-.nav-tog{margin-left:auto; font:inherit; font-size:11px; font-weight:700; letter-spacing:.12em;
-  text-transform:uppercase; background:none; border:1px solid var(--line); border-radius:999px;
-  padding:6px 13px; cursor:pointer; color:var(--ink)}
-.nav-seznam{display:none; padding:0 10px 14px; max-height:62vh; overflow:auto}
-.nav[data-otevreno] .nav-seznam{display:block}
-.nav-dil{font-size:10px; letter-spacing:.15em; text-transform:uppercase; font-weight:700;
-  color:var(--ink-3); padding:14px 10px 6px}
-.nav a{display:flex; gap:10px; align-items:baseline; padding:7px 10px; border-radius:3px;
-  text-decoration:none; color:var(--ink-2); font-size:13.5px; line-height:1.35;
-  transition:background var(--pohyb-stav) var(--krivka-klid), color var(--pohyb-stav) var(--krivka-klid)}
-.nav a:hover{background:#F5F5F7; color:var(--ink)}
-.nav a .k{font-size:11px; font-weight:700; color:var(--ink-3); font-variant-numeric:tabular-nums;
-  min-width:17px}
-.nav a[aria-current="true"]{background:#F5F5F7; color:var(--ink); font-weight:600}
-.nav a[aria-current="true"] .k{color:var(--zs-t)}
-@media (min-width:1000px){
-  .nav{position:sticky; top:0; height:100vh; border-bottom:0; border-right:1px solid var(--line);
-    overflow:auto; display:flex; flex-direction:column}
-  .nav-hlava{padding:26px 18px 6px; display:block}
-  .nav-tog{display:none}
-  .nav-seznam{display:block; max-height:none; overflow:visible; padding:0 8px 30px}
-}
+/* ---------- rozcestník ---------- */
+.domu{max-width:1140px; margin:0 auto; padding:clamp(26px,5vw,60px) 20px 90px}
+.domu-hlava{background:var(--page); border-radius:3px; overflow:hidden;
+  box-shadow:0 1px 2px rgba(16,18,22,.06), 0 22px 50px -30px rgba(16,18,22,.5)}
+.domu-hlava .vnitrek{display:flex; align-items:center; gap:clamp(22px,4vw,52px);
+  padding:clamp(28px,4.5vw,50px); max-width:800px; margin:0 auto; --m:clamp(130px,19vw,232px)}
+.domu-hlava .mark{width:var(--m); height:calc(var(--m) * 238.7 / 245.15); flex:none;
+  animation:znak-vstup var(--pohyb-znak) var(--krivka-vstup) both}
+.domu-hlava .mark > i{transform:scale(calc(var(--m) / 245.15px))}
+.domu-hlava h1{font-family:'Space Grotesk',sans-serif; font-weight:700;
+  font-size:clamp(21px,2.8vw,33px); letter-spacing:-.028em; line-height:1.14}
+.domu-hlava .orgs{margin-top:11px; font-size:11.5px; letter-spacing:.15em; text-transform:uppercase;
+  font-weight:700; color:var(--ink-3); line-height:1.6; text-wrap:balance}
+.domu-hlava .vz{margin-top:15px; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:700; color:var(--ink-3)}
+.skupina{margin-top:clamp(24px,4vw,42px)}
+.skupina .sl{font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+  font-weight:700; color:var(--na-podkladu)}
+.dlazdice{display:grid; grid-template-columns:repeat(auto-fill,minmax(224px,1fr)); gap:13px; margin-top:13px}
+.dl{display:flex; flex-direction:column; min-width:0; background:var(--page); color:inherit;
+  text-decoration:none; border:1px solid var(--line); border-radius:3px; overflow:hidden;
+  transition:transform var(--pohyb-stav) var(--krivka-klid),
+             box-shadow var(--pohyb-stav) var(--krivka-klid),
+             border-color var(--pohyb-stav) var(--krivka-klid)}
+.dl:hover{transform:translateY(-2px); border-color:var(--ink-3);
+  box-shadow:0 14px 30px -22px rgba(16,18,22,.85)}
+.dl .pas{height:4px; background:var(--ink)}
+.dl .telo{padding:15px 17px 18px; flex:1; display:flex; flex-direction:column; gap:7px}
+.dl .hl{display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:40px}
+.dl .c{font-size:11px; font-weight:700; letter-spacing:.14em; color:var(--ink-3);
+  font-variant-numeric:tabular-nums}
+.dl .t{font-family:'Space Grotesk',sans-serif; font-size:16px; letter-spacing:-.02em; line-height:1.25}
+.dl .p{font-size:12.5px; color:var(--ink-2); line-height:1.55}
+
+/* ---------- čtečka: jedna kapitola přes celou obrazovku ---------- */
+.ctecka{position:fixed; inset:0; z-index:60; background:var(--canvas); display:flex; flex-direction:column}
+.ctecka[hidden]{display:none}
+.ct-bar{flex:none; display:flex; align-items:center; gap:12px; padding:9px 14px;
+  background:var(--page); border-bottom:1px solid var(--line)}
+.ct-bar button{font:inherit; font-size:11px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; background:var(--page); color:var(--ink);
+  border:1px solid var(--line); border-radius:999px; padding:7px 14px; cursor:pointer;
+  transition:border-color var(--pohyb-stav) var(--krivka-klid)}
+.ct-bar button:hover{border-color:var(--ink)}
+.ct-bar button[disabled]{opacity:.35; cursor:default}
+.ct-bar button[disabled]:hover{border-color:var(--line)}
+.ct-kde{font-size:11px; letter-spacing:.13em; text-transform:uppercase; font-weight:700;
+  color:var(--ink-3); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.ct-sip{margin-left:auto; display:flex; gap:7px; flex:none}
+.ct-telo{flex:1; overflow:auto; padding:22px 18px 80px; overscroll-behavior:contain}
+[data-js] .ct-telo > .page{display:none}
+[data-js] .ct-telo > .page.je{display:flex}
 
 /* ---------- strana ---------- */
 .page{background:var(--page); color:var(--ink); max-width:940px; margin:0 auto 22px; scroll-margin-top:72px;
@@ -110,17 +129,6 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 .g-zus-bg{background:__ZUS__} .g-ss-bg{background:__SS__}
 .g-spec-bg{background:__SPEC__}
 
-/* ---------- obálka ---------- */
-.cover .inner{padding:54px; display:flex; align-items:center; min-height:min(72vh,560px)}
-.cover h1{font-family:'Space Grotesk',sans-serif; font-weight:700;
-  font-size:clamp(23px,2.9vw,34px); letter-spacing:-.028em; margin:0; line-height:1.14}
-.cover .lockup{display:flex; align-items:center; gap:clamp(22px,3.4vw,44px); --m:clamp(170px,38vw,440px)}
-.cover .lockup > div{max-width:320px}
-.cover .lockup .mark{width:var(--m); height:calc(var(--m) * 238.7 / 245.15)}
-.cover .lockup .mark > i{transform:scale(calc(var(--m) / 245.15px))}
-.cover .orgs{margin-top:12px; font-size:11.5px; letter-spacing:.15em; text-wrap:balance;
-  text-transform:uppercase; font-weight:700; color:var(--ink-3); line-height:1.6}
-.cover .who{font-size:13px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--ink-3)}
 /* ---------- lockup, varianty ---------- */
 .stage{margin-top:26px; padding:34px 26px; background:#F5F5F7; border-radius:2px;
   display:flex; align-items:center; justify-content:center; gap:26px; flex-wrap:wrap}
@@ -292,8 +300,6 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 .g-flow.once > i{animation:wm-dosed var(--pohyb-znak) var(--krivka-klid) both}
 @keyframes wm-dosed{ from{ --wm-uhel:-120deg } to{ --wm-uhel:0deg } }
 
-/* obálka: znak přichází */
-.cover .mark{animation:znak-vstup var(--pohyb-znak) var(--krivka-vstup) both}
 @keyframes znak-vstup{ from{opacity:0; transform:scale(.93)} to{opacity:1; transform:none} }
 
 /* růst — znak prochází barvami generací, tvar se nehýbe */
@@ -400,11 +406,12 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 @media (max-width:620px){ .sheet{grid-template-columns:1fr} .states.c2,.imgrules.c2{grid-template-columns:1fr} }
 @media (max-width:720px){
   .page > .inner{padding:32px 22px 24px} .pfoot{padding:12px 22px 17px}
-  .page h2{font-size:23px} .cover .inner{padding:34px 22px 28px}
-  .cover .lockup{gap:20px}
+  .page h2{font-size:23px}
 }
 @media (max-width:560px){
-  .cover .lockup{flex-direction:column; align-items:flex-start; gap:20px}
+  .domu-hlava .vnitrek{flex-direction:column; align-items:flex-start; gap:20px}
+  .ct-kde{display:none}
+  .ct-telo{padding:16px 10px 70px}
   .pr{grid-template-columns:1fr; gap:5px} body{padding:16px 10px 50px}
   .dont{grid-template-columns:repeat(2,1fr)}
 }
