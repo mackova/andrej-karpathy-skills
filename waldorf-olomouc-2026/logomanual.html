@@ -13,9 +13,7 @@
   /* textové tokeny — jediné barvy generací, které smí nést text (kapitola 09) */
   --ms-t:#B54790; --zs-t:#337F4C; --zus-t:#A56001; --ss-t:#4A3CB0;
   --err:#B2261E; --err-bg:#F0C5BF;
-  --page:#FFFFFF; --canvas:#E9EAEC;
-  /* jediný text, který leží přímo na podkladu mimo kartu (návěstí skupin na rozcestníku) */
-  --na-podkladu:#54575E;
+  --page:#FFFFFF; --canvas:#FFFFFF;
 
   /* pohyb — kapitola 13 */
   --pohyb-stav:160ms;
@@ -27,8 +25,6 @@
   --prodleva:60ms;
 }
 @property --wm-uhel{ syntax:'<angle>'; initial-value:0deg; inherits:false; }
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --canvas:#191B1F; --na-podkladu:#B8BBC4; } }
-:root[data-theme="dark"]{ --canvas:#191B1F; --na-podkladu:#B8BBC4; }
 
 *{box-sizing:border-box}
 body{margin:0; background:var(--canvas); color:var(--ink);
@@ -38,13 +34,12 @@ h1,h2,h3,h4{margin:0; font-family:'Space Grotesk',system-ui,sans-serif; font-wei
   line-height:1.14; letter-spacing:-.022em; text-wrap:balance}
 p{margin:0}
 code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
-  background:#F5F5F7; padding:2px 6px; border-radius:2px}
+  background:color-mix(in oklab, var(--kap,#101216) 11%, #FFFFFF); padding:2px 6px; border-radius:2px}
 :focus-visible{outline:2px solid var(--ink); outline-offset:3px}
 
 /* ---------- rozcestník ---------- */
 .domu{max-width:1140px; margin:0 auto; padding:clamp(26px,5vw,60px) 20px 90px}
-.domu-hlava{background:var(--page); border-radius:3px; overflow:hidden;
-  box-shadow:0 1px 2px rgba(16,18,22,.06), 0 22px 50px -30px rgba(16,18,22,.5)}
+.domu-hlava{background:var(--page); border-radius:3px; overflow:hidden; border:1px solid var(--line)}
 .domu-hlava .vnitrek{display:flex; align-items:center; gap:clamp(22px,4vw,52px);
   padding:clamp(28px,4.5vw,50px); max-width:800px; margin:0 auto; --m:clamp(130px,19vw,232px)}
 .domu-hlava .mark{width:var(--m); height:calc(var(--m) * 238.7 / 245.15); flex:none;
@@ -58,20 +53,20 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
   font-weight:700; color:var(--ink-3)}
 .skupina{margin-top:clamp(24px,4vw,42px)}
 .skupina .sl{font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
-  font-weight:700; color:var(--na-podkladu)}
+  font-weight:700; color:var(--ink-3)}
 .dlazdice{display:grid; grid-template-columns:repeat(auto-fill,minmax(224px,1fr)); gap:13px; margin-top:13px}
 .dl{display:flex; flex-direction:column; min-width:0; background:var(--page); color:inherit;
   text-decoration:none; border:1px solid var(--line); border-radius:3px; overflow:hidden;
   transition:transform var(--pohyb-stav) var(--krivka-klid),
              box-shadow var(--pohyb-stav) var(--krivka-klid),
              border-color var(--pohyb-stav) var(--krivka-klid)}
-.dl:hover{transform:translateY(-2px); border-color:var(--ink-3);
-  box-shadow:0 14px 30px -22px rgba(16,18,22,.85)}
-.dl .pas{height:4px; background:var(--ink)}
+.dl:hover{transform:translateY(-3px); border-color:var(--kap);
+  box-shadow:0 16px 32px -20px color-mix(in oklab, var(--kap) 70%, transparent)}
+.dl .hlava{background:var(--kap); color:var(--kap-text); padding:13px 17px;
+  display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:58px}
+.dl .c{font-family:'Space Grotesk',sans-serif; font-size:21px; font-weight:500; line-height:1;
+  letter-spacing:-.02em; font-variant-numeric:tabular-nums}
 .dl .telo{padding:15px 17px 18px; flex:1; display:flex; flex-direction:column; gap:7px}
-.dl .hl{display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:40px}
-.dl .c{font-size:11px; font-weight:700; letter-spacing:.14em; color:var(--ink-3);
-  font-variant-numeric:tabular-nums}
 .dl .t{font-family:'Space Grotesk',sans-serif; font-size:16px; letter-spacing:-.02em; line-height:1.25}
 .dl .p{font-size:12.5px; color:var(--ink-2); line-height:1.55}
 
@@ -95,11 +90,12 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
 [data-js] .ct-telo > .page.je{display:flex}
 
 /* ---------- strana ---------- */
-.page{background:var(--page); color:var(--ink); max-width:940px; margin:0 auto 22px; scroll-margin-top:72px;
-  border-radius:3px; box-shadow:0 1px 2px rgba(16,18,22,.06), 0 22px 50px -30px rgba(16,18,22,.5);
+.page{background:var(--page); color:var(--ink); max-width:940px; margin:0 auto 22px;
+  border-radius:3px; border:1px solid var(--line);
   display:flex; flex-direction:column; overflow:hidden}
 .page > .inner{padding:50px 54px 32px; flex:1}
-.rule{height:5px; background:conic-gradient(from 0deg at 50% 50%, #0000FF 0.0deg, #0000FF 7.5deg, #0000FF 15.0deg, #0000FF 22.5deg, #0101FB 30.0deg, #0305ED 37.5deg, #090ECF 45.0deg, #0D14B5 52.5deg, #131B9B 60.0deg, #1A2282 67.5deg, #21276D 75.0deg, #292A61 82.5deg, #322B60 90.0deg, #392869 97.5deg, #42247A 105.0deg, #4C1E90 112.5deg, #5617AA 120.0deg, #6110C5 127.5deg, #6C09DC 135.0deg, #7704F0 142.5deg, #8201FC 150.0deg, #8800FF 157.5deg, #8800FF 165.0deg, #A100EA 172.5deg, #E70048 180.0deg, #FC000C 187.5deg, #FF0001 195.0deg, #FF0B00 202.5deg, #FF2700 210.0deg, #FF3900 217.5deg, #FF0B00 225.0deg, #FF1100 232.5deg, #FF2500 240.0deg, #FF4100 247.5deg, #FF6C00 255.0deg, #FF9A00 262.5deg, #FFDC00 270.0deg, #FFFC00 277.5deg, #FCFF00 285.0deg, #E5FF00 292.5deg, #B8FF00 300.0deg, #76FF00 307.5deg, #21FF00 315.0deg, #00FF00 322.5deg, #00F609 330.0deg, #00DB24 337.5deg, #0000FF 345.0deg, #0000FF 352.5deg, #0000FF 360.0deg)}
+.rule{height:5px; background:linear-gradient(90deg, #E15955, #DE602F, #D36D00, #C17A00, #B08400, #9F8D00, #8A9500, #699F08, #37A643, #00A66D, #00A388, #00A19B, #009FAC, #009CBD, #0097D2, #1E8FEE, #5886F2, #7A7CF0, #9572E7, #AC6AD8, #BE62C4, #CD5CAC, #D85891, #DE5774, #E15955)}
+.page > .rule{height:6px; background:var(--kap)}
 .eyebrow{font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--ink-3)}
 .page h2{font-size:29px; margin:12px 0 0}
 .lead{margin-top:15px; color:var(--ink-2); max-width:66ch; font-size:15.5px}
@@ -111,7 +107,8 @@ a.kap{color:var(--zs-t); text-decoration:underline; text-decoration-thickness:1p
   text-underline-offset:3px; font-weight:600;
   transition:text-decoration-thickness var(--pohyb-stav) var(--krivka-klid)}
 a.kap:hover{text-decoration-thickness:2px}
-.note{background:#F5F5F7; border-left:3px solid var(--ink); padding:15px 19px; margin-top:20px; border-radius:2px}
+.note{background:var(--white); border:1px solid var(--line); border-left:3px solid var(--kap);
+  padding:15px 19px; margin-top:20px; border-radius:2px}
 .note p{font-size:14.5px; color:var(--ink-2)}
 .note strong{color:var(--ink)}
 ul{margin:13px 0 0; padding-left:19px; font-size:14.5px; color:var(--ink-2); line-height:1.75}
@@ -130,7 +127,7 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 .g-spec-bg{background:conic-gradient(from 0deg at 50% 50%, #0000FF 0.0deg, #0000FF 7.5deg, #0000FF 15.0deg, #0000FF 22.5deg, #0101FB 30.0deg, #0305ED 37.5deg, #090ECF 45.0deg, #0D14B5 52.5deg, #131B9B 60.0deg, #1A2282 67.5deg, #21276D 75.0deg, #292A61 82.5deg, #322B60 90.0deg, #392869 97.5deg, #42247A 105.0deg, #4C1E90 112.5deg, #5617AA 120.0deg, #6110C5 127.5deg, #6C09DC 135.0deg, #7704F0 142.5deg, #8201FC 150.0deg, #8800FF 157.5deg, #8800FF 165.0deg, #A100EA 172.5deg, #E70048 180.0deg, #FC000C 187.5deg, #FF0001 195.0deg, #FF0B00 202.5deg, #FF2700 210.0deg, #FF3900 217.5deg, #FF0B00 225.0deg, #FF1100 232.5deg, #FF2500 240.0deg, #FF4100 247.5deg, #FF6C00 255.0deg, #FF9A00 262.5deg, #FFDC00 270.0deg, #FFFC00 277.5deg, #FCFF00 285.0deg, #E5FF00 292.5deg, #B8FF00 300.0deg, #76FF00 307.5deg, #21FF00 315.0deg, #00FF00 322.5deg, #00F609 330.0deg, #00DB24 337.5deg, #0000FF 345.0deg, #0000FF 352.5deg, #0000FF 360.0deg)}
 
 /* ---------- lockup, varianty ---------- */
-.stage{margin-top:26px; padding:34px 26px; background:#F5F5F7; border-radius:2px;
+.stage{margin-top:26px; padding:34px 26px; background:var(--white); border:1px solid var(--line); border-radius:2px;
   display:flex; align-items:center; justify-content:center; gap:26px; flex-wrap:wrap}
 .stage.dark{background:var(--ink)}
 .lock{display:flex; align-items:center; gap:20px}
@@ -147,11 +144,11 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 
 /* ---------- ochranná zóna ---------- */
 .zone{margin-top:24px; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px}
-.zbox{background:#F5F5F7; border-radius:2px; padding:30px; display:flex;
+.zbox{background:var(--white); border:1px solid var(--line); border-radius:2px; padding:30px; display:flex;
   align-items:center; justify-content:center}
 .zinner{position:relative; padding:44px; outline:1.5px dashed var(--ink-3); outline-offset:0}
 .zlab{position:absolute; font-size:10px; letter-spacing:.12em; font-weight:700; color:var(--ink-3)}
-.sizes{display:flex; align-items:flex-end; gap:24px; flex-wrap:wrap; background:#F5F5F7;
+.sizes{display:flex; align-items:flex-end; gap:24px; flex-wrap:wrap; background:var(--white); border:1px solid var(--line);
   border-radius:2px; padding:26px 24px; margin-top:0}
 .scell{display:flex; flex-direction:column; align-items:center; gap:9px}
 .scell .c{font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-3); font-weight:700}
@@ -160,7 +157,7 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 .dont{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px}
 .dcell{border:1px solid var(--line); border-radius:2px; overflow:hidden}
 .dcell .b{position:relative; height:112px; display:flex; align-items:center; justify-content:center;
-  background:#F5F5F7; overflow:hidden}
+  background:var(--white); border-bottom:1px solid var(--line); overflow:hidden}
 .dcell .b.on{background:var(--zs)}
 .dcell .x{position:absolute; top:7px; right:7px; width:19px; height:19px; border-radius:50%;
   background:var(--err); color:#fff; font-size:12px; font-weight:700; line-height:19px; text-align:center}
@@ -240,7 +237,7 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 table{border-collapse:collapse; width:100%; min-width:640px; font-size:13.5px}
 th,td{padding:11px 14px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line)}
 thead th{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
-  font-weight:700; background:#F5F5F7}
+  font-weight:700; background:color-mix(in oklab, var(--kap,#101216) 8%, #FFFFFF)}
 tbody tr:last-child td{border-bottom:0}
 td small{display:block; color:var(--ink-3); font-size:11.5px; margin-top:2px}
 .sw{display:inline-flex; align-items:center; gap:8px; font-weight:600; white-space:nowrap}
@@ -267,7 +264,8 @@ td small{display:block; color:var(--ink-3); font-size:11.5px; margin-top:2px}
 .demo .act{border-bottom:2px solid var(--zs); padding-bottom:3px; font-weight:600}
 .errbox{display:block; background:var(--err-bg); color:var(--ink); padding:10px 13px; border-radius:2px;
   font-size:12.5px; border-left:3px solid var(--err)}
-pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
+pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px solid var(--line);
+  padding:15px 17px; border-radius:2px; overflow-x:auto;
   font-size:12.5px; line-height:1.65; margin:17px 0 0;
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .imgrules{display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
@@ -435,10 +433,9 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <section class="skupina">
     <p class="sl">Začněte zde</p>
     <div class="dlazdice">
-      <a class="dl" href="#prehled">
-        <span class="pas"></span>
+      <a class="dl" href="#prehled" style="--kap:#E15955; --kap-text:#101216">
+        <span class="hlava"><span class="c">—</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">—</span></span>
           <span class="t">Rychlý přehled</span>
           <span class="p">Co se hledá nejčastěji, na jedné obrazovce.</span>
         </span>
@@ -448,66 +445,58 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <section class="skupina">
     <p class="sl">A · Značka</p>
     <div class="dlazdice">
-      <a class="dl" href="#k01">
-        <span class="pas"></span>
+      <a class="dl" href="#k01" style="--kap:#DD6126; --kap-text:#101216">
+        <span class="hlava"><span class="c">01</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">01</span></span>
           <span class="t">Proč má každá škola jinou barvu</span>
           <span class="p">Znak tvoří tři propletené spirály a jeho barevný přechod prochází celým spektrem</span>
         </span>
       </a>
-      <a class="dl" href="#k02">
-        <span class="pas"></span>
+      <a class="dl" href="#k02" style="--kap:#CB7300; --kap-text:#101216">
+        <span class="hlava"><span class="c">02</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">02</span></span>
           <span class="t">Trojitá spirála</span>
           <span class="p">Tři propletené spirály — hlava, ruce a srdce.</span>
         </span>
       </a>
-      <a class="dl" href="#k03">
-        <span class="pas"></span>
+      <a class="dl" href="#k03" style="--kap:#B78100; --kap-text:#101216">
+        <span class="hlava"><span class="c">03</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">03</span></span>
           <span class="t">Tři verze, jasná pravidla</span>
           <span class="p">Barevná verze je základní.</span>
         </span>
       </a>
-      <a class="dl" href="#k04">
-        <span class="pas"></span>
+      <a class="dl" href="#k04" style="--kap:#A38B00; --kap-text:#101216">
+        <span class="hlava"><span class="c">04</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">04</span></span>
           <span class="t">Znak potřebuje klid okolo sebe</span>
           <span class="p">Alespoň polovina šířky znaku na všech stranách.</span>
         </span>
       </a>
-      <a class="dl" href="#k05">
-        <span class="pas"></span>
+      <a class="dl" href="#k05" style="--kap:#8A9500; --kap-text:#101216">
+        <span class="hlava"><span class="c">05</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">05</span></span>
           <span class="t">Co se znakem nedělat</span>
           <span class="p">Vždy z originálního zdroje, bez úprav.</span>
         </span>
       </a>
-      <a class="dl" href="#k06">
-        <span class="pas"></span>
+      <a class="dl" href="#k06" style="--kap:#60A11C; --kap-text:#101216">
+        <span class="hlava"><span class="c">06</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">06</span></span>
           <span class="t">Každá generace má svou barvu</span>
           <span class="p">Hodnoty pro tisk a znak.</span>
         </span>
       </a>
-      <a class="dl" href="#k07">
-        <span class="pas"></span>
+      <a class="dl" href="#k07" style="--kap:#0AA852; --kap-text:#101216">
+        <span class="hlava"><span class="c">07</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">07</span></span>
           <span class="t">Dvě písma na všechno</span>
           <span class="p">Nadpisy, jména, data, citace.</span>
         </span>
       </a>
-      <a class="dl" href="#k08">
-        <span class="pas"></span>
+      <a class="dl" href="#k08" style="--kap:#00A47F; --kap-text:#101216">
+        <span class="hlava"><span class="c">08</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">08</span></span>
           <span class="t">Jak barvy vypadají v praxi</span>
           <span class="p">Každý výstup začíná stejně: pruh v barvě generace, znak, název organizace.</span>
         </span>
@@ -517,50 +506,44 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <section class="skupina">
     <p class="sl">B · Web</p>
     <div class="dlazdice">
-      <a class="dl" href="#k09">
-        <span class="pas"></span>
+      <a class="dl" href="#k09" style="--kap:#00A297; --kap-text:#101216">
+        <span class="hlava"><span class="c">09</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">09</span></span>
           <span class="t">Barvy pro obrazovku</span>
           <span class="p">Jedna hodnota nemůže zároveň nést text a sloužit jako plocha.</span>
         </span>
       </a>
-      <a class="dl" href="#k10">
-        <span class="pas"></span>
+      <a class="dl" href="#k10" style="--kap:#009FAC; --kap-text:#101216">
+        <span class="hlava"><span class="c">10</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">10</span></span>
           <span class="t">Znak se nasazuje jako kód</span>
           <span class="p">Na webu je znak jedna ořezová cesta o 421 bajtech a barevný přechod.</span>
         </span>
       </a>
-      <a class="dl" href="#k11">
-        <span class="pas"></span>
+      <a class="dl" href="#k11" style="--kap:#009BC1; --kap-text:#101216">
+        <span class="hlava"><span class="c">11</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">11</span></span>
           <span class="t">Plochy nesou barvu</span>
           <span class="p">Plocha nese barvu generace.</span>
         </span>
       </a>
-      <a class="dl" href="#k12">
-        <span class="pas"></span>
+      <a class="dl" href="#k12" style="--kap:#0095DD; --kap-text:#101216">
+        <span class="hlava"><span class="c">12</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">12</span></span>
           <span class="t">Stavy prvků</span>
           <span class="p">Odkaz, zaměření, chyba a potvrzení.</span>
         </span>
       </a>
-      <a class="dl" href="#k13">
-        <span class="pas"></span>
+      <a class="dl" href="#k13" style="--kap:#478AF1; --kap-text:#101216">
+        <span class="hlava"><span class="c">13</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">13</span></span>
           <span class="t">Obrázky</span>
           <span class="p">U školy rozhoduje o důvěře fotografie.</span>
         </span>
       </a>
-      <a class="dl" href="#k14">
-        <span class="pas"></span>
+      <a class="dl" href="#k14" style="--kap:#747EF1; --kap-text:#101216">
+        <span class="hlava"><span class="c">14</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">14</span></span>
           <span class="t">Čtyři generace na jedné stránce</span>
           <span class="p">Kapitola 01 zakazuje dvě barevné verze na stránce.</span>
         </span>
@@ -570,26 +553,23 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <section class="skupina">
     <p class="sl">C · Pohyb</p>
     <div class="dlazdice">
-      <a class="dl" href="#k15">
-        <span class="pas"></span>
+      <a class="dl" href="#k15" style="--kap:#9572E7; --kap-text:#101216">
+        <span class="hlava"><span class="c">15</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">15</span></span>
           <span class="t">Rytmus, ne efekt</span>
           <span class="p">Pohyb má být klidný a předvídatelný.</span>
         </span>
       </a>
-      <a class="dl" href="#k16">
-        <span class="pas"></span>
+      <a class="dl" href="#k16" style="--kap:#B068D4; --kap-text:#101216">
+        <span class="hlava"><span class="c">16</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">16</span></span>
           <span class="t">Časy a křivky</span>
           <span class="p">Čtyři délky a dvě křivky na celý web.</span>
         </span>
       </a>
-      <a class="dl" href="#k17">
-        <span class="pas"></span>
+      <a class="dl" href="#k17" style="--kap:#C460BB; --kap-text:#101216">
+        <span class="hlava"><span class="c">17</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">17</span></span>
           <span class="t">Živé ukázky</span>
           <span class="p">Ukázky jsou funkční, ne obrázky — běží na tokenech z kapitoly 16.</span>
         </span>
@@ -599,18 +579,16 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <section class="skupina">
     <p class="sl">D · Identita</p>
     <div class="dlazdice">
-      <a class="dl" href="#k18">
-        <span class="pas"></span>
+      <a class="dl" href="#k18" style="--kap:#D4599C; --kap-text:#101216">
+        <span class="hlava"><span class="c">18</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">18</span></span>
           <span class="t">Za čím škola stojí</span>
           <span class="p">Značka není jen znak a barvy.</span>
         </span>
       </a>
-      <a class="dl" href="#k19">
-        <span class="pas"></span>
+      <a class="dl" href="#k19" style="--kap:#DD577A; --kap-text:#101216">
+        <span class="hlava"><span class="c">19</span></span>
         <span class="telo">
-          <span class="hl"><span class="c">19</span></span>
           <span class="t">Jak škola mluví</span>
           <span class="p">Rodičům vykáme, dětem tykáme.</span>
         </span>
@@ -620,34 +598,30 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <section class="skupina">
     <p class="sl">E · Školy</p>
     <div class="dlazdice">
-      <a class="dl" href="#k20">
-        <span class="pas" style="background:#BC4D96"></span>
+      <a class="dl" href="#k20" style="--kap:#BC4D96; --kap-text:#FFFFFF">
+        <span class="hlava"><span class="c">20</span><span class="mark g-white" style="width:34px;height:33.11px" aria-hidden="true"><i style="transform:scale(.13869)"></i></span></span>
         <span class="telo">
-          <span class="hl"><span class="c">20</span><span class="mark g-ms" style="width:40px;height:38.95px" aria-hidden="true"><i style="transform:scale(.16317)"></i></span></span>
           <span class="t">Mateřská škola</span>
           <span class="p">První barva spektra.</span>
         </span>
       </a>
-      <a class="dl" href="#k21">
-        <span class="pas" style="background:#3F905D"></span>
+      <a class="dl" href="#k21" style="--kap:#3F905D; --kap-text:#101216">
+        <span class="hlava"><span class="c">21</span><span class="mark g-ink" style="width:34px;height:33.11px" aria-hidden="true"><i style="transform:scale(.13869)"></i></span></span>
         <span class="telo">
-          <span class="hl"><span class="c">21</span><span class="mark g-zs" style="width:40px;height:38.95px" aria-hidden="true"><i style="transform:scale(.16317)"></i></span></span>
           <span class="t">Základní škola</span>
           <span class="p">Nejdelší úsek cesty dítěte školou a nejvíc dokumentů.</span>
         </span>
       </a>
-      <a class="dl" href="#k22">
-        <span class="pas" style="background:#EE9B00"></span>
+      <a class="dl" href="#k22" style="--kap:#EE9B00; --kap-text:#101216">
+        <span class="hlava"><span class="c">22</span><span class="mark g-ink" style="width:34px;height:33.11px" aria-hidden="true"><i style="transform:scale(.13869)"></i></span></span>
         <span class="telo">
-          <span class="hl"><span class="c">22</span><span class="mark g-zus" style="width:40px;height:38.95px" aria-hidden="true"><i style="transform:scale(.16317)"></i></span></span>
           <span class="t">ZUŠ Fantazie</span>
           <span class="p">Jediná barva, která v paletě vybočuje — vyšší sytost, světlejší střed.</span>
         </span>
       </a>
-      <a class="dl" href="#k23">
-        <span class="pas" style="background:#4A3CB0"></span>
+      <a class="dl" href="#k23" style="--kap:#4A3CB0; --kap-text:#FFFFFF">
+        <span class="hlava"><span class="c">23</span><span class="mark g-white" style="width:34px;height:33.11px" aria-hidden="true"><i style="transform:scale(.13869)"></i></span></span>
         <span class="telo">
-          <span class="hl"><span class="c">23</span><span class="mark g-ss" style="width:40px;height:38.95px" aria-hidden="true"><i style="transform:scale(.16317)"></i></span></span>
           <span class="t">Střední škola · lyceum</span>
           <span class="p">Poslední barva spektra a jediná škola, kde materiály čte ve velké míře sám student.</span>
         </span>
@@ -667,7 +641,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   </div>
   <div class="ct-telo" id="ct-telo">
 <!-- ==================== RYCHLÝ PŘEHLED ==================== -->
-<article class="page" id="prehled">
+<article class="page" id="prehled" style="--kap:#E15955">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">Začněte zde</p>
@@ -743,7 +717,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 01 PROČ MÁ KAŽDÁ ŠKOLA JINOU BARVU ==================== -->
-<article class="page" id="k01">
+<article class="page" id="k01" style="--kap:#DD6126">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">01 · Značka</p>
@@ -783,7 +757,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 02 ZNAK ==================== -->
-<article class="page" id="k02">
+<article class="page" id="k02" style="--kap:#CB7300">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">02 · Značka</p>
@@ -807,7 +781,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 03 VARIANTY ==================== -->
-<article class="page" id="k03">
+<article class="page" id="k03" style="--kap:#B78100">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">03 · Značka</p>
@@ -846,7 +820,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 04 PROSTOR A VELIKOST ==================== -->
-<article class="page" id="k04">
+<article class="page" id="k04" style="--kap:#A38B00">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">04 · Značka</p>
@@ -882,7 +856,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 05 ZAKÁZANÉ VARIANTY ==================== -->
-<article class="page" id="k05">
+<article class="page" id="k05" style="--kap:#8A9500">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">05 · Značka</p>
@@ -920,7 +894,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 05 · Zakázané varianty</span></div>
 </article>
 <!-- ==================== 06 BARVY ==================== -->
-<article class="page" id="k06">
+<article class="page" id="k06" style="--kap:#60A11C">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">06 · Značka</p>
@@ -958,7 +932,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 07 PÍSMO ==================== -->
-<article class="page" id="k07">
+<article class="page" id="k07" style="--kap:#0AA852">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">07 · Značka</p>
@@ -995,7 +969,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 08 APLIKACE ==================== -->
-<article class="page" id="k08">
+<article class="page" id="k08" style="--kap:#00A47F">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">08 · Značka</p>
@@ -1248,7 +1222,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 09 WEB · BARVY ==================== -->
-<article class="page" id="k09">
+<article class="page" id="k09" style="--kap:#00A297">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">09 · Web</p>
@@ -1311,7 +1285,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 10 WEB · ZNAK V KÓDU ==================== -->
-<article class="page" id="k10">
+<article class="page" id="k10" style="--kap:#009FAC">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">10 · Web</p>
@@ -1360,7 +1334,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 10 · Znak v kódu</span></div>
 </article>
 <!-- ==================== 11 PLOCHY NESOU BARVU ==================== -->
-<article class="page" id="k11">
+<article class="page" id="k11" style="--kap:#009BC1">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">11 · Web</p>
@@ -1378,7 +1352,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 12 STAVY PRVKŮ ==================== -->
-<article class="page" id="k12">
+<article class="page" id="k12" style="--kap:#0095DD">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">12 · Web</p>
@@ -1426,7 +1400,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 13 OBRÁZKY ==================== -->
-<article class="page" id="k13">
+<article class="page" id="k13" style="--kap:#478AF1">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">13 · Web</p>
@@ -1467,7 +1441,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 14 ČTYŘI GENERACE NA JEDNÉ STRÁNCE ==================== -->
-<article class="page" id="k14">
+<article class="page" id="k14" style="--kap:#747EF1">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">14 · Web</p>
@@ -1485,7 +1459,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 14 · Čtyři generace na jedné stránce</span></div>
 </article>
 <!-- ==================== 15 RYTMUS, NE EFEKT ==================== -->
-<article class="page" id="k15">
+<article class="page" id="k15" style="--kap:#9572E7">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">15 · Pohyb</p>
@@ -1577,7 +1551,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 16 ČASY A KŘIVKY ==================== -->
-<article class="page" id="k16">
+<article class="page" id="k16" style="--kap:#B068D4">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">16 · Pohyb</p>
@@ -1603,7 +1577,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 17 ŽIVÉ UKÁZKY ==================== -->
-<article class="page" id="k17">
+<article class="page" id="k17" style="--kap:#C460BB">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">17 · Pohyb</p>
@@ -1672,7 +1646,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 17 · Živé ukázky</span></div>
 </article>
 <!-- ==================== 18 ZA ČÍM ŠKOLA STOJÍ ==================== -->
-<article class="page" id="k18">
+<article class="page" id="k18" style="--kap:#D4599C">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">18 · Identita</p>
@@ -1702,7 +1676,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 19 JAK ŠKOLA MLUVÍ ==================== -->
-<article class="page" id="k19">
+<article class="page" id="k19" style="--kap:#DD577A">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">19 · Identita</p>
@@ -1731,7 +1705,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 20 MATEŘSKÁ ==================== -->
-<article class="page" id="k20">
+<article class="page" id="k20" style="--kap:#BC4D96">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">20 · Školy</p>
@@ -1758,7 +1732,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 21 ZÁKLADNÍ ==================== -->
-<article class="page" id="k21">
+<article class="page" id="k21" style="--kap:#3F905D">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">21 · Školy</p>
@@ -1785,7 +1759,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 22 ZUŠ ==================== -->
-<article class="page" id="k22">
+<article class="page" id="k22" style="--kap:#EE9B00">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">22 · Školy</p>
@@ -1816,7 +1790,7 @@ pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
 </article>
 
 <!-- ==================== 23 STŘEDNÍ ==================== -->
-<article class="page" id="k23">
+<article class="page" id="k23" style="--kap:#4A3CB0">
   <div class="rule"></div>
   <div class="inner">
     <p class="eyebrow">23 · Školy</p>

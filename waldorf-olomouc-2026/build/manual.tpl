@@ -13,9 +13,7 @@
   /* textové tokeny — jediné barvy generací, které smí nést text (kapitola 09) */
   --ms-t:#B54790; --zs-t:#337F4C; --zus-t:#A56001; --ss-t:#4A3CB0;
   --err:#B2261E; --err-bg:#F0C5BF;
-  --page:#FFFFFF; --canvas:#E9EAEC;
-  /* jediný text, který leží přímo na podkladu mimo kartu (návěstí skupin na rozcestníku) */
-  --na-podkladu:#54575E;
+  --page:#FFFFFF; --canvas:#FFFFFF;
 
   /* pohyb — kapitola 13 */
   --pohyb-stav:160ms;
@@ -27,8 +25,6 @@
   --prodleva:60ms;
 }
 @property --wm-uhel{ syntax:'<angle>'; initial-value:0deg; inherits:false; }
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --canvas:#191B1F; --na-podkladu:#B8BBC4; } }
-:root[data-theme="dark"]{ --canvas:#191B1F; --na-podkladu:#B8BBC4; }
 
 *{box-sizing:border-box}
 body{margin:0; background:var(--canvas); color:var(--ink);
@@ -38,13 +34,12 @@ h1,h2,h3,h4{margin:0; font-family:'Space Grotesk',system-ui,sans-serif; font-wei
   line-height:1.14; letter-spacing:-.022em; text-wrap:balance}
 p{margin:0}
 code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
-  background:#F5F5F7; padding:2px 6px; border-radius:2px}
+  background:color-mix(in oklab, var(--kap,#101216) 11%, #FFFFFF); padding:2px 6px; border-radius:2px}
 :focus-visible{outline:2px solid var(--ink); outline-offset:3px}
 
 /* ---------- rozcestník ---------- */
 .domu{max-width:1140px; margin:0 auto; padding:clamp(26px,5vw,60px) 20px 90px}
-.domu-hlava{background:var(--page); border-radius:3px; overflow:hidden;
-  box-shadow:0 1px 2px rgba(16,18,22,.06), 0 22px 50px -30px rgba(16,18,22,.5)}
+.domu-hlava{background:var(--page); border-radius:3px; overflow:hidden; border:1px solid var(--line)}
 .domu-hlava .vnitrek{display:flex; align-items:center; gap:clamp(22px,4vw,52px);
   padding:clamp(28px,4.5vw,50px); max-width:800px; margin:0 auto; --m:clamp(130px,19vw,232px)}
 .domu-hlava .mark{width:var(--m); height:calc(var(--m) * 238.7 / 245.15); flex:none;
@@ -58,20 +53,20 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
   font-weight:700; color:var(--ink-3)}
 .skupina{margin-top:clamp(24px,4vw,42px)}
 .skupina .sl{font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
-  font-weight:700; color:var(--na-podkladu)}
+  font-weight:700; color:var(--ink-3)}
 .dlazdice{display:grid; grid-template-columns:repeat(auto-fill,minmax(224px,1fr)); gap:13px; margin-top:13px}
 .dl{display:flex; flex-direction:column; min-width:0; background:var(--page); color:inherit;
   text-decoration:none; border:1px solid var(--line); border-radius:3px; overflow:hidden;
   transition:transform var(--pohyb-stav) var(--krivka-klid),
              box-shadow var(--pohyb-stav) var(--krivka-klid),
              border-color var(--pohyb-stav) var(--krivka-klid)}
-.dl:hover{transform:translateY(-2px); border-color:var(--ink-3);
-  box-shadow:0 14px 30px -22px rgba(16,18,22,.85)}
-.dl .pas{height:4px; background:var(--ink)}
+.dl:hover{transform:translateY(-3px); border-color:var(--kap);
+  box-shadow:0 16px 32px -20px color-mix(in oklab, var(--kap) 70%, transparent)}
+.dl .hlava{background:var(--kap); color:var(--kap-text); padding:13px 17px;
+  display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:58px}
+.dl .c{font-family:'Space Grotesk',sans-serif; font-size:21px; font-weight:500; line-height:1;
+  letter-spacing:-.02em; font-variant-numeric:tabular-nums}
 .dl .telo{padding:15px 17px 18px; flex:1; display:flex; flex-direction:column; gap:7px}
-.dl .hl{display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:40px}
-.dl .c{font-size:11px; font-weight:700; letter-spacing:.14em; color:var(--ink-3);
-  font-variant-numeric:tabular-nums}
 .dl .t{font-family:'Space Grotesk',sans-serif; font-size:16px; letter-spacing:-.02em; line-height:1.25}
 .dl .p{font-size:12.5px; color:var(--ink-2); line-height:1.55}
 
@@ -95,11 +90,12 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
 [data-js] .ct-telo > .page.je{display:flex}
 
 /* ---------- strana ---------- */
-.page{background:var(--page); color:var(--ink); max-width:940px; margin:0 auto 22px; scroll-margin-top:72px;
-  border-radius:3px; box-shadow:0 1px 2px rgba(16,18,22,.06), 0 22px 50px -30px rgba(16,18,22,.5);
+.page{background:var(--page); color:var(--ink); max-width:940px; margin:0 auto 22px;
+  border-radius:3px; border:1px solid var(--line);
   display:flex; flex-direction:column; overflow:hidden}
 .page > .inner{padding:50px 54px 32px; flex:1}
-.rule{height:5px; background:__SPEC__}
+.rule{height:5px; background:__SPECLIN__}
+.page > .rule{height:6px; background:var(--kap)}
 .eyebrow{font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--ink-3)}
 .page h2{font-size:29px; margin:12px 0 0}
 .lead{margin-top:15px; color:var(--ink-2); max-width:66ch; font-size:15.5px}
@@ -111,7 +107,8 @@ a.kap{color:var(--zs-t); text-decoration:underline; text-decoration-thickness:1p
   text-underline-offset:3px; font-weight:600;
   transition:text-decoration-thickness var(--pohyb-stav) var(--krivka-klid)}
 a.kap:hover{text-decoration-thickness:2px}
-.note{background:#F5F5F7; border-left:3px solid var(--ink); padding:15px 19px; margin-top:20px; border-radius:2px}
+.note{background:var(--white); border:1px solid var(--line); border-left:3px solid var(--kap);
+  padding:15px 19px; margin-top:20px; border-radius:2px}
 .note p{font-size:14.5px; color:var(--ink-2)}
 .note strong{color:var(--ink)}
 ul{margin:13px 0 0; padding-left:19px; font-size:14.5px; color:var(--ink-2); line-height:1.75}
@@ -130,7 +127,7 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 .g-spec-bg{background:__SPEC__}
 
 /* ---------- lockup, varianty ---------- */
-.stage{margin-top:26px; padding:34px 26px; background:#F5F5F7; border-radius:2px;
+.stage{margin-top:26px; padding:34px 26px; background:var(--white); border:1px solid var(--line); border-radius:2px;
   display:flex; align-items:center; justify-content:center; gap:26px; flex-wrap:wrap}
 .stage.dark{background:var(--ink)}
 .lock{display:flex; align-items:center; gap:20px}
@@ -147,11 +144,11 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 
 /* ---------- ochranná zóna ---------- */
 .zone{margin-top:24px; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px}
-.zbox{background:#F5F5F7; border-radius:2px; padding:30px; display:flex;
+.zbox{background:var(--white); border:1px solid var(--line); border-radius:2px; padding:30px; display:flex;
   align-items:center; justify-content:center}
 .zinner{position:relative; padding:44px; outline:1.5px dashed var(--ink-3); outline-offset:0}
 .zlab{position:absolute; font-size:10px; letter-spacing:.12em; font-weight:700; color:var(--ink-3)}
-.sizes{display:flex; align-items:flex-end; gap:24px; flex-wrap:wrap; background:#F5F5F7;
+.sizes{display:flex; align-items:flex-end; gap:24px; flex-wrap:wrap; background:var(--white); border:1px solid var(--line);
   border-radius:2px; padding:26px 24px; margin-top:0}
 .scell{display:flex; flex-direction:column; align-items:center; gap:9px}
 .scell .c{font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-3); font-weight:700}
@@ -160,7 +157,7 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 .dont{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px}
 .dcell{border:1px solid var(--line); border-radius:2px; overflow:hidden}
 .dcell .b{position:relative; height:112px; display:flex; align-items:center; justify-content:center;
-  background:#F5F5F7; overflow:hidden}
+  background:var(--white); border-bottom:1px solid var(--line); overflow:hidden}
 .dcell .b.on{background:var(--zs)}
 .dcell .x{position:absolute; top:7px; right:7px; width:19px; height:19px; border-radius:50%;
   background:var(--err); color:#fff; font-size:12px; font-weight:700; line-height:19px; text-align:center}
@@ -240,7 +237,7 @@ li{margin-bottom:6px} li strong{color:var(--ink)}
 table{border-collapse:collapse; width:100%; min-width:640px; font-size:13.5px}
 th,td{padding:11px 14px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line)}
 thead th{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
-  font-weight:700; background:#F5F5F7}
+  font-weight:700; background:color-mix(in oklab, var(--kap,#101216) 8%, #FFFFFF)}
 tbody tr:last-child td{border-bottom:0}
 td small{display:block; color:var(--ink-3); font-size:11.5px; margin-top:2px}
 .sw{display:inline-flex; align-items:center; gap:8px; font-weight:600; white-space:nowrap}
@@ -267,7 +264,8 @@ td small{display:block; color:var(--ink-3); font-size:11.5px; margin-top:2px}
 .demo .act{border-bottom:2px solid var(--zs); padding-bottom:3px; font-weight:600}
 .errbox{display:block; background:var(--err-bg); color:var(--ink); padding:10px 13px; border-radius:2px;
   font-size:12.5px; border-left:3px solid var(--err)}
-pre{background:#F5F5F7; padding:15px 17px; border-radius:2px; overflow-x:auto;
+pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px solid var(--line);
+  padding:15px 17px; border-radius:2px; overflow-x:auto;
   font-size:12.5px; line-height:1.65; margin:17px 0 0;
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .imgrules{display:grid; gap:1px; background:var(--line); border:1px solid var(--line);

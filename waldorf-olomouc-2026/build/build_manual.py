@@ -18,14 +18,44 @@ vals = {
  '__SS__':  school(247.2, 62, 16, 43,   19),
  '__ZUS__': school(35.0,  92, 13, 52.5, 9.5),
  '__CLIP__': CLIP, '__SPEC__': SPEC,
+ '__SPECLIN__': None,   # dopočítá se níž, až je k dispozici color.py
  '__SPECFLOW__': SPEC.replace('from 0deg', 'from var(--wm-uhel)', 1),
 }
 H = open('manual.tpl',encoding='utf-8').read()
 
-# ---- rozcestník: dlaždice se generují z kapitol, aby nemohly utéct obsahu ----
-import re as _re, html as _html
-_SKOLY = {'k20': ('g-ms', '#BC4D96'), 'k21': ('g-zs', '#3F905D'),
-          'k22': ('g-zus', '#EE9B00'), 'k23': ('g-ss', '#4A3CB0')}
+# ---- barvy kapitol: spektrum znaku rozložené do rozcestníku ----
+# Školní kapitoly nesou přesnou barvu své školy, zbytek projde spektrem.
+# Lehkost L a sytost C drží na úrovni značky, text se volí podle kontrastu.
+import re as _re, html as _html, color as _C
+
+_INK = _C.hex2rgb('#101216')
+
+def _max_chroma(L, H, hi=0.37):
+    lo = 0.0
+    for _ in range(40):
+        m = (lo + hi) / 2
+        if _C.in_gamut(_C.from_oklch(L, m, H)): lo = m
+        else: hi = m
+    return lo
+
+def _text_na(hexa):
+    """Vrátí barvu textu, která na dané ploše projde 4,5:1 (kapitola 09)."""
+    rgb = _C.hex2rgb(hexa)
+    na_ink = _C.contrast(rgb, _INK)
+    na_bile = _C.contrast(rgb, (1, 1, 1))
+    if na_ink >= 4.5 and na_ink >= na_bile: return '#101216', 'g-ink', na_ink
+    if na_bile >= 4.5: return '#FFFFFF', 'g-white', na_bile
+    raise SystemExit(f'CHYBA: na ploše {hexa} neprojde ani inkoust ({na_ink:.2f}) ani bílá ({na_bile:.2f})')
+
+# vodorovné spektrum pro pruh v hlavičce rozcestníku
+_stopy = []
+for _i in range(25):
+    _h = (25 + _i * 360 / 24) % 360
+    _c = _C.from_oklch(0.64, min(_max_chroma(0.64, _h), 0.17), _h)
+    _stopy.append(_C.rgb2hex(tuple(min(1, max(0, _x)) for _x in _c)))
+vals['__SPECLIN__'] = 'linear-gradient(90deg, ' + ', '.join(_stopy) + ')'
+
+_SKOLY = {'k20': '#BC4D96', 'k21': '#3F905D', 'k22': '#EE9B00', 'k23': '#4A3CB0'}
 _DILY = {'Značka': 'A', 'Web': 'B', 'Pohyb': 'C', 'Identita': 'D', 'Školy': 'E'}
 
 def _cista(x):
@@ -36,35 +66,40 @@ def _upoutavka(telo):
     if not m: return ''
     t = _cista(m.group(1))
     v = _re.split(r'(?<=[.!?]) ', t)[0]
-    if len(v) > 95:
-        v = v.split(';')[0]
-    if len(v) > 95:
-        v = v[:92].rsplit(' ', 1)[0] + '…'
+    if len(v) > 95: v = v.split(';')[0]
+    if len(v) > 95: v = v[:92].rsplit(' ', 1)[0] + '…'
     return v
 
 _clanky = _re.findall(r'<article class="page[^"]*" id="(k\d+|prehled)">(.*?)</article>', H, _re.S)
 assert len(_clanky) == 24, f'čekám 24 kapitol, mám {len(_clanky)}'
+
+_obecne = [_id for _id, _ in _clanky if _id not in _SKOLY]
+_barva = {}
+for _n, _id in enumerate(_obecne):
+    _H = (25 + _n * 360 / len(_obecne)) % 360
+    _L = 0.64
+    _rgb = _C.from_oklch(_L, min(_max_chroma(_L, _H), 0.17), _H)
+    _barva[_id] = _C.rgb2hex(tuple(min(1, max(0, _x)) for _x in _rgb))
+_barva.update(_SKOLY)
+
 _skupiny = []
 for _id, _telo in _clanky:
     _eb = _cista(_re.search(r'<p class="eyebrow">(.*?)</p>', _telo, _re.S).group(1))
     _h2 = _cista(_re.search(r'<h2>(.*?)</h2>', _telo, _re.S).group(1))
     _cast = _eb.split(' · ')
     _cislo, _skup = (_cast[0], _cast[1]) if len(_cast) == 2 else ('—', _eb)
-    _popis = _dil = _DILY.get(_skup)
+    _dil = _DILY.get(_skup)
     _nadpis = f'{_dil} · {_skup}' if _dil else _skup
     if not _skupiny or _skupiny[-1][0] != _nadpis:
         _skupiny.append((_nadpis, []))
-    _znak, _pas = '', ''
-    if _id in _SKOLY:
-        _t, _b = _SKOLY[_id]
-        _znak = (f'<span class="mark {_t}" style="width:40px;height:38.95px" aria-hidden="true">'
-                 f'<i style="transform:scale(.16317)"></i></span>')
-        _pas = f' style="background:{_b}"'
+    _b = _barva[_id]
+    _txt, _znakova, _ = _text_na(_b)
+    _znak = (f'<span class="mark {_znakova}" style="width:34px;height:33.11px" aria-hidden="true">'
+             f'<i style="transform:scale(.13869)"></i></span>') if _id in _SKOLY else ''
     _skupiny[-1][1].append(
-        f'      <a class="dl" href="#{_id}">\n'
-        f'        <span class="pas"{_pas}></span>\n'
+        f'      <a class="dl" href="#{_id}" style="--kap:{_b}; --kap-text:{_txt}">\n'
+        f'        <span class="hlava"><span class="c">{_cislo}</span>{_znak}</span>\n'
         f'        <span class="telo">\n'
-        f'          <span class="hl"><span class="c">{_cislo}</span>{_znak}</span>\n'
         f'          <span class="t">{_h2}</span>\n'
         f'          <span class="p">{_upoutavka(_telo)}</span>\n'
         f'        </span>\n'
@@ -74,6 +109,12 @@ for _nadpis, _dl in _skupiny:
     _ven.append(f'  <section class="skupina">\n    <p class="sl">{_nadpis}</p>\n'
                 f'    <div class="dlazdice">\n' + '\n'.join(_dl) + '\n    </div>\n  </section>')
 vals['__DLAZDICE__'] = '\n'.join(_ven)
+
+# barva kapitoly se promítne i do jejího pruhu ve čtečce
+for _id, _b in _barva.items():
+    _stara = f'<article class="page" id="{_id}">'
+    assert H.count(_stara) == 1, _id
+    H = H.replace(_stara, f'<article class="page" id="{_id}" style="--kap:{_b}">')
 
 for k,v in vals.items(): H = H.replace(k, v)
 # kontrola: každá kapitola má právě jednu hlavičku a jeden nadpis
