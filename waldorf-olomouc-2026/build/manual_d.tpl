@@ -72,7 +72,7 @@
     <h2>Obrázky</h2>
     <p class="lead">U školy rozhoduje o důvěře fotografie.</p>
 
-    <div class="imgrules">
+    <div class="imgrules c2">
       <div class="ir">
         <h4>Cíl: skutečná škola</h4>
         <p>Dokumentární fotografie ze školy: ruce při práci, sešity, dílna, zahrada, jeviště,

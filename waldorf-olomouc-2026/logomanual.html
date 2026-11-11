@@ -84,7 +84,35 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
 .ct-bar button[disabled]:hover{border-color:var(--line)}
 .ct-kde{font-size:11px; letter-spacing:.13em; text-transform:uppercase; font-weight:700;
   color:var(--ink-3); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
-.ct-sip{margin-left:auto; display:flex; gap:7px; flex:none}
+/* velká tlačítka pro posun na další kapitolu */
+.ct-posun{position:fixed; top:50%; translate:0 -50%; z-index:70;
+  width:54px; height:54px; padding:0; border-radius:50%; border:1px solid var(--line);
+  background:var(--white); color:var(--ink); cursor:pointer; font:inherit; font-size:24px;
+  line-height:1; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 8px 22px -12px rgba(16,18,22,.55);
+  transition:border-color var(--pohyb-stav) var(--krivka-klid),
+             background var(--pohyb-stav) var(--krivka-klid),
+             scale var(--pohyb-stav) var(--krivka-klid)}
+.ct-posun.vlevo{left:18px}
+.ct-posun.vpravo{right:18px}
+.ct-posun:hover{border-color:var(--kap-cil,var(--ink)); scale:1.07;
+  background:color-mix(in oklab, var(--kap-cil,var(--ink)) 12%, #FFFFFF)}
+.ct-posun[disabled]{opacity:0; pointer-events:none}
+
+/* postup na konci kapitoly */
+.postup{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line);
+  border-top:1px solid var(--line)}
+.postup a{background:var(--white); color:inherit; text-decoration:none;
+  padding:19px 24px; display:flex; flex-direction:column; gap:5px; min-width:0;
+  transition:background var(--pohyb-stav) var(--krivka-klid)}
+.postup a:hover{background:color-mix(in oklab, var(--cil) 13%, #FFFFFF)}
+.postup a:only-child{grid-column:1 / -1}
+.postup .s{display:flex; align-items:center; gap:8px; font-size:10.5px; letter-spacing:.14em;
+  text-transform:uppercase; font-weight:700; color:var(--ink-3)}
+.postup .s i{width:13px; height:13px; border-radius:2px; background:var(--cil); display:block}
+.postup .t{font-family:'Space Grotesk',sans-serif; font-size:16px; letter-spacing:-.02em;
+  line-height:1.25; text-wrap:balance}
+.postup .dal{text-align:right; align-items:flex-end}
 .ct-telo{flex:1; overflow:auto; padding:22px 18px 80px; overscroll-behavior:contain}
 [data-js] .ct-telo > .page{display:none}
 [data-js] .ct-telo > .page.je{display:flex}
@@ -279,12 +307,6 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
 .pr:last-child{border-bottom:0}
 .pr .k{font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--ink-3)}
 .pr .v{font-size:12.5px; color:var(--ink-2); line-height:1.6}
-.chg{margin-top:18px; display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:2px}
-.chgrow{background:var(--white); padding:14px 19px; display:grid; grid-template-columns:64px 1fr; gap:16px}
-.chgrow .s{font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; padding-top:2px}
-.chgrow .s.m{color:var(--zus-t)} .chgrow .s.a{color:var(--zs-t)} .chgrow .s.r{color:var(--err)}
-.chgrow p{font-size:13px; color:var(--ink-2); line-height:1.6}
-.chgrow b{color:var(--ink)}
 
 /* ---------- pohyb ---------- */
 [data-js] .page{opacity:0; transform:translateY(18px);
@@ -406,7 +428,15 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
   .page > .inner{padding:32px 22px 24px} .pfoot{padding:12px 22px 17px}
   .page h2{font-size:23px}
 }
+@media (max-width:1180px){
+  .ct-posun{top:auto; translate:0 0; bottom:18px; width:48px; height:48px; font-size:21px}
+  .ct-posun.vlevo{left:14px} .ct-posun.vpravo{right:14px}
+}
 @media (max-width:560px){
+  .postup{grid-template-columns:1fr}
+  .neutral{grid-template-columns:1fr}
+  .postup .dal{text-align:left; align-items:flex-start}
+  .ct-telo{padding-bottom:96px}
   .domu-hlava .vnitrek{flex-direction:column; align-items:flex-start; gap:20px}
   .ct-kde{display:none}
   .ct-telo{padding:16px 10px 70px}
@@ -634,11 +664,9 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
   <div class="ct-bar">
     <button type="button" id="ct-zpet">← Obsah</button>
     <span class="ct-kde" id="ct-kde"></span>
-    <span class="ct-sip">
-      <button type="button" id="ct-prev" aria-label="Předchozí kapitola">‹</button>
-      <button type="button" id="ct-next" aria-label="Další kapitola">›</button>
-    </span>
   </div>
+  <button type="button" class="ct-posun vlevo" id="ct-prev" aria-label="Předchozí kapitola">‹</button>
+  <button type="button" class="ct-posun vpravo" id="ct-next" aria-label="Další kapitola">›</button>
   <div class="ct-telo" id="ct-telo">
 <!-- ==================== RYCHLÝ PŘEHLED ==================== -->
 <article class="page" id="prehled" style="--kap:#E15955">
@@ -713,6 +741,9 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       <p><strong>Tři pravidla všude.</strong> Plocha nese barvu generace, nikdy šeď ani černou (<a class="kap" href="#k11">11</a>). Na stránce je jedna barva; výjimkou je rozcestník (<a class="kap" href="#k14">14</a>). Znak se neotáčí ani v pohybu (<a class="kap" href="#k15">15</a>).</p>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="dal" href="#k01" style="--cil:#DD6126"><span class="s"><i></i>Další</span><span class="t">01 · Proč má každá škola jinou barvu</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Rychlý přehled</span></div>
 </article>
 
@@ -753,6 +784,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
     </div>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#prehled" style="--cil:#E15955"><span class="s"><i></i>Předchozí</span><span class="t">Rychlý přehled</span></a>
+      <a class="dal" href="#k02" style="--cil:#CB7300"><span class="s"><i></i>Další</span><span class="t">02 · Trojitá spirála</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 01 · Proč má každá škola jinou barvu</span></div>
 </article>
 
@@ -777,6 +812,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       Znak s názvem — základní sestava. Odstup znaku od textu je vždy alespoň polovina šířky znaku.
     </p>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k01" style="--cil:#DD6126"><span class="s"><i></i>Předchozí</span><span class="t">01 · Proč má každá škola jinou barvu</span></a>
+      <a class="dal" href="#k03" style="--cil:#B78100"><span class="s"><i></i>Další</span><span class="t">03 · Tři verze, jasná pravidla</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 02 · Znak</span></div>
 </article>
 
@@ -816,6 +855,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
     </div>
     
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k02" style="--cil:#CB7300"><span class="s"><i></i>Předchozí</span><span class="t">02 · Trojitá spirála</span></a>
+      <a class="dal" href="#k04" style="--cil:#A38B00"><span class="s"><i></i>Další</span><span class="t">04 · Znak potřebuje klid okolo sebe</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 03 · Varianty</span></div>
 </article>
 
@@ -852,6 +895,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
     <h3 class="sub">Umístění na dokumentu</h3>
     <p class="lead">Levý horní roh, 20 mm od okraje, pod barevným pruhem. Na obálkách zvětšený na střed.</p>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k03" style="--cil:#B78100"><span class="s"><i></i>Předchozí</span><span class="t">03 · Tři verze, jasná pravidla</span></a>
+      <a class="dal" href="#k05" style="--cil:#8A9500"><span class="s"><i></i>Další</span><span class="t">05 · Co se znakem nedělat</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 04 · Prostor a velikost</span></div>
 </article>
 
@@ -891,6 +938,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       </div>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k04" style="--cil:#A38B00"><span class="s"><i></i>Předchozí</span><span class="t">04 · Znak potřebuje klid okolo sebe</span></a>
+      <a class="dal" href="#k06" style="--cil:#60A11C"><span class="s"><i></i>Další</span><span class="t">06 · Každá generace má svou barvu</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 05 · Zakázané varianty</span></div>
 </article>
 <!-- ==================== 06 BARVY ==================== -->
@@ -928,6 +979,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       <p>Kontrast měřen podle WCAG 2.1, barvy dopočítané v OKLCH. CMYK je orientační — před tiskem ověřte v tiskárně.</p>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k05" style="--cil:#8A9500"><span class="s"><i></i>Předchozí</span><span class="t">05 · Co se znakem nedělat</span></a>
+      <a class="dal" href="#k07" style="--cil:#0AA852"><span class="s"><i></i>Další</span><span class="t">07 · Dvě písma na všechno</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 06 · Barvy</span></div>
 </article>
 
@@ -965,6 +1020,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       <p><strong>Česká sazba.</strong> České uvozovky „takto“, pomlčka s mezerami — takto — a nezlomitelné mezery za jednopísmennými předložkami.</p>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k06" style="--cil:#60A11C"><span class="s"><i></i>Předchozí</span><span class="t">06 · Každá generace má svou barvu</span></a>
+      <a class="dal" href="#k08" style="--cil:#00A47F"><span class="s"><i></i>Další</span><span class="t">08 · Jak barvy vypadají v praxi</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 07 · Písmo</span></div>
 </article>
 
@@ -1218,6 +1277,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       </div>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k07" style="--cil:#0AA852"><span class="s"><i></i>Předchozí</span><span class="t">07 · Dvě písma na všechno</span></a>
+      <a class="dal" href="#k09" style="--cil:#00A297"><span class="s"><i></i>Další</span><span class="t">09 · Barvy pro obrazovku</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 08 · Aplikace</span></div>
 </article>
 
@@ -1281,6 +1344,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       <li><strong>Střední škola</strong> je opak: funguje i jako text, ale plocha nese vždy bílou.</li>
     </ul>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k08" style="--cil:#00A47F"><span class="s"><i></i>Předchozí</span><span class="t">08 · Jak barvy vypadají v praxi</span></a>
+      <a class="dal" href="#k10" style="--cil:#009FAC"><span class="s"><i></i>Další</span><span class="t">10 · Znak se nasazuje jako kód</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 09 · Barvy pro obrazovku</span></div>
 </article>
 
@@ -1331,6 +1398,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       <p><strong>Mimo web platí soubory.</strong> Přechod je CSS a do SVG se nepřenese; pro tisk, e-mail a sítě slouží vygenerovaná SVG.</p>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k09" style="--cil:#00A297"><span class="s"><i></i>Předchozí</span><span class="t">09 · Barvy pro obrazovku</span></a>
+      <a class="dal" href="#k11" style="--cil:#009BC1"><span class="s"><i></i>Další</span><span class="t">11 · Plochy nesou barvu</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 10 · Znak v kódu</span></div>
 </article>
 <!-- ==================== 11 PLOCHY NESOU BARVU ==================== -->
@@ -1348,6 +1419,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       <li>Tmavý režim se vědomě nedělá — vyžadoval by tmavé plochy.</li>
     </ul>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k10" style="--cil:#009FAC"><span class="s"><i></i>Předchozí</span><span class="t">10 · Znak se nasazuje jako kód</span></a>
+      <a class="dal" href="#k12" style="--cil:#0095DD"><span class="s"><i></i>Další</span><span class="t">12 · Stavy prvků</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 11 · Plochy</span></div>
 </article>
 
@@ -1396,6 +1471,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       <p><strong>Úspěch se neznačí barvou.</strong> Červená <code>#B2261E</code> se s žádnou generací neplete, zelená by se pletla se základní školou — proto inkoust a ikona.</p>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k11" style="--cil:#009BC1"><span class="s"><i></i>Předchozí</span><span class="t">11 · Plochy nesou barvu</span></a>
+      <a class="dal" href="#k13" style="--cil:#478AF1"><span class="s"><i></i>Další</span><span class="t">13 · Obrázky</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 12 · Stavy prvků</span></div>
 </article>
 
@@ -1407,7 +1486,7 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
     <h2>Obrázky</h2>
     <p class="lead">U školy rozhoduje o důvěře fotografie.</p>
 
-    <div class="imgrules">
+    <div class="imgrules c2">
       <div class="ir">
         <h4>Cíl: skutečná škola</h4>
         <p>Dokumentární fotografie ze školy: ruce při práci, sešity, dílna, zahrada, jeviště,
@@ -1437,6 +1516,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       <div class="pr"><span class="k">Formát</span><span class="v">3:2 na šířku pro pásky, 4:5 na výšku pro karty. Bez textu, bez log, bez ostrého protisvětla.</span></div>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k12" style="--cil:#0095DD"><span class="s"><i></i>Předchozí</span><span class="t">12 · Stavy prvků</span></a>
+      <a class="dal" href="#k14" style="--cil:#747EF1"><span class="s"><i></i>Další</span><span class="t">14 · Čtyři generace na jedné stránce</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 13 · Obrázky</span></div>
 </article>
 
@@ -1456,6 +1539,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       
     </ul>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k13" style="--cil:#478AF1"><span class="s"><i></i>Předchozí</span><span class="t">13 · Obrázky</span></a>
+      <a class="dal" href="#k15" style="--cil:#9572E7"><span class="s"><i></i>Další</span><span class="t">15 · Rytmus, ne efekt</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 14 · Čtyři generace na jedné stránce</span></div>
 </article>
 <!-- ==================== 15 RYTMUS, NE EFEKT ==================== -->
@@ -1547,6 +1634,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
     </div>
     <p class="lead">Prolnutí trvá jeden krok <code>--pohyb-sekce</code>, mezi přechody je klid.</p>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k14" style="--cil:#747EF1"><span class="s"><i></i>Předchozí</span><span class="t">14 · Čtyři generace na jedné stránce</span></a>
+      <a class="dal" href="#k16" style="--cil:#B068D4"><span class="s"><i></i>Další</span><span class="t">16 · Časy a křivky</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 15 · Rytmus, ne efekt</span></div>
 </article>
 
@@ -1573,6 +1664,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       </table>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k15" style="--cil:#9572E7"><span class="s"><i></i>Předchozí</span><span class="t">15 · Rytmus, ne efekt</span></a>
+      <a class="dal" href="#k17" style="--cil:#C460BB"><span class="s"><i></i>Další</span><span class="t">17 · Živé ukázky</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 16 · Časy a křivky</span></div>
 </article>
 
@@ -1643,6 +1738,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
 
     
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k16" style="--cil:#B068D4"><span class="s"><i></i>Předchozí</span><span class="t">16 · Časy a křivky</span></a>
+      <a class="dal" href="#k18" style="--cil:#D4599C"><span class="s"><i></i>Další</span><span class="t">18 · Za čím škola stojí</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 17 · Živé ukázky</span></div>
 </article>
 <!-- ==================== 18 ZA ČÍM ŠKOLA STOJÍ ==================== -->
@@ -1672,6 +1771,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
         Vizuální pravidla pod nimi platí tak jako tak.</p>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k17" style="--cil:#C460BB"><span class="s"><i></i>Předchozí</span><span class="t">17 · Živé ukázky</span></a>
+      <a class="dal" href="#k19" style="--cil:#DD577A"><span class="s"><i></i>Další</span><span class="t">19 · Jak škola mluví</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 18 · Za čím škola stojí</span></div>
 </article>
 
@@ -1701,6 +1804,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
         texty na web i tiskoviny píše škola.</p>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k18" style="--cil:#D4599C"><span class="s"><i></i>Předchozí</span><span class="t">18 · Za čím škola stojí</span></a>
+      <a class="dal" href="#k20" style="--cil:#BC4D96"><span class="s"><i></i>Další</span><span class="t">20 · Mateřská škola</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 19 · Jak škola mluví</span></div>
 </article>
 
@@ -1728,6 +1835,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       </div>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k19" style="--cil:#DD577A"><span class="s"><i></i>Předchozí</span><span class="t">19 · Jak škola mluví</span></a>
+      <a class="dal" href="#k21" style="--cil:#3F905D"><span class="s"><i></i>Další</span><span class="t">21 · Základní škola</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 20 · Mateřská škola</span></div>
 </article>
 
@@ -1755,6 +1866,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       </div>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k20" style="--cil:#BC4D96"><span class="s"><i></i>Předchozí</span><span class="t">20 · Mateřská škola</span></a>
+      <a class="dal" href="#k22" style="--cil:#EE9B00"><span class="s"><i></i>Další</span><span class="t">22 · ZUŠ Fantazie</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 21 · Základní škola</span></div>
 </article>
 
@@ -1786,6 +1901,10 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
         Nadpis patří na bílou plochu vedle ní, ne do ní.</p>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k21" style="--cil:#3F905D"><span class="s"><i></i>Předchozí</span><span class="t">21 · Základní škola</span></a>
+      <a class="dal" href="#k23" style="--cil:#4A3CB0"><span class="s"><i></i>Další</span><span class="t">23 · Střední škola · lyceum</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 22 · ZUŠ Fantazie</span></div>
 </article>
 
@@ -1813,6 +1932,9 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
       </div>
     </div>
   </div>
+    <nav class="postup" aria-label="Posun mezi kapitolami">
+      <a class="zpet" href="#k22" style="--cil:#EE9B00"><span class="s"><i></i>Předchozí</span><span class="t">22 · ZUŠ Fantazie</span></a>
+    </nav>
   <div class="pfoot"><span>Logomanuál Waldorf Olomouc · design by WOLIP</span><span class="n">Kapitola 23 · Střední škola · lyceum</span></div>
 </article>
 
@@ -1864,6 +1986,14 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
     var i = poradi.indexOf(id);
     prev.disabled = i <= 0;
     next.disabled = i >= poradi.length - 1;
+    // velká tlačítka se barví podle kapitoly, kam vedou
+    [[prev, i - 1], [next, i + 1]].forEach(function (par) {
+      var btn = par[0], cil = strany[par[1]];
+      if (!cil) { btn.style.removeProperty('--kap-cil'); btn.removeAttribute('title'); return; }
+      btn.style.setProperty('--kap-cil', cil.style.getPropertyValue('--kap'));
+      var ce = cil.querySelector('.eyebrow'), ch = cil.querySelector('h2');
+      btn.title = (ce ? ce.textContent.split(' · ')[0] + ' · ' : '') + (ch ? ch.textContent : '');
+    });
     telo.scrollTop = 0;
     srovnejMenu(cil, false);
     zpet.focus({ preventScroll: true });

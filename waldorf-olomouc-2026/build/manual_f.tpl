@@ -46,6 +46,14 @@
     var i = poradi.indexOf(id);
     prev.disabled = i <= 0;
     next.disabled = i >= poradi.length - 1;
+    // velká tlačítka se barví podle kapitoly, kam vedou
+    [[prev, i - 1], [next, i + 1]].forEach(function (par) {
+      var btn = par[0], cil = strany[par[1]];
+      if (!cil) { btn.style.removeProperty('--kap-cil'); btn.removeAttribute('title'); return; }
+      btn.style.setProperty('--kap-cil', cil.style.getPropertyValue('--kap'));
+      var ce = cil.querySelector('.eyebrow'), ch = cil.querySelector('h2');
+      btn.title = (ce ? ce.textContent.split(' · ')[0] + ' · ' : '') + (ch ? ch.textContent : '');
+    });
     telo.scrollTop = 0;
     srovnejMenu(cil, false);
     zpet.focus({ preventScroll: true });

@@ -84,7 +84,35 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.87em;
 .ct-bar button[disabled]:hover{border-color:var(--line)}
 .ct-kde{font-size:11px; letter-spacing:.13em; text-transform:uppercase; font-weight:700;
   color:var(--ink-3); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
-.ct-sip{margin-left:auto; display:flex; gap:7px; flex:none}
+/* velká tlačítka pro posun na další kapitolu */
+.ct-posun{position:fixed; top:50%; translate:0 -50%; z-index:70;
+  width:54px; height:54px; padding:0; border-radius:50%; border:1px solid var(--line);
+  background:var(--white); color:var(--ink); cursor:pointer; font:inherit; font-size:24px;
+  line-height:1; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 8px 22px -12px rgba(16,18,22,.55);
+  transition:border-color var(--pohyb-stav) var(--krivka-klid),
+             background var(--pohyb-stav) var(--krivka-klid),
+             scale var(--pohyb-stav) var(--krivka-klid)}
+.ct-posun.vlevo{left:18px}
+.ct-posun.vpravo{right:18px}
+.ct-posun:hover{border-color:var(--kap-cil,var(--ink)); scale:1.07;
+  background:color-mix(in oklab, var(--kap-cil,var(--ink)) 12%, #FFFFFF)}
+.ct-posun[disabled]{opacity:0; pointer-events:none}
+
+/* postup na konci kapitoly */
+.postup{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line);
+  border-top:1px solid var(--line)}
+.postup a{background:var(--white); color:inherit; text-decoration:none;
+  padding:19px 24px; display:flex; flex-direction:column; gap:5px; min-width:0;
+  transition:background var(--pohyb-stav) var(--krivka-klid)}
+.postup a:hover{background:color-mix(in oklab, var(--cil) 13%, #FFFFFF)}
+.postup a:only-child{grid-column:1 / -1}
+.postup .s{display:flex; align-items:center; gap:8px; font-size:10.5px; letter-spacing:.14em;
+  text-transform:uppercase; font-weight:700; color:var(--ink-3)}
+.postup .s i{width:13px; height:13px; border-radius:2px; background:var(--cil); display:block}
+.postup .t{font-family:'Space Grotesk',sans-serif; font-size:16px; letter-spacing:-.02em;
+  line-height:1.25; text-wrap:balance}
+.postup .dal{text-align:right; align-items:flex-end}
 .ct-telo{flex:1; overflow:auto; padding:22px 18px 80px; overscroll-behavior:contain}
 [data-js] .ct-telo > .page{display:none}
 [data-js] .ct-telo > .page.je{display:flex}
@@ -279,12 +307,6 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
 .pr:last-child{border-bottom:0}
 .pr .k{font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--ink-3)}
 .pr .v{font-size:12.5px; color:var(--ink-2); line-height:1.6}
-.chg{margin-top:18px; display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:2px}
-.chgrow{background:var(--white); padding:14px 19px; display:grid; grid-template-columns:64px 1fr; gap:16px}
-.chgrow .s{font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; padding-top:2px}
-.chgrow .s.m{color:var(--zus-t)} .chgrow .s.a{color:var(--zs-t)} .chgrow .s.r{color:var(--err)}
-.chgrow p{font-size:13px; color:var(--ink-2); line-height:1.6}
-.chgrow b{color:var(--ink)}
 
 /* ---------- pohyb ---------- */
 [data-js] .page{opacity:0; transform:translateY(18px);
@@ -406,7 +428,15 @@ pre{background:color-mix(in oklab, var(--kap,#101216) 7%, #FFFFFF); border:1px s
   .page > .inner{padding:32px 22px 24px} .pfoot{padding:12px 22px 17px}
   .page h2{font-size:23px}
 }
+@media (max-width:1180px){
+  .ct-posun{top:auto; translate:0 0; bottom:18px; width:48px; height:48px; font-size:21px}
+  .ct-posun.vlevo{left:14px} .ct-posun.vpravo{right:14px}
+}
 @media (max-width:560px){
+  .postup{grid-template-columns:1fr}
+  .neutral{grid-template-columns:1fr}
+  .postup .dal{text-align:left; align-items:flex-start}
+  .ct-telo{padding-bottom:96px}
   .domu-hlava .vnitrek{flex-direction:column; align-items:flex-start; gap:20px}
   .ct-kde{display:none}
   .ct-telo{padding:16px 10px 70px}
@@ -437,11 +467,9 @@ __DLAZDICE__
   <div class="ct-bar">
     <button type="button" id="ct-zpet">← Obsah</button>
     <span class="ct-kde" id="ct-kde"></span>
-    <span class="ct-sip">
-      <button type="button" id="ct-prev" aria-label="Předchozí kapitola">‹</button>
-      <button type="button" id="ct-next" aria-label="Další kapitola">›</button>
-    </span>
   </div>
+  <button type="button" class="ct-posun vlevo" id="ct-prev" aria-label="Předchozí kapitola">‹</button>
+  <button type="button" class="ct-posun vpravo" id="ct-next" aria-label="Další kapitola">›</button>
   <div class="ct-telo" id="ct-telo">
 <!-- ==================== RYCHLÝ PŘEHLED ==================== -->
 <article class="page" id="prehled">
@@ -1210,7 +1238,7 @@ __DLAZDICE__
     <h2>Obrázky</h2>
     <p class="lead">U školy rozhoduje o důvěře fotografie.</p>
 
-    <div class="imgrules">
+    <div class="imgrules c2">
       <div class="ir">
         <h4>Cíl: skutečná škola</h4>
         <p>Dokumentární fotografie ze školy: ruce při práci, sešity, dílna, zahrada, jeviště,
@@ -1667,6 +1695,14 @@ __DLAZDICE__
     var i = poradi.indexOf(id);
     prev.disabled = i <= 0;
     next.disabled = i >= poradi.length - 1;
+    // velká tlačítka se barví podle kapitoly, kam vedou
+    [[prev, i - 1], [next, i + 1]].forEach(function (par) {
+      var btn = par[0], cil = strany[par[1]];
+      if (!cil) { btn.style.removeProperty('--kap-cil'); btn.removeAttribute('title'); return; }
+      btn.style.setProperty('--kap-cil', cil.style.getPropertyValue('--kap'));
+      var ce = cil.querySelector('.eyebrow'), ch = cil.querySelector('h2');
+      btn.title = (ce ? ce.textContent.split(' · ')[0] + ' · ' : '') + (ch ? ch.textContent : '');
+    });
     telo.scrollTop = 0;
     srovnejMenu(cil, false);
     zpet.focus({ preventScroll: true });

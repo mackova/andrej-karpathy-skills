@@ -17,11 +17,9 @@ __DLAZDICE__
   <div class="ct-bar">
     <button type="button" id="ct-zpet">← Obsah</button>
     <span class="ct-kde" id="ct-kde"></span>
-    <span class="ct-sip">
-      <button type="button" id="ct-prev" aria-label="Předchozí kapitola">‹</button>
-      <button type="button" id="ct-next" aria-label="Další kapitola">›</button>
-    </span>
   </div>
+  <button type="button" class="ct-posun vlevo" id="ct-prev" aria-label="Předchozí kapitola">‹</button>
+  <button type="button" class="ct-posun vpravo" id="ct-next" aria-label="Další kapitola">›</button>
   <div class="ct-telo" id="ct-telo">
 <!-- ==================== RYCHLÝ PŘEHLED ==================== -->
 <article class="page" id="prehled">

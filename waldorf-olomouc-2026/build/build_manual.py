@@ -116,6 +116,35 @@ for _id, _b in _barva.items():
     assert H.count(_stara) == 1, _id
     H = H.replace(_stara, f'<article class="page" id="{_id}" style="--kap:{_b}">')
 
+# ---- postup na konci každé kapitoly: předchozí a další ----
+_nazvy = {}
+for _id, _telo in _clanky:
+    _eb = _cista(_re.search(r'<p class="eyebrow">(.*?)</p>', _telo, _re.S).group(1))
+    _cislo = _eb.split(' · ')[0] if ' · ' in _eb else ''
+    _h2 = _cista(_re.search(r'<h2>(.*?)</h2>', _telo, _re.S).group(1))
+    _nazvy[_id] = f'{_cislo} · {_h2}' if _cislo else _h2
+_poradi = [_id for _id, _ in _clanky]
+
+def _blok(_id, _smer, _popisek):
+    return (f'      <a class="{_smer}" href="#{_id}" style="--cil:{_barva[_id]}">'
+            f'<span class="s"><i></i>{_popisek}</span>'
+            f'<span class="t">{_nazvy[_id]}</span></a>')
+
+for _i, _id in enumerate(_poradi):
+    _odkazy = []
+    if _i > 0:
+        _odkazy.append(_blok(_poradi[_i - 1], 'zpet', 'Předchozí'))
+    if _i < len(_poradi) - 1:
+        _odkazy.append(_blok(_poradi[_i + 1], 'dal', 'Další'))
+    _nav = '    <nav class="postup" aria-label="Posun mezi kapitolami">\n' + '\n'.join(_odkazy) + '\n    </nav>\n'
+    # vložit před patu právě té kapitoly
+    _zacatek = H.index(f'<article class="page" id="{_id}"')
+    _konec = H.index('</article>', _zacatek)
+    _usek = H[_zacatek:_konec]
+    _pata = _usek.index('  <div class="pfoot">')
+    H = H[:_zacatek] + _usek[:_pata] + _nav + _usek[_pata:] + H[_konec:]
+assert H.count('<nav class="postup"') == 24
+
 for k,v in vals.items(): H = H.replace(k, v)
 # kontrola: každá kapitola má právě jednu hlavičku a jeden nadpis
 import re as _re
